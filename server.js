@@ -3,7 +3,8 @@ const util = require('util');
 const fs = require('fs');
 const bodyParser = require('body-parser');
 const app = express();
-const port = 4000;
+
+const path = require('path');
 
 // setting up path for static scripts
 app.use(express.static('static'));
@@ -24,11 +25,10 @@ app.post('/corpus', (request, response) => {
 });
 
 
-// listen on ${port}
-app.listen(port, (err) => {
-    if (err) {
-        return console.log('something bad happened', err)
-    }
+let port = process.env.PORT;
+if (port == null || port == "") {
+    port = 8000;
+}
+app.listen(port);
 
-    console.log(`server is listening on ${port}`)
-});
+console.log("Running on heroku");
