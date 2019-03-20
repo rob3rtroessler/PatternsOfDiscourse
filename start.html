@@ -1,0 +1,55 @@
+<html>
+<head>
+    <title>test</title>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+
+    <!-- own css -->
+    <link rel="stylesheet" href="css/styles.css">
+
+</head>
+
+    <body>
+        <label class="container">Johann Friedrich Herbart: Text 1
+            <input type="checkbox" id='checkbox_TextID_0' checked="checked">
+            <span class="checkmark"></span>
+        </label>
+
+        <label class="container">Two
+            <input type="checkbox" id='checkbox_TextID_1'>
+            <span class="checkmark"></span>
+        </label>
+
+        <label class="container">Three
+            <input type="checkbox" id='checkbox_TextID_2'>
+            <span class="checkmark"></span>
+        </label>
+
+        <label class="container">Four
+            <input type="checkbox" id='checkbox_TextID_3'>
+            <span class="checkmark"></span>
+        </label>
+
+        <button onclick="check()">click</button>
+
+        <script>
+            function check() {
+                selected = [];
+                console.log('in selected');
+                fire(selected)
+            };
+
+            function fire() {
+                axios.post('/corpus', {
+                    text: [1,2,3,4]
+                })
+                    .then(function (response) {
+                    console.log(response);
+                })
+                    .catch(function (error) {
+                    console.log(error);
+                });
+            }
+
+        </script>
+    </body>
+</html>
