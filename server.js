@@ -22,6 +22,12 @@ app.get('/',function(req,res){
 // getting corpus data;
 app.post('/corpus', (request, response) => {
     console.log(request.body)
+
+    // hier will ich jetzt python laufen lassen
+
+    // dann daten zurücksenden!
+
+    // koennen dann die daten mittels asynch gelesen werden?
 });
 
 

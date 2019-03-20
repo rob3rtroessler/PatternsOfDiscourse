@@ -1,7 +1,15 @@
 <html>
 <head>
-    <title>test</title>
+    <title>Patterns Of Discourse</title>
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+
+    <!-- google font -->
+    <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto:300,400,500,700" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Libre+Franklin:200,200i,300,300i,400,400i,500,500i" rel="stylesheet">
+
+    <!-- bootrap css -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
 
     <!-- own css -->
     <link rel="stylesheet" href="css/styles.css">
@@ -9,27 +17,58 @@
 </head>
 
     <body>
-        <label class="container">Johann Friedrich Herbart: Text 1
-            <input type="checkbox" id='checkbox_TextID_0' checked="checked">
-            <span class="checkmark"></span>
-        </label>
+        <div class="container-fluid" style="border: thin solid grey; height: 100%">
+            <div class="row" style="border: thin solid grey; height: 10%"><h1>Patterns of Discourse</h1></div>
 
-        <label class="container">Two
-            <input type="checkbox" id='checkbox_TextID_1'>
-            <span class="checkmark"></span>
-        </label>
+            <div class="row">
 
-        <label class="container">Three
-            <input type="checkbox" id='checkbox_TextID_2'>
-            <span class="checkmark"></span>
-        </label>
+                <!-- left -->
+                <div class="col-xs-2" style="border: thin solid grey;height: 90%">
+                    <div class="row" style="border: thin solid red; height: 10%"><h2 >Curate Your Corpus</h2></div>
+                    <div class="row" style="border: thin solid red; height: 90%">
 
-        <label class="container">Four
-            <input type="checkbox" id='checkbox_TextID_3'>
-            <span class="checkmark"></span>
-        </label>
+                        <label class="container">Johann Friedrich Herbart: Text 1
+                            <input type="checkbox" id='checkbox_TextID_0' checked="checked">
+                            <span class="checkmark"></span>
+                        </label>
 
-        <button onclick="check()">click</button>
+                        <label class="container">Two
+                            <input type="checkbox" id='checkbox_TextID_1'>
+                            <span class="checkmark"></span>
+                        </label>
+
+                        <label class="container">Three
+                            <input type="checkbox" id='checkbox_TextID_2'>
+                            <span class="checkmark"></span>
+                        </label>
+
+                        <label class="container">Four
+                            <input type="checkbox" id='checkbox_TextID_3'>
+                            <span class="checkmark"></span>
+                        </label>
+
+
+
+                    </div>
+                </div>
+
+                <!-- middle -->
+                <div class="col-xs-6" style="border: thin solid green;height: 90%">
+                    <div class="row" style="border: thin solid green; height: 10%"><h2 >Main Vis</h2></div>
+                    <div class="row" style="border: thin solid green; height: 90%"><button onclick="check()">generate 'fabric'</button></div>
+                </div>
+
+                <!-- right -->
+                <div class="col-xs-4" style="border: thin solid grey;height: 90%">test</div>
+            </div>
+        </div>
+
+
+
+
+        <script src="js/libs/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+        <script src="js/libs/bootstrap.min.js"></script>
 
         <script>
             function check() {
