@@ -1,0 +1,26 @@
+{
+    "data": [
+        {
+            "title": "Traumdeutung",
+            "author": "Sigmund Freud",
+            "CurrentKeyword": "Traum",
+            "environments": [
+                ["word 0", "word 1", "word 2", "word 3", "word 4", "Traum", "word 6"],
+                [],
+                [],
+                []
+            ]
+        },
+        {
+            "title": "Title 2",
+            "author": "Author 2",
+            "CurrentKeyword": "Traum",
+            "environments": [
+                ["word 0", "word 1", "word 2", "word 3"],
+                [],
+                [],
+                []
+            ]
+        }
+    ]
+}

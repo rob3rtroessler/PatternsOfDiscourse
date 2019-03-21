@@ -21,14 +21,30 @@ app.get('/',function(req,res){
 
 // getting corpus data;
 app.post('/corpus', (request, response) => {
-    console.log(request.body)
+    console.log('data from server:', request.body);
+    console.log('spawning child')
 
     // hier will ich jetzt python laufen lassen
 
     // dann daten zurücksenden!
 
     // koennen dann die daten mittels asynch gelesen werden?
+
+
+
+
 });
+
+/*
+
+let {PythonShell} = require('python-shell');
+
+let pyshell = new PythonShell('scrispt.py');
+
+
+*/
+
+
 
 
 let port = process.env.PORT;
