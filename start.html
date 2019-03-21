@@ -85,7 +85,7 @@
 
             function fire() {
                 axios.post('/corpus', {
-                    text: [1,2,3,4]
+                    'selected texts' : ['textID_1','textID_2','textID_3']
                 })
                     .then(function (response) {
                     console.log(response);

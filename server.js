@@ -21,17 +21,19 @@ app.get('/',function(req,res){
 
 // getting corpus data;
 app.post('/corpus', (request, response) => {
-    console.log('data from server:', request.body);
-    console.log('spawning child')
+    console.log('received textIDs of selected texts from corpus:', request.body);
 
-    // hier will ich jetzt python laufen lassen
+    // python action here!!
+    console.log('spawning child - run async python script using argv[1] for textIDs? - store everything in JSON');
 
-    // dann daten zurücksenden!
+    // read relevant JSON file and send that data to the client
+    fs.readFile(__dirname + '/JSON/example_2.json', function(err, data){
+        // response.write(content) also works
+        response.send(data);
 
-    // koennen dann die daten mittels asynch gelesen werden?
-
-
-
+        console.log('sent JSON data to server');
+        response.end();
+    });
 
 });
 
@@ -53,4 +55,4 @@ if (port == null || port == "") {
 }
 app.listen(port);
 
-console.log("Running on heroku");
+console.log("DiscourVis is running");
