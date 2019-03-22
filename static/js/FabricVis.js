@@ -80,6 +80,7 @@ function TexTileVis (){
 
         let rectangles = d3.select(this).selectAll("rect").data(d);
         rectangles.enter().append("rect")
+            .attr("class", function (d){return d})
             .attr("width", TexTileWidth)
             .attr("height", 12)
             .attr("x", function (d, i) {
@@ -95,7 +96,14 @@ function TexTileVis (){
                     return 'grey'
                 }
             })
-
+            .on('mouseover', function(d){
+                // using jquery's css method to change the fill property of all rects with the same (class) name
+                $("." + d).css("fill", 'blue')
+            })
+            .on('mouseout', function(d){
+                // using jquery's css method to change the fill property of all rects with the same (class) name
+                $("." + d).css("fill", 'grey')
+            })
     })
 }
 
