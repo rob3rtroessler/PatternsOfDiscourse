@@ -16,15 +16,15 @@
 </head>
 
     <body>
-        <div class="container-fluid" style="border: thin solid grey; height: 100%">
-            <div class="row" style="border: thin solid grey; height: 10%"><h1>Patterns of Discourse</h1></div>
+        <div class="container-fluid" style="height: 100%">
+            <div class="row" style="border-bottom: thin solid grey; height: 10%"><h1>Patterns of Discourse</h1></div>
 
             <div class="row">
 
                 <!-- left -->
-                <div class="col-xs-2" style="border: thin solid grey;height: 90%">
-                    <div class="row" style="border: thin solid red; height: 8%"><h2 >Curate Your Corpus</h2></div>
-                    <div class="row" style="border: thin solid red; height: 92%">
+                <div class="col-xs-2" style="height: 90%">
+                    <div class="row" style="border-bottom: thin solid grey; height: 8%"><h2 >Curate Your Corpus</h2></div>
+                    <div class="row" style="height: 92%">
 
                         <label class="container">Johann Friedrich Herbart: Text 1
                             <input type="checkbox" id='checkbox_TextID_0' checked="checked">
@@ -52,17 +52,21 @@
                 </div>
 
                 <!-- middle -->
-                <div class="col-xs-6" style="border: thin solid green;height: 90%">
-                    <div class="row" style="border: thin solid green; height: 8%"><h2 >Main Vis</h2></div>
-                    <div class="row" style="border: thin solid green; height: 92%" id="FabricVisContainer"><button onclick="check()">generate 'fabric'</button></div>
+                <div class="col-xs-6" style="border-left: thin solid grey; border-right: thin solid grey; height: 90%">
+                    <div class="row" style="border-bottom: thin solid grey; height: 8%;">
+                        <div class="col-xs-6"><h2 style="text-align: right">Create TexTile Visualization for:</h2></div>
+                        <div class="col-xs-3"><input style="height:100%; width: 100%;"></div>
+                        <div class="col-xs-3"><div class="row" style="height: 100%; background-color: green;" onclick="check()"><h2>Generate</h2></div></div>
+                    </div>
+                    <div class="row" style="height: 92%" id="FabricVisContainer"></div>
                 </div>
 
                 <!-- right -->
-                <div class="col-xs-4" style="border: thin solid blue;height: 90%">
-                    <div class="row" style="border: thin solid blue; height: 8%"><h2 >Most Common Words in Surrounding</h2></div>
-                    <div class="row" style="border: thin solid blue; height: 32%">List</div>
-                    <div class="row" style="border: thin solid blue; height: 8%"><h2 >Popularit of Word over time</h2></div>
-                    <div class="row" style="border: thin solid blue; height: 52%">Line graph</div>
+                <div class="col-xs-4" style="height: 90%">
+                    <div class="row" style="border-bottom: thin solid grey; height: 8%"><h2 >Most Common Words in Surrounding</h2></div>
+                    <div class="row" style="border-bottom: thin solid grey; height: 32%"><h3>List</h3></div>
+                    <div class="row" style="border-bottom: thin solid grey; height: 8%"><h2 >Popularit of Word over time</h2></div>
+                    <div class="row" style="height: 52%"><h3>Line graph</h3></div>
 
                 </div>
             </div>

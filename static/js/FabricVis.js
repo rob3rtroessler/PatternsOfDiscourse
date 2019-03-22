@@ -1,44 +1,49 @@
+// declare variable to store wrangled data globally
+let WrangledTexTileData =[];
 
-let WrangledFabricData =[];
-
-async function initializeFabric (data){
-    console.log('in async function, i.e. the initializer', data);
-    FabricData = data
+// declare async function to keep all processes in order
+async function initializeTexTileModule (data){
 }
 
-function initFabric(data){
+// declare function that is triggered when server response received
+function initTexTileModule(data){
 
-    console.log('in initFabric', data);
-
-    initializeFabric(data)
-        .then( dataWrangling(data) )
-        .then( FabricVis(WrangledFabricData) );
+    // call async function
+    initializeTexTileModule(data)
+        .then( TexTileDataWrangling(data) )
+        .then( TexTileVis() );
 }
 
 
-function dataWrangling(data){
+function TexTileDataWrangling(data){
 
-    // first, clear WrangledFabricData
-    WrangledFabricData =[];
+    // first, clear WrangledTexTileData
+    WrangledTexTileData =[];
 
     // access actual data and store it in tmp variable relevantData
+    relevantData = [];
+    data.data.data.forEach(function(d){
+        // console.log('test', d)
+        //TODO if (d.textID in SelectedArray){
+        if (true){
+            relevantData.push(d);
+        }
+    });
     relevantData = data.data.data;
+    console.log('relevant:', relevantData);
 
+    // loop through all environments of relevant data and push to array 'WrangledTexTileData'
     relevantData.forEach( function (d){
-        console.log(d.environments);
-
-        let test = d.environments;
-        test.forEach(function(d){
-            console.log(d);
-            WrangledFabricData.push(d);
+        d.environments.forEach(function(d){
+            WrangledTexTileData.push(d);
         })
       });
 
-    console.log(WrangledFabricData)
+    console.log(WrangledTexTileData)
 }
 
 
-function FabricVis (){
+function TexTileVis (){
 
     // margin conventions
     let margin = {top: 20, right: 20, bottom: 20, left: 20};
@@ -64,7 +69,7 @@ function FabricVis (){
         .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
     let row = FabricSVG.selectAll(".row")
-        .data(WrangledFabricData);
+        .data(WrangledTexTileData);
 
     let newRows = row.enter()
         .append("g")

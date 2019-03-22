@@ -9,7 +9,7 @@ function fire() {
     })
         .then(function (response) {
             console.log(response);
-            initFabric(response);
+            initTexTileModule(response);
         })
         .catch(function (error) {
             console.log(error)
