@@ -1,7 +1,6 @@
 <html>
 <head>
     <title>Patterns Of Discourse</title>
-    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 
     <!-- google font -->
     <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto:300,400,500,700" type="text/css">
@@ -55,7 +54,7 @@
                 <!-- middle -->
                 <div class="col-xs-6" style="border: thin solid green;height: 90%">
                     <div class="row" style="border: thin solid green; height: 8%"><h2 >Main Vis</h2></div>
-                    <div class="row" style="border: thin solid green; height: 92%"><button onclick="check()">generate 'fabric'</button></div>
+                    <div class="row" style="border: thin solid green; height: 92%" id="FabricVisContainer"><button onclick="check()">generate 'fabric'</button></div>
                 </div>
 
                 <!-- right -->
@@ -69,32 +68,20 @@
             </div>
         </div>
 
+        <!-- JAVASCRIPT LIBRARIES -->
+        <!-- axios --> <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+        <!-- jquery --> <script src="js/libs/jquery.min.js"></script>
+        <!-- bootstrap --> <script src="js/libs/bootstrap.min.js"></script>
+
+        <!-- adding d3.js and vis.js-->
+        <script src="js/libs/d3.min.js"></script>
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/vis/4.21.0/vis.min.js"></script>
+
+        <!-- OWN JAVASCRIPT FILES -->
+        <script src="js/FabricVis.js"></script>
 
 
+        <script src="js/main.js"></script>
 
-        <script src="js/libs/jquery.min.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
-        <script src="js/libs/bootstrap.min.js"></script>
-
-        <script>
-            function check() {
-                selected = [];
-                console.log('in selected');
-                fire(selected)
-            };
-
-            function fire() {
-                axios.post('/corpus', {
-                    'selected texts' : ['textID_1','textID_2','textID_3']
-                })
-                    .then(function (response) {
-                    console.log(response);
-                })
-                    .catch(function (error) {
-                    console.log(error);
-                });
-            }
-
-        </script>
     </body>
 </html>
