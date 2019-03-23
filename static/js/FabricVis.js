@@ -1,18 +1,6 @@
 // declare variable to store wrangled data globally
 let WrangledTexTileData =[];
 
-// declare async function to keep all processes in order
-async function initializeTexTileModule (data){
-}
-
-// declare function that is triggered when server response received
-function initTexTileModule(data){
-
-    // call async function
-    initializeTexTileModule(data)
-        .then( TexTileDataWrangling(data) )
-        .then( TexTileVis() );
-}
 
 
 function TexTileDataWrangling(data){
@@ -59,6 +47,14 @@ function TexTileVis (){
     // adapt div container and implement div scrolling if necessary
 
 
+    // add tooltip div
+    let tooltipDiv = d3.select("body").append("div")
+        .attr("class", "tooltip")
+        .style("width", $("#FabricVisContainer").width() + 10)
+        .style("opacity", 0)
+        .style("left", "0px")
+        .style("top", "0px");
+
 
     // Add the SVG to the page
     FabricSVG = d3.select("#FabricVisContainer").append("svg")
@@ -88,21 +84,44 @@ function TexTileVis (){
             })
             .attr("y", i*25)
             .attr('fill', function(d){
-                console.log(d);
+                // console.log(d);
                 if (d === 'Traum') {
                     return 'green'
                 }
                 else {
-                    return 'grey'
+                    return 'lightgrey'
                 }
             })
-            .on('mouseover', function(d){
+            .on('mouseover', function(d, i){
+
                 // using jquery's css method to change the fill property of all rects with the same (class) name
-                $("." + d).css("fill", 'blue')
+                // but only unless they are not grey!
+                $("." + d).css("fill", 'blue');
+
+                // tooltip
+                tooltipDiv
+                    .transition()
+                    .duration(200)
+                    .style("opacity", 0.88);
+
+
+                tooltipDiv
+                    .html("<b>"+ d + "</b>")
+                    .style("left", function(d){
+                        tmp = $("#CreateYourCorpusContainer").width();
+                        console.log(tmp);
+                        return (tmp + 30 +  "px")
+                    })
+                    .style("top", (d3.event.pageY +10) + "px");
             })
             .on('mouseout', function(d){
+                // tooltip
+                tooltipDiv.transition()
+                    .duration(500)
+                    .style("opacity", 0);
+
                 // using jquery's css method to change the fill property of all rects with the same (class) name
-                $("." + d).css("fill", 'grey')
+                $("." + d).css("fill", 'lightgrey')
             })
     })
 }
