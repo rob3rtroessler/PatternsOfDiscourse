@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Caranea</title>
+
+
+    <!-- CSS -->
+
+
+    <!-- google font -->
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400" rel="stylesheet">
+
+    <!-- bootrap css -->
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="css/bootstrap-grid.css">
+    <link rel="stylesheet" href="css/bootstrap-reboot.css">
+
+    <!-- fullpage css -->
+    <link rel="stylesheet" href="css/jquery.fullpage.css">
+
+    <!-- caraneaApp css-->
+    <link rel="stylesheet" href="css/caraneaApp.css">
+
+
+</head>
+
+<body>
+
+    <!-- CaraneaApp Wrapper/Initializer -->
+    <div id="CaraneaApp" class="carousel slide" data-ride="carousel">
+
+        <!-- HEADING -->
+        <div id="CaraneaAppHeading"><h1>Caranea</h1></div>
+
+
+            <div id="CaraneaTabsWrapper" class="carousel-inner">
+
+                <!-- CARANEA TAB 1 - TODOS -->
+                <div class="carousel-item active CaraneaTab container-fluid">
+
+                    <!-- overall row -->
+                    <div class="row" id="Tab1masterRow">
+
+                        <!-- left side -->
+                        <div class="col-md-8">
+
+                            <!-- heading left -->
+                            <div class="row Tab1LeftHeadingRow">
+                                <div class="col-md-12"><h3>Today</h3></div>
+                            </div>
+
+                            <!-- left side - top -->
+                            <div class="row" style="height: 55%;">
+                                <div class="col-md-3 ColBorderRight"><h4>Calendar</h4></div>
+                                <div class="col-md-3 ColBorderRight">
+                                    <div class="row">
+                                        <div class="col-md-12"><h4>Tasks</h4></div>
+                                        <div class="col-md-12">
+                                            <ul style="text-align: left">
+                                                <li>To do #1</li>
+                                                <li>To do #2</li>
+                                                <li>To do #3</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-12"><h4>Add new task</h4></div>
+                                    </div>
+
+                                </div>
+                                <div class="col-md-3 ColBorderRight"><h4>Journal</h4></div>
+                                <div class="col-md-3">
+                                    <div class="row row-50 RowBorderBottom">
+                                        <div class="col-md-12"><h4>Body & Health</h4></div>
+                                    </div>
+                                    <div class="row row-50">
+                                        <div class="col-md-12"><h4>Finances</h4></div>
+                                    </div>
+
+                                </div>
+                            </div>
+
+                            <!-- heading left bottom -->
+                            <div class="row Tab1LeftHeadingRow">
+                                <div class="col-md-12"><h3>Upcoming</h3></div>
+                            </div>
+
+                            <!-- left side - bottom -->
+                            <div class="row" style="height: 35%;">
+                                <div class="col-md-2 ColBorderRight">Tomorrow</div>
+                                <div class="col-md-2 ColBorderRight"></div>
+                                <div class="col-md-2 ColBorderRight"></div>
+                                <div class="col-md-2 ColBorderRight"></div>
+                                <div class="col-md-2 ColBorderRight"></div>
+                                <div class="col-md-2"></div>
+                            </div>
+                        </div>
+
+                        <!-- right side -->
+                        <div class="col-md-4" style="border: thin solid white; background-color: #1c1c1c; border-radius: 5px">
+
+                            <!-- heading right -->
+                            <div class="row row-10">
+                                <div class="col-md-12" style="border-bottom: thin solid white; background-color: #2b2b2b"><h2>Long Term Developments</h2></div>
+                            </div>
+
+                            <!-- right side row 1 - upcoming -->
+                            <div class="row row-20">
+                                <div class="col-md-12" style="">upcoming focus points</div>
+                                <div class="col-md-6">drop down appointment #1</div>
+                                <div class="col-md-6">drop down todo #1</div>
+                                <div class="col-md-6">drop down appointment #2</div>
+                                <div class="col-md-6">drop down todo #2</div>
+                                <div class="col-md-6">drop down appointment #3</div>
+                                <div class="col-md-6">drop down todo #3</div>
+                            </div>
+
+
+                            <!-- right side row 2 - health & finance accordion -->
+                            <div class="row row-70">
+
+                                <div class="col-md-12 accordion" id="accordionExample" style="padding: 0;">
+
+                                    <!-- BODY & HEALTH TAB -->
+                                    <div class="card C-card">
+                                        <div class="card-header C-card-header" id="headingOne" style="border-radius: 0">
+                                            <h5 class="mb-0">
+                                                <button class="btn btn-link C-btn" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                                    Body & Health
+                                                </button>
+                                            </h5>
+                                        </div>
+
+                                        <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
+                                            <div class="card-body C-card-body container-fluid">
+
+                                                <!-- BODY & HEALTH CONTENT -->
+                                                <div class="row" style="height: 150px; margin-bottom: 5px">
+                                                    <div class="col-md-8" style="border-right: thin solid white">graph displaying weight develovmept</div>
+                                                    <div class="col-md-4">tooltip & info</div>
+                                                </div>
+                                                <div class="row" style="height: 150px; padding-top: 5px">
+                                                    <div class="col-md-8" style="border-right: thin solid white">graph displaying recent workout</div>
+                                                    <div class="col-md-4">tooltip & info</div>
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- FINANCE TAB-->
+                                    <div class="card C-card" id="FinanceTab">
+                                        <div class="card-header C-card-header" id="headingTwo">
+                                            <h5 class="mb-0">
+                                                <button class="btn C-btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                                    Finances
+                                                </button>
+                                            </h5>
+                                        </div>
+                                        <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
+                                            <div class="card-body C-card-body">
+
+                                                <!-- FINANCE CONTENT -->
+                                                <div class="row" style="height: 150px; margin-bottom: 5px">
+                                                    <div class="col-md-8" style="border-right: thin solid white">graph displaying daily spendings</div>
+                                                    <div class="col-md-4">tooltip & info</div>
+                                                </div>
+                                                <div class="row" style="height: 150px; padding-top: 5px">
+                                                    <div class="col-md-8" style="border-right: thin solid white">graph displaying overall spending by category</div>
+                                                    <div class="col-md-4">tooltip & info</div>
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- CARANEA TAB 2 - FINANCE -->
+                <div class="carousel-item CaraneaTab">
+                    <div>slide 2</div>
+                </div>
+
+                <!-- CARANEA TAB 3 - NETWORK -->
+                <div class="carousel-item">
+                    <div>slide 3</div>
+                </div>
+
+            <!-- closing carousel tab wrapper -->
+            </div>
+
+        <!-- indicators -->
+        <ol class="carousel-indicators">
+            <li data-target="#CaraneaApp" data-slide-to="0" class="active"></li>
+            <li data-target="#CaraneaApp" data-slide-to="1"></li>
+            <li data-target="#CaraneaApp" data-slide-to="2"></li>
+        </ol>
+
+    <!-- closing CaraneaApp wrapper -->
+    </div>
+
+
+
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="js/libs/jquery.min.js"></script>
+    <script src="js/libs/bootstrap.js"></script>
+    <script src="js/libs/bootstrap.bundle.js"></script>
+
+    <script>$('.carousel').carousel({
+        interval: false
+    })</script>
+
+
+
+</body>
+
+</html>

@@ -19,6 +19,11 @@ app.get('/',function(req,res){
     res.sendFile(__dirname + '/start.html');
 });
 
+// render grid.html
+app.get('/grid',function(req,res){
+    res.sendFile(__dirname + '/grid.html');
+});
+
 // getting corpus data;
 app.post('/corpus', (request, response) => {
     console.log('received textIDs of selected texts from corpus:', request.body);

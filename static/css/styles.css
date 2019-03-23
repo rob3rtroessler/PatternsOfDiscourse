@@ -3,13 +3,17 @@
     display: block;
     position: relative;
     padding-left: 35px;
-    margin-bottom: 12px;
+    margin-top:10px;
+    margin-bottom: 0px;
     cursor: pointer;
-    font-size: 22px;
+    font-size: 1.5vh;
     -webkit-user-select: none;
     -moz-user-select: none;
     -ms-user-select: none;
     user-select: none;
+    border-top: thin solid grey;
+    border-bottom: thin solid grey;
+    border-left: thin solid grey;
 }
 
 /* Hide the browser's default checkbox */
@@ -28,7 +32,7 @@
     left: 0;
     height: 25px;
     width: 25px;
-    background-color: #eee;
+    background-color: #949494;
 }
 
 /* On mouse-over, add a grey background color */
@@ -38,7 +42,7 @@
 
 /* When the checkbox is checked, add a blue background */
 .container input:checked ~ .checkmark {
-    background-color: #2196F3;
+    background-color: #009b9b;
 }
 
 /* Create the checkmark/indicator (hidden when not checked) */
@@ -68,20 +72,29 @@
 
 /* FONTS */
 h1 {
-    text-align: center;
     font-family: 'Libre Franklin', sans-serif;
     font-weight: 400;
-    font-size: 40px;
-    margin-top: 1%;
-    margin-bottom: 1%;
+    font-size: 5vh;
     color: black;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    line-height: 1;
+    padding: 0;
+    margin: 0;
 }
 
 h2 {
-    text-align: center;
     font-family: 'Libre Franklin', sans-serif;
     font-weight: 500;
-    font-size: 20px;
+    font-size: 2vh;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    display: flex;
+    line-height: 1;
+    padding: 0;
+    margin: 0;
 }
 
 h3 {
@@ -92,36 +105,19 @@ h3 {
 }
 
 
-#TexTileWordInput {
-    text-align: center;
+
+
+/* Environment List */
+.listItem {
     font-family: 'Libre Franklin', sans-serif;
     font-weight: 500;
-    font-size: 20px;
-    height: 100%;
+    font-size: 10px;
+    text-align: center;
+    height: 10%;
 }
-
-
-#GenTexTileButton{
-    background-color: #008d8d;
-    border: 5px solid white;
-    height: 100%;
-}
-
-#GenTexTileButton:hover {
-    background-color: #00a7a7;
-    cursor: pointer;
-}
-
 .listItem:hover {
     cursor: pointer;
 }
 
-.tooltip {
-    position: absolute;
-    text-align: center;
-    height: 30px;
-    font: 12px sans-serif;
-    background: #ffffff;
-    border: thin solid grey;
-    pointer-events: none;
-}
+
+

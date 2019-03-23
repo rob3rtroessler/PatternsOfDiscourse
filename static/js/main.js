@@ -36,10 +36,16 @@ function CreateProminentTileList (data) {
     data.forEach( (d,i) => {
         // console.log(d,i);
         if (0 <= i && i < 10){
-            document.getElementById('top10').innerHTML += '<li class="listItem">' + d + '</li>'
+            document.getElementById('top10').innerHTML += '<div class="row listItem" style="border: thin solid' +
+                ' lightgrey">' + d + '</div>'
         }
         else if (10 <= i && i < 20){
-            document.getElementById('top20').innerHTML += '<li class="listItem">' + d + '</li>'
+            document.getElementById('top20').innerHTML += '<div class="row listItem" style="border: thin solid' +
+                ' lightgrey">' + d + '</div>'
+        }
+        else if (20 <= i && i < 30){
+            document.getElementById('top30').innerHTML += '<div class="row listItem" style="border: thin solid' +
+                ' lightgrey">' + d + '</div>'
         }
     })
 

@@ -1,0 +1,35 @@
+
+/*
+    TexTile Styles
+*/
+
+/* MENU */
+#TexTileWordInput {
+    text-align: center;
+    font-family: 'Libre Franklin', sans-serif;
+    font-weight: 500;
+    font-size: 20px;
+    height: 100%;
+}
+
+#GenTexTileButton{
+    background-color: #009b9b;
+    height: 100%;
+}
+
+#GenTexTileButton:hover {
+    background-color: #00adad;
+    cursor: pointer;
+}
+
+
+/* VISUALIZATION */
+.tooltip {
+    position: absolute;
+    text-align: center;
+    height: 30px;
+    font: 12px sans-serif;
+    background: #ffffff;
+    border: thin solid grey;
+    pointer-events: none;
+}

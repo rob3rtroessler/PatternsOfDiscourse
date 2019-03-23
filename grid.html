@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Caranea</title>
+
+
+    <!-- CSS -->
+
+
+    <!-- google font -->
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400" rel="stylesheet">
+
+    <!-- bootrap css -->
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/bootstrap-grid.css">
+    <link rel="stylesheet" href="css/bootstrap-reboot.css">
+
+    <!-- fullpage css -->
+    <link rel="stylesheet" href="css/jquery.fullpage.css">
+
+    <!-- caraneaApp css-->
+    <link rel="stylesheet" href="css/grid.css">
+
+
+</head>
+
+<body>
+    <!-- PATTERNS OF DISCOURSE -->
+
+     <!-- Wrapper for entire App -->
+    <div id="PoD-App" class="carousel slide" data-ride="carousel">
+
+        <!-- HEADING -->
+        <div id="PoD-App_Heading"><h1>Caranea</h1></div>
+
+        <!-- Wrapper for all Tabs -->
+        <div id="PoD-App_TabWrapper" class="carousel-inner">
+
+            <!-- TAB 1 - TexTileTAB - carousel item -->
+            <div class="carousel-item active container-fluid PoD-App_Tab">
+
+                <!-- overall row for Tab 1 --- !START HERE! -->
+                <div class="row" id="Tab1masterRow" style="border:thin solid green">
+                    hallo
+                </div>
+            </div>
+
+
+            <!-- TAB 2 --- NETWORK -->
+            <div class="carousel-item CaraneaTab">
+                <div>slide 2</div>
+            </div>
+
+
+            <!-- TAB 3 --- MATRIX -->
+            <div class="carousel-item">
+                <div>slide 3</div>
+            </div>
+
+            <!-- closing carousel tab wrapper -->
+        </div>
+
+        <!-- indicators -->
+        <ol class="carousel-indicators">
+            <li data-target="#PoD-App" data-slide-to="0" class="active"></li>
+            <li data-target="#PoD-App" data-slide-to="1"></li>
+            <li data-target="#PoD-App" data-slide-to="2"></li>
+        </ol>
+
+    <!-- closing CaraneaApp wrapper -->
+    </div>
+
+
+
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="js/libs/jquery.min.js"></script>
+    <script src="js/libs/bootstrap.js"></script>
+    <script src="js/libs/bootstrap.bundle.js"></script>
+
+    <script>$('.carousel').carousel({
+        interval: false
+    })</script>
+
+
+
+</body>
+
+</html>

@@ -1,95 +1,161 @@
 <html>
-<head>
-    <title>Patterns Of Discourse</title>
+    <head>
+        <title>Patterns Of Discourse</title>
 
-    <!-- google font -->
-    <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto:300,400,500,700" type="text/css">
-    <link href="https://fonts.googleapis.com/css?family=Libre+Franklin:200,200i,300,300i,400,400i,500,500i" rel="stylesheet">
 
-    <!-- bootrap css -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
 
-    <!-- own css -->
-    <link rel="stylesheet" href="css/styles.css">
+        <!-- google font -->
+        <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto:300,400,500,700" type="text/css">
+        <link href="https://fonts.googleapis.com/css?family=Libre+Franklin:200,200i,300,300i,400,400i,500,500i" rel="stylesheet">
 
-</head>
+        <!-- bootrap css -->
+        <link rel="stylesheet" href="css/bootstrap.css">
+
+        <!-- own css -->
+        <link rel="stylesheet" href="css/styles.css">
+        <link rel="stylesheet" href="css/grid.css">
+        <link rel="stylesheet" href="css/TexTile.css">
+
+
+
+    </head>
 
     <body>
-        <div class="container-fluid" style="height: 100%">
-            <div class="row" style="border-bottom: thin solid grey; height: 10%"><h1>Patterns of Discourse</h1></div>
+        <!-- PATTERNS OF DISCOURSE -->
 
-            <div class="row">
+        <!-- Wrapper for entire App -->
+        <div id="PoD-App" class="carousel slide" data-ride="carousel">
 
-                <!-- left -->
-                <div class="col-xs-2" id="CreateYourCorpusContainer" style="height: 90%">
-                    <div class="row" style="border-bottom: thin solid grey; height: 8%"><h2 >Curate Your Corpus</h2></div>
-                    <div class="row" style="height: 92%">
+            <!-- HEADING -->
+            <div class="row justify-content-center align-items-center" id="PoD-App_Heading"><h1>Patterns of Discourse</h1></div>
 
-                        <label class="container">Johann Friedrich Herbart: Text 1
-                            <input type="checkbox" id='checkbox_TextID_0' checked="checked">
-                            <span class="checkmark"></span>
-                        </label>
+            <!-- Wrapper for all Tabs -->
+            <div id="PoD-App_TabWrapper" class="carousel-inner">
 
-                        <label class="container">Two
-                            <input type="checkbox" id='checkbox_TextID_1'>
-                            <span class="checkmark"></span>
-                        </label>
+                <!-- TAB 1 - TexTileTAB - carousel item -->
+                <div class="carousel-item active container-fluid PoD-App_Tab">
 
-                        <label class="container">Three
-                            <input type="checkbox" id='checkbox_TextID_2'>
-                            <span class="checkmark"></span>
-                        </label>
+                    <!-- overall row for Tab 1 --- !START HERE! -->
+                    <div class="row" id="Tab1masterRow" style="border:thin solid grey">
 
-                        <label class="container">Four
-                            <input type="checkbox" id='checkbox_TextID_3'>
-                            <span class="checkmark"></span>
-                        </label>
+                        <!-- left -->
+                        <div class="col-2" id="CreateYourCorpusContainer" style="height: 100%">
+                            <div class="row justify-content-center align-items-center" style="border-bottom: thin solid grey; height: 8%"><h2 >Curate Your Corpus</h2></div>
+                            <div class="row" style="height: 92%">
+                                <label class="container">Johann Friedrich Herbart: <br> <span style="font-style: italic"> Psychologie als Wissenschaft (1824)</span>
+                                    <input type="checkbox" id='checkbox_TextID_0'>
+                                    <span class="checkmark"></span>
+                                </label>
+                                <label class="container">Johann Friedrich Herbart: <br> <span style="font-style: italic">  Lehrbuch zur Psychologie (1834) </span>
+                                    <input type="checkbox" id='checkbox_TextID_1'>
+                                    <span class="checkmark"></span>
+                                </label>
+                                <label class="container">Ernst von Feuchtersleben <br> <span style="font-style: italic"> Zur Dietätik der Seele (1838)</span>
+                                    <input type="checkbox" id='checkbox_TextID_2'>
+                                    <span class="checkmark"></span>
+                                </label>
+                                <label class="container">Rudolf Hermann Lotze<br>  <span style="font-style: italic"> Medicinische Psychologie oder Physiologie der Seele (1852)</span>
+                                    <input type="checkbox" id='checkbox_TextID_3' checked="checked">
+                                    <span class="checkmark"></span>
+                                </label>
+                                <label class="container">Gustav Theodor Fechner <br>  <span style="font-style: italic">Elemente der Psychophysik (1860)</span>
+                                    <input type="checkbox" id='checkbox_TextID_4' style="border: thin solid grey">
+                                    <span class="checkmark"></span>
+                                </label>
+                                <label class="container">Wilhelm Wundt <br>  <span style="font-style: italic">Grundzüge der physiologischen Psychologie (1871)</span>
+                                    <input type="checkbox" id='checkbox_TextID_5' checked="checked">
+                                    <span class="checkmark"></span>
+                                </label>
+                                <label class="container">Gustav Adolf Lindner <br> <span style="font-style: italic">Lehrbuch der empirischen Psychologie als inductiver Wissenschaft (1872)</span>
+                                    <input type="checkbox" id='checkbox_TextID_6'>
+                                    <span class="checkmark"></span>
+                                </label>
+                                <label class="container">Franz Brentano <br> <span style="font-style: italic">Psychologie vom empirischen Standpunkt (1874)</span>
+                                    <input type="checkbox" id='checkbox_TextID_7'>
+                                    <span class="checkmark"></span>
+                                </label>
+                                <label class="container">Ernst Mach  <br> <span style="font-style: italic">Die Analyse der Empfindungen und das Verhältnis des Physischen zum Psychischen (1886)</span>
+                                    <input type="checkbox" id='checkbox_TextID_8'>
+                                    <span class="checkmark"></span>
+                                </label>
+                                <label class="container">Sigmund Freud <br> <span style="font-style: italic">Die Traumdeutung (1900)</span>
+                                    <input type="checkbox" id='checkbox_TextID_9'>
+                                    <span class="checkmark"></span>
+                                </label>
+                            </div>
+                        </div>
 
+                        <!-- middle -->
+                        <div class="col-6" style="border-left: thin solid grey; border-right: thin solid grey; height: 100%">
+                            <div class="row justify-content-center align-items-center" style="border-bottom: thin solid grey; height: 8%;">
+                                <div class="col-6"><div class="row justify-content-center align-items-center"><h2>Create TexTile Visualization for:</h2></div></div>
+                                <div class="col-3"><input id="TexTileWordInput" style="height:100%; width: 100%; border: thin solid grey" placeholder="Enter Word"></div>
+                                <div class="col-3"><div class="row justify-content-center align-items-center" id="GenTexTileButton" onclick="generateTexTile()"><h2>Generate</h2></div></div>
+                            </div>
+                            <div class="row" style="height: 92%" id="FabricVisContainer"></div>
+                        </div>
 
+                        <!-- right -->
+                        <div class="col-4" style="height: 100%">
+                            <div class="row justify-content-center align-items-center" style="border-bottom: thin solid grey; height: 8%"><h2>Most Common Words in Surrounding</h2></div>
+                            <div class="row" style="border-bottom: thin solid grey; height: 32%">
+                                <div class="col-4" id="top10"></div>
+                                <div class="col-4" id="top20"></div>
+                                <div class="col-4" id="top30"></div>
+                            </div>
+                            <div class="row justify-content-center align-items-center" style="border-bottom: thin solid grey; height: 8%"><h2 >Popularity of Word over time</h2></div>
+                            <div class="row" style="height: 52%"><h3>Line graph</h3></div>
+                        </div>
 
                     </div>
                 </div>
 
-                <!-- middle -->
-                <div class="col-xs-6" style="border-left: thin solid grey; border-right: thin solid grey; height: 90%">
-                    <div class="row" style="border-bottom: thin solid grey; height: 8%;">
-                        <div class="col-xs-6"><span style="vertical-align: center"><h2 style="text-align: right">Create TexTile Visualization for:</h2></span></div>
-                        <div class="col-xs-3"><input id="TexTileWordInput" style="height:100%; width: 100%; border: 0" placeholder="Enter Word"></div>
-                        <div class="col-xs-3"><div class="row" id="GenTexTileButton" onclick="generateTexTile()"><h2>Generate</h2></div></div>
-                    </div>
-                    <div class="row" style="height: 92%" id="FabricVisContainer"></div>
+
+                <!-- TAB 2 --- NETWORK -->
+                <div class="carousel-item CaraneaTab">
+                    <div>slide 2</div>
                 </div>
 
-                <!-- right -->
-                <div class="col-xs-4" style="height: 90%">
-                    <div class="row" style="border-bottom: thin solid grey; height: 8%"><h2 >Most Common Words in Surrounding</h2></div>
-                    <div class="row" style="border-bottom: thin solid grey; height: 32%">
-                        <div class="col-xs-4"><ul id="top10"></ul></div>
-                        <div class="col-xs-4"><ul id="top20"></ul></div>
-                        <div class="col-xs-4"><ul id="top30"></ul></div>
-                    </div>
-                    <div class="row" style="border-bottom: thin solid grey; height: 8%"><h2 >Popularit of Word over time</h2></div>
-                    <div class="row" style="height: 52%"><h3>Line graph</h3></div>
 
+                <!-- TAB 3 --- MATRIX -->
+                <div class="carousel-item">
+                    <div>slide 3</div>
                 </div>
+
+                <!-- closing carousel tab wrapper -->
             </div>
+
+            <!-- indicators -->
+            <ol class="carousel-indicators">
+                <li data-target="#PoD-App" data-slide-to="0" class="active"></li>
+                <li data-target="#PoD-App" data-slide-to="1"></li>
+                <li data-target="#PoD-App" data-slide-to="2"></li>
+            </ol>
+
+            <!-- closing CaraneaApp wrapper -->
         </div>
 
+
+
+
+
         <!-- JAVASCRIPT LIBRARIES -->
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+        <script src="js/libs/bootstrap.min.js"></script>
         <!-- axios --> <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-        <!-- jquery --> <script src="js/libs/jquery.min.js"></script>
-        <!-- bootstrap --> <script src="js/libs/bootstrap.min.js"></script>
 
         <!-- adding d3.js and vis.js-->
         <script src="js/libs/d3.min.js"></script>
         <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/vis/4.21.0/vis.min.js"></script>
 
         <!-- OWN JAVASCRIPT FILES -->
-        <script src="js/FabricVis.js"></script>
-
-
         <script src="js/main.js"></script>
+        <script src="js/TexTileVis.js"></script>
+
+        <script>$('.carousel').carousel({
+            interval: false
+        })</script>
 
     </body>
 </html>

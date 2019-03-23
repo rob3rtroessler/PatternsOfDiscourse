@@ -96,7 +96,10 @@ function TexTileVis (){
 
                 // using jquery's css method to change the fill property of all rects with the same (class) name
                 // but only unless they are not grey!
-                $("." + d).css("fill", 'blue');
+                //console.log($("." + d).attr('fill'));
+                if ( ($("." + d).attr('fill')) !== 'green' ) {
+                    $("." + d).css("fill", 'blue');
+                }
 
                 // tooltip
                 tooltipDiv
@@ -104,13 +107,13 @@ function TexTileVis (){
                     .duration(200)
                     .style("opacity", 0.88);
 
-
+                // position tooltip
                 tooltipDiv
                     .html("<b>"+ d + "</b>")
                     .style("left", function(d){
                         tmp = $("#CreateYourCorpusContainer").width();
                         console.log(tmp);
-                        return (tmp + 30 +  "px")
+                        return (tmp + 46 +  "px")
                     })
                     .style("top", (d3.event.pageY +10) + "px");
             })
@@ -121,7 +124,10 @@ function TexTileVis (){
                     .style("opacity", 0);
 
                 // using jquery's css method to change the fill property of all rects with the same (class) name
-                $("." + d).css("fill", 'lightgrey')
+                if ( ($("." + d).attr('fill')) !== 'green' ) {
+                    $("." + d).css("fill", 'lightgrey')
+                }
+
             })
     })
 }
