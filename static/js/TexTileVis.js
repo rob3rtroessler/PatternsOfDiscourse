@@ -86,7 +86,7 @@ function TexTileVis (){
             .attr('fill', function(d){
                 // console.log(d);
                 if (d === 'Traum') {
-                    return 'green'
+                    return '#fb8072'
                 }
                 else {
                     return 'lightgrey'
@@ -97,9 +97,10 @@ function TexTileVis (){
                 // using jquery's css method to change the fill property of all rects with the same (class) name
                 // but only unless they are not grey!
                 //console.log($("." + d).attr('fill'));
-                if ( ($("." + d).attr('fill')) !== 'green' ) {
+                /*if ( ($("." + d).attr('fill')) !== 'green' ) {
                     $("." + d).css("fill", 'blue');
-                }
+                }*/
+                ColorToClass(d);
 
                 // tooltip
                 tooltipDiv
@@ -118,18 +119,153 @@ function TexTileVis (){
                     .style("top", (d3.event.pageY +10) + "px");
             })
             .on('mouseout', function(d){
+
+                // remove color
+                RemoveColorFromClass(d);
+
                 // tooltip
                 tooltipDiv.transition()
                     .duration(500)
                     .style("opacity", 0);
-
-                // using jquery's css method to change the fill property of all rects with the same (class) name
-                if ( ($("." + d).attr('fill')) !== 'green' ) {
-                    $("." + d).css("fill", 'lightgrey')
-                }
-
-            })
+                })
     })
 }
 
+// declare function that creats list with prominent tiles
+function CreateProminentTileList (data) {
+    console.log(data);
+    data.forEach( (d,i) => {
+        // console.log(d,i);
+        if (0 <= i && i < 10){
+            document.getElementById('top10').innerHTML += `<div class="row listItem ` + d + `" onclick="lockColor('` + d + `', 1)" onmouseout="RemoveColorFromClass('` + d + `')" 
+onmouseover="ColorToClass('` + d + `')">` + d + `</div>`
+        }
+        else if (10 <= i && i < 20){
+            document.getElementById('top20').innerHTML += `<div class="row listItem ` + d + `" onclick="lockColor('` + d + `', 1)" onmouseout="RemoveColorFromClass('` + d + `')" 
+onmouseover="ColorToClass('` + d + `')">` + d + `</div>`
+        }
+        else if (20 <= i && i < 30){
+            document.getElementById('top30').innerHTML += `<div class="row listItem ` + d + `" onclick="lockColor('` + d + `', 1)" onmouseout="RemoveColorFromClass('` + d + `')" 
+onmouseover="ColorToClass('` + d + `')">` + d + `</div>`
+        }
+    })
 
+}
+
+// COLOR MANAGEMENT
+
+// declare 2 arrays - array 1: 10 colors using color brewer; array 2: storage array for colors used
+let colors = ['#8dd3c7','#ffffb3','#bebada','#80b1d3','#fdb462','#b3de69','#fccde5','#bc80bd','#ccebc5','#ffed6f'];
+let taken = [0,0,0,0,0,0,0,0,0,0];
+let word = ['','','','','','','','','',''];
+let locked = [0,0,0,0,0,0,0,0,0,0];
+
+
+colors.forEach((d)=> {
+    document.getElementById('colorScale').innerHTML += `<div class="row listItem" style="background-color:` + d + `"></div>`
+
+});
+
+
+// declare function that assigns color to a class using a lookup function;
+function ColorToClass(className) {
+
+    // only assign color to class if className isn't locked
+    console.log('assigning color');
+
+    // lookup color
+    let color = assignColor(className);
+
+    // assign color
+    $("." + className)
+        .css("fill", color)
+        .css("background", color);
+}
+
+
+// declare function that removes color from a class;
+function RemoveColorFromClass (className){
+
+/*    let position = 0;
+
+    for (let i = 0; i < word.length; ++i) {
+        if (word[i] === className){
+            positon = i;
+        }
+    }
+
+    if (locked[position] === 0) {
+        console.log('removing');
+        word[position] = '';
+        taken[position] = 0;
+
+        $("." + className)
+            .css("fill", 'lightgrey')
+            .css("background", 'transparent');
+    }
+    else {
+        console.log("it's locked")
+    }*/
+
+    // first, remove 'word' and 'taken', but only if that particular word isn't locked!
+    for (let i = 0; i < word.length; ++i) {
+
+        // remove that word from word-array and taken-array
+        if (word[i] === className && locked[i]===0){
+            console.log('removing');
+            word[i] = '';
+            taken[i] = 0;
+
+            $("." + className)
+                .css("fill", 'lightgrey')
+                .css("background", 'transparent');
+        }
+        else {
+            console.log("oh, it's locked", className)
+        }
+
+    }
+}
+
+
+// declare lookup function for color
+function assignColor (className){
+    for (let i = 0; i < taken.length; ++i) {
+        if (taken[i] === 0){
+            word[i] = className;
+            taken[i] = 1;
+            console.log("word:", word);
+            console.log("taken:", taken);
+            console.log("locked:", locked);
+            return colors[i];
+        }
+    }
+}
+
+
+// the current word will appear in a color, as the hover effect will fire first, the idea is to check whether that
+// color is locked already.
+function lockColor (className, lockStatus){
+
+    // loop over all words and check if that current word is locked
+    for (let i = 0; i < word.length; ++i) {
+
+
+        // get position of word
+        if (word[i] === className){
+            locked[i] = 1;
+            console.log("in locked function");
+
+
+            // now assign color - however, before that you have to tell the system, that the current taken item is
+            // not yet taken
+            taken[i] = 0;
+
+            console.log("word:", word);
+            console.log("taken:", taken);
+            console.log("locked:", locked);
+            console.log("lock color calls ColorToClass");
+            ColorToClass(className)
+        }
+    }
+}

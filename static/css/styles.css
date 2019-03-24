@@ -6,7 +6,7 @@
     margin-top:10px;
     margin-bottom: 0;
     cursor: pointer;
-    font-size: 1.5vh;
+    font-size: 1.3vh;
     -webkit-user-select: none;
     -moz-user-select: none;
     -ms-user-select: none;
@@ -42,7 +42,7 @@
 
 /* When the checkbox is checked, add a blue background */
 .container input:checked ~ .checkmark {
-    background-color: #009b9b;
+    background-color: #fb8072;
 }
 
 /* Create the checkmark/indicator (hidden when not checked) */
@@ -114,6 +114,8 @@ h3 {
     font-size: 10px;
     text-align: center;
     height: 10%;
+    border-bottom: thin solid lightgrey;
+    border-right: thin solid lightgrey;
 }
 .listItem:hover {
     cursor: pointer;

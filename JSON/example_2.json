@@ -1,48 +1,48 @@
 {
     "metadata": {
+        "CurrentKeyword": "Traum",
         "topwords": [
             "word1", "word2", "word3", "word4","word5", "word6", "word7", "word8","word9", "word10",
-            "word21", "word22", "word23", "word14","word15", "word16", "word17", "word18","word19", "word20",
-            "word31", "word32", "word33", "word24","word25", "word26", "word27", "word28","word29", "word30"
+            "word11", "word12", "word13", "word14", "word15", "word16", "word17", "word18","word19", "word20",
+            "word31", "word32", "word33", "word24", "word25", "word26", "word27", "word28","word29", "word30"
         ]
     },
 
     "data": [
         {
-            "textID": "textID_1",
-            "title": "Traumdeutung",
+            "textID": "1",
             "author": "Sigmund Freud",
+            "title": "Traumdeutung",
             "year": 1900,
-            "CurrentKeyword": "Traum",
             "environments": [
-                ["word1", "word2", "word3", "word4", "word5","word6","word7","Traum", "word9", "word10", "word11", "word12", "word13","word14","word15"],
-                ["word1", "word2", "word3", "word4", "word5","word6","word7","Traum", "word9", "word10", "word11", "word12", "word13","word14","word15"],
-                ["word1", "word2", "word3", "word4", "word5","word6","word7","Traum", "word9", "word10", "word11", "word12", "word13","word14","word15"],
-                ["word1", "word2", "word3", "word4", "word5","word6","word7","Traum", "word9", "word10", "word11", "word12", "word13","word14","word15"],
-                ["word1", "word2", "word3", "word4", "word5","word6","word7","Traum", "word9", "word10", "word11", "word12", "word13","word14","word15"],
-                ["word1", "word2", "word3", "word4", "word5","word6","word7","Traum", "word9", "word10", "word11", "word12", "word13","word14","word15"],
-                ["word1", "word2", "word3", "word4", "word5","word6","word7","Traum", "word9", "word10", "word11", "word12", "word13","word14","word15"],
-                ["word1", "word2", "word4", "word3", "word5","word6","word7","Traum", "word9", "word10", "word11", "word12", "word13","word14","word15"],
-                ["word3", "word4", "word1", "word2", "word5","word6","word7","Traum", "word9", "word10", "word11", "word12", "word13","word14","word15"],
+                ["word5", "word2", "word3", "word4", "word1","word6","word7","Traum", "word9", "word10", "word11", "word12", "word13","word14","word15"],
+                ["word11", "word2", "word3", "word4", "word5","word6","word7","Traum", "word9", "word10", "word11", "word12", "word13","word14","word15"],
+                ["word12", "word2", "word3", "word4", "word5","word6","word7","Traum", "word9", "word10", "word11", "word12", "word13","word14","word15"],
+                ["word7", "word2", "word3", "word4", "word5","word6","word7","Traum", "word9", "word10", "word11", "word12", "word13","word14","word15"],
+                ["word6", "word2", "word3", "word4", "word5","word6","word7","Traum", "word9", "word10", "word11", "word12", "word13","word14","word15"],
+                ["word5", "word2", "word3", "word4", "word5","word6","word7","Traum", "word9", "word10", "word11", "word12", "word13","word14","word15"],
+                ["word14", "word2", "word3", "word4", "word5","word6","word7","Traum", "word9", "word10", "word11", "word12", "word13","word14","word15"],
+                ["word23", "word2", "word4", "word3", "word5","word6","word7","Traum", "word9", "word10", "word11", "word12", "word13","word14","word15"],
+                ["word21", "word4", "word1", "word2", "word5","word6","word7","Traum", "word9", "word10", "word11", "word12", "word13","word14","word15"],
                 ["word1", "word2", "word3", "word5", "word4","word6","word7","Traum", "word9", "word10", "word11", "word12", "word13","word14","word15"],
+                ["word11", "word2", "word23", "word4", "word5","word6","word7","Traum", "word9", "word10", "word11", "word12", "word13","word14","word15"],
+                ["word1", "word2", "word3", "word4", "word5","word6","word7","Traum", "word9", "word10", "word11", "word12", "word23","word14","word15"],
+                ["word15", "word2", "word3", "word4", "word5","word6","word7","Traum", "word9", "word10", "word11", "word12", "word3","word13","word15"],
+                ["word1", "word2", "word3", "word4", "word5","word6","word7","Traum", "word9", "word10", "word11", "word12", "word13","word34","word15"],
+                ["word24", "word2", "word30", "word7", "word5","word6","word7","Traum", "word9", "word10", "word11", "word12", "word13","word24","word15"],
+                ["word6", "word2", "word3", "word24", "word5","word6","word7","Traum", "word9", "word10", "word11", "word12", "word13","word14","word15"],
+                ["word1", "word2", "word3", "word4", "word5","word6","word7","Traum", "word9", "word21", "word11", "word12", "word23","word14","word15"],
+                ["word1", "word2", "word3", "word4", "word8","word6","word7","Traum", "word9", "word10", "word11", "word12", "word13","word14","word15"],
                 ["word1", "word2", "word3", "word4", "word5","word6","word7","Traum", "word9", "word10", "word11", "word12", "word13","word14","word15"],
+                ["word1", "word22", "word3", "word4", "word5","word6","word7","Traum", "word9", "word10", "word11", "word12", "word13","word14","word15"],
+                ["word1", "word2", "word3", "word4", "word9","word6","word7","Traum", "word9", "word10", "word11", "word12", "word13","word14","word15"],
                 ["word1", "word2", "word3", "word4", "word5","word6","word7","Traum", "word9", "word10", "word11", "word12", "word13","word14","word15"],
-                ["word1", "word2", "word3", "word4", "word5","word6","word7","Traum", "word9", "word10", "word11", "word12", "word13","word14","word15"],
-                ["word1", "word2", "word3", "word4", "word5","word6","word7","Traum", "word9", "word10", "word11", "word12", "word13","word14","word15"],
-                ["word1", "word2", "word3", "word4", "word5","word6","word7","Traum", "word9", "word10", "word11", "word12", "word13","word14","word15"],
-                ["word1", "word2", "word3", "word4", "word5","word6","word7","Traum", "word9", "word10", "word11", "word12", "word13","word14","word15"],
-                ["word1", "word2", "word3", "word4", "word5","word6","word7","Traum", "word9", "word10", "word11", "word12", "word13","word14","word15"],
-                ["word1", "word2", "word3", "word4", "word5","word6","word7","Traum", "word9", "word10", "word11", "word12", "word13","word14","word15"],
-                ["word1", "word2", "word3", "word4", "word5","word6","word7","Traum", "word9", "word10", "word11", "word12", "word13","word14","word15"],
-                ["word1", "word2", "word3", "word4", "word5","word6","word7","Traum", "word9", "word10", "word11", "word12", "word13","word14","word15"],
-                ["word1", "word2", "word3", "word4", "word5","word6","word7","Traum", "word9", "word10", "word11", "word12", "word13","word14","word15"],
-                ["word1", "word2", "word3", "word4", "word5","word6","word7","Traum", "word9", "word10", "word11", "word12", "word13","word14","word15"],
-                ["word1", "word2", "word3", "word4", "word5","word6","word7","Traum", "word9", "word10", "word11", "word12", "word13","word14","word15"],
-                ["word1", "word2", "word3", "word4", "word5","word6","word7","Traum", "word9", "word10", "word11", "word12", "word13","word14","word15"],
-                ["word1", "word2", "word3", "word4", "word5","word6","word7","Traum", "word9", "word10", "word11", "word12", "word13","word14","word15"],
-                ["word1", "word2", "word3", "word4", "word5","word6","word7","Traum", "word9", "word10", "word11", "word12", "word13","word14","word15"],
-                ["word1", "word2", "word3", "word4", "word5","word6","word7","Traum", "word9", "word10", "word11", "word12", "word13","word14","word15"],
-                ["word1", "word2", "word3", "word4", "word5","word6","word7","Traum", "word9", "word10", "word11", "word12", "word13","word14","word15"]
+                ["word1", "word2", "word3", "word4", "word4","word26","word7","Traum", "word9", "word20", "word11", "word12", "word13","word14","word15"],
+                ["word1", "word2", "word24", "word4", "word22","word6","word7","Traum", "word9", "word10", "word11", "word12", "word13","word14","word15"],
+                ["word1", "word2", "word23", "word4", "word12","word6","word7","Traum", "word9", "word23", "word21", "word12", "word13","word14","word15"],
+                ["word1", "word2", "word28", "word4", "word25","word6","word27","Traum", "word9", "word10", "word11", "word12", "word13","word14","word15"],
+                ["word1", "word2", "word27", "word4", "word8","word6","word7","Traum", "word9", "word10", "word11", "word12", "word13","word14","word15"],
+                ["word1", "word2", "word26", "word4", "word3","word6","word7","Traum", "word9", "word10", "word11", "word12", "word13","word14","word15"]
             ]
         },
         {

@@ -10,7 +10,7 @@ let corpus = [
     {id: 7, author: "Franz Brentano", title: "Psychologie vom empirischen Standpunkt (1874)"},
     {id: 8, author: "Ernst Mach", title: "Die Analyse der Empfindungen und das Verhältnis des Physischen zum" +
         " Psychischen (1886)"},
-    {id: 9, author: "Sigmund", title: "Die Traumdeutung (1900)"}
+    {id: 9, author: "Sigmund Freud", title: "Die Traumdeutung (1900)"}
 
 
 ];
