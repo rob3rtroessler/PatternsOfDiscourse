@@ -1,13 +1,21 @@
-
+// declare function that gathers selected books
+function gatherCorpusData () {
+    let CorpusData = [];
+    $('input[type=checkbox]:checked').each(function(){
+        //console.log(this.id);
+        CorpusData.push(this.id);
+    });
+    generateTexTile (CorpusData)
+}
 
 // declare a function that fires, when the 'generate' button is clicked
-function generateTexTile() {
+function generateTexTile(CorpusData) {
+    console.log("The following TextIDs will be sent to the server:", CorpusData);
     axios.post('/corpus', {
-        'selected texts' : ['textID_1','textID_2','textID_3']
-    })
+        'selected texts' : CorpusData})
         .then(function (response) {
 
-            console.log(response);    // log the response from server to examine data
+            console.log("The server sent:", response);    // log the response from server to examine data
             initTexTileModule(response);    // call async initializer function
         })
         .catch(function (error) {
@@ -51,5 +59,9 @@ function CreateProminentTileList (data) {
 
 }
 
-let colors = [  "#8dd3c7", "#ffffb3", "#bebada", "#fb8072", "#80b1d3", "#fdb462",
-                "#b3de69", "#fccde5", "#d9d9d9", "#bc80bd", "#ccebc5", "#ffed6f"];
+let colors = ['#8dd3c7','#ffffb3','#bebada','#fb8072','#80b1d3','#fdb462','#b3de69','#fccde5','#d9d9d9','#bc80bd'];
+
+colors.forEach((d)=> {
+    document.getElementById('colorScale').innerHTML += `<div class="row listItem" style="background-color:` + d + `"></div>`
+
+});

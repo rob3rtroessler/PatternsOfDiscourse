@@ -18,7 +18,7 @@ function TexTileDataWrangling(data){
         }
     });
     relevantData = data.data.data;
-    console.log('relevant:', relevantData);
+    console.log('relevant data for the TexTiles:', relevantData);
 
     // loop through all environments of relevant data and push to array 'WrangledTexTileData'
     relevantData.forEach( function (d){
@@ -27,7 +27,7 @@ function TexTileDataWrangling(data){
         })
       });
 
-    console.log(WrangledTexTileData)
+    console.log('processed data', WrangledTexTileData)
 }
 
 

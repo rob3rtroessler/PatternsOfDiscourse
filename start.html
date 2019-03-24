@@ -41,47 +41,8 @@
                         <!-- left -->
                         <div class="col-2" id="CreateYourCorpusContainer" style="height: 100%">
                             <div class="row justify-content-center align-items-center" style="border-bottom: thin solid grey; height: 8%"><h2 >Curate Your Corpus</h2></div>
-                            <div class="row" style="height: 92%">
-                                <label class="container">Johann Friedrich Herbart: <br> <span style="font-style: italic"> Psychologie als Wissenschaft (1824)</span>
-                                    <input type="checkbox" id='checkbox_TextID_0'>
-                                    <span class="checkmark"></span>
-                                </label>
-                                <label class="container">Johann Friedrich Herbart: <br> <span style="font-style: italic">  Lehrbuch zur Psychologie (1834) </span>
-                                    <input type="checkbox" id='checkbox_TextID_1'>
-                                    <span class="checkmark"></span>
-                                </label>
-                                <label class="container">Ernst von Feuchtersleben <br> <span style="font-style: italic"> Zur Dietätik der Seele (1838)</span>
-                                    <input type="checkbox" id='checkbox_TextID_2'>
-                                    <span class="checkmark"></span>
-                                </label>
-                                <label class="container">Rudolf Hermann Lotze<br>  <span style="font-style: italic"> Medicinische Psychologie oder Physiologie der Seele (1852)</span>
-                                    <input type="checkbox" id='checkbox_TextID_3' checked="checked">
-                                    <span class="checkmark"></span>
-                                </label>
-                                <label class="container">Gustav Theodor Fechner <br>  <span style="font-style: italic">Elemente der Psychophysik (1860)</span>
-                                    <input type="checkbox" id='checkbox_TextID_4' style="border: thin solid grey">
-                                    <span class="checkmark"></span>
-                                </label>
-                                <label class="container">Wilhelm Wundt <br>  <span style="font-style: italic">Grundzüge der physiologischen Psychologie (1871)</span>
-                                    <input type="checkbox" id='checkbox_TextID_5' checked="checked">
-                                    <span class="checkmark"></span>
-                                </label>
-                                <label class="container">Gustav Adolf Lindner <br> <span style="font-style: italic">Lehrbuch der empirischen Psychologie als inductiver Wissenschaft (1872)</span>
-                                    <input type="checkbox" id='checkbox_TextID_6'>
-                                    <span class="checkmark"></span>
-                                </label>
-                                <label class="container">Franz Brentano <br> <span style="font-style: italic">Psychologie vom empirischen Standpunkt (1874)</span>
-                                    <input type="checkbox" id='checkbox_TextID_7'>
-                                    <span class="checkmark"></span>
-                                </label>
-                                <label class="container">Ernst Mach  <br> <span style="font-style: italic">Die Analyse der Empfindungen und das Verhältnis des Physischen zum Psychischen (1886)</span>
-                                    <input type="checkbox" id='checkbox_TextID_8'>
-                                    <span class="checkmark"></span>
-                                </label>
-                                <label class="container">Sigmund Freud <br> <span style="font-style: italic">Die Traumdeutung (1900)</span>
-                                    <input type="checkbox" id='checkbox_TextID_9'>
-                                    <span class="checkmark"></span>
-                                </label>
+                            <div class="row" id ="corpusList" style="height: 92%">
+
                             </div>
                         </div>
 
@@ -89,8 +50,8 @@
                         <div class="col-6" style="border-left: thin solid grey; border-right: thin solid grey; height: 100%">
                             <div class="row justify-content-center align-items-center" style="border-bottom: thin solid grey; height: 8%;">
                                 <div class="col-6"><div class="row justify-content-center align-items-center"><h2>Create TexTile Visualization for:</h2></div></div>
-                                <div class="col-3"><input id="TexTileWordInput" style="height:100%; width: 100%; border: thin solid grey" placeholder="Enter Word"></div>
-                                <div class="col-3"><div class="row justify-content-center align-items-center" id="GenTexTileButton" onclick="generateTexTile()"><h2>Generate</h2></div></div>
+                                <div class="col-3"><input id="TexTileWordInput" placeholder="Enter Word"></div>
+                                <div class="col-3"><div class="row justify-content-center align-items-center" id="GenTexTileButton" onclick="gatherCorpusData()"><h2>Generate</h2></div></div>
                             </div>
                             <div class="row" style="height: 92%" id="FabricVisContainer"></div>
                         </div>
@@ -99,9 +60,16 @@
                         <div class="col-4" style="height: 100%">
                             <div class="row justify-content-center align-items-center" style="border-bottom: thin solid grey; height: 8%"><h2>Most Common Words in Surrounding</h2></div>
                             <div class="row" style="border-bottom: thin solid grey; height: 32%">
-                                <div class="col-4" id="top10"></div>
-                                <div class="col-4" id="top20"></div>
-                                <div class="col-4" id="top30"></div>
+                                <div class="col-3" id="top10"></div>
+                                <div class="col-3" id="top20"></div>
+                                <div class="col-3" id="top30"></div>
+                                <div class="col-3">
+                                    <div class="row">
+                                        <div class="col-6" style="writing-mode: vertical-lr; border: thin solid green; height: 100%"><span>text</span></div>
+                                        <div class="col-6" id="colorScale">
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                             <div class="row justify-content-center align-items-center" style="border-bottom: thin solid grey; height: 8%"><h2 >Popularity of Word over time</h2></div>
                             <div class="row" style="height: 52%"><h3>Line graph</h3></div>
@@ -152,6 +120,7 @@
         <!-- OWN JAVASCRIPT FILES -->
         <script src="js/main.js"></script>
         <script src="js/TexTileVis.js"></script>
+        <script src="js/corpus.js"></script>
 
         <script>$('.carousel').carousel({
             interval: false
