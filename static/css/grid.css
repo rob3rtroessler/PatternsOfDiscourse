@@ -40,9 +40,9 @@
     border: thin solid grey;
     border-radius: 5px;
     background-image: url("../img/Network.jpg");
-    background-size: cover;
+    background-size: contain;
     background-repeat: no-repeat;
-}
+    }
 
 #Tab3masterRow {
     padding: 10px;
@@ -50,7 +50,7 @@
     border: thin solid grey;
     border-radius: 5px;
     background-image: url("../img/Matrix.jpg");
-    background-size: cover;
+    background-size: contain;
     background-repeat: no-repeat;
 }
 
