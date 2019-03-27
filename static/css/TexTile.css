@@ -29,6 +29,9 @@
     scrollbar-arrow-color: transparent;
 }
 
+::-webkit-scrollbar {
+    display: none;
+}
 
 /* VISUALIZATION */
 .tooltip {

@@ -50,7 +50,7 @@ function TexTileVis (){
     // add tooltip div
     let tooltipDiv = d3.select("body").append("div")
         .attr("class", "tooltip")
-        .style("width", $("#FabricVisContainer").width() + 10)
+        .style("width", $("#FabricVisContainer").width())
         .style("opacity", 0)
         .style("left", "0px")
         .style("top", "0px");
@@ -94,15 +94,10 @@ function TexTileVis (){
             })
             .on('mouseover', function(d, i){
 
-                // using jquery's css method to change the fill property of all rects with the same (class) name
-                // but only unless they are not grey!
-                //console.log($("." + d).attr('fill'));
-                /*if ( ($("." + d).attr('fill')) !== 'green' ) {
-                    $("." + d).css("fill", 'blue');
-                }*/
+                // assign color to the tile
                 ColorToClass(d);
 
-                // tooltip
+                // display tooltip
                 tooltipDiv
                     .transition()
                     .duration(200)
@@ -114,7 +109,7 @@ function TexTileVis (){
                     .style("left", function(d){
                         tmp = $("#CreateYourCorpusContainer").width();
                         console.log(tmp);
-                        return (tmp + 46 +  "px")
+                        return (tmp + 45 +  "px")
                     })
                     .style("top", (d3.event.pageY +10) + "px");
             })
@@ -138,7 +133,7 @@ function TexTileVis (){
 
 // declare function that creats list with prominent tiles
 function CreateProminentTileList (data) {
-    console.log(data);
+    // console.log(data);
     data.forEach( (d,i) => {
         // console.log(d,i);
         if (0 <= i && i < 10){
