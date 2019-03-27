@@ -24,6 +24,11 @@
     cursor: pointer;
 }
 
+#FabricVisContainer {
+    overflow-y: scroll;
+    scrollbar-arrow-color: transparent;
+}
+
 
 /* VISUALIZATION */
 .tooltip {

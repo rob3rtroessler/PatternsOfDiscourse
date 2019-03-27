@@ -36,7 +36,7 @@ function TexTileVis (){
     // margin conventions
     let margin = {top: 20, right: 20, bottom: 20, left: 20};
     lineChartWidth = $("#FabricVisContainer").width() - margin.left - margin.right; // Use the window's width
-    lineChartHeight = 850 - margin.top - margin.bottom;
+    lineChartHeight = $("#FabricVisContainer").height() - margin.top - margin.bottom;
 
     // calculate dimensions
     console.log('available width in px:', lineChartWidth);
@@ -160,88 +160,96 @@ onmouseover="ColorToClass('` + d + `')">` + d + `</div>`
 // COLOR MANAGEMENT
 
 // declare 2 arrays - array 1: 10 colors using color brewer; array 2: storage array for colors used
-let colors = ['#fb8072', '#8dd3c7','#ffffb3','#bebada','#80b1d3','#fdb462','#b3de69','#fccde5','#bc80bd','#ccebc5','#ffed6f']; //11
-let lockedWords = ['Traum', '','','','','','','','','','']; //11
+let colors = ['#8dd3c7','#ffffb3','#bebada','#80b1d3','#fdb462','#b3de69','#fccde5','#bc80bd','#ccebc5','#ffed6f'];
+let taken = [0,0,0,0,0,0,0,0,0,0];
+let word = ['','','','','','','','','',''];
+let locked = [0,0,0,0,0,0,0,0,0,0];
+//let lockedWords = ['','','','','','','','','',''];
 
-let colorTiles = ['#8dd3c7','#ffffb3','#bebada','#80b1d3','#fdb462','#b3de69','#fccde5','#bc80bd','#ccebc5','#ffed6f'];
-colorTiles.forEach((d)=> {
+
+colors.forEach((d)=> {
     document.getElementById('colorScale').innerHTML += `<div class="row listItem" style="background-color:` + d + `"></div>`
 
 });
 
 
 // declare function that assigns color to a class using a lookup function;
-color ='';
-
 function ColorToClass(className) {
 
-    // check if word is locked
-    if (lockedWords.includes(className)){
-        console.log("oh, it's locked", className);
-    }
-    else {
-        // if word is not locked find first color that is not used
-        for (let i = 0; i < lockedWords.length; ++i) {
-            if (lockedWords[i] ===''){
-                color = colors[i];
-                $("." + className)
-                    .css("fill", color)
-                    .css("background", color);
-                break;
-            }
-        }
-    }
+    console.log('checking whether to assign color');
+
+    let color = assignColor(className);
+
+    // assign color => only if not locked
+    $("." + className)
+        .css("fill", color)
+        .css("background", color);
+
 }
 
 
 // declare function that removes color from a class;
 function RemoveColorFromClass (className){
 
-    if (lockedWords.includes(className)){
-        console.log("oh, it's locked", className);
-    }
-    else {
-        $("." + className)
-            .css("fill", 'lightgrey')
-            .css("background", 'transparent');
+    // first, remove 'word' and 'taken', but only if that particular word isn't locked!
+    for (let i = 0; i < word.length; ++i) {
+
+        // remove that word from word-array and taken-array
+        if (word[i] === className && locked[i]===0){
+            console.log('removing');
+            word[i] = '';
+            taken[i] = 0;
+
+            $("." + className)
+                .css("fill", 'lightgrey')
+                .css("background", 'transparent');
+        }
+        else {
+            console.log("oh, it's locked", className)
+        }
+
     }
 }
+
+
+// declare lookup function for color
+function assignColor (className){
+    for (let i = 0; i < taken.length; ++i) {
+        if (taken[i] === 0){
+            word[i] = className;
+            taken[i] = 1;
+            console.log("word:", word);
+            console.log("taken:", taken);
+            console.log("locked:", locked);
+            return colors[i];
+        }
+    }
+}
+
 
 // the current word will appear in a color, as the hover effect will fire first, the idea is to check whether that
 // color is locked already.
 function lockColor (className, lockStatus){
 
-    // check if word is locked
-    if (lockedWords.includes(className)){
-        console.log("oh, it's already locked", className);
-        console.log("let's unlock it then");
+    // loop over all words and check if that current word is locked
+    for (let i = 0; i < word.length; ++i) {
 
-        // find position of that word and unlock that color
-        for (let i = 0; i < lockedWords.length; ++i) {
-            if (lockedWords[i]=== className){
 
-                // delete word from array
-                lockedWords[i] = '';
+        // get position of word
+        if (word[i] === className){
+            locked[i] = 1;
+            console.log("in locked function");
 
-                // assign base color to class
-                $("." + className)
-                    .css("fill", 'lightgrey')
-                    .css("background", 'transparent');
-                break;
-            }
-        }
 
-    }
+            // now assign color - however, before that you have to tell the system, that the current taken item is
+            // not yet taken
+            taken[i] = 0;
 
-    // if not locked yet, lock word and assign color
-    else {
-        for (let i = 0; i < lockedWords.length; ++i) {
-            if (lockedWords[i]===''){
-                ColorToClass(className);
-                lockedWords[i] = className;
-                console.log(lockedWords);
-                break;
-            }
+            console.log("word:", word);
+            console.log("taken:", taken);
+            console.log("locked:", locked);
+            console.log("lock color calls ColorToClass");
+            ColorToClass(className)
         }
     }
 }
