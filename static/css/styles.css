@@ -121,6 +121,26 @@ h3 {
     cursor: pointer;
 }
 
+.axis {
+    font-family: 'Libre Franklin', sans-serif;
+    font-weight: 300;
+    font-size: 10px;
+}
+
+.axis path,
+.axis line {
+    shape-rendering: crispEdges;
+}
+
+.x.axis path {
+    }
+
+.line {
+    fill: none;
+    stroke: steelblue;
+    stroke-width: 1.5px;
+}
+
 
 
 

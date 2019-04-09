@@ -49,8 +49,8 @@
     height: 100%;
     border: thin solid grey;
     border-radius: 5px;
-    background-image: url("../img/Matrix.jpg");
-    background-size: contain;
+    /*background-image: url("../img/Matrix.jpg");
+    */background-size: contain;
     background-repeat: no-repeat;
 }
 

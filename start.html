@@ -72,7 +72,7 @@
                                 </div>
                             </div>
                             <div class="row justify-content-center align-items-center" style="border-bottom: thin solid grey; height: 8%"><h2 >Popularity of Word over time</h2></div>
-                            <div class="row" style="height: 52%"><h3>Line graph</h3></div>
+                            <div class="row" id='lineChartSVG' style="height: 52%"></div>
                         </div>
 
                     </div>
@@ -95,6 +95,9 @@
                     <!-- overall row for Tab 2 --- !START HERE! -->
                     <div class="row" id="Tab3masterRow">
 
+                        <div class="col-3" style="height: 100%; background-color: lavender"><h2>Filter</h2></div>
+                        <div class="col-9" id="matrixSVG" style="height: 100%; border: thin solid red"></div>
+                        hello
                     </div>
                 </div>
 
@@ -122,13 +125,17 @@
         <!-- axios --> <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 
         <!-- adding d3.js and vis.js-->
-        <script src="js/libs/d3.min.js"></script>
+        <!--<script src="js/libs/d3.min.js"></script>-->
+        <script src="https://d3js.org/d3.v5.min.js"></script>
         <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/vis/4.21.0/vis.min.js"></script>
 
         <!-- OWN JAVASCRIPT FILES -->
         <script src="js/main.js"></script>
         <script src="js/TexTileVis.js"></script>
         <script src="js/corpus.js"></script>
+        <script src="js/lineChart.js"></script>
+        <!--<script src="js/matrix.js"></script>-->
+
 
         <script>$('.carousel').carousel({
             interval: false
