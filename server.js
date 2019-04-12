@@ -42,6 +42,12 @@ app.post('/corpus', (request, response) => {
 
 });
 
+
+// render grid.html
+app.get('/germ10ab',function(req,res){
+    res.sendFile(__dirname + '/TechGen.html');
+});
+
 /*
 
 let {PythonShell} = require('python-shell');

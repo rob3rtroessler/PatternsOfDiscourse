@@ -1,3 +1,11 @@
+//
+
+async function wrangleLineChartData() {
+    // what we have:
+    // target: {unbewusst: 0.01, Traum: 0.02, date: 18000101}
+
+    // TODO: First, get the words that we are interested in - they are stored in
+}
 
 // DATA
 let data = [
