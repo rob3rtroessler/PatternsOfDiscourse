@@ -16,7 +16,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 // render index.html
 app.get('/',function(req,res){
-    res.sendFile(__dirname + '/start.html');
+    res.sendFile(__dirname + '/index.html');
 });
 
 // render grid.html
@@ -27,6 +27,13 @@ app.get('/grid',function(req,res){
 // getting corpus data;
 app.post('/corpus', (request, response) => {
     console.log('received textIDs of selected texts from corpus:', request.body);
+
+    // TODO: get text ids + associated bodies of text
+    // stemitize take away roots + filler words -> lookup word, and (colocations) convert into nlp objects and create an
+    // array of 7 words before and 7. catch all words from standard output and write to array
+    // after every occurence of keyword
+    // 30 most common words in collective word environments + store in metadata information in environments + occurence
+    // count of those words + send back 
 
     // python action here!!
     console.log('spawning child - run async python script using argv[1] for textIDs? - store everything in JSON');
@@ -43,27 +50,10 @@ app.post('/corpus', (request, response) => {
 });
 
 
-// render grid.html
-app.get('/germ10ab',function(req,res){
-    res.sendFile(__dirname + '/TechGen.html');
-});
-
-/*
-
-let {PythonShell} = require('python-shell');
-
-let pyshell = new PythonShell('scrispt.py');
-
-
-*/
-
-
-
-
 let port = process.env.PORT;
 if (port == null || port == "") {
     port = 8000;
 }
 app.listen(port);
 
-console.log("DiscourVis is running");
+console.log("TexTile is running");

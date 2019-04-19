@@ -1,10 +1,14 @@
 // declare variable to store wrangled data globally
+let rawData = [];
 let WrangledTexTileData =[];
 
 
 
 function TexTileDataWrangling(data){
 
+
+    rawData = data;
+    console.log('beginning', rawData);
     // first, clear WrangledTexTileData
     WrangledTexTileData =[];
 
@@ -204,7 +208,7 @@ function RemoveColorFromClass (className){
 
 // the current word will appear in a color, as the hover effect will fire first, the idea is to check whether that
 // color is locked already.
-function lockColor (className, lockStatus){
+function lockColor (className){
 
     // check if word is locked
     if (lockedWords.includes(className)){
@@ -225,7 +229,6 @@ function lockColor (className, lockStatus){
                 break;
             }
         }
-
     }
 
     // if not locked yet, lock word and assign color
@@ -234,7 +237,9 @@ function lockColor (className, lockStatus){
             if (lockedWords[i]===''){
                 ColorToClass(className);
                 lockedWords[i] = className;
-                console.log(lockedWords);
+
+                console.log('recalculating data for line chart -> calling wrangleLineChartData');
+                wrangleLineChartData(lockedWords, rawData);
                 break;
             }
         }

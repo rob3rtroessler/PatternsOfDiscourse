@@ -1,11 +1,52 @@
-//
+let tmpLineChartData = [];
 
-async function wrangleLineChartData() {
-    // what we have:
-    // target: {unbewusst: 0.01, Traum: 0.02, date: 18000101}
+async function wrangleLineChartData(ArrayOfLockedWords, myData) {
 
-    // TODO: First, get the words that we are interested in - they are stored in
+    // reset tmpLineChartData for each instance you run wrangleLineChartData()
+    tmpLineChartData = [];
+
+    // grab currently lockedWords and store them in 'selected'
+    let selected = lockedWords;
+
+    // Analyze the data by looping through the corpus.
+    myData.data.data.forEach( d => {
+
+        // for each text in the corpus, create a temporary, empty data structure
+        let tmpDict = {};
+        selected.forEach(d => {
+            if (d !== ""){
+                tmpDict[d] = 0;
+            }
+        });
+
+        // next, loop over all relevant environments that were found in that text
+        d.environments.forEach( environment => {
+
+            // for all the words in the selected Array test the following:
+            selected.forEach( word => {
+
+                // if word in environment
+                if (environment.includes(word)){
+
+                    // tick up accordingly
+                    tmpDict[word] += 1;
+                }
+            });
+        });
+
+        // add time to data entry
+        tmpDict['date'] = d.year + '0101';
+
+        // adding tmpDict to tmpLineChartData
+        tmpLineChartData.push(tmpDict);
+        });
+
+    console.log(tmpLineChartData);
+    updateLineChart (tmpLineChartData);
 }
+
+
+
 
 // DATA
 let data = [
@@ -43,7 +84,7 @@ let line = d3.line()
         return x(d.date);
     })
     .y(function(d) {
-        return y(d.temperature);
+        return y(d.value);
     })
     .curve(d3.curveMonotoneX);
 
@@ -58,7 +99,9 @@ let svg = d3.select("#lineChartSVG").append("svg")
 
 // UPDATE
 function updateLineChart (data) {
-    console.log(data);
+
+    let color = d3.scaleOrdinal(colors);
+
     color.domain(d3.keys(data[0]).filter(function(key) {
         return key !== "date";
     }));
@@ -74,25 +117,20 @@ function updateLineChart (data) {
             values: data.map(function(d) {
                 return {
                     date: d.date,
-                    temperature: +d[name]
+                    value: +d[name]
                 };
             })
         };
     });
-    console.log(cities);
+
     x.domain(d3.extent(data, function(d) {
         return d.date;
     }));
 
-    y.domain([0
-        /*d3.min(cities, function(c) {
-            return d3.min(c.values, function(v) {
-                return v.temperature;
-            });
-        })*/,
+    y.domain([0,
         d3.max(cities, function(c) {
             return d3.max(c.values, function(v) {
-                return v.temperature;
+                return v.value;
             });
         })
     ]);
@@ -121,11 +159,15 @@ function updateLineChart (data) {
         .style('stroke', 'grey')
         .text("hit/100 words");
 
+
 // prepare paths
     let city = svg.selectAll(".city")
         .data(cities)
-        .enter().append("g")
+        .enter()
+        .append("g")
         .attr("class", "city");
+
+    city.exit().remove();
 
     city.append("path")
         .attr("class", "line")
@@ -133,11 +175,7 @@ function updateLineChart (data) {
             return line(d.values);
         })
         .style("stroke", function(d,i) {
-            console.log('we can access the word, so we can look up the color; alternatively, we can pass the words in' +
-                ' the correct order and just take the color', d);
-            return colors[i+1];
-            //return color(d.name);
-
+            return colors[i]; //TODO: If this doesn't work, we can also look up the color for the current word.
         });
 
 // looking up the last datum and adding text at that position
@@ -149,13 +187,15 @@ function updateLineChart (data) {
             };
         })
         .attr("transform", function(d) {
-            return "translate(" + x(d.value.date) + "," + y(d.value.temperature) + ")";
+            return "translate(" + x(d.value.date) + "," + y(d.value.value) + ")";
         })
         .attr("x", 3)
         .attr("dy", ".35em")
         .text(function(d) {
             return d.name;
         });
+
+
 
 // append layer for mouse over effect
     let mouseG = svg.append("g")
@@ -246,5 +286,3 @@ function updateLineChart (data) {
                 });
         });
 }
-
-updateLineChart(data);
