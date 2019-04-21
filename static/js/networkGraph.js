@@ -1,3 +1,14 @@
+// wrangle data
+
+
+// TODO: loop through all arrays and create nodes. then create edges
+function wrangleNetworkData () {
+    console.log('test');
+    console.log('network running never', WrangledTexTileData);
+}
+// nodes: jedes unique word
+
+
 
 // putting everything inside a function so that multiple examples can be visualized
 function DrawNetwork(){

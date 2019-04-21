@@ -37,6 +37,7 @@ function initTexTileModule(data){
         .then( CreateProminentTileList (data.data.metadata.topwords))    // top words in the environment for the
         .then( wrangleLineChartData (lockedWords, data) )    // lineChart data should take info from lockedWords from
     // searched word should be computed in python and passed into the JSON file's 'metadata'.
+        .then( console.log('fertig') )
 }
 
 
