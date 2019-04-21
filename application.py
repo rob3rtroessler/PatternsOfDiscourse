@@ -72,9 +72,9 @@ def send_corpus_json():
     json_url = os.path.join(path_new, "static/data", "data.json")
 
     # load json and jsonify the data to send it back to the server
-    raw_data = json.load(open("static\data\data.json", 'r'))
+    #raw_data = json.load(open("static\data\data.json", 'r'))
 
-    #raw_data = json.load(open(json_url, 'r'))
+    raw_data = json.load(open(json_url, 'r'))
     data = jsonify(raw_data)
 
     return data
