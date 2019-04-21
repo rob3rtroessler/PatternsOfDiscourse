@@ -73,8 +73,8 @@ def send_corpus_json():
 
     # load json and jsonify the data to send it back to the server
     #raw_data = json.load(open("static\data\data.json", 'r'))
-    
+
     raw_data = json.load(open(json_url, 'r'))
     data = jsonify(raw_data)
 
-    return data
+    return json_url
