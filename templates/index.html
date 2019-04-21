@@ -2,23 +2,19 @@
     <head>
         <title>Patterns Of Discourse</title>
 
-
-
         <!-- google font -->
         <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto:300,400,500,700" type="text/css">
         <link href="https://fonts.googleapis.com/css?family=Libre+Franklin:200,200i,300,300i,400,400i,500,500i" rel="stylesheet">
 
         <!-- bootrap css -->
-        <link rel="stylesheet" href="css/bootstrap.css">
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.css') }}">
 
         <!-- own css -->
-        <link rel="stylesheet" href="css/styles.css">
-        <link rel="stylesheet" href="css/grid.css">
-        <link rel="stylesheet" href="css/TexTile.css">
-
-
-
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/grid.css') }}">
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/TexTile.css') }}">
     </head>
+
 
     <body>
         <!-- PATTERNS OF DISCOURSE -->
@@ -121,7 +117,7 @@
         <!-- JAVASCRIPT LIBRARIES -->
         <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-        <script src="js/libs/bootstrap.min.js"></script>
+        <script src="{{ url_for('static', filename='js/libs/bootstrap.min.js') }}"></script>
         <!-- axios --> <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 
         <!-- adding d3.js and vis.js-->
@@ -130,10 +126,11 @@
         <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/vis/4.21.0/vis.min.js"></script>
 
         <!-- OWN JAVASCRIPT FILES -->
-        <script src="js/main.js"></script>
-        <script src="js/TexTileVis.js"></script>
-        <script src="js/corpus.js"></script>
-        <script src="js/lineChart.js"></script>
+        <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+
+        <script src="{{ url_for('static', filename='js/TexTileVis.js') }}"></script>
+        <script src="{{ url_for('static', filename='js/corpus.js') }}"></script>
+        <script src="{{ url_for('static', filename='js/lineChart.js') }}"></script>
         <!--<script src="js/matrix.js"></script>-->
 
 
