@@ -1,12 +1,125 @@
 // wrangle data
 
+let nodes = [];
+let edges = [];
 
-// TODO: loop through all arrays and create nodes. then create edges
 function wrangleNetworkData () {
-    console.log('test');
-    console.log('network running never', WrangledTexTileData);
+
+
+    let tmpDistinctWords = {};
+
+    // create dict with all unique words plus the # of occurences
+    WrangledTexTileData.forEach(
+        environment => {
+            environment.forEach(
+                word => {
+                    if ( word in tmpDistinctWords ){
+                        tmpDistinctWords[word] += 1;
+                    }
+                    else {
+                        tmpDistinctWords[word] = 0;
+                    }
+                }
+            )
+        }
+    );
+
+    console.log(tmpDistinctWords);
+
+    // reset nodes
+    nodes = [];
+    let id = 0;
+
+    // fill nodes
+    for (key in tmpDistinctWords){
+        let tmpObj= {
+            "id": key,
+            "label": key,
+            "value": tmpDistinctWords[key]
+        };
+        nodes.push(tmpObj);
+        id += 1;
+    }
+
+    console.log(nodes);
+
+
+    // create edges
+    tmpDict = {};
+    edges = [];
+    let count = 0;
+
+    WrangledTexTileData.forEach(
+        environment => {
+            console.log('lets start', environment);
+            environment.forEach(
+                (word, i) => {
+
+                    // take that word.. then combine it with all other words from that environment
+                    for (j = i + 1; j < environment.length ; j++){
+                        //console.log(i, word, environment[j]);
+
+                        // create new key with edge info
+                        let tmpKey = word + 'To' + environment[j];
+                        let tmpKeyReverse = environment[j] + 'To' + word;
+
+                        // if tmpKey exists, or else if it exists 'reversed' + 1,
+                        if ( tmpKey in tmpDict){
+                            tmpDict[tmpKey] += 1;
+                        }
+                        else if(tmpKeyReverse in tmpDict){
+                            tmpDict[tmpKeyReverse] += 1;
+                        }
+                        // else create new key and initiate with 1
+                        else {
+                            tmpDict[tmpKey] = 1;
+                            count += 1;
+                        }
+                    }
+
+                }
+            )
+        }
+    );
+
+    // have a look at the current edge info
+    console.log (count, tmpDict);
+
+    // fill edges
+    for (key in tmpDict){
+        let tmpObj= {
+            "from": key.split('To')[0],
+            "to": key.split('To')[1]
+            //"value": tmpDict[key]
+        };
+        edges.push(tmpObj);
+    }
+
+    console.log(edges);
+
+
+    // create an array with edges
+/*    var edges = new vis.DataSet([
+        {from: 1, to: 3},
+        {from: 1, to: 2},
+        {from: 2, to: 4},
+        {from: 2, to: 5}
+    ]);*/
+
+    // create a network
+    var container = document.getElementById('NetworkGraphDiv');
+
+    // provide the data in the vis format
+    var data = {
+        nodes: nodes,
+        edges: edges
+    };
+    var options = {};
+
+    // initialize your network!
+    var network = new vis.Network(container, data, options);
 }
-// nodes: jedes unique word
+
 
 
 
