@@ -73,5 +73,4 @@ def send_corpus_json():
     raw_data = json.load(open("static\data\data.json", 'r'))
     data = jsonify(raw_data)
 
-    test = 'test'
     return data
