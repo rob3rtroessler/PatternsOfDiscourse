@@ -33,7 +33,7 @@ app.post('/corpus', (request, response) => {
     // array of 7 words before and 7. catch all words from standard output and write to array
     // after every occurence of keyword
     // 30 most common words in collective word environments + store in metadata information in environments + occurence
-    // count of those words + send back 
+    // count of those words + send back
 
     // python action here!!
     console.log('spawning child - run async python script using argv[1] for textIDs? - store everything in JSON');
