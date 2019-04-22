@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Co-ocurrence matrix</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://d3js.org/d3.v4.min.js"></script>
+    <link href="http://fonts.googleapis.com/css?family=Sintony|Dancing+Script:900" rel="stylesheet" type="text/css" />
+    <style>
+        .background{
+            fill: #eee;
+        }
+        .label {
+            font: 300 12px "Helvetica Neue", Helvetica, Arial, sans-serif;
+            fill: #2f2f2f;
+        }
+        div.tooltip {
+            position: absolute;
+            text-align: center;
+            width: 400px;
+            border-radius: 5px;
+            padding: 2px;
+            background: white;
+            border: 0px;
+            pointer-events: none;
+            box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+            transition: 0.3s;
+        }
+        text.active {
+            fill: red;
+            font-weight: bold;
+        }
+        line {
+            stroke: #fff;
+        }
+        .container {
+            display: grid;
+            width: 1000px;
+            grid-template-areas: "head head"
+            "intro intro"
+            "graph aside";
+            grid-template-columns: auto auto;
+            justify-items: center;
+            margin: auto;
+        }
+        graph {
+            grid-area: graph;
+        }
+        aside {
+            grid-area: aside;
+            margin: 5px;
+            margin-top: 280px;
+        }
+        body {
+            text-align: center;
+        }
+        #title {
+            font-family: 'Sintony', sans-serif;
+            font-weight: 200;
+            font-size: 38px;
+            margin-top: 45px;
+            margin-bottom: 0px;
+        }
+        #subtitle {
+            font-family: 'Sintony', sans-serif;
+            font-weight: 300;
+            font-size: 13px;
+            margin-top: 5px;
+            margin-bottom: 55px;
+            color: #e04556;
+        }
+        h1 {
+            font-family: 'Sintony', sans-serif;
+            font-weight: 700;
+            line-height: 51px;
+            font-size: 46px;
+            text-transform: uppercase;
+            margin: 0 0 23px 0;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <graph></graph>
+
+    <aside >
+        <p>Ordem: <select id="order">
+            <option value="name">Alfabética</option>
+            <option value="count">por Frequência</option>
+            <option value="group">por Área</option>
+        </select>
+    </aside>
+
+    <script>
+        let testdata = {"nodes": [
+            {"group": "humanas", "index": 0, "name": "ADMINISTRAÇÃO"},
+                {"group": "humanas", "index": 1, "name": "ANTROPOLOGIA"},
+                {"group": "humanas", "index": 2, "name": "ARQUEOLOGIA"},
+                {"group": "biologicas", "index": 3, "name": "BIOLOGIA ANIMAL"},
+                {"group": "saude", "index": 4, "name": "BIOLOGIA APLICADA À SAÚDE"},
+                {"group": "biologicas", "index": 5, "name": "BIOLOGIA VEGETAL"},
+                {"group": "biologicas", "index": 6, "name": "BIOQUÍMICA E FISIOLOGIA"},
+                {"group": "exatas", "index": 7, "name": "BIOTECNOLOGIA INDUSTRIAL"},
+                {"group": "saude", "index": 8, "name": "CIRURGIA"},
+                {"group": "exatas", "index": 9, "name": "CIÊNCIA DA COMPUTAÇÃO"},
+                {"group": "exatas", "index": 10, "name": "CIÊNCIA DA INFORMAÇÃO"},
+                {"group": "humanas", "index": 11, "name": "CIÊNCIA POLÍTICA"},
+                {"group": "biologicas", "index": 12, "name": "CIÊNCIAS BIOLÓGICAS"},
+                {"group": "humanas", "index": 13, "name": "CIÊNCIAS CONTÁBEIS"},
+                {"group": "saude", "index": 14, "name": "CIÊNCIAS DA SAÚDE"},
+                {"group": "biologicas", "index": 15, "name": "CIÊNCIAS FARMACÊUTICAS"},
+                {"group": "exatas",
+                    "index": 16,
+                    "name": "CIÊNCIAS GEODÉSICAS E TECNOLOGIAS DA GEOINFORMAÇÃO"},
+                {"group": "humanas", "index": 17, "name": "COMUNICAÇÃO"},
+                {"group": "humanas", "index": 18, "name": "DESENVOLVIMENTO E MEIO AMBIENTE"},
+                {"group": "humanas", "index": 19, "name": "DESENVOLVIMENTO URBANO"},
+                {"group": "humanas", "index": 20, "name": "DESIGN"},
+                {"group": "humanas", "index": 21, "name": "DIREITO"},
+                {"group": "humanas", "index": 22, "name": "DIREITOS HUMANOS"},
+                {"group": "humanas", "index": 23, "name": "ECONOMIA"},
+                {"group": "humanas", "index": 24, "name": "ECONOMIA / CAA"},
+                {"group": "educacao", "index": 25, "name": "EDUCAÇÃO"},
+                {"group": "educacao", "index": 26, "name": "EDUCAÇÃO CONTEMPORÂNEA / CAA"},
+                {"group": "educacao",
+                    "index": 27,
+                    "name": "EDUCAÇÃO MATEMÁTICA E TECNOLÓGICAS"},
+                {"group": "saude", "index": 28, "name": "ENFERMAGEM"},
+                {"group": "exatas", "index": 29, "name": "ENGENHARIA BIOMÉDICA"},
+                {"group": "exatas", "index": 30, "name": "ENGENHARIA CIVIL"},
+                {"group": "exatas", "index": 31, "name": "ENGENHARIA CIVIL E AMBIENTAL"},
+                {"group": "exatas", "index": 32, "name": "ENGENHARIA DE PRODUÇÃO"},
+                {"group": "exatas", "index": 33, "name": "ENGENHARIA DE PRODUÇÃO / CAA"},
+                {"group": "exatas", "index": 34, "name": "ENGENHARIA ELÉTRICA"},
+                {"group": "exatas", "index": 35, "name": "ENGENHARIA MECÂNICA"},
+                {"group": "exatas", "index": 36, "name": "ENGENHARIA MINERAL"},
+                {"group": "exatas", "index": 37, "name": "ENGENHARIA QUÍMICA"},
+                {"group": "humanas", "index": 38, "name": "ERGONOMIA"},
+                {"group": "exatas", "index": 39, "name": "ESTATÍSTICA"},
+                {"group": "humanas", "index": 40, "name": "FILOSOFIA"},
+                {"group": "saude", "index": 41, "name": "FISIOTERAPIA"},
+                {"group": "exatas", "index": 42, "name": "FÍSICA"},
+                {"group": "humanas", "index": 43, "name": "GENÉTICA"},
+                {"group": "exatas", "index": 44, "name": "GEOCIÊNCIAS"},
+                {"group": "humanas", "index": 45, "name": "GEOGRAFIA"},
+                {"group": "humanas", "index": 46, "name": "GERONTOLOGIA"},
+                {"group": "saude", "index": 47, "name": "GESTÃO E ECONOMIA DA SAÚDE"},
+                {"group": "humanas",
+                    "index": 48,
+                    "name": "GESTÃO PÚBLICA PARA O DESENVOLVIMENTO DO NORDESTE"},
+                {"group": "humanas", "index": 49, "name": "HISTÓRIA"},
+                {"group": "saude", "index": 50, "name": "INOVAÇÃO TERAPÊUTICA"},
+                {"group": "linguagem", "index": 51, "name": "LETRAS (PROFLETRAS)"},
+                {"group": "linguagem", "index": 52, "name": "LINGUÍSTICA"},
+                {"group": "exatas", "index": 53, "name": "MATEMÁTICA"},
+                {"group": "exatas", "index": 54, "name": "MATERIAIS"},
+                {"group": "saude", "index": 55, "name": "MEDICINA TROPICAL"},
+                {"group": "humanas",
+                    "index": 56,
+                    "name": "NEUROPSIQUIATRIA E CIÊNCIA DO COMPORTAMENTO"},
+                {"group": "saude", "index": 57, "name": "NUTRIÇÃO"},
+                {"group": "saude",
+                    "index": 58,
+                    "name": "NUTRIÇÃO, ATIVIDADE FÍSICA E PLASTICIDADE FENOTÍPICA"},
+                {"group": "exatas", "index": 59, "name": "OCEANOGRAFIA"},
+                {"group": "saude", "index": 60, "name": "ODONTOLOGIA"},
+                {"group": "saude", "index": 61, "name": "PATOLOGIA"},
+                {"group": "humanas", "index": 62, "name": "POLÍTICAS PÚBLICAS"},
+                {"group": "humanas", "index": 63, "name": "PSICOLOGIA"},
+                {"group": "linguagem", "index": 64, "name": "PSICOLOGIA COGNITIVA"},
+                {"group": "exatas", "index": 65, "name": "QUÍMICA"},
+                {"group": "saude", "index": 66, "name": "SAÚDE COLETIVA"},
+                {"group": "saude", "index": 67, "name": "SAÚDE DA COMUNICAÇÃO HUMANA"},
+                {"group": "humanas",
+                    "index": 68,
+                    "name": "SAÚDE DA CRIANÇA E DO ADOLESCENTE"},
+                {"group": "saude", "index": 69, "name": "SAÚDE HUMANA E MEIO AMBIENTE"},
+                {"group": "humanas", "index": 70, "name": "SERVIÇO SOCIAL"},
+                {"group": "humanas", "index": 71, "name": "SOCIOLOGIA"},
+                {"group": "exatas",
+                    "index": 72,
+                    "name": "TECNOLOGIAS ENERGÉTICAS E NUCLEARES"}
+                ]
+
+            ,"links":[
+                {"source": 0, "target": 0, "value": 0.0}, {"source": 0, "target": 1, "value": 2.0},
+                {"source": 0, "target": 2, "value": 1.0}, {"source": 0, "target": 3, "value": 3.0},
+                {"source": 0, "target": 4, "value": 1.0}, {"source": 0, "target": 5, "value": 2.0},
+                {"source": 0, "target": 6, "value": 0.0}, {"source": 0, "target": 7, "value": 2.0},
+                {"source": 0, "target": 8, "value": 1.0}, {"source": 0, "target": 9, "value": 24.0},
+                {"source": 0, "target": 10, "value": 9.0}, {"source": 0, "target": 11, "value": 8.0},
+                {"source": 0, "target": 12, "value": 6.0}, {"source": 0, "target": 13, "value": 11.0},
+                {"source": 0, "target": 14, "value": 2.0}, {"source": 0, "target": 15, "value": 2.0},
+                {"source": 0, "target": 16, "value": 2.0}, {"source": 0, "target": 17, "value": 8.0},
+                {"source": 0, "target": 18, "value": 4.0}, {"source": 0, "target": 19, "value": 4.0},
+                {"source": 0, "target": 20, "value": 3.0}, {"source": 0, "target": 21, "value": 4.0},
+                {"source": 0, "target": 22, "value": 5.0}, {"source": 0, "target": 23, "value": 2.0},
+                {"source": 0, "target": 24, "value": 3.0}, {"source": 0, "target": 25, "value": 24.0},
+                {"source": 0, "target": 26, "value": 9.0}, {"source": 0, "target": 27, "value": 8.0},
+                {"source": 0, "target": 28, "value": 3.0}, {"source": 0, "target": 29, "value": 0.0},
+                {"source": 0, "target": 30, "value": 9.0}, {"source": 0, "target": 31, "value": 0.0},
+                {"source": 0, "target": 32, "value": 15.0}, {"source": 0, "target": 33, "value": 7.0},
+                {"source": 0, "target": 34, "value": 6.0}, {"source": 0, "target": 35, "value": 6.0},
+                {"source": 0, "target": 36, "value": 2.0}, {"source": 0, "target": 37, "value": 3.0},
+                {"source": 0, "target": 38, "value": 8.0}, {"source": 0, "target": 39, "value": 2.0},
+                {"source": 0, "target": 40, "value": 1.0}, {"source": 0, "target": 41, "value": 1.0},
+                {"source": 0, "target": 42, "value": 4.0}, {"source": 0, "target": 43, "value": 1.0},
+                {"source": 0, "target": 44, "value": 0.0}, {"source": 0, "target": 45, "value": 9.0},
+                {"source": 0, "target": 46, "value": 5.0}, {"source": 0, "target": 47, "value": 4.0},
+                {"source": 0, "target": 48, "value": 7.0}, {"source": 0, "target": 49, "value": 9.0},
+                {"source": 0, "target": 50, "value": 0.0}, {"source": 0, "target": 51, "value": 1.0},
+                {"source": 0, "target": 52, "value": 13.0}, {"source": 0, "target": 53, "value": 0.0},
+                {"source": 0, "target": 54, "value": 0.0}, {"source": 0, "target": 55, "value": 0.0},
+                {"source": 0, "target": 56, "value": 9.0}, {"source": 0, "target": 57, "value": 5.0},
+                {"source": 0, "target": 58, "value": 0.0}, {"source": 0, "target": 59, "value": 2.0},
+                {"source": 0, "target": 60, "value": 0.0}, {"source": 0, "target": 61, "value": 0.0},
+                {"source": 0, "target": 62, "value": 8.0}, {"source": 0, "target": 63, "value": 8.0},
+                {"source": 0, "target": 64, "value": 6.0}, {"source": 0, "target": 65, "value": 0.0},
+                {"source": 0, "target": 66, "value": 2.0}, {"source": 0, "target": 67, "value": 2.0},
+                {"source": 0, "target": 68, "value": 11.0}, {"source": 0, "target": 69, "value": 1.0},
+                {"source": 0, "target": 70, "value": 5.0}, {"source": 0, "target": 71, "value": 4.0},
+                {"source": 0, "target": 72, "value": 8.0},
+                {"source": 3, "target": 72, "value": 18.0}
+                ]};
+
+        /* utils */
+
+        var groupToInt = function(area) {
+            if(area == "exatas"){
+                return 1;
+            }else if (area == "educacao"){
+                return 2;
+            }else if (area == "humanas"){
+                return 3;
+            }else if (area == "biologicas"){
+                return 4;
+            }else if (area == "linguagem"){
+                return 5;
+            }else if (area == "saude"){
+                return 6;
+            }
+        };
+        var intToGroup = function(area) {
+            if(area == 1){
+                return "exatas";
+            }else if (area == 2){
+                return "educacao";
+            }else if (area == 3){
+                return "humanas";
+            }else if (area == 4){
+                return "biologicas";
+            }else if (area == 5){
+                return "linguagem";
+            }else if (area == 6){
+                return "saude";
+            }
+        };
+        function capitalize_Words(str){
+            return str.replace(/\w\S*/g, function(txt){return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();});
+        }
+
+        // define dimensions && margins
+        let matrixMargin = {
+                top: 285,
+                right: 0,
+                bottom: 0,
+                left: 285
+            },
+            matrixWidth = 700,
+            matrixHeight = 700;
+
+        // apply margin conventions
+        let matrixSvg = d3.select("graph").append("svg")
+            .attr("width", matrixWidth + matrixMargin.left + matrixMargin.right)
+            .attr("height", matrixHeight + matrixMargin.top + matrixMargin.bottom)
+            .append("g")
+            .attr("transform", "translate(" + matrixMargin.left + "," + matrixMargin.top + ")");
+
+        // background
+        matrixSvg.append("rect")
+            .attr("class", "background")
+            .attr("width", matrixWidth)
+            .attr("height", matrixHeight);
+
+
+            data = testdata;
+
+        let matrix = [];
+        let matrixNodes = data.nodes;
+        let total_items = matrixNodes.length;
+
+        // scales
+        let matrixScale = d3.scaleBand().range([0, matrixWidth]).domain(d3.range(total_items));
+        let opacityScale = d3.scaleLinear().domain([0, 10]).range([0.3, 1.0]).clamp(true);
+        let colorScale = d3.scaleOrdinal(d3.schemeCategory20);
+
+        console.log('nodes:',matrixNodes);
+
+        // Create rows for the matrix
+        matrixNodes.forEach(function(node) {
+            node.count = 0;
+            node.group = groupToInt(node.group);
+            matrix[node.index] = d3.range(total_items).map(item_index => {
+                return {
+                    x: item_index,
+                    y: node.index,
+                    z: 0
+                };
+            });
+        });
+
+
+        console.log('nodes after:',matrix);
+
+        // Fill matrix with data from links and count how many times each item appears
+            data.links.forEach(function(link) {
+                matrix[link.source][link.target].z += link.value;
+                matrix[link.target][link.source].z += link.value;
+                matrixNodes[link.source].count += link.value;
+                matrixNodes[link.target].count += link.value;
+            });
+            // Draw each row (translating the y coordinate)
+            let rows = matrixSvg.selectAll(".row")
+                .data(matrix)
+                .enter().append("g")
+                .attr("class", "row")
+                .attr("transform", (d, i) => {
+                    return "translate(0," + matrixScale(i) + ")";
+                });
+            let squares = rows.selectAll(".cell")
+                .data(d => d.filter(item => item.z > 0))
+                .enter().append("rect")
+                .attr("class", "cell")
+                .attr("x", d => matrixScale(d.x))
+                .attr("width", matrixScale.bandwidth())
+                .attr("height", matrixScale.bandwidth())
+                .style("fill-opacity", d => opacityScale(d.z)).style("fill", d => {
+                    return matrixNodes[d.x].group == matrixNodes[d.y].group ? colorScale(matrixNodes[d.x].group) : "grey";
+                })
+                .on("mouseover", mouseover)
+                .on("mouseout", mouseout);
+            let columns = matrixSvg.selectAll(".column")
+                .data(matrix)
+                .enter().append("g")
+                .attr("class", "column")
+                .attr("transform", (d, i) => {
+                    return "translate(" + matrixScale(i) + ")rotate(-90)";
+                });
+            rows.append("text")
+                .attr("class", "label")
+                .attr("x", -5)
+                .attr("y", matrixScale.bandwidth() / 2)
+                .attr("dy", ".32em")
+                .attr("text-anchor", "end")
+                .text((d, i) => capitalize_Words(matrixNodes[i].name));
+            columns.append("text")
+                .attr("class", "label")
+                .attr("y", 100)
+                .attr("y", matrixScale.bandwidth() / 2)
+                .attr("dy", ".32em")
+                .attr("text-anchor", "start")
+                .text((d, i) => capitalize_Words(matrixNodes[i].name));
+
+            // Precompute the orders.
+            let orders = {
+                name: d3.range(total_items).sort((a, b) => {
+                    return d3.ascending(matrixNodes[a].name, matrixNodes[b].name);
+                }),
+                count: d3.range(total_items).sort((a, b) => {
+                    return matrixNodes[b].count - matrixNodes[a].count;
+                }),
+                group: d3.range(total_items).sort((a, b) => {
+                    return matrixNodes[b].group - matrixNodes[a].group;
+                })
+            };
+            d3.select("#order").on("change", function() {
+                changeOrder(this.value);
+            });
+            function changeOrder(value) {
+                matrixScale.domain(orders[value]);
+                let t = matrixSvg.transition().duration(2000);
+                t.selectAll(".row")
+                    .delay((d, i) => matrixScale(i) * 4)
+                    .attr("transform", function(d, i) {
+                        return "translate(0," + matrixScale(i) + ")";
+                    })
+                    .selectAll(".cell")
+                    .delay(d => matrixScale(d.x) * 4)
+                    .attr("x", d => matrixScale(d.x));
+                t.selectAll(".column")
+                    .delay((d, i) => matrixScale(i) * 4)
+                    .attr("transform", (d, i) => "translate(" + matrixScale(i) + ")rotate(-90)");
+            }
+            rows.append("line")
+                .attr("x2", matrixWidth);
+            columns.append("line")
+                .attr("x1", -matrixWidth);
+            let tooltip = d3.select("body")
+                .append("div")
+                .attr("class", "tooltip")
+                .style("opacity", 0);
+            function mouseover(p) {
+                d3.selectAll(".row text").classed("active", (d, i) => {
+                    return i == p.y;
+                });
+                d3.selectAll(".column text").classed("active", (d, i) => {
+                    return i == p.x;
+                });
+                tooltip.transition().duration(200).style("opacity", .9);
+                tooltip.html(capitalize_Words(matrixNodes[p.y].name) + " [" + intToGroup(matrixNodes[p.y].group) + "]</br>" +
+                    capitalize_Words(matrixNodes[p.x].name) + " [" + intToGroup(matrixNodes[p.x].group) + "]</br>" +
+                    p.z + " trabalhos relacionados")
+                    .style("left", (d3.event.pageX + 30) + "px")
+                    .style("top", (d3.event.pageY - 50) + "px");
+            }
+            function mouseout() {
+                d3.selectAll("text").classed("active", false);
+                tooltip.transition().duration(500).style("opacity", 0);
+            }
+
+
+    </script>
+</div>
+</body>
+</html>

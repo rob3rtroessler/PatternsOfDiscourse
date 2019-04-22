@@ -1,428 +1,328 @@
-let margin = {top: 150, right: 0, bottom: 10, left: 150},
-    width = $("#FabricVisContainer").width(),
-    height = width,
-    graph = {"nodes" : [], "links" : [] };
+let testdata = {"nodes": [
+        {"group": "humanas", "index": 0, "name": "ADMINISTRAÇÃO"},
+        {"group": "humanas", "index": 1, "name": "ANTROPOLOGIA"},
+        {"group": "humanas", "index": 2, "name": "ARQUEOLOGIA"},
+        {"group": "biologicas", "index": 3, "name": "BIOLOGIA ANIMAL"},
+        {"group": "saude", "index": 4, "name": "BIOLOGIA APLICADA À SAÚDE"},
+        {"group": "biologicas", "index": 5, "name": "BIOLOGIA VEGETAL"},
+        {"group": "biologicas", "index": 6, "name": "BIOQUÍMICA E FISIOLOGIA"},
+        {"group": "exatas", "index": 7, "name": "BIOTECNOLOGIA INDUSTRIAL"},
+        {"group": "saude", "index": 8, "name": "CIRURGIA"},
+        {"group": "exatas", "index": 9, "name": "CIÊNCIA DA COMPUTAÇÃO"},
+        {"group": "exatas", "index": 10, "name": "CIÊNCIA DA INFORMAÇÃO"},
+        {"group": "humanas", "index": 11, "name": "CIÊNCIA POLÍTICA"},
+        {"group": "biologicas", "index": 12, "name": "CIÊNCIAS BIOLÓGICAS"},
+        {"group": "humanas", "index": 13, "name": "CIÊNCIAS CONTÁBEIS"},
+        {"group": "saude", "index": 14, "name": "CIÊNCIAS DA SAÚDE"},
+        {"group": "biologicas", "index": 15, "name": "CIÊNCIAS FARMACÊUTICAS"},
+        {"group": "exatas",
+            "index": 16,
+            "name": "CIÊNCIAS GEODÉSICAS E TECNOLOGIAS DA GEOINFORMAÇÃO"},
+        {"group": "humanas", "index": 17, "name": "COMUNICAÇÃO"},
+        {"group": "humanas", "index": 18, "name": "DESENVOLVIMENTO E MEIO AMBIENTE"},
+        {"group": "humanas", "index": 19, "name": "DESENVOLVIMENTO URBANO"},
+        {"group": "humanas", "index": 20, "name": "DESIGN"},
+        {"group": "humanas", "index": 21, "name": "DIREITO"},
+        {"group": "humanas", "index": 22, "name": "DIREITOS HUMANOS"},
+        {"group": "humanas", "index": 23, "name": "ECONOMIA"},
+        {"group": "humanas", "index": 24, "name": "ECONOMIA / CAA"},
+        {"group": "educacao", "index": 25, "name": "EDUCAÇÃO"},
+        {"group": "educacao", "index": 26, "name": "EDUCAÇÃO CONTEMPORÂNEA / CAA"},
+        {"group": "educacao",
+            "index": 27,
+            "name": "EDUCAÇÃO MATEMÁTICA E TECNOLÓGICAS"},
+        {"group": "saude", "index": 28, "name": "ENFERMAGEM"},
+        {"group": "exatas", "index": 29, "name": "ENGENHARIA BIOMÉDICA"},
+        {"group": "exatas", "index": 30, "name": "ENGENHARIA CIVIL"},
+        {"group": "exatas", "index": 31, "name": "ENGENHARIA CIVIL E AMBIENTAL"},
+        {"group": "exatas", "index": 32, "name": "ENGENHARIA DE PRODUÇÃO"},
+        {"group": "exatas", "index": 33, "name": "ENGENHARIA DE PRODUÇÃO / CAA"},
+        {"group": "exatas", "index": 34, "name": "ENGENHARIA ELÉTRICA"},
+        {"group": "exatas", "index": 35, "name": "ENGENHARIA MECÂNICA"},
+        {"group": "exatas", "index": 36, "name": "ENGENHARIA MINERAL"},
+        {"group": "exatas", "index": 37, "name": "ENGENHARIA QUÍMICA"},
+        {"group": "humanas", "index": 38, "name": "ERGONOMIA"},
+        {"group": "exatas", "index": 39, "name": "ESTATÍSTICA"},
+        {"group": "humanas", "index": 40, "name": "FILOSOFIA"},
+        {"group": "saude", "index": 41, "name": "FISIOTERAPIA"},
+        {"group": "exatas", "index": 42, "name": "FÍSICA"},
+        {"group": "humanas", "index": 43, "name": "GENÉTICA"},
+        {"group": "exatas", "index": 44, "name": "GEOCIÊNCIAS"},
+        {"group": "humanas", "index": 45, "name": "GEOGRAFIA"},
+        {"group": "humanas", "index": 46, "name": "GERONTOLOGIA"},
+        {"group": "saude", "index": 47, "name": "GESTÃO E ECONOMIA DA SAÚDE"},
+        {"group": "humanas",
+            "index": 48,
+            "name": "GESTÃO PÚBLICA PARA O DESENVOLVIMENTO DO NORDESTE"},
+        {"group": "humanas", "index": 49, "name": "HISTÓRIA"},
+        {"group": "saude", "index": 50, "name": "INOVAÇÃO TERAPÊUTICA"},
+        {"group": "linguagem", "index": 51, "name": "LETRAS (PROFLETRAS)"},
+        {"group": "linguagem", "index": 52, "name": "LINGUÍSTICA"},
+        {"group": "exatas", "index": 53, "name": "MATEMÁTICA"},
+        {"group": "exatas", "index": 54, "name": "MATERIAIS"},
+        {"group": "saude", "index": 55, "name": "MEDICINA TROPICAL"},
+        {"group": "humanas",
+            "index": 56,
+            "name": "NEUROPSIQUIATRIA E CIÊNCIA DO COMPORTAMENTO"},
+        {"group": "saude", "index": 57, "name": "NUTRIÇÃO"},
+        {"group": "saude",
+            "index": 58,
+            "name": "NUTRIÇÃO, ATIVIDADE FÍSICA E PLASTICIDADE FENOTÍPICA"},
+        {"group": "exatas", "index": 59, "name": "OCEANOGRAFIA"},
+        {"group": "saude", "index": 60, "name": "ODONTOLOGIA"},
+        {"group": "saude", "index": 61, "name": "PATOLOGIA"},
+        {"group": "humanas", "index": 62, "name": "POLÍTICAS PÚBLICAS"},
+        {"group": "humanas", "index": 63, "name": "PSICOLOGIA"},
+        {"group": "linguagem", "index": 64, "name": "PSICOLOGIA COGNITIVA"},
+        {"group": "exatas", "index": 65, "name": "QUÍMICA"},
+        {"group": "saude", "index": 66, "name": "SAÚDE COLETIVA"},
+        {"group": "saude", "index": 67, "name": "SAÚDE DA COMUNICAÇÃO HUMANA"},
+        {"group": "humanas",
+            "index": 68,
+            "name": "SAÚDE DA CRIANÇA E DO ADOLESCENTE"},
+        {"group": "saude", "index": 69, "name": "SAÚDE HUMANA E MEIO AMBIENTE"},
+        {"group": "humanas", "index": 70, "name": "SERVIÇO SOCIAL"},
+        {"group": "humanas", "index": 71, "name": "SOCIOLOGIA"},
+        {"group": "exatas",
+            "index": 72,
+            "name": "TECNOLOGIAS ENERGÉTICAS E NUCLEARES"}
+    ]
 
-let x = d3.scale.ordinal().rangeBands([0, width]);
-let xBoundaryLines = d3.scale.linear();
-let yBoundaryLines = d3.scale.linear();
-let z = d3.scale.linear().domain([0, 4]).clamp(true);
-let c = d3.scale.category10().domain(d3.range(10));
+    ,"links":[
+        {"source": 0, "target": 0, "value": 0.0}, {"source": 0, "target": 1, "value": 2.0},
+        {"source": 0, "target": 2, "value": 1.0}, {"source": 0, "target": 3, "value": 3.0},
+        {"source": 0, "target": 4, "value": 1.0}, {"source": 0, "target": 5, "value": 2.0},
+        {"source": 0, "target": 6, "value": 0.0}, {"source": 0, "target": 7, "value": 2.0},
+        {"source": 0, "target": 8, "value": 1.0}, {"source": 0, "target": 9, "value": 24.0},
+        {"source": 0, "target": 10, "value": 9.0}, {"source": 0, "target": 11, "value": 8.0},
+        {"source": 0, "target": 12, "value": 6.0}, {"source": 0, "target": 13, "value": 11.0},
+        {"source": 0, "target": 14, "value": 2.0}, {"source": 0, "target": 15, "value": 2.0},
+        {"source": 0, "target": 16, "value": 2.0}, {"source": 0, "target": 17, "value": 8.0},
+        {"source": 0, "target": 18, "value": 4.0}, {"source": 0, "target": 19, "value": 4.0},
+        {"source": 0, "target": 20, "value": 3.0}, {"source": 0, "target": 21, "value": 4.0},
+        {"source": 0, "target": 22, "value": 5.0}, {"source": 0, "target": 23, "value": 2.0},
+        {"source": 0, "target": 24, "value": 3.0}, {"source": 0, "target": 25, "value": 24.0},
+        {"source": 0, "target": 26, "value": 9.0}, {"source": 0, "target": 27, "value": 8.0},
+        {"source": 0, "target": 28, "value": 3.0}, {"source": 0, "target": 29, "value": 0.0},
+        {"source": 0, "target": 30, "value": 9.0}, {"source": 0, "target": 31, "value": 0.0},
+        {"source": 0, "target": 32, "value": 15.0}, {"source": 0, "target": 33, "value": 7.0},
+        {"source": 0, "target": 34, "value": 6.0}, {"source": 0, "target": 35, "value": 6.0},
+        {"source": 0, "target": 36, "value": 2.0}, {"source": 0, "target": 37, "value": 3.0},
+        {"source": 0, "target": 38, "value": 8.0}, {"source": 0, "target": 39, "value": 2.0},
+        {"source": 0, "target": 40, "value": 1.0}, {"source": 0, "target": 41, "value": 1.0},
+        {"source": 0, "target": 42, "value": 4.0}, {"source": 0, "target": 43, "value": 1.0},
+        {"source": 0, "target": 44, "value": 0.0}, {"source": 0, "target": 45, "value": 9.0},
+        {"source": 0, "target": 46, "value": 5.0}, {"source": 0, "target": 47, "value": 4.0},
+        {"source": 0, "target": 48, "value": 7.0}, {"source": 0, "target": 49, "value": 9.0},
+        {"source": 0, "target": 50, "value": 0.0}, {"source": 0, "target": 51, "value": 1.0},
+        {"source": 0, "target": 52, "value": 13.0}, {"source": 0, "target": 53, "value": 0.0},
+        {"source": 0, "target": 54, "value": 0.0}, {"source": 0, "target": 55, "value": 0.0},
+        {"source": 0, "target": 56, "value": 9.0}, {"source": 0, "target": 57, "value": 5.0},
+        {"source": 0, "target": 58, "value": 0.0}, {"source": 0, "target": 59, "value": 2.0},
+        {"source": 0, "target": 60, "value": 0.0}, {"source": 0, "target": 61, "value": 0.0},
+        {"source": 0, "target": 62, "value": 8.0}, {"source": 0, "target": 63, "value": 8.0},
+        {"source": 0, "target": 64, "value": 6.0}, {"source": 0, "target": 65, "value": 0.0},
+        {"source": 0, "target": 66, "value": 2.0}, {"source": 0, "target": 67, "value": 2.0},
+        {"source": 0, "target": 68, "value": 11.0}, {"source": 0, "target": 69, "value": 1.0},
+        {"source": 0, "target": 70, "value": 5.0}, {"source": 0, "target": 71, "value": 4.0},
+        {"source": 0, "target": 72, "value": 8.0},
+        {"source": 3, "target": 72, "value": 18.0}
+    ]};
 
-let svg = d3.select("#matrixSVG").append("svg")
-    .attr("width", width + margin.left + margin.right)
-    .attr("height", height + margin.top + margin.bottom)
-    .style("margin-left", -margin.left + "px")
-    .append("g")
-    .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+/* utils */
 
-//data source variables
-var public_spreadsheet_url = 'https://docs.google.com/spreadsheets/d/1W-4VOXz4VBYIthILhiMmVm21fvkb3I03cfhdfyiPQIY/pubhtml',
-    linksData,
-    nodesData;
-var loadedLinks = false;
-var loadedNodes = false;
-var matrix = [];
-
-
-function getNodeData() {
-    nodesData = Tabletop.init( 	{ 	key: public_spreadsheet_url,
-        wanted: ["nodes-lisa"],
-        callback: processNodesData,
-        simpleSheet: true
-    } );
-}
-
-function getLinkData() {
-    linksData = Tabletop.init( 	{ 	key: public_spreadsheet_url,
-        wanted: ["links-lisa"],
-        callback: processLinksData,
-        simpleSheet: true
-    } );
-}
-
-//process the data from Google Sheets into format for D3 graphs
-function processNodesData(data) {
-    var i;
-    for(i = 0; i < data.length; i++) {
-        if (data[i]["weight"] == 0 ) {
-
-            //do nothing
-        } else {
-            graph.nodes.push({ "name": data[i]["name"], "group": data[i]["group"], "distancetocentre": 1, "centre": false, "fixed": false });
-        };
-
-    };
-    loadedNodes = true;
-    drawGraphIfComplete();
-}
-
-function processLinksData(data) {
-    var i;
-    for(i = 0; i < data.length; i++) {
-        graph.links.push({ "source": data[i]["source"], "target": data[i]["target"], "distance": +data[i]["value"] });
-
-        for(var j = 0; j < graph.nodes.length; j++) {
-            if (graph.links[i].source === graph.nodes[j].name) {
-                graph.links[i].source = j;
-            }
-            if (graph.links[i].target === graph.nodes[j].name) {
-                graph.links[i].target = j;
-            }
-        }
-    };
-
-    loadedLinks = true;
-    drawGraphIfComplete();
-}
-
-function drawGraphIfComplete() {
-    console.log(loadedNodes + " " + loadedLinks);
-    if (loadedNodes && loadedLinks) {
-        console.log("complete");
-        drawGraph();
-    };
-}
-
-function drawGraph() {
-
-    var matrix = [];
-    var nodes = graph.nodes;
-    var n = nodes.length;
-    var boundaryLines = [];
-
-    xBoundaryLines.domain([0,n]);
-    xBoundaryLines.range([0,width]);
-    yBoundaryLines.domain([0,n]);
-    yBoundaryLines.range([0,width]);
-
-    // Compute index per node.
-    nodes.forEach(function(node, i) {
-        node.index = i;
-        node.count = 0;
-        matrix[i] = d3.range(n).map(function(j) { return {x: j, y: i, z: 0}; });
-    });
-
-    //fill the drop down menu with names, in alphabetical order
-
-    var select = d3.select("select");
-    var selectValues = [];
-    graph.nodes.forEach(function (d) {
-        selectValues.push(d.name);
-    } ) ;
-
-    selectValues.sort();
-
-    select.selectAll("option")
-        .data(selectValues, function (d) {return d;}) //uses a key so that the selectValues are appended to the option drop down, assuming that none of the life events/services are called something like "by name"!
-        .enter()
-        .append("option")
-        .attr("value", function (d) {
-            return d;
-        })
-        .text(function (d) { return d; });
-
-
-    // Convert links to matrix; count character occurrences.
-    graph.links.forEach(function(link) {
-        matrix[link.source][link.target].z += 1;
-        matrix[link.target][link.source].z += 1;
-        matrix[link.source][link.source].z += 1;
-        matrix[link.target][link.target].z += 1;
-        nodes[link.source].count += 1;
-        nodes[link.target].count += 1;
-    });
-
-    //shortestpath uses the force
-    var force = d3.layout.force();
-    force.nodes(graph.nodes);
-    force.links(graph.links);
-    force.start();
-
-    var sp = new ShortestPathCalculator(graph.nodes, graph.links);
-
-    // Precompute the orders.
-    var orders = {
-        name: d3.range(n).sort(function(a, b) { return d3.ascending(nodes[a].name, nodes[b].name); }),
-        count: d3.range(n).sort(function(a, b) { return nodes[b].count - nodes[a].count; }),
-        group: d3.range(n).sort(function(a, b) { return d3.ascending(nodes[a].group, nodes[b].group); }),
-        distance: d3.range(n).sort(function(a, b) { return d3.ascending(nodes[a].distancetocentre, nodes[b].distancetocentre); })
-    };
-
-    // The default sort order.
-    x.domain(orders.name);
-
-
-    //draw some stuff
-
-    svg.append("rect")
-        .attr("class", "background")
-        .attr("width", width)
-        .attr("height", height);
-
-    //line function for drawing boundary lines
-    var lineFunction = d3.svg.line()
-        .x(function(d) {
-            return xBoundaryLines(d.x);
-        })
-        .y(function(d) {
-            return yBoundaryLines(d.y);
-        })
-        .interpolate("linear");
-
-    var row = svg.selectAll(".row")
-        .data(matrix)
-        .enter().append("g")
-        .attr("class", "row")
-        //.attr("class", function(d, i) {return nodes[i].name; }
-        .attr("transform", function(d, i) { return "translate(0," + x(i) + ")"; })
-        .each(row);
-
-    row.append("line")
-        .attr("x2", width);
-
-    row.append("rect")
-        .attr("class", "highlightBlock")
-        .attr("x", -margin.left)
-        .attr("width", margin.left)
-        .attr("height", x.rangeBand())
-        .style("fill", function (d, i) {
-
-            return (nodes[i].group === "Services") ? "White" : "LightGray";
-
-        });
-
-    row.append("text")
-        .attr("x", -10)
-        .attr("y", x.rangeBand() / 2)
-        .attr("dy", ".32em")
-        .attr("text-anchor", "end")
-        .style("font-weight", function (d, i) {
-
-            return (nodes[i].group === "Services") ? "normal" : "bold";
-
-        })
-        .text(function(d, i) { return nodes[i].name; });
-
-    var column = svg.selectAll(".column")
-        .data(matrix)
-        .enter().append("g")
-        .attr("class", "column")
-        .attr("transform", function(d, i) { return "translate(" + x(i) + ")rotate(-90)"; });
-
-    column.append("line")
-        .attr("x1", -width);
-
-    column.append("rect")
-        .attr("class", "highlightBlock")
-        .attr("x", 0)
-        .attr("width", margin.top)
-        .attr("height", x.rangeBand())
-        .style("fill", function (d, i) {
-
-            return (nodes[i].group === "Services") ? "White" : "LightGray";
-
-        });
-
-    column.append("text")
-        .attr("x", 10)
-        .attr("y", x.rangeBand() / 2)
-        .attr("dy", ".32em")
-        .attr("text-anchor", "start")
-        .style("font-weight", function (d, i) {
-            return (nodes[i].group === "Services") ? "normal" : "bold";
-        })
-        .text(function(d, i) { return nodes[i].name; });
-
-    function row(row) {
-        var cell = d3.select(this).selectAll(".cell")
-            .data(row.filter(function(d) { return d.z; }))
-            .enter().append("rect")
-            .attr("class", "cell")
-            .attr("x", function(d) { return x(d.x); })
-            .attr("width", x.rangeBand())
-            .attr("height", x.rangeBand())
-            //.style("fill-opacity", function(d) { return z(d.z); })
-            .style("fill", "MediumBlue")
-            .on("mouseover", mouseover)
-            .on("mouseout", mouseout);
+var groupToInt = function(area) {
+    if(area == "exatas"){
+        return 1;
+    }else if (area == "educacao"){
+        return 2;
+    }else if (area == "humanas"){
+        return 3;
+    }else if (area == "biologicas"){
+        return 4;
+    }else if (area == "linguagem"){
+        return 5;
+    }else if (area == "saude"){
+        return 6;
     }
-
-    var boundaryLinesG = svg.append("g")
-        .attr("class", "boundaryLinesG")
-        .attr("width", width)
-        .attr("height", height);
-
-    function mouseover(p) {
-
-        d3.selectAll(".row text").classed("active", function(d, i) { return i == p.y; });
-        d3.selectAll(".column text").classed("active", function(d, i) { return i == p.x; });
-
-        svg.append("rect")
-            .attr("x",0)
-            .attr("y", x(p.y))
-            .attr("class", "highlight-bar")
-            .attr("width", x(p.x))
-            .attr("height", x.rangeBand());
-
-        svg.append("rect")
-            .attr("x", x(p.x))
-            .attr("y",0)
-            .attr("class", "highlight-bar")
-            .attr("width", x.rangeBand())
-            .attr("height", x(p.y));
-
-    }
-
-    function mouseout() {
-
-        d3.selectAll("text").classed("active", false);
-        d3.selectAll(".highlight-bar").remove();
-
-    }
-
-    d3.select("#order").on("change", function() {
-        order(this.value);
-    });
-
-    //reorder everthing based on selection from drop down
-    function order(value) {
-
-        if (value === "name" || value === "count" || value === "group") {
-
-            x.domain(orders[value]);
-
-            //d3.selectAll(".boundaryLines").remove();
-            var t = svg.transition().duration(1500);
-
-            t.selectAll(".boundaryLines").attr("opacity", 0);
-
-            t.selectAll(".row")
-                .delay(function(d, i) { return x(i) * 4; })
-                .attr("transform", function(d, i) { return "translate(0," + x(i) + ")"; })
-                .selectAll(".cell")
-                .delay(function(d) { return x(d.x) * 4; })
-                .attr("x", function(d) { return x(d.x); });
-
-            t.selectAll(".column")
-                .delay(function(d, i) { return x(i) * 4; })
-                .attr("transform", function(d, i) { return "translate(" + x(i) + ")rotate(-90)"; });
-
-            t.selectAll(".boundaryLines").remove();
-
-        } else if (value === "distance") { alert("Please choose a life event from the list below.");
-
-        } else { //chosen life event or service from the drop down, so reorder based on distance to chosen life event / service
-
-            //console.log(value);
-
-            //reset distances count array
-
-            boundaryLines = [];
-            for (i = 0; i < n; i++) {
-                boundaryLines.push(0);
-            }
-            //console.log("1: " + boundaryLines);
-
-            //get the ID of the chosen node
-            chosenNodeID = 0;
-            nodes.forEach(function(d) { if (d.name === value) { chosenNodeID = d.index; } ; });
-
-            //calculate distances from each node to chosen node
-            //update distances count array
-            nodes.forEach(function (d, i) {
-                var route = sp.findRoute(d.index, chosenNodeID);
-                d.distancetocentre = route.distance;
-                boundaryLines[d.distancetocentre]++;
-
-            });
-
-            //remove any zero value groups
-            //console.log("2: " + boundaryLines);
-
-            var i;
-            while (( i = boundaryLines.indexOf(0)) !== -1) {
-                boundaryLines.splice(i, 1);
-            };
-
-            //console.log("3: " + boundaryLines);
-
-            //sort rows, cells, columns
-            orders["distance"] = d3.range(n).sort(function(a, b) { return d3.ascending(nodes[a].distancetocentre, nodes[b].distancetocentre); });
-
-            x.domain(orders["distance"]);
-
-            var t1 = svg.transition().duration(1500);
-            //remove any boundary lines if they exist
-            t1.selectAll(".boundaryLines").attr("opacity", 0);
-            t1.selectAll(".boundaryLines").remove();
-
-            t1.selectAll(".row")
-                .delay(function(d, i) { return x(i) * 4; })
-                .attr("transform", function(d, i) { return "translate(0," + x(i) + ")"; })
-                .selectAll(".cell")
-                .delay(function(d) { return x(d.x) * 4; })
-                .attr("x", function(d) { return x(d.x); });
-
-            t1.selectAll(".column")
-                .delay(function(d, i) { return x(i) * 4; })
-                .attr("transform", function(d, i) { return "translate(" + x(i) + ")rotate(-90)"; });
-
-            d3.selectAll(".boundaryLines").remove();
-
-            //draw new boundary lines
-            boundaryLines.forEach(function (d, i) {
-
-                if (i != 0 && i != (boundaryLines.length - 1)) {
-
-                    var lineData;
-                    var xyCoord, zeroCoord;
-
-                    xyCoord = 0;
-                    zeroCoord = 0;
-
-                    boundaryLines.forEach(function (e, j) {
-                        if (j <= i) {
-                            //console.log(j + " - " + i);
-                            xyCoord += e;
-                        };
-                    });
-
-                    //console.log("xyCoord for " + i + ": " + xyCoord);
-
-                    lineData = [{
-                        "x": xyCoord,
-                        "y": zeroCoord
-                    }, {
-                        "x": xyCoord,
-                        "y": xyCoord
-                    }, {
-                        "x": zeroCoord,
-                        "y": xyCoord
-                    }];
-
-                    //console.log(lineData);
-
-                    boundaryLinesG.append("path")
-                        .attr("d", lineFunction(lineData))
-                        .classed("boundaryLines", true)
-                        .attr("stroke", "DarkGray")
-                        .attr("stroke-width", 2)
-                        .attr("fill", "none")
-                        .attr("opacity", 0);
-
-
-
-                };
-            });
-
-            var t2 = t1.transition();
-            t2.selectAll(".boundaryLines").attr("opacity", 1);
-
-        };
-    }
-
 };
+var intToGroup = function(area) {
+    if(area == 1){
+        return "exatas";
+    }else if (area == 2){
+        return "educacao";
+    }else if (area == 3){
+        return "humanas";
+    }else if (area == 4){
+        return "biologicas";
+    }else if (area == 5){
+        return "linguagem";
+    }else if (area == 6){
+        return "saude";
+    }
+};
+function capitalize_Words(str){
+    return str.replace(/\w\S*/g, function(txt){return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();});
+}
 
-getNodeData();
-getLinkData();
+// define dimensions && margins
+let matrixMargin = {
+        top: 100,
+        right: 0,
+        bottom: 0,
+        left: 100
+    },
+    matrixWidth = 600,
+    matrixHeight =600;
+
+console.log($("#matrixSVG").height());
+
+// apply margin conventions
+let matrixSvg = d3.select("#matrixSVG").append("svg")
+    .attr("width", matrixWidth + matrixMargin.left + matrixMargin.right)
+    .attr("height", matrixHeight + matrixMargin.top + matrixMargin.bottom)
+    .append("g")
+    .attr("transform", "translate(" + matrixMargin.left + "," + matrixMargin.top + ")");
+
+// background
+matrixSvg.append("rect")
+    .attr("class", "background")
+    .attr("width", matrixWidth)
+    .attr("height", matrixHeight);
+
+
+data = testdata;
+
+let matrix = [];
+let matrixNodes = data.nodes;
+let total_items = matrixNodes.length;
+
+// scales
+let matrixScale = d3.scaleBand().range([0, matrixWidth]).domain(d3.range(total_items));
+let opacityScale = d3.scaleLinear().domain([0, 10]).range([0.3, 1.0]).clamp(true);
+let colorScale = d3.scaleOrdinal(d3.schemeCategory10);
+
+console.log('nodes:',matrixNodes);
+
+// Create rows for the matrix
+matrixNodes.forEach(function(node) {
+    node.count = 0;
+    node.group = groupToInt(node.group);
+    matrix[node.index] = d3.range(total_items).map(item_index => {
+        return {
+            x: item_index,
+            y: node.index,
+            z: 0
+        };
+    });
+});
+
+
+console.log('nodes after:',matrix);
+
+// Fill matrix with data from links and count how many times each item appears
+data.links.forEach(function(link) {
+    matrix[link.source][link.target].z += link.value;
+    matrix[link.target][link.source].z += link.value;
+    matrixNodes[link.source].count += link.value;
+    matrixNodes[link.target].count += link.value;
+});
+// Draw each row (translating the y coordinate)
+let rows = matrixSvg.selectAll(".row")
+    .data(matrix)
+    .enter().append("g")
+    .attr("class", "row")
+    .attr("transform", (d, i) => {
+        return "translate(0," + matrixScale(i) + ")";
+    });
+let squares = rows.selectAll(".cell")
+    .data(d => d.filter(item => item.z > 0))
+    .enter().append("rect")
+    .attr("class", "cell")
+    .attr("x", d => matrixScale(d.x))
+    .attr("width", matrixScale.bandwidth())
+    .attr("height", matrixScale.bandwidth())
+    .style("fill-opacity", d => opacityScale(d.z)).style("fill", d => {
+        return matrixNodes[d.x].group == matrixNodes[d.y].group ? colorScale(matrixNodes[d.x].group) : "grey";
+    })
+    .on("mouseover", mouseover)
+    .on("mouseout", mouseout);
+let columns = matrixSvg.selectAll(".column")
+    .data(matrix)
+    .enter().append("g")
+    .attr("class", "column")
+    .attr("transform", (d, i) => {
+        return "translate(" + matrixScale(i) + ")rotate(-90)";
+    });
+rows.append("text")
+    .attr("class", "label")
+    .attr("x", -5)
+    .attr("y", matrixScale.bandwidth() / 2)
+    .attr("dy", ".32em")
+    .attr("text-anchor", "end")
+    .text((d, i) => capitalize_Words(matrixNodes[i].name));
+columns.append("text")
+    .attr("class", "label")
+    .attr("y", 100)
+    .attr("y", matrixScale.bandwidth() / 2)
+    .attr("dy", ".32em")
+    .attr("text-anchor", "start")
+    .text((d, i) => capitalize_Words(matrixNodes[i].name));
+
+// Precompute the orders.
+let orders = {
+    name: d3.range(total_items).sort((a, b) => {
+        return d3.ascending(matrixNodes[a].name, matrixNodes[b].name);
+    }),
+    count: d3.range(total_items).sort((a, b) => {
+        return matrixNodes[b].count - matrixNodes[a].count;
+    }),
+    group: d3.range(total_items).sort((a, b) => {
+        return matrixNodes[b].group - matrixNodes[a].group;
+    })
+};
+d3.select("#order").on("change", function() {
+    changeOrder(this.value);
+});
+function changeOrder(value) {
+    matrixScale.domain(orders[value]);
+    let t = matrixSvg.transition().duration(2000);
+    t.selectAll(".row")
+        .delay((d, i) => matrixScale(i) * 4)
+        .attr("transform", function(d, i) {
+            return "translate(0," + matrixScale(i) + ")";
+        })
+        .selectAll(".cell")
+        .delay(d => matrixScale(d.x) * 4)
+        .attr("x", d => matrixScale(d.x));
+    t.selectAll(".column")
+        .delay((d, i) => matrixScale(i) * 4)
+        .attr("transform", (d, i) => "translate(" + matrixScale(i) + ")rotate(-90)");
+}
+rows.append("line")
+    .attr("x2", matrixWidth);
+columns.append("line")
+    .attr("x1", -matrixWidth);
+let tooltip = d3.select("body")
+    .append("div")
+    .attr("class", "tooltip")
+    .style("opacity", 0);
+function mouseover(p) {
+    d3.selectAll(".row text").classed("active", (d, i) => {
+        return i == p.y;
+    });
+    d3.selectAll(".column text").classed("active", (d, i) => {
+        return i == p.x;
+    });
+    tooltip.transition().duration(200).style("opacity", .9);
+    tooltip.html(capitalize_Words(matrixNodes[p.y].name) + " [" + intToGroup(matrixNodes[p.y].group) + "]</br>" +
+        capitalize_Words(matrixNodes[p.x].name) + " [" + intToGroup(matrixNodes[p.x].group) + "]</br>" +
+        p.z + " trabalhos relacionados")
+        .style("left", (d3.event.pageX + 30) + "px")
+        .style("top", (d3.event.pageY - 50) + "px");
+}
+function mouseout() {
+    d3.selectAll("text").classed("active", false);
+    tooltip.transition().duration(500).style("opacity", 0);
+}
+

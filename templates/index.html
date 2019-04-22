@@ -13,6 +13,7 @@
         <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
         <link rel="stylesheet" href="{{ url_for('static', filename='css/grid.css') }}">
         <link rel="stylesheet" href="{{ url_for('static', filename='css/TexTile.css') }}">
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/matrix.css') }}">
     </head>
 
 
@@ -94,8 +95,19 @@
                     <!-- overall row for Tab 2 --- !START HERE! -->
                     <div class="row" id="Tab3masterRow">
 
-                        <div class="col-3" style="height: 100%; background-color: lavender"><h2>Filter</h2></div>
-                        <div class="col-9" id="matrixSVG" style="height: 100%; border: thin solid red"></div>
+                        <div class="col-3" style="height: 100%; border: thin solid grey">
+                            <h2>Filter</h2>
+                            <aside >
+                                <p>Ordem: <select id="order">
+                                    <option value="name">Alfabética</option>
+                                    <option value="count">por Frequência</option>
+                                    <option value="group">por Área</option>
+                                </select>
+                            </aside>
+                        </div>
+                        <div class="col-9" style="height: 100%">
+                            <div class="row" id="matrixSVG" style="border: thin solid green"></div>
+                        </div>
                     </div>
                 </div>
 
@@ -134,7 +146,7 @@
         <script src="{{ url_for('static', filename='js/corpus.js') }}"></script>
         <script src="{{ url_for('static', filename='js/lineChart.js') }}"></script>
         <script src="{{ url_for('static', filename='js/networkGraph.js') }}"></script>
-        <!--<script src="js/matrix.js"></script>-->
+        <script src="{{ url_for('static', filename='js/matrix.js') }}"></script>
 
 
         <script>$('.carousel').carousel({
