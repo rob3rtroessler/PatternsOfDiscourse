@@ -79,8 +79,6 @@ let matrixMargin = { top: 100, right: 0, bottom: 50, left: 200 },
     matrixWidth = $("#CreateYourCorpusContainer").height()  - matrixMargin.top -10,
     matrixHeight =$("#CreateYourCorpusContainer").height() - matrixMargin.top -10;
 
-console.log('height', $("#CreateYourCorpusContainer").height());
-
 // apply margin conventions
 let matrixSvg = d3.select("#matrixSVG").append("svg")
     .attr("width", matrixWidth + matrixMargin.left + matrixMargin.right)

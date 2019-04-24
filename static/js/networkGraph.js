@@ -34,6 +34,9 @@ function wrangleNetworkData () {
     console.log();
     // fill nodes
     for (key in tmpDistinctWords){
+
+        // TODO: build switch that allows to: 1) show all, 2) show only those, that are connected, 3) show only sel
+
         let tmpObj= {
             "id": key,
             "label": key,
@@ -54,6 +57,8 @@ function wrangleNetworkData () {
 
     WrangledTexTileData.forEach(
         environment => {
+            // TODO: implement switch: if environment.includes()
+            // TODO: let found = environment.some(d=> lockedWords.includes(d))
             environment.forEach(
                 (word, i) => {
 

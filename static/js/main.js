@@ -1,11 +1,26 @@
 // declare function that gathers selected books
 function gatherCorpusData () {
-    let CorpusData = [];
+    let CorpusData = {};
+    let tmpIDs = [];
+    // get all ids of selected texts from the corpus
     $('input[type=checkbox]:checked').each(function(){
         //console.log(this.id);
-        CorpusData.push(this.id);
+        tmpIDs.push(this.id);
     });
-    generateTexTile (CorpusData)
+
+    // prepare JSON data that will be sent to server
+    CorpusData = {
+        keyword: document.getElementById('TexTileWordInput').value,
+        selectedIDs: tmpIDs
+    };
+
+    // check correct input
+    if (CorpusData.keyword === false || CorpusData.selectedIDs.length === 0){
+        alert('test');
+    }
+    else {
+        generateTexTile (CorpusData)
+    }
 }
 
 // declare a function that fires, when the 'generate' button is clicked
@@ -43,10 +58,10 @@ function initTexTileModule(data){
 
 
 // height-checking since the caroussel is causing problems
-console.log($("#matrixSVG").height());
+/*console.log($("#matrixSVG").height());
 console.log('Tab1masterRow', $("#Tab1masterRow").height());
 console.log('test2', $("#test2").height());
 console.log('Tab3masterRow', $("#Tab3masterRow").height());
-console.log($("#lineChartSVG").height());
+console.log($("#lineChartSVG").height());*/
 
 
