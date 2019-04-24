@@ -81,32 +81,41 @@
 
                     <!-- overall row for Tab 2 --- !START HERE! -->
                     <div class="row" id="Tab2masterRow">
+
+
                         <div class="col-3" style="height: 100%; background-color: lavender"><h2>Filter</h2></div>
-                        <div class="col-9" style="height: 100%; border: thin solid red">
-                            <div id="NetworkGraphDiv"></div>
+                        <div class="col-9" style="border: thin solid red">
+                            <div class='row' id="NetworkGraphDiv" style="height:100%"></div>
                         </div>
                     </div>
                 </div>
 
 
                 <!-- TAB 3 --- MATRIX -->
-                <div class="carousel-item container-fluid PoD-App_Tab">
+                <div class="carousel-item container-fluid PoD-App_Tab" id="test2">
 
                     <!-- overall row for Tab 2 --- !START HERE! -->
                     <div class="row" id="Tab3masterRow">
 
-                        <div class="col-3" style="height: 100%; border: thin solid grey">
-                            <h2>Filter</h2>
-                            <aside >
-                                <p>Ordem: <select id="order">
-                                    <option value="name">Alfabética</option>
-                                    <option value="count">por Frequência</option>
-                                    <option value="group">por Área</option>
-                                </select>
-                            </aside>
+                        <!-- left -->
+                        <div class="col-3" style="height: 100%; border: thin solid grey; border-radius: 5px">
+                            <div class="row justify-content-center align-items-center" style="border-bottom: thin solid grey; height: 8%"><h2>Sort</h2></div>
+                            <div class="row" style="height: 5%">
+                                    <select id="order" style="width: 100%; border: 0;">
+                                        <option value="name">Alfabética</option>
+                                        <option value="count">por Frequência</option>
+                                        <option value="group">por Área</option>
+                                    </select>
+
+                            </div>
+                            <div class="row" style="height: 10%"></div>
+                            <div class="row justify-content-center align-items-center" style="border-bottom: thin solid grey; height: 8%"><h2>Filter1</h2></div>
+                            <div class="row" style="height: 40%"></div>
                         </div>
-                        <div class="col-9" style="height: 100%">
-                            <div class="row" id="matrixSVG" style="border: thin solid green"></div>
+
+                        <!-- right -->
+                        <div class="col-9">
+                            <div class="row" id="matrixSVG" style="height:100%"></div>
                         </div>
                     </div>
                 </div>

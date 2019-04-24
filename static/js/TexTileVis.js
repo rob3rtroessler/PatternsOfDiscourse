@@ -6,17 +6,15 @@ let WrangledTexTileData =[];
 
 function TexTileDataWrangling(data){
 
-
+    // store the data in rawData
     rawData = data;
-    console.log('beginning', rawData);
+
     // first, clear WrangledTexTileData
     WrangledTexTileData =[];
 
     // access actual data and store it in tmp variable relevantData
     relevantData = [];
     data.data.data.forEach(function(d){
-        // console.log('test', d)
-        //TODO if (d.textID in SelectedArray){
         if (true){
             relevantData.push(d);
         }
@@ -30,8 +28,7 @@ function TexTileDataWrangling(data){
             WrangledTexTileData.push(d);
         })
       });
-
-    console.log('processed data', WrangledTexTileData)
+    // console.log('processed data', WrangledTexTileData)
 }
 
 
@@ -46,10 +43,8 @@ function TexTileVis (){
     console.log('available width in px:', lineChartWidth);
     console.log('available height in px:', lineChartHeight);
 
+    // TODO: fix dimensions
     let TexTileWidth = lineChartWidth/(15 + 1/4*14);
-
-    // adapt div container and implement div scrolling if necessary
-
 
     // add tooltip div
     let tooltipDiv = d3.select("body").append("div")
@@ -58,7 +53,6 @@ function TexTileVis (){
         .style("opacity", 0)
         .style("left", "0px")
         .style("top", "0px");
-
 
     // Add the SVG to the page
     FabricSVG = d3.select("#FabricVisContainer").append("svg")

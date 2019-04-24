@@ -10,12 +10,13 @@ function gatherCorpusData () {
 
 // declare a function that fires, when the 'generate' button is clicked
 function generateTexTile(CorpusData) {
-    console.log("The following TextIDs will be sent to the server:", CorpusData);
+    console.log("---------------------------------------------- \n " +
+        "The following TextIDs will be sent to the server:", CorpusData);
     axios.post('/corpus', {
         'selected texts' : CorpusData})
         .then(function (response) {
 
-            console.log("The server sent:", response);    // log the response from server to examine data
+            console.log("The server sent back:", response);    // log the response from server to examine data
             initTexTileModule(response);    // call async initializer function
         })
         .catch(function (error) {
@@ -39,5 +40,13 @@ function initTexTileModule(data){
     // searched word should be computed in python and passed into the JSON file's 'metadata'.
         .then( wrangleNetworkData() )
 }
+
+
+// height-checking since the caroussel is causing problems
+console.log($("#matrixSVG").height());
+console.log('Tab1masterRow', $("#Tab1masterRow").height());
+console.log('test2', $("#test2").height());
+console.log('Tab3masterRow', $("#Tab3masterRow").height());
+console.log($("#lineChartSVG").height());
 
 

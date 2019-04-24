@@ -2,10 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="58533c6a-87d9-415d-949a-9c34be766325" name="Default" comment="">
-      <change beforePath="" afterPath="$PROJECT_DIR$/static/css/matrix.css" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/static/js/MatrixTest.html" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change beforePath="$PROJECT_DIR$/static/css/grid.css" afterPath="$PROJECT_DIR$/static/css/grid.css" />
+      <change beforePath="$PROJECT_DIR$/static/css/matrix.css" afterPath="$PROJECT_DIR$/static/css/matrix.css" />
+      <change beforePath="$PROJECT_DIR$/static/js/TexTileVis.js" afterPath="$PROJECT_DIR$/static/js/TexTileVis.js" />
+      <change beforePath="$PROJECT_DIR$/static/js/main.js" afterPath="$PROJECT_DIR$/static/js/main.js" />
       <change beforePath="$PROJECT_DIR$/static/js/matrix.js" afterPath="$PROJECT_DIR$/static/js/matrix.js" />
+      <change beforePath="$PROJECT_DIR$/static/js/networkGraph.js" afterPath="$PROJECT_DIR$/static/js/networkGraph.js" />
       <change beforePath="$PROJECT_DIR$/templates/index.html" afterPath="$PROJECT_DIR$/templates/index.html" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
@@ -23,35 +26,69 @@
       <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/templates/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="210">
-              <caret line="100" column="61" lean-forward="true" selection-start-line="100" selection-start-column="61" selection-end-line="100" selection-end-column="61" />
+            <state relative-caret-position="549">
+              <caret line="115" column="38" lean-forward="true" selection-start-line="115" selection-start-column="38" selection-end-line="115" selection-end-column="38" />
               <folding>
+                <element signature="n#style#0;n#div#0;n#div#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#1;n#div#0;n#div#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#div#1;n#div#1;n#div#0;n#div#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#2;n#div#0;n#div#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#1;n#div#2;n#div#0;n#div#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#div#3;n#div#2;n#div#0;n#div#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#div#1;n#div#0;n#div#1;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#0;n#div#1;n#div#0;n#div#1;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#div#0;n#div#0;n#div#2;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#1;n#div#0;n#div#2;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#2;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#1;n#div#0;n#div#0;n#div#2;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#select#0;n#div#1;n#div#0;n#div#0;n#div#2;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#2;n#div#0;n#div#0;n#div#2;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#3;n#div#0;n#div#0;n#div#2;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#4;n#div#0;n#div#0;n#div#2;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#div#0;n#div#1;n#div#0;n#div#2;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="README.md" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/README.md">
+      <file leaf-file-name="networkGraph.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/static/js/networkGraph.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="168">
-              <caret line="8" column="9" lean-forward="false" selection-start-line="8" selection-start-column="9" selection-end-line="8" selection-end-column="9" />
+            <state relative-caret-position="630">
+              <caret line="55" column="24" lean-forward="false" selection-start-line="55" selection-start-column="24" selection-end-line="55" selection-end-column="24" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="matrix.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="styles.css" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/static/css/styles.css">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-2373">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="TexTile.css" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/static/css/TexTile.css">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="945">
+              <caret line="45" column="0" lean-forward="false" selection-start-line="45" selection-start-column="0" selection-end-line="45" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="matrix.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/static/js/matrix.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="168">
-              <caret line="176" column="0" lean-forward="true" selection-start-line="176" selection-start-column="0" selection-end-line="176" selection-end-column="0" />
+            <state relative-caret-position="259">
+              <caret line="117" column="25" lean-forward="false" selection-start-line="117" selection-start-column="20" selection-end-line="117" selection-end-column="25" />
               <folding />
             </state>
           </provider>
@@ -60,8 +97,8 @@
       <file leaf-file-name="MatrixTest.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/static/js/MatrixTest.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="294">
-              <caret line="14" column="26" lean-forward="false" selection-start-line="9" selection-start-column="8" selection-end-line="70" selection-end-column="9" />
+            <state relative-caret-position="315">
+              <caret line="281" column="39" lean-forward="false" selection-start-line="281" selection-start-column="39" selection-end-line="281" selection-end-column="39" />
               <folding />
             </state>
           </provider>
@@ -70,18 +107,8 @@
       <file leaf-file-name="matrix.css" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/static/css/matrix.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="777">
-              <caret line="61" column="1" lean-forward="false" selection-start-line="61" selection-start-column="1" selection-end-line="61" selection-end-column="1" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="networkGraph.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/static/js/networkGraph.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="961">
-              <caret line="88" column="25" lean-forward="false" selection-start-line="88" selection-start-column="25" selection-end-line="88" selection-end-column="25" />
+            <state relative-caret-position="819">
+              <caret line="39" column="39" lean-forward="false" selection-start-line="39" selection-start-column="39" selection-end-line="39" selection-end-column="39" />
               <folding />
             </state>
           </provider>
@@ -90,44 +117,24 @@
       <file leaf-file-name="main.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/static/js/main.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="273">
-              <caret line="23" column="1" lean-forward="false" selection-start-line="23" selection-start-column="1" selection-end-line="23" selection-end-column="1" />
+            <state relative-caret-position="378">
+              <caret line="18" column="45" lean-forward="false" selection-start-line="18" selection-start-column="45" selection-end-line="18" selection-end-column="45" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="TexTileVis.js" pinned="false" current-in-tab="false">
+      <file leaf-file-name="TexTileVis.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/static/js/TexTileVis.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="574">
-              <caret line="56" column="24" lean-forward="false" selection-start-line="56" selection-start-column="24" selection-end-line="56" selection-end-column="56" />
+            <state relative-caret-position="173">
+              <caret line="173" column="5" lean-forward="true" selection-start-line="173" selection-start-column="5" selection-end-line="173" selection-end-column="5" />
               <folding>
-                <marker date="1555358388512" expanded="true" signature="4575:4631" ph="..." />
-                <marker date="1555358388512" expanded="true" signature="4858:4914" ph="..." />
-                <marker date="1555358388512" expanded="true" signature="5141:5197" ph="..." />
-                <marker date="1555358388512" expanded="true" signature="5783:5800" ph="..." />
+                <marker date="1556126237753" expanded="true" signature="4447:4503" ph="..." />
+                <marker date="1556126237753" expanded="true" signature="4730:4786" ph="..." />
+                <marker date="1556126237753" expanded="true" signature="5013:5069" ph="..." />
+                <marker date="1556126237753" expanded="true" signature="5655:5672" ph="..." />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="lineChart.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/static/js/lineChart.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="259">
-              <caret line="76" column="28" lean-forward="false" selection-start-line="76" selection-start-column="28" selection-end-line="76" selection-end-column="47" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="data.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/../../../CS100/FinalProject/static/Script/data.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="399">
-              <caret line="107" column="18" lean-forward="false" selection-start-line="107" selection-start-column="18" selection-end-line="107" selection-end-column="48" />
-              <folding />
             </state>
           </provider>
         </entry>
@@ -154,8 +161,11 @@
       <find>width</find>
       <find>scaleOr</find>
       <find>group</find>
-      <find>scale</find>
       <find>nodes</find>
+      <find>thic</find>
+      <find>matrixHe</find>
+      <find>index</find>
+      <find>scale</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -164,13 +174,16 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/static/js/main.js" />
-        <option value="$PROJECT_DIR$/static/js/networkGraph.js" />
         <option value="$PROJECT_DIR$/README.md" />
         <option value="$PROJECT_DIR$/static/js/MatrixTest.html" />
+        <option value="$PROJECT_DIR$/static/css/grid.css" />
+        <option value="$PROJECT_DIR$/static/css/TexTile.css" />
         <option value="$PROJECT_DIR$/static/css/matrix.css" />
-        <option value="$PROJECT_DIR$/templates/index.html" />
         <option value="$PROJECT_DIR$/static/js/matrix.js" />
+        <option value="$PROJECT_DIR$/templates/index.html" />
+        <option value="$PROJECT_DIR$/static/js/networkGraph.js" />
+        <option value="$PROJECT_DIR$/static/js/main.js" />
+        <option value="$PROJECT_DIR$/static/js/TexTileVis.js" />
       </list>
     </option>
   </component>
@@ -280,12 +293,12 @@
       <option name="presentableId" value="Default" />
       <updated>1555821301608</updated>
       <workItem from="1555821304141" duration="3553000" />
-      <workItem from="1555851249537" duration="20983000" />
+      <workItem from="1555851249537" duration="38035000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="24536000" />
+    <option name="totallyTimeSpent" value="41588000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-9" y="-9" width="1938" height="1048" extended-state="6" />
@@ -345,11 +358,25 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
+            <element signature="n#style#0;n#div#0;n#div#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#1;n#div#0;n#div#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#div#1;n#div#1;n#div#0;n#div#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#2;n#div#0;n#div#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#1;n#div#2;n#div#0;n#div#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#div#3;n#div#2;n#div#0;n#div#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#div#1;n#div#0;n#div#1;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#1;n#div#0;n#div#1;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#div#0;n#div#0;n#div#2;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#1;n#div#0;n#div#2;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#2;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#1;n#div#0;n#div#0;n#div#2;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#select#0;n#div#1;n#div#0;n#div#0;n#div#2;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#2;n#div#0;n#div#0;n#div#2;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#3;n#div#0;n#div#0;n#div#2;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#4;n#div#0;n#div#0;n#div#2;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#div#0;n#div#1;n#div#0;n#div#2;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
           </folding>
         </state>
@@ -376,10 +403,10 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <marker date="1555358388512" expanded="true" signature="4575:4631" ph="..." />
-            <marker date="1555358388512" expanded="true" signature="4858:4914" ph="..." />
-            <marker date="1555358388512" expanded="true" signature="5141:5197" ph="..." />
-            <marker date="1555358388512" expanded="true" signature="5783:5800" ph="..." />
+            <marker date="1556126237753" expanded="true" signature="4447:4503" ph="..." />
+            <marker date="1556126237753" expanded="true" signature="4730:4786" ph="..." />
+            <marker date="1556126237753" expanded="true" signature="5013:5069" ph="..." />
+            <marker date="1556126237753" expanded="true" signature="5655:5672" ph="..." />
           </folding>
         </state>
       </provider>
@@ -400,22 +427,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/static/js/networkGraph.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="961">
-          <caret line="88" column="25" lean-forward="false" selection-start-line="88" selection-start-column="25" selection-end-line="88" selection-end-column="25" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/static/css/matrix.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="777">
-          <caret line="61" column="1" lean-forward="false" selection-start-line="61" selection-start-column="1" selection-end-line="61" selection-end-column="1" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/README.md">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="168">
@@ -424,55 +435,125 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/static/js/main.js">
+    <entry file="file://$PROJECT_DIR$/application.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="273">
-          <caret line="23" column="1" lean-forward="false" selection-start-line="23" selection-start-column="1" selection-end-line="23" selection-end-column="1" />
+        <state relative-caret-position="819">
+          <caret line="73" column="22" lean-forward="true" selection-start-line="73" selection-start-column="22" selection-end-line="73" selection-end-column="22" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/static/js/TexTileVis.js">
+    <entry file="file://$PROJECT_DIR$/static/css/grid.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="574">
-          <caret line="56" column="24" lean-forward="false" selection-start-line="56" selection-start-column="24" selection-end-line="56" selection-end-column="56" />
-          <folding>
-            <marker date="1555358388512" expanded="true" signature="4575:4631" ph="..." />
-            <marker date="1555358388512" expanded="true" signature="4858:4914" ph="..." />
-            <marker date="1555358388512" expanded="true" signature="5141:5197" ph="..." />
-            <marker date="1555358388512" expanded="true" signature="5783:5800" ph="..." />
-          </folding>
+        <state relative-caret-position="441">
+          <caret line="38" column="17" lean-forward="false" selection-start-line="38" selection-start-column="17" selection-end-line="38" selection-end-column="17" />
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/index.html">
+    <entry file="file://$PROJECT_DIR$/static/css/styles.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="100" column="61" lean-forward="true" selection-start-line="100" selection-start-column="61" selection-end-line="100" selection-end-column="61" />
-          <folding>
-            <element signature="n#style#0;n#div#1;n#div#1;n#div#0;n#div#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#3;n#div#2;n#div#0;n#div#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#1;n#div#0;n#div#1;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#0;n#div#2;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#1;n#div#0;n#div#2;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#1;n#div#0;n#div#2;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-          </folding>
+        <state relative-caret-position="-2373">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/static/js/MatrixTest.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="294">
-          <caret line="14" column="26" lean-forward="false" selection-start-line="9" selection-start-column="8" selection-end-line="70" selection-end-column="9" />
+        <state relative-caret-position="315">
+          <caret line="281" column="39" lean-forward="false" selection-start-line="281" selection-start-column="39" selection-end-line="281" selection-end-column="39" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/css/matrix.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="819">
+          <caret line="39" column="39" lean-forward="false" selection-start-line="39" selection-start-column="39" selection-end-line="39" selection-end-column="39" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/static/js/matrix.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="168">
-          <caret line="176" column="0" lean-forward="true" selection-start-line="176" selection-start-column="0" selection-end-line="176" selection-end-column="0" />
+        <state relative-caret-position="259">
+          <caret line="117" column="25" lean-forward="false" selection-start-line="117" selection-start-column="20" selection-end-line="117" selection-end-column="25" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../../../CS100/FinalProject/static/Script/networkGraph.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-189">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="549">
+          <caret line="115" column="38" lean-forward="true" selection-start-line="115" selection-start-column="38" selection-end-line="115" selection-end-column="38" />
+          <folding>
+            <element signature="n#style#0;n#div#0;n#div#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#1;n#div#0;n#div#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#1;n#div#1;n#div#0;n#div#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#2;n#div#0;n#div#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#1;n#div#2;n#div#0;n#div#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#3;n#div#2;n#div#0;n#div#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#1;n#div#0;n#div#1;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#1;n#div#0;n#div#1;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#0;n#div#2;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#2;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#1;n#div#0;n#div#0;n#div#2;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#select#0;n#div#1;n#div#0;n#div#0;n#div#2;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#2;n#div#0;n#div#0;n#div#2;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#3;n#div#0;n#div#0;n#div#2;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#4;n#div#0;n#div#0;n#div#2;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#1;n#div#0;n#div#2;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/js/networkGraph.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="630">
+          <caret line="55" column="24" lean-forward="false" selection-start-line="55" selection-start-column="24" selection-end-line="55" selection-end-column="24" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/js/main.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="378">
+          <caret line="18" column="45" lean-forward="false" selection-start-line="18" selection-start-column="45" selection-end-line="18" selection-end-column="45" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/css/TexTile.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="945">
+          <caret line="45" column="0" lean-forward="false" selection-start-line="45" selection-start-column="0" selection-end-line="45" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/js/TexTileVis.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="173">
+          <caret line="173" column="5" lean-forward="true" selection-start-line="173" selection-start-column="5" selection-end-line="173" selection-end-column="5" />
+          <folding>
+            <marker date="1556126237753" expanded="true" signature="4447:4503" ph="..." />
+            <marker date="1556126237753" expanded="true" signature="4730:4786" ph="..." />
+            <marker date="1556126237753" expanded="true" signature="5013:5069" ph="..." />
+            <marker date="1556126237753" expanded="true" signature="5655:5672" ph="..." />
+          </folding>
         </state>
       </provider>
     </entry>

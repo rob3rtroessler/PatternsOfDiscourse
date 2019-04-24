@@ -30,11 +30,14 @@ function wrangleNetworkData () {
     nodes = [];
     let id = 0;
 
+    // get correct color for each word
+    console.log();
     // fill nodes
     for (key in tmpDistinctWords){
         let tmpObj= {
             "id": key,
             "label": key,
+            "color": '#ff383f', // we're able to set individual colors!
             "value": tmpDistinctWords[key]
         };
         nodes.push(tmpObj);
@@ -51,7 +54,6 @@ function wrangleNetworkData () {
 
     WrangledTexTileData.forEach(
         environment => {
-            console.log('lets start', environment);
             environment.forEach(
                 (word, i) => {
 
@@ -89,8 +91,9 @@ function wrangleNetworkData () {
     for (key in tmpDict){
         let tmpObj= {
             "from": key.split('To')[0],
-            "to": key.split('To')[1]
-            //"value": tmpDict[key]
+            "to": key.split('To')[1],
+            "value": tmpDict[key],
+            "length": tmpDict[key]*10
         };
         edges.push(tmpObj);
     }
@@ -98,47 +101,13 @@ function wrangleNetworkData () {
     console.log(edges);
 
 
-    // create an array with edges
-/*    var edges = new vis.DataSet([
-        {from: 1, to: 3},
-        {from: 1, to: 2},
-        {from: 2, to: 4},
-        {from: 2, to: 5}
-    ]);*/
-
     // create a network
-    var container = document.getElementById('NetworkGraphDiv');
-
-    // provide the data in the vis format
-    var data = {
-        nodes: nodes,
-        edges: edges
-    };
-    var options = {};
-
-    // initialize your network!
-    var network = new vis.Network(container, data, options);
-}
-
-
-
-
-// putting everything inside a function so that multiple examples can be visualized
-function DrawNetwork(){
-
-// create an array with nodes
-    authors = new vis.DataSet(ServerData.authors);
-
-// create an array with edges
-    correspondences = new vis.DataSet(CorrespondenceArray);
-
-// create a network
     let container = document.getElementById('NetworkGraphDiv');
 
-// provide the data in the vis format
+    // provide the data in the vis format
     let data = {
-        nodes: authors,
-        edges: correspondences
+        nodes: nodes,
+        edges: edges
     };
 
     let options = {
@@ -149,23 +118,25 @@ function DrawNetwork(){
                 color: '#000000',
                 highlight: 'rgba(143, 43, 43, 0.81)',
                 hover: 'rgba(143, 43, 43, 0.81)'
-            },
+                },
             scaling: {
                 min: 1,
                 max: 10
-            }
-        },
+                }
+            },
 
         // nodes
         nodes:{
-            brokenImage:'img/YV/Author_0.jpg',
             color: {
                 border: '#000000',
                 hover: 'rgba(143, 43, 43, 0.81)',
                 highlight: 'rgba(143, 43, 43, 0.81)'
             },
-            image: '',
-            shape: 'circularImage',
+            scaling: {
+                min: 1,
+                max: 20
+            },
+            shape: 'box',
             shapeProperties: {
                 borderDashes: false, // only for borders
                 borderRadius: 6,     // only for box shape
@@ -178,48 +149,59 @@ function DrawNetwork(){
         interaction: {
             hover: true,
             hoverConnectedEdges: true,
+        },
+        physics:{
+            enabled: true,
+            barnesHut: {
+                gravitationalConstant: -2000,
+                centralGravity: 0.3,
+                springLength: 95,
+                springConstant: 0.04,
+                damping: 0.09,
+                avoidOverlap: 0
+            },
+            forceAtlas2Based: {
+                gravitationalConstant: -50,
+                centralGravity: 0.1,
+                springConstant: 0.08,
+                springLength: 100,
+                damping: 0.4,
+                avoidOverlap: 0
+            },
+            repulsion: {
+                centralGravity: 0.2,
+                springLength: 200,
+                springConstant: 0.05,
+                nodeDistance: 100,
+                damping: 0.09
+            },
+            hierarchicalRepulsion: {
+                centralGravity: 0.0,
+                springLength: 100,
+                springConstant: 0.01,
+                nodeDistance: 120,
+                damping: 0.09
+            },
+            maxVelocity: 50,
+            minVelocity: 0.1,
+            solver: 'forceAtlas2Based',
+            stabilization: {
+                enabled: true,
+                iterations: 5,
+                updateInterval: 100,
+                onlyDynamicEdges: false,
+                fit: true
+            },
+            timestep: 0.5,
+            adaptiveTimestep: true
         }
     };
 
     // initialize your network!
-    network = new vis.Network(container, data, options);
+    let network = new vis.Network(container, data, options);
 
-
-// FUNCTIONALITY FOR NODE CLICKED
+    // effects:
     network.on("selectNode", function(d){
-
-        // log
-        console.log('a node was clicked, following info is accessible:', d);
-
-        // store selectedNodes
-        let selectedNodes = network.getSelectedNodes();
-
-        // if one and only one node is selected then update and show NodeInfo(author) on the left side
-        if(selectedNodes.length === 1){
-
-            // store authorID
-            selectedAuthorID = selectedNodes;
-
-            // calling NodeClicked:
-            NodeClicked(selectedAuthorID);
-
-        }
-    });
-
-// FUNCTIONALITY FOR EDGE CLICKED
-    network.on("click", function(d){
-
-        // store selectedEdges
-        let selectedEdges = network.getSelectedEdges();
-
-        // if one and only one edge is selected then update and show EdgeInfo(correspondence) on the right side
-        if(selectedEdges.length === 1){
-
-            // get connected authorIDs by use of edgeID
-            selectedSenderID =  correspondences._data[selectedEdges].from;
-            selectedRecipientID = correspondences._data[selectedEdges].to;
-            console.log ('an edge was clicked, connecting Authors:', selectedSenderID, '&' , selectedRecipientID);
-            EdgeClicked(selectedSenderID, selectedRecipientID);
-        }
+        console.log('node selected')
     });
 }

@@ -24,16 +24,7 @@ text.active {
 line {
     stroke: #fff;
 }
-.container {
-    display: grid;
-    width: 1000px;
-    grid-template-areas: "head head"
-    "intro intro"
-    "graph aside";
-    grid-template-columns: auto auto;
-    justify-items: center;
-    margin: auto;
-}
+
 graph {
     grid-area: graph;
 }
@@ -60,3 +51,4 @@ body {
     margin-bottom: 55px;
     color: #e04556;
 }
+
