@@ -83,10 +83,16 @@
                     <div class="row" id="Tab2masterRow">
 
 
-                        <div class="col-3" style="height: 100%; background-color: lavender"><h2>Filter</h2></div>
-                        <div class="col-9" style="border: thin solid red">
-                            <div class='row' id="NetworkGraphDiv" style="height:100%"></div>
+                        <div class="col-5" style="height: 100%; border: thin solid grey; border-radius: 5px">
+                            <div class="row" id="chordVisDiv"></div>
                         </div>
+                        <div class="col-2" style="height: 100%; border: 5px black">
+                            <div class="row" style="height: 100%; border: thin solid grey; border-radius: 5px">Filter</div>
+                        </div>
+                        <div class="col-5" style="height: 100%; border: thin solid grey; border-radius: 5px">
+                            <div class='row' id="NetworkGraphDiv"></div>
+                        </div>
+
                     </div>
                 </div>
 
@@ -94,28 +100,38 @@
                 <!-- TAB 3 --- MATRIX -->
                 <div class="carousel-item container-fluid PoD-App_Tab" id="test2">
 
-                    <!-- overall row for Tab 2 --- !START HERE! -->
+                    <!-- overall row for Tab 3 --- !START HERE! -->
                     <div class="row" id="Tab3masterRow">
 
                         <!-- left -->
                         <div class="col-3" style="height: 100%; border: thin solid grey; border-radius: 5px">
                             <div class="row justify-content-center align-items-center" style="border-bottom: thin solid grey; height: 8%"><h2>Sort</h2></div>
                             <div class="row" style="height: 5%">
-                                    <select id="order" style="width: 100%; border: 0;">
-                                        <option value="name">Alfabética</option>
-                                        <option value="count">por Frequência</option>
-                                        <option value="group">por Área</option>
+                                    <select id="order" style="width: 100%; border: 0; background: #d36a6a; text-align-last: center">
+                                        <option value="name">alphabetical</option>
+                                        <option value="count">by frequence</option>
+                                        <option value="group">by area</option>
                                     </select>
 
                             </div>
-                            <div class="row" style="height: 10%"></div>
+                            <div class="row" style="height: 11%"></div>
                             <div class="row justify-content-center align-items-center" style="border-bottom: thin solid grey; height: 8%"><h2>Filter1</h2></div>
-                            <div class="row" style="height: 40%"></div>
+                            <div class="row" style="height: 30%"></div>
+                            <div class="row justify-content-center align-items-center" style="border-bottom: thin solid grey; height: 8%"><h2>Filter2</h2></div>
+                            <div class="row" style="height: 30%"></div>
+                        </div>
+
+                        <!-- center -->
+                        <div class="col-6">
+                            <div class="row" id="matrixSVG" style="height:100%"></div>
                         </div>
 
                         <!-- right -->
-                        <div class="col-9">
-                            <div class="row" id="matrixSVG" style="height:100%"></div>
+                        <div class="col-3" style="height:100%; border: thin solid grey; border-radius: 5px">
+                            <div class="row justify-content-center align-items-center" style="border-bottom: thin solid grey; height: 8%"><h2>metaInfo</h2></div>
+                            <div class="row" style="height: 30%"></div>
+                            <div class="row justify-content-center align-items-center" style="border-bottom: thin solid grey; height: 8%"><h2>usage</h2></div>
+                            <div class="row" style="height: 30%"></div>
                         </div>
                     </div>
                 </div>
@@ -143,10 +159,11 @@
         <script src="{{ url_for('static', filename='js/libs/bootstrap.min.js') }}"></script>
         <!-- axios --> <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 
-        <!-- adding d3.js and vis.js-->
+        <!-- adding d3.js, vis.js, and viz.js-->
         <!--<script src="js/libs/d3.min.js"></script>-->
         <script src="https://d3js.org/d3.v5.min.js"></script>
         <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/vis/4.21.0/vis.min.js"></script>
+        <script src="http://vizjs.org/viz.v1.1.0.min.js"></script>
 
         <!-- OWN JAVASCRIPT FILES -->
         <script src="{{ url_for('static', filename='js/main.js') }}"></script>
@@ -154,6 +171,8 @@
         <script src="{{ url_for('static', filename='js/TexTileVis.js') }}"></script>
         <script src="{{ url_for('static', filename='js/corpus.js') }}"></script>
         <script src="{{ url_for('static', filename='js/lineChart.js') }}"></script>
+
+        <script src="{{ url_for('static', filename='js/chordVis.js') }}"></script>
         <script src="{{ url_for('static', filename='js/networkGraph.js') }}"></script>
         <script src="{{ url_for('static', filename='js/matrix.js') }}"></script>
 
