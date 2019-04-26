@@ -1,5 +1,5 @@
 
-var chorddata = [['Arsenal','Aston Villa',6]
+let chorddata = [['Arsenal','Aston Villa',6]
     ,['Arsenal','Bournemouth',4]
     ,['Arsenal','Chelsea',0]
     ,['Arsenal','Crystal Palace',3]
@@ -381,7 +381,7 @@ var chorddata = [['Arsenal','Aston Villa',6]
     ,['West Ham Utd','West Bromwich',4]
 ];
 
-var chordcolors = {
+let chordcolors = {
     "Arsenal":         "#da4480"
     ,"Aston Villa":    "#5ab449"
     ,"Bournemouth":    "#7f5acd"
@@ -404,7 +404,7 @@ var chordcolors = {
     ,"West Ham Utd":   "#dc85b6"
 };
 
-var sortOrder =[
+let sortOrder =[
     "Arsenal"
     ,"Aston Villa"
     ,"Bournemouth"
@@ -427,24 +427,35 @@ var sortOrder =[
     ,"West Ham Utd"
 ];
 
+// margins etc.
+let chordwidth= $("#Tab1masterRow").width()/2;
+let chordheight=$("#Tab1masterRow").height()*79/100;
+
+// radius
+let radius = 0;
+if (chordwidth >= chordheight){
+    radius = chordheight/3;
+}
+else {
+    radius = chordwidth/3;
+}
+
+// sort
 function sort(a,b){ return d3.ascending(sortOrder.indexOf(a),sortOrder.indexOf(b)); }
 
-var ch = viz.ch().data(chorddata)
+// define
+let ch = viz.ch().data(chorddata)
     .padding(.01)
     .sort(sort)
-    .innerRadius(430)
-    .outerRadius(450)
+    .innerRadius(radius)
+    .outerRadius(radius +15)
     .duration(1000)
     .chordOpacity(0.3)
     .labelPadding(.03)
     .fill(function(d){ return chordcolors[d];});
 
-let chordwidth= 1200;
-let chordheight=1200;
+// svg
+let chordsvg = d3.select("#chordVisDiv").append("svg").attr("height",chordheight).attr("width",chordwidth);
 
-var chordsvg = d3.select("#chordVisDiv").append("svg").attr("height",chordheight).attr("width",chordwidth);
-
-chordsvg.append("g").attr("transform", "translate(600,550)").call(ch);
-
-// adjust height of frame in bl.ocks.org
-d3.select(self.frameElement).style("height", chordheight+"px").style("width", chordwidth+"px");
+// draw
+chordsvg.append("g").attr("transform", "translate(" + chordwidth/2+ "," + chordheight/2 + ")").call(ch);

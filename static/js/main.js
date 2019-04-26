@@ -65,3 +65,4 @@ console.log('Tab3masterRow', $("#Tab3masterRow").height());
 console.log($("#lineChartSVG").height());*/
 
 
+console.log($("#Tab1masterRow").width());
