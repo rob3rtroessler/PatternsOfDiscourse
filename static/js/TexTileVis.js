@@ -129,26 +129,6 @@ function TexTileVis (){
     })
 }
 
-// declare function that creats list with prominent tiles
-function CreateProminentTileList (data) {
-    // console.log(data);
-    data.forEach( (d,i) => {
-        // console.log(d,i);
-        if (0 <= i && i < 10){
-            document.getElementById('top10').innerHTML += `<div class="row listItem ` + d + `" onclick="lockColor('` + d + `', 1)" onmouseout="RemoveColorFromClass('` + d + `')" 
-onmouseover="ColorToClass('` + d + `')">` + d + `</div>`
-        }
-        else if (10 <= i && i < 20){
-            document.getElementById('top20').innerHTML += `<div class="row listItem ` + d + `" onclick="lockColor('` + d + `', 1)" onmouseout="RemoveColorFromClass('` + d + `')" 
-onmouseover="ColorToClass('` + d + `')">` + d + `</div>`
-        }
-        else if (20 <= i && i < 30){
-            document.getElementById('top30').innerHTML += `<div class="row listItem ` + d + `" onclick="lockColor('` + d + `', 1)" onmouseout="RemoveColorFromClass('` + d + `')" 
-onmouseover="ColorToClass('` + d + `')">` + d + `</div>`
-        }
-    })
-
-}
 
 // COLOR MANAGEMENT
 

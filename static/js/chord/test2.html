@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="ski-chord-diagram"></div>
+<script src="https://d3js.org/d3.v4.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+
+<script>
+    $(document).ready(function() {
+
+        ////////////////////////////////////////////////////////////////////
+        ///////////////// SVG SETUP ////////////////////////////////////////
+        ////////////////////////////////////////////////////////////////////
+
+        // Defines Parameters of SVG //
+        var margin = {top: 20, right: 50, bottom: 50, left:0},
+            width = $("#ski-chord-diagram").width(),
+            height = $("#ski-chord-diagram").width(),
+            margin = {top: 40, right: 10, bottom: 20, left: 10},
+            radius = Math.min(width, height) / 2 - 100,
+            innerRadius = Math.min(width, height) /4,
+            outerRadius = innerRadius * 1.04;
+
+        //Defines Size and Location of SVG //
+        var svg = d3.select("#ski-chord-diagram").append("svg")
+            .attr("width", width)
+            .attr("height", height)
+            .append("g")
+            .attr("transform", "translate(" + width / 2 + "," + height / 2.3 + ")");
+
+        ////////////////////////////////////////////////////////////////////
+        ///////////////// DATA /////////////////////////////////////////////
+        ////////////////////////////////////////////////////////////////////
+
+        // Data in Matrix Form //
+        var matrix = [
+            [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,952.02,1533.81,2803.17], /// Vail ///
+            [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,201.72,1681,1479.28], /// Snowmass ///
+            [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,598.12,1007.36,1542.52], /// Keystone ///
+            [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,246.24,1138.86,1692.9], /// Winter Park ///
+            [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,415.1,1245.3,1304.6], /// Steamboat ///
+            [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,517.65,616.25,1331.1], /// Copper Mt ///
+            [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,353.7,1061.1,471.6], /// Breckenridge ///
+            [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,460,720,820], /// Telluride ///
+            [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,348.08,1172.48,311.44], /// Beaver Creek ///
+            [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1819], /// Silverton ///
+            [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,234,738,828], /// Loveland ///
+            [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,320,720,560], /// Wolf Creek ///
+            [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,320,800,480], /// Powderhorn ///
+            [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,324.87,711.62,510.51], /// Crested Butte ///
+            [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,276,612,312], /// Purgatory ///
+            [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,185.04,308.4,534.56], /// Aspen Highlands ///
+            [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,90,270,540], /// Arapahoe Basin ///
+            [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,112,224,464], /// Monarch ///
+            [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,136,340,204], /// Eldora ///
+            [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,323.04,349.96], /// Aspen Mt ///
+            [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,94,258.5,117.5], /// Sunlight ///
+            [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,164.5,183.3,122.2], /// Buttermilk ///
+            [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,203,121.8,81.2], /// Si Granby ///
+            [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,120,160,120], /// Ski Cooper ///
+            [952.02,201.72,598.12,246.24,415.1,517.65,353.7,460,348.08,0,234,320,320,324.87,276,185.04,90,112,136,0,94,164.5,203,120,0,0,0], /// Green ///
+            [1533.81,1681,1007.36,1138.86,1245.3,616.25,1061.1,720,1172.48,0,738,720,800,711.62,612,308.4,270,224,340,323.04,258.5,183.3,121.8,160,0,0,0], /// Blue ///
+            [2803.17,1479.28,1542.52,1692.9,1304.6,1331.1,471.6,820,311.44,1819,828,560,480,510.51,312,534.56,540,464,204,349.96,117.5,122.2,81.2,120,0,0,0] /// Black ///
+        ];
+
+        // Fill Color //
+        var fill = d3.scaleOrdinal()
+            .range(["coral","Cyan","crimson","steelblue","darkslateblue","gold","green","khaki","darkorange","mediumvioletred","orange","rosybrown","seagreen","sienna","springgreen","teal","thistle","violet","wheat","yellowgreen","royalblue","powderblue","steelblue","Lime", "green", "Blue", "black"]);
+
+        // Resort Names//
+        var names = d3.scaleOrdinal()
+            .range(["Vail","Snowmass","Keystone","Winter Park","Steamboat","Copper Mt","Breckenridge","Telluride","Beaver Creek","Silverton","Loveland","Wolf Creek","Powderhorn","Crested Butte","Purgatory","Aspen Highlands","Arapahoe Basin","Monarch","Eldora","Aspen Mt","Sunlight","Buttermilk","Ski Granby","Ski Cooper","","",""]);
+
+        // Resort Acres//
+        var acres = d3.scaleOrdinal()
+            .range([
+                "(5,289 ac)","(3,362 ac)","(3,148 ac)","(3,078 ac)","(2,965 ac)","(2,465 ac)","(2,358 ac)","(2,000 ac)","(1,832 ac)","(1,819 ac)","(1,800 ac)","(1,600 ac)","(1,600 ac)","(1,547 ac)","(1,200 ac)","(1,028 ac)","(900 ac)","(800 ac)","(680 ac)","(673 ac)","(470 ac)","(470 a)","(406 ac)","(400 ac)","","",""]);
+
+        // Run Names//
+        var runs = d3.scaleOrdinal()
+            .range([
+                "","","","","","","","","","","","","","","","","","","","","","","","","Green","Blue","Black"]);
+
+        ////////////////////////////////////////////////////////////////////
+        ///////////////// DRAW VISUALIZAION ////////////////////////////////
+        ////////////////////////////////////////////////////////////////////
+
+        // Sets up D3 Chord //
+        var chord = d3.chord()
+            .padding(.08)
+            .sortSubgroups(d3.ascending)
+            .matrix(matrix);
+
+
+        ////////////////////////////////////////////////////////////////////
+        ///////////////// COLOR GRADIENT ///////////////////////////////////
+        ////////////////////////////////////////////////////////////////////
+
+        // Function to create the id for each chord gradient //
+        function getGradID(d){ return "linkGrad-" + d.source.index + "-" + d.target.index; }
+
+        // Create the gradients definitions for each chord //
+        var grads = svg.append("defs").selectAll("linearGradient")
+            .data(chord.chords())
+            .enter().append("linearGradient")
+            .attr("id", getGradID)
+            .attr("gradientUnits", "userSpaceOnUse")
+            .attr("x1", function(d,i) { return innerRadius * Math.cos((d.source.endAngle-d.source.startAngle)/2 + d.source.startAngle - Math.PI/2); })
+            .attr("y1", function(d,i) { return innerRadius * Math.sin((d.source.endAngle-d.source.startAngle)/2 + d.source.startAngle - Math.PI/2); })
+            .attr("x2", function(d,i) { return innerRadius * Math.cos((d.target.endAngle-d.target.startAngle)/2 + d.target.startAngle - Math.PI/2); })
+            .attr("y2", function(d,i) { return innerRadius * Math.sin((d.target.endAngle-d.target.startAngle)/2 + d.target.startAngle - Math.PI/2); })
+
+        // Set the starting color (at 0%)//
+        grads.append("stop")
+            .attr("offset", "50%")
+            .attr("stop-color", function(d){ return fill(d.source.index); });
+
+        // Set the ending color (at 100%)//
+        grads.append("stop")
+            .attr("offset", "100%")
+            .attr("stop-color", function(d){ return fill(d.target.index); });
+
+        // Draws the outer arc groups //
+        svg.append("g").selectAll("path")
+            .data(chord.groups)
+            .enter()
+            .append("path")
+            .style("fill", function(d) { return fill(d.index); })
+            .attr("class", "group")
+            .attr("d", d3.svg.arc().innerRadius(innerRadius).outerRadius(outerRadius))
+            .style("stroke-width", .5)
+            .style("stroke", function(d) { return fill(d.index); })
+            .on("mouseover", fade(.06))
+            .on("mouseout", fade(1));
+
+        // Draws the inner chords //
+        svg.append("g")
+            .attr("class", "chord")
+            .selectAll("path")
+            .data(chord.chords)
+            .enter()
+            .append("path")
+            .attr("d", d3.svg.chord().radius(innerRadius-2))
+            .style("fill", function(d){ return "url(#" + getGradID(d) + ")"; })
+            // .style("fill", function(d) { return fill(d.source.index); })
+            .style("stroke-width", .5)
+            .style("stoke", function(d) { return fill(d.index); })
+            .style("opacity", 1);
+
+
+        ////////////////////////////////////////////////////////////////////
+        ///////////////// ANNOTATE /////////////////////////////////////////
+        ////////////////////////////////////////////////////////////////////
+
+        // Adds Resort Labels //
+        svg.append("g").selectAll("resort_labels")
+            .data(chord.groups)
+            .enter()
+            .append("text")
+            .each(function(d) { d.angle = (d.startAngle + d.endAngle) / 2; })
+            .attr("dy", ".35em")
+            .attr("text-anchor", function(d) { return d.angle > Math.PI ? "end" : null; })
+            .attr("transform", function(d) {return "rotate(" + (d.angle * 180 / Math.PI - 90) + ")"
+                + "translate(" + (innerRadius + 20) + ")"
+                + (d.angle > Math.PI ? "rotate(180)" : "");
+            })
+            .attr("style", "font-size: 13; font  -family: Helvetica, sans-serif")
+            .text(function(d) { return names(d.index); })
+            .attr("class", "text1");
+
+        // Adds Acres Labels //
+        svg.append("g").selectAll("acres_labels")
+            .data(chord.groups)
+            .enter()
+            .append("text")
+            .each(function(d) { d.angle = (d.startAngle + d.endAngle) / 2; })
+            .attr("dy", "1.5em")
+            .attr("opacity", 0)
+            .attr("text-anchor", function(d) { return d.angle > Math.PI ? "end" : null; })
+            .attr("transform", function(d) {return "rotate(" + (d.angle * 180 / Math.PI - 90) + ")"
+                + "translate(" + (innerRadius + 20) + ")"
+                + (d.angle > Math.PI ? "rotate(180)" : "");
+            })
+            .attr("style", "font-size: 9; font -family: Helvetica, sans-serif")
+            .text(function(d) { return acres(d.index); })
+            .attr("class", "text2");
+
+        ////////////////////////////////////////////////////////////////////
+        ///////////////// ANNIMATION ///////////////////////////////////////
+        ////////////////////////////////////////////////////////////////////
+
+
+        // Returns an event handler for fading a given chord group //
+        function fade(opacity) {
+            return function(g, i) {
+                svg.selectAll(".chord path")
+                    .filter(function(d) { return  d.source.index != i && d.target.index != i; })
+                    .transition()
+                    .duration(500)
+                    .style("opacity", opacity);
+
+                svg.selectAll(".text2")
+                    .filter(function(d) { return  acres(d.index); })
+                    .transition()
+                    .duration(500)
+                    .attr("opacity", 1-opacity)
+                    .attr("style", "font-size: 9; font  -family: Helvetica, sans-serif");
+
+                svg.selectAll(".text3")
+                    .filter(function(d) { return  acres(d.index); })
+                    .transition()
+                    .duration(500)
+                    .attr("opacity", 1-opacity)
+                    .attr("style", "font-size: 13; font  -family: Helvetica, sans-serif");
+            };
+        };
+
+    });
+</script>
+</body>
+</html>

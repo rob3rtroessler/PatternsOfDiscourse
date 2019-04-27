@@ -1,60 +1,59 @@
 
 
-// define global variables
-let nodes = [];
-let edges = [];
-
 // wrangle data
 function wrangleNetworkData () {
 
-    let tmpDistinctWords = {};
+    // variables
+    let nodes = [];
+    let edges = [];
+    let chordData = [];
+    let tmpDistinctWordDict = {};
 
     // create dict with all unique words plus the # of occurences
     WrangledTexTileData.forEach(
         environment => {
             environment.forEach(
                 word => {
-                    if ( word in tmpDistinctWords ){
-                        tmpDistinctWords[word] += 1;
+                    if ( word in tmpDistinctWordDict ){
+                        tmpDistinctWordDict[word] += 1;
                     }
                     else {
-                        tmpDistinctWords[word] = 1;
+                        tmpDistinctWordDict[word] = 1;
                     }
                 }
             )
         }
     );
 
-    console.log(tmpDistinctWords);
-
-    // createProminentTileList
-    createWordList_two(tmpDistinctWords);
+    // having created a distinctWordDict, we can createDistinctTileList_TabOne and _TabTwo
+    createDistinctTileList_TabTwo(tmpDistinctWordDict);
 
     // reset nodes
     nodes = [];
     let id = 0;
 
-    // get correct color for each word
-    console.log();
     // fill nodes
-    for (key in tmpDistinctWords){
-
+    for (key in tmpDistinctWordDict){
+        // TODO: if key === keyword, drop it. else, move on!
         // TODO: build switch that allows to: 1) show all, 2) show only those, that are connected, 3) show only sel
 
+        // prepare data for network graph
         let tmpObj= {
             "id": key,
             "label": key,
             "color": '#ff383f', // we're able to set individual colors!
-            "value": tmpDistinctWords[key]
+            "value": tmpDistinctWordDict[key]
         };
         nodes.push(tmpObj);
         id += 1;
     }
 
-    console.log(nodes);
 
-
-    // create edges
+    /************************************
+     *                                  *
+     *   data for EDGES and CHORDS      *
+     *                                  *
+     ***********************************/
     tmpDict = {};
     edges = [];
     let count = 0;
@@ -93,11 +92,10 @@ function wrangleNetworkData () {
         }
     );
 
-    // have a look at the current edge info
-    console.log (count, tmpDict);
-
     // fill edges
     for (key in tmpDict){
+
+        // fill tmpObj for network graph
         let tmpObj= {
             "from": key.split('To')[0],
             "to": key.split('To')[1],
@@ -105,10 +103,26 @@ function wrangleNetworkData () {
             "length": tmpDict[key]*10
         };
         edges.push(tmpObj);
+
+        // fill obj for chord graph
+        chordData.push([key.split('To')[0],key.split('To')[1],tmpDict[key]],[key.split('To')[1],key.split('To')[0],tmpDict[key]]);
     }
 
-    console.log(edges);
 
+    /***********************************
+    *                                  *
+    * draw chordGraph and networkGraph *
+    *                                  *
+    ***********************************/
+    draw(chordData, tmpDistinctWordDict);
+    drawNetworkGraph(nodes, edges);
+}
+
+
+
+
+
+function drawNetworkGraph(nodes, edges){
 
     // create a network
     let container = document.getElementById('NetworkGraphDiv');
@@ -127,12 +141,12 @@ function wrangleNetworkData () {
                 color: '#000000',
                 highlight: 'rgba(143, 43, 43, 0.81)',
                 hover: 'rgba(143, 43, 43, 0.81)'
-                },
+            },
             scaling: {
                 min: 1,
                 max: 10
-                }
-            },
+            }
+        },
 
         // nodes
         nodes:{
