@@ -9,6 +9,9 @@
         <!-- bootstrap css -->
         <link rel="stylesheet" href="{{ url_for('static', filename='css/libs/bootstrap.css') }}">
 
+        <link rel="stylesheet" href="https://unpkg.com/simplebar@latest/dist/simplebar.css" />
+
+
         <!-- own css -->
         <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
         <link rel="stylesheet" href="{{ url_for('static', filename='css/grid.css') }}">
@@ -37,10 +40,8 @@
 
                         <!-- left -->
                         <div class="col-2" id="CreateYourCorpusContainer" style="height: 100%">
-                            <div class="row justify-content-center align-items-center" style="border-bottom: thin solid grey; height: 8%"><h2 >Curate Your Corpus</h2></div>
-                            <div class="row" id ="corpusList" style="height: 92%">
-
-                            </div>
+                            <div class="row justify-content-center align-items-center" style="border-bottom: thin solid grey; height: 8%"><h2>Curate Your Corpus</h2></div>
+                            <div class="row" id ="corpusList" style="height: 92%"></div>
                         </div>
 
                         <!-- middle -->
@@ -79,7 +80,7 @@
 
                 <!-----------------------------------
                 -------------------------------------
-                ------     TAB 3 - NETWORK     ------
+                ------     TAB 2 - NETWORK     ------
                 -------------------------------------
                 ------------------------------------>
                 <div class="carousel-item container-fluid PoD-App_Tab">
@@ -91,13 +92,23 @@
                         <div class="col-12" style="height: 20%; border: thin solid grey; border-radius: 5px">
                             <div class="row" style="height: 100%; margin-bottom: 1%">
                                 <div class="col-3" style="border-right: thin solid grey"> FILTER </div>
-                                <div class="col-9"> TILES</div>
+                                <div class="col-3" style="border-right: thin solid grey"> FILTER Corpus</div>
+                                <div class="col-6">
+                                    <div class="row" style="height:100%; border-bottom: thin solid grey; overflow-x: hidden" data-simplebar>
+                                        <div class="row" id="t2-list">
+
+
+
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
 
                         <!-- chord vis -->
                         <div class="col-6" style="height: 79%; border-right: thin solid transparent;">
-                            <div class="row" id="chordVisDiv" style="border: thin solid grey; border-radius: 5px; height: 100%"></div>
+                            <div class="row" id="chordVisDiv" style="border: thin solid grey; border-radius: 5px; height: 100%">
+                            </div>
                         </div>
 
                         <!-- network vis -->
@@ -111,7 +122,7 @@
 
                 <!-----------------------------------
                 -------------------------------------
-                -------     TAB2 - MATRIX     -------
+                -------     TAB3 - MATRIX     -------
                 -------------------------------------
                 ------------------------------------>
 
@@ -176,6 +187,8 @@
         <script src="{{ url_for('static', filename='js/libs/bootstrap.min.js') }}"></script>
         <!-- axios --> <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 
+        <script src="https://unpkg.com/simplebar@latest/dist/simplebar.min.js"></script>
+
         <!-- adding d3.js, vis.js, and viz.js-->
         <!--<script src="js/libs/d3.min.js"></script>-->
         <script src="https://d3js.org/d3.v5.min.js"></script>
@@ -184,6 +197,7 @@
 
         <!-- OWN JAVASCRIPT FILES -->
         <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+        <script src="{{ url_for('static', filename='js/htmlAutomats.js') }}"></script>
 
         <script src="{{ url_for('static', filename='js/TexTileVis.js') }}"></script>
         <script src="{{ url_for('static', filename='js/corpus.js') }}"></script>

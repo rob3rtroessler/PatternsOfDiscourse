@@ -1,10 +1,11 @@
-// wrangle data
 
+
+// define global variables
 let nodes = [];
 let edges = [];
 
+// wrangle data
 function wrangleNetworkData () {
-
 
     let tmpDistinctWords = {};
 
@@ -17,7 +18,7 @@ function wrangleNetworkData () {
                         tmpDistinctWords[word] += 1;
                     }
                     else {
-                        tmpDistinctWords[word] = 0;
+                        tmpDistinctWords[word] = 1;
                     }
                 }
             )
@@ -25,6 +26,9 @@ function wrangleNetworkData () {
     );
 
     console.log(tmpDistinctWords);
+
+    // createProminentTileList
+    createWordList_two(tmpDistinctWords);
 
     // reset nodes
     nodes = [];

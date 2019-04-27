@@ -15,8 +15,8 @@ function gatherCorpusData () {
     };
 
     // check correct input
-    if (CorpusData.keyword === false || CorpusData.selectedIDs.length === 0){
-        alert('test');
+    if (CorpusData.keyword === "" || CorpusData.selectedIDs.length === 0){
+        alert('Please provide a Keyword and select at least one text from the corpus!');
     }
     else {
         generateTexTile (CorpusData)
@@ -62,7 +62,10 @@ function initTexTileModule(data){
 console.log('Tab1masterRow', $("#Tab1masterRow").height());
 console.log('test2', $("#test2").height());
 console.log('Tab3masterRow', $("#Tab3masterRow").height());
-console.log($("#lineChartSVG").height());*/
+console.log($("#lineChartSVG").height());
+console.log($("#Tab1masterRow").width());*/
+
+// scrollbars
 
 
-console.log($("#Tab1masterRow").width());
+

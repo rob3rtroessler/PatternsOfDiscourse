@@ -106,6 +106,23 @@ h3 {
 
 
 
+/* Environment List */
+.t2-list-col {
+    height: 25%;
+    border-right: thin solid grey;
+    border-bottom: thin solid grey;
+}
+
+.t2-list-span {
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    height:100%;
+    font-size: 1.2vh
+}
+
+
+
 
 /* Environment List */
 .listItem {

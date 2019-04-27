@@ -48,3 +48,20 @@
     border-radius: 5px;
 }
 
+
+
+/*
+    SCROLLABLE
+*/
+
+#corpusList {
+    overflow-y: scroll;
+    scrollbar-arrow-color: transparent;
+}
+
+#wordList-ChordNetFilter {
+    overflow-y: scroll;
+    scrollbar-arrow-color: transparent;
+}
+
+
