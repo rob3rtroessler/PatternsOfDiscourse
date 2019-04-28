@@ -1,3 +1,9 @@
+// DECLARE GLOBAL VARIABLES
+let nodes = [];
+let edges = [];
+let chordData = [];
+
+
 // declare function that gathers selected books
 function gatherCorpusData () {
     let CorpusData = {};
@@ -19,12 +25,12 @@ function gatherCorpusData () {
         alert('Please provide a Keyword and select at least one text from the corpus!');
     }
     else {
-        generateTexTile (CorpusData)
+        generateTexTiles(CorpusData)
     }
 }
 
 // declare a function that fires, when the 'generate' button is clicked
-function generateTexTile(CorpusData) {
+function generateTexTiles(CorpusData) {
     console.log("---------------------------------------------- \n " +
         "The following TextIDs will be sent to the server:", CorpusData);
     axios.post('/corpus', {
@@ -50,10 +56,11 @@ function initTexTileModule(data){
     initializeTexTileModule(data)
         .then( TexTileDataWrangling(data) )    // the reason why we passed the 'promised' data from function to function
         .then( TexTileVis() )    // no need to pass unprocessed data, it will grab wrangled data from global variable
-        .then( createDistinctTileList_TabOne(data.data.metadata.topwords) )    // top words in the environment for the
+        //.then( createDistinctTileList_TabOne(data.data.metadata.topwords) )    // top words in the environment for the
         .then( wrangleLineChartData(lockedWords, data) )    // lineChart data should take info from lockedWords from
     // searched word should be computed in python and passed into the JSON file's 'metadata'.
         .then( wrangleNetworkData() )
+        .then( wrangeMatrixData() )
 }
 
 

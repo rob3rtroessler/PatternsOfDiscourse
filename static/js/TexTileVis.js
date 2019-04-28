@@ -20,7 +20,7 @@ function TexTileDataWrangling(data){
         }
     });
     relevantData = data.data.data;
-    console.log('relevant data for the TexTiles:', relevantData);
+    console.log('data for TexTiles:', relevantData);
 
     // loop through all environments of relevant data and push to array 'WrangledTexTileData'
     relevantData.forEach( function (d){
@@ -40,8 +40,8 @@ function TexTileVis (){
     lineChartHeight = 850 - margin.top - margin.bottom;
 
     // calculate dimensions
-    console.log('available width in px:', lineChartWidth);
-    console.log('available height in px:', lineChartHeight);
+    //console.log('available width in px:', lineChartWidth);
+    //console.log('available height in px:', lineChartHeight);
 
     // TODO: fix dimensions
     let TexTileWidth = lineChartWidth/(15 + 1/4*14);
@@ -106,7 +106,7 @@ function TexTileVis (){
                     .html("<b>"+ d + "</b>")
                     .style("left", function(d){
                         tmp = $("#CreateYourCorpusContainer").width();
-                        console.log(tmp);
+                        // console.log(tmp);
                         return (tmp + 45 +  "px")
                     })
                     .style("top", (d3.event.pageY +10) + "px");
@@ -150,7 +150,7 @@ function ColorToClass(className) {
 
     // check if word is locked
     if (lockedWords.includes(className)){
-        console.log("oh, it's locked", className);
+        // console.log("word is locked", className);
     }
     else {
         // if word is not locked find first color that is not used
@@ -171,7 +171,7 @@ function ColorToClass(className) {
 function RemoveColorFromClass (className){
 
     if (lockedWords.includes(className)){
-        console.log("oh, it's locked", className);
+        // console.log("word is locked", className);
     }
     else {
         $("." + className)

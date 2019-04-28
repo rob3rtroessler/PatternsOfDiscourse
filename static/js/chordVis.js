@@ -1,9 +1,9 @@
-function draw (data, words){
+function drawChordGraph (data, words){
 
+    console.log('data for ChordGraph:', data);
 
     let chorddata = data;
     let sortOrder = Object.keys(words);
-    console.log(sortOrder);
 
 
 // margins etc.
@@ -33,10 +33,8 @@ function draw (data, words){
         .labelPadding(.03)
         .fill(function(d){
             if (lockedWords.includes(d)){
-                console.log('test', d);
                 lockedWords.forEach((word,i) =>{
                     if (word === d){
-                        console.log(word, d, i, colors[i]);
                         return 'blue';
                     }
                 });

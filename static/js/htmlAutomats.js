@@ -1,46 +1,27 @@
-
-// declare function that creats list with prominent tiles
 function createDistinctTileList_TabOne (data) {
-    // console.log(data);
-    data.forEach( (d,i) => {
-        // console.log(d,i);
-        if (0 <= i && i < 10){
-            document.getElementById('top10').innerHTML += `<div class="row listItem ` + d + `" onclick="lockColor('` + d + `', 1)" onmouseout="RemoveColorFromClass('` + d + `')" 
-onmouseover="ColorToClass('` + d + `')">` + d + `</div>`
-        }
-        else if (10 <= i && i < 20){
-            document.getElementById('top20').innerHTML += `<div class="row listItem ` + d + `" onclick="lockColor('` + d + `', 1)" onmouseout="RemoveColorFromClass('` + d + `')" 
-onmouseover="ColorToClass('` + d + `')">` + d + `</div>`
-        }
-        else if (20 <= i && i < 30){
-            document.getElementById('top30').innerHTML += `<div class="row listItem ` + d + `" onclick="lockColor('` + d + `', 1)" onmouseout="RemoveColorFromClass('` + d + `')" 
-onmouseover="ColorToClass('` + d + `')">` + d + `</div>`
-        }
-    })
 
+    let html = '';
+    data.forEach( obj => {
+        html += `<div class="col-4 t1-list-col ` + obj.word + `" 
+        onclick="lockColor('` + obj.word + `', 1)" 
+        onmouseout="RemoveColorFromClass('` + obj.word + `')"
+        onmouseover="ColorToClass('` + obj.word + `')">` +
+            `<span class='t2-list-span'>` + obj.word + ` (` + obj.value +
+            `)</span></div>`;
+    });
+    document.getElementById('t1-list').innerHTML = html + html + html
 }
 
-function createDistinctTileList_TabTwo(dict){
+function createDistinctTileList_TabTwo(data){
 
-
-    //console.log(dict);
-
-    // get keys
-    let keys = Object.keys(dict);
-
-    //console.log(keys);
     let html = '';
-    // loop over keys, for each key create div, after 12 divs
-    keys.forEach((word, i) => {
-        html += `<div class="col-2 t2-list-col ` +  word + `"><span class='t2-list-span'>` + word + ` (` + dict[word] +
+    data.forEach((obj, i) => {
+        html += `<div class="col-2 t2-list-col ` +  obj.word + `" 
+        onclick="lockColor('` + obj.word + `', 1)" 
+        onmouseout="RemoveColorFromClass('` + obj.word + `')"
+        onmouseover="ColorToClass('` + obj.word + `')"><span class='t2-list-span'>` + obj.word + ` (` + obj.value +
             `)</span></div>`;
-        //console.log(dict[word])
     });
 
-
-    html = html + html + html + html;
-    // console.log(html);
-    //$('#t2-list').html(html);
     document.getElementById('t2-list').innerHTML += html
-
 }

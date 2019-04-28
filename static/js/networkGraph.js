@@ -1,12 +1,11 @@
 
-
 // wrangle data
 function wrangleNetworkData () {
 
-    // variables
-    let nodes = [];
-    let edges = [];
-    let chordData = [];
+    // reset nodes & edges
+    nodes = [];
+    edges = [];
+    chordData = [];
     let tmpDistinctWordDict = {};
 
     // create dict with all unique words plus the # of occurences
@@ -25,8 +24,26 @@ function wrangleNetworkData () {
         }
     );
 
-    // having created a distinctWordDict, we can createDistinctTileList_TabOne and _TabTwo
-    createDistinctTileList_TabTwo(tmpDistinctWordDict);
+
+    // sort tmpDistinctWords
+    let tmpDistinctWordDict_sorted = [];
+
+    // convert tmpDistinctWordDict into sortable object
+    Object.keys(tmpDistinctWordDict).forEach( d => {
+        let tmpObj= {
+            "word": d,
+            "value": tmpDistinctWordDict[d]
+        };
+        tmpDistinctWordDict_sorted.push(tmpObj);
+    });
+
+    // sort
+    tmpDistinctWordDict_sorted.sort(function (a, b) {return b.value - a.value});
+
+    console.log('data for TileLists:',  tmpDistinctWordDict_sorted);
+    // having created a distinctWordDict_sorted, we can createDistinctTileList_TabOne and _TabTwo
+    createDistinctTileList_TabOne(tmpDistinctWordDict_sorted);
+    createDistinctTileList_TabTwo(tmpDistinctWordDict_sorted);
 
     // reset nodes
     nodes = [];
@@ -110,11 +127,11 @@ function wrangleNetworkData () {
 
 
     /***********************************
-    *                                  *
-    * draw chordGraph and networkGraph *
+    *      DATA WRANGLING DONE         *
+    * call chordGraph and networkGraph *
     *                                  *
     ***********************************/
-    draw(chordData, tmpDistinctWordDict);
+    drawChordGraph(chordData, tmpDistinctWordDict);
     drawNetworkGraph(nodes, edges);
 }
 
@@ -132,6 +149,7 @@ function drawNetworkGraph(nodes, edges){
         nodes: nodes,
         edges: edges
     };
+    console.log('data for NetworkGraph:', data);
 
     let options = {
 

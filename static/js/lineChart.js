@@ -41,7 +41,7 @@ async function wrangleLineChartData(ArrayOfLockedWords, myData) {
         tmpLineChartData.push(tmpDict);
         });
 
-    console.log(tmpLineChartData);
+    console.log('data for LineChart:', tmpLineChartData);
     updateLineChart (tmpLineChartData);
 }
 

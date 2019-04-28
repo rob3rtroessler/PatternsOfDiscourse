@@ -107,10 +107,37 @@ h3 {
 
 
 /* Environment List */
+.t1-list-col {
+    font-family: 'Libre Franklin', sans-serif;
+    font-weight: 300;
+    font-size: 1.2vh;
+    height: 12.5%;
+    border-right: thin solid grey;
+    border-bottom: thin solid grey;
+}
+.t1-list-col:hover {
+    cursor: pointer;
+}
+
+.t1-list-span {
+    font-family: 'Libre Franklin', sans-serif;
+    font-weight: 300;
+    font-size: 1.2vh;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    height:100%;
+
+}
+
 .t2-list-col {
     height: 25%;
     border-right: thin solid grey;
     border-bottom: thin solid grey;
+}
+
+.t2-list-col:hover {
+    cursor: pointer;
 }
 
 .t2-list-span {

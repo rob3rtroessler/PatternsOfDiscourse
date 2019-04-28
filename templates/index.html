@@ -1,6 +1,7 @@
 <html>
     <head>
         <title>Patterns Of Discourse</title>
+        <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
 
         <!-- google font -->
         <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto:300,400,500,700" type="text/css">
@@ -36,7 +37,7 @@
                 <div class="carousel-item active container-fluid PoD-App_Tab">
 
                     <!-- overall row for Tab 1 --- !START HERE! -->
-                    <div class="row" id="Tab1masterRow" style="border:thin solid grey">
+                    <div class="row" id="Tab1masterRow">
 
                         <!-- left -->
                         <div class="col-2" id="CreateYourCorpusContainer" style="height: 100%">
@@ -51,16 +52,19 @@
                                 <div class="col-3"><input id="TexTileWordInput" placeholder="Enter Word"></div>
                                 <div class="col-3"><div class="row justify-content-center align-items-center" id="GenTexTileButton" onclick="gatherCorpusData()"><h2>Generate</h2></div></div>
                             </div>
-                            <div class="row" style="height: 92%" id="FabricVisContainer"></div>
+                            <div class="row" style="height: 92%" data-simplebar>
+                                <div style="height: 100%" id="FabricVisContainer"></div>
+                            </div>
                         </div>
 
                         <!-- right -->
                         <div class="col-4" style="height: 100%">
                             <div class="row justify-content-center align-items-center" style="border-bottom: thin solid grey; height: 8%"><h2>Most Common Words in Surrounding</h2></div>
                             <div class="row" style="border-bottom: thin solid grey; height: 32%">
-                                <div class="col-3" id="top10"></div>
+                                <!--<div class="col-3" id="top10"></div>
                                 <div class="col-3" id="top20"></div>
-                                <div class="col-3" id="top30"></div>
+                                <div class="col-3" id="top30"></div>-->
+                                <div class="col-9" style="height: 100%" data-simplebar><div class="row" id="t1-list"></div></div>
                                 <div class="col-3">
                                     <div class="row">
                                         <div class="col-6" style="writing-mode: vertical-lr; height: 100%"><span>Color Table</span></div>
@@ -91,10 +95,14 @@
                         <!-- filter -->
                         <div class="col-12" style="height: 20%; border: thin solid grey; border-radius: 5px">
                             <div class="row" style="height: 100%; margin-bottom: 1%">
-                                <div class="col-3" style="border-right: thin solid grey"> FILTER </div>
+                                <div class="col-3" style="border-right: thin solid grey">
+                                    <div class="row">FILTER</div>
+                                    <div class="row"><div class="col-3"></div><div class="col-6"><button>Apply</button></div></div>
+                                    <button>apply & redraw</button>
+                                </div>
                                 <div class="col-3" style="border-right: thin solid grey"> FILTER Corpus</div>
                                 <div class="col-6">
-                                    <div class="row" style="height:100%; border-bottom: thin solid grey; overflow-x: hidden" data-simplebar>
+                                    <div class="row" style="height:100%; overflow-x: hidden" data-simplebar>
                                         <div class="row" id="t2-list">
 
 
@@ -196,7 +204,7 @@
         <script src="http://vizjs.org/viz.v1.1.0.min.js"></script>
 
         <!-- OWN JAVASCRIPT FILES -->
-        <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+
         <script src="{{ url_for('static', filename='js/htmlAutomats.js') }}"></script>
 
         <script src="{{ url_for('static', filename='js/TexTileVis.js') }}"></script>
@@ -207,6 +215,7 @@
         <script src="{{ url_for('static', filename='js/networkGraph.js') }}"></script>
         <script src="{{ url_for('static', filename='js/matrix.js') }}"></script>
 
+        <script src="{{ url_for('static', filename='js/main.js') }}"></script>
 
         <script>$('.carousel').carousel({
             interval: false
