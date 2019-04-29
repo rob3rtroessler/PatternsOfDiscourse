@@ -9,7 +9,7 @@ function createDistinctTileList_TabOne (data) {
             `<span class='t2-list-span'>` + obj.word + ` (` + obj.value +
             `)</span></div>`;
     });
-    document.getElementById('t1-list').innerHTML = html + html + html
+    document.getElementById('t1-list').innerHTML = html
 }
 
 function createDistinctTileList_TabTwo(data){
@@ -23,5 +23,5 @@ function createDistinctTileList_TabTwo(data){
             `)</span></div>`;
     });
 
-    document.getElementById('t2-list').innerHTML += html
+    document.getElementById('t2-list').innerHTML = html
 }

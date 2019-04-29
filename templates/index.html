@@ -95,19 +95,52 @@
                         <!-- filter -->
                         <div class="col-12" style="height: 20%; border: thin solid grey; border-radius: 5px">
                             <div class="row" style="height: 100%; margin-bottom: 1%">
-                                <div class="col-3" style="border-right: thin solid grey">
-                                    <div class="row">FILTER</div>
-                                    <div class="row"><div class="col-3"></div><div class="col-6"><button>Apply</button></div></div>
-                                    <button>apply & redraw</button>
-                                </div>
-                                <div class="col-3" style="border-right: thin solid grey"> FILTER Corpus</div>
-                                <div class="col-6">
-                                    <div class="row" style="height:100%; overflow-x: hidden" data-simplebar>
-                                        <div class="row" id="t2-list">
 
-
+                                <!-- left -->
+                                <div class="col-6" style="border-right: thin solid grey">
+                                    <div class="row">
+                                        <div class="col-12">FILTER</div>
+                                        <div class="col-8 offset-1">
+                                            <div class="row" style=" height: 75%; border-right: thin solid grey; text-align: left">
+                                                <form>
+                                                    <input type="radio" id="contactChoice1"
+                                                           name="contact" value="email">
+                                                    <label for="contactChoice1">visualize only selected words</label><br>
+                                                    <input type="radio" id="contactChoice2"
+                                                           name="contact" value="phone">
+                                                    <label for="contactChoice2">visualize selected words and their environments</label><br>
+                                                    <input type="radio" id="contactChoice3"
+                                                           name="contact" value="mail">
+                                                    <label for="contactChoice3">visualize all words that appear in environments of the keyword</label>
+                                                </form>
+                                            </div>
+                                        </div>
+                                        <div class="col-3">
+                                            <form style="font-size: 2vh">
+                                                <input type="checkbox" id="test"
+                                                       name="contact" value="email">
+                                                <label for="contactChoice1">disable automatic updating</label>
+                                                <button>apply & redraw</button>
+                                            </form>
 
                                         </div>
+                                    </div>
+                                </div>
+
+                                <!-- middle -->
+                                <!--<div class="col-3" style="border-right: thin solid grey">
+                                    <div class="row" style="height: 80%">
+                                        <div class="col-12" data-simplebar>
+                                            <div class="row" style="height: 100%" id="corpusList_Two"></div>
+                                        </div>
+                                    </div>
+                                    <div class="row" style="height: 80%"><div class="col-12">test</div></div>
+                                </div>-->
+
+                                <!-- right -->
+                                <div class="col-6">
+                                    <div class="row" style="height:100%; overflow-x: hidden" data-simplebar>
+                                        <div class="row" id="t2-list"></div>
                                     </div>
                                 </div>
                             </div>
@@ -146,7 +179,7 @@
                                     <select id="order" style="width: 100%; border: 0; background: #d36a6a; text-align-last: center">
                                         <option value="name">alphabetical</option>
                                         <option value="count">by frequence</option>
-                                        <option value="group">by area</option>
+                                        <option value="group">test (e.g. by group)</option>
                                     </select>
 
                             </div>
@@ -206,6 +239,7 @@
         <!-- OWN JAVASCRIPT FILES -->
 
         <script src="{{ url_for('static', filename='js/htmlAutomats.js') }}"></script>
+        <script src="{{ url_for('static', filename='js/colorManager.js') }}"></script>
 
         <script src="{{ url_for('static', filename='js/TexTileVis.js') }}"></script>
         <script src="{{ url_for('static', filename='js/corpus.js') }}"></script>

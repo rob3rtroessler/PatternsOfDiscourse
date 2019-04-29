@@ -47,15 +47,6 @@ async function wrangleLineChartData(ArrayOfLockedWords, myData) {
 
 
 
-
-// DATA
-let data = [
-    {unbewusst: 0.01, Traum: 0.02, date: 18000101},
-    {unbewusst: 0.04, Traum: 0.01, date: 18500101},
-    {unbewusst: 0.02, Traum: 0.05, date: 18750101},
-    {unbewusst: 0.03, Traum: 0.02, date: 19000101}
-];
-
 // D3 margin conventions
 let margin = {
         top: 30,
@@ -100,6 +91,8 @@ let svg = d3.select("#lineChartSVG").append("svg")
 // UPDATE
 function updateLineChart (data) {
 
+    console.log('hier herausfinden, wie viele lines es gibt', data);
+
     let color = d3.scaleOrdinal(colors);
 
     color.domain(d3.keys(data[0]).filter(function(key) {
@@ -129,7 +122,9 @@ function updateLineChart (data) {
 
     y.domain([0,
         d3.max(cities, function(c) {
+            console.log('hello', c);
             return d3.max(c.values, function(v) {
+                console.log(v);
                 return v.value;
             });
         })
@@ -157,7 +152,7 @@ function updateLineChart (data) {
         .attr("dy", ".71em")
         .style("text-anchor", "end")
         .style('stroke', 'grey')
-        .text("hit/100 words");
+        .text("word occurences");
 
 
 // prepare paths

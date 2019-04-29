@@ -1,0 +1,75 @@
+{
+  "metadata": {
+    "CurrentKeyword": "Traum",
+    "topwords": [
+      "word1", "word2", "word3", "word4","word5", "word6", "word7", "word8","word9", "word10",
+      "word11", "word12", "word13", "word14", "word15", "word16", "word17", "word18","word19", "word20",
+      "word31", "word32", "word33", "word24", "word25", "word26", "word27", "word28","word29", "word30"
+    ]
+  },
+
+  "data": [
+    {
+      "textID": "9",
+      "author": "Sigmund Freud",
+      "title": "Traumdeutung",
+      "year": 1900,
+      "environments":
+      [
+        ["ich", "glaube", "wir", "reden", "hier", "wenn", "auch", "unbewußt", "die", "Sprache", "der", "Wahrheit", "p", "52", "Es"],
+        ["ihnen", "wirklich", "zugestoßen", "ist", "gestalten", "sie", "sich", "unbewußt", "gräßliche", "oder", "ausschweifende", "Phantasiebegebenheiten", "die", "sie", "aus"],
+        ["übersetzt", "was", "in", "der", "Seele", "des", "Helden", "unbewußt", "bleiben", "muß", "wenn", "jemand", "_Hamlet_", "einen", "Hysteriker"],
+        ["an", "die", "ihm", "so", "früh", "entschwundene", "Person", "unbewußt", "bewahrt", "hatte", "Ich", "weiß", "daß", "meine", "beiden"],
+        ["Erklärung", "zuläßt", "Der", "Überschuß", "rührt", "aber", "aus", "unbewußt", "gebliebenen", "bis", "dahin", "unterdrückten", "Affektquellen", "her", "die"],
+        ["Inhaltes", "und", "ihrer", "Abkunft", "vom", "verdrängten", "Material", "unbewußt", "bleiben", "müssen", "Eine", "eingehendere", "Vertiefung", "in", "die"],
+        ["in", "der", "Wiederholung", "einer", "Tagesphantasie", "einer", "vielleicht", "unbewußt", "gebliebenen", "bestehen", "so", "z", "B", "der", "Traum"],
+        ["angeführt", "Dem", "Träumenden", "gibt", "sich", "ihm", "selber", "unbewußt", "und", "unerwartet", "ein", "gutes", "Stück", "seiner", "Ideenwelt"],
+        ["tiefsten", "uns", "eingeprägten", "nicht", "ausgenommen", "an", "sich", "unbewußt", "Sie", "können", "bewußt", "gemacht", "werden", "es", "ist"],
+        ["diese", "Verwandlung", "erfahren", "welche", "mit", "unterdrückten", "oder", "unbewußt", "gebliebenen", "Erinnerungen", "im", "intimen", "Zusammenhange", "stehen", "Z"],
+        ["regredienter", "Gedankenverwandlung", "den", "Einfluß", "einer", "unterdrückten", "oder", "unbewußt", "gebliebenen", "Erinnerung", "meist", "einer", "infantilen", "nicht", "übersehen"],
+        ["zwischen", "dem", "bewußt", "gewordenen", "Tagesleben", "und", "einer", "unbewußt", "gebliebenen", "psychischen", "Tätigkeit", "die", "sich", "erst", "zur"],
+        ["weiter", "reichenden", "Satze", "daß", "alles", "Psychische", "als", "unbewußt", "vorhanden", "ist", "einiges", "davon", "dann", "auch", "als"],
+        ["dynamische", "und", "systematische", "Bedeutung", "des", "vieldeutigen", "Wortes", "unbewußt", "voneinander", "geschieden", "werden", "Auch", "von", "der", "Unterscheidung"],
+        ["den", "Verlauf", "der", "Besetzungen", "innerhalb", "des", "sonst", "unbewußt", "und", "durch", "Quantitätsverschiebungen", "arbeitenden", "psychischen", "Apparates", "Es"],
+        ["Hier", "sind", "es", "langverdrängte", "Erinnerungen", "und", "deren", "unbewußt", "gebliebene", "Abkömmlinge", "die", "auf", "dem", "ihnen", "eröffneten"],
+        ["die", "sonst", "unterdrückte", "erste", "auffasse", "wurde", "die", "unbewußt", "Feindseligkeit", "gegen", "die", "Mutter", "motorisch", "mächtig", "als"],
+        ["hatte", "ich", "Gelegenheit", "tiefe", "Einblicke", "in", "das", "unbewußt", "Seelenleben", "eines", "jungen", "Mannes", "zu", "tun", "der"],
+        ["Blumenschenken", "unter", "Liebenden", "hat", "vielleicht", "überhaupt", "diese", "unbewußt", "Bedeutung", "Der", "Geburtstag", "den", "sie", "im", "Traume"],
+        ["anderen", "erübrigen", "so", "viele", "und", "so", "starke", "unbewußt", "Wünsche", "die", "nun", "im", "Schlafzustande", "traumerzeugend", "wirken"],
+        ["begraben", "zu", "werden", "als", "auch", "die", "tiefste", "unbewußt", "Begründung", "des", "Glaubens", "an", "ein", "Fortleben", "nach"],
+        ["Sicherheit", "vollzogen", "werden", "Vgl", "auch", "_Jones_", "Über", "unbewußt", "Zahlenbehandlung", "Zentralbl", "f", "PSA", "II", "1912", "S"],
+        ["die", "zentrifugale", "Erweckung", "von", "Affekten", "durch", "das", "unbewußt", "Denken", "während", "des", "Schlafes", "erschwert", "sein", "Die"],
+        ["nagenden", "Wünsche", "des", "alternden", "Mannes", "als", "der", "unbewußt", "Traumerreger", "verraten", "Der", "in", "anderen", "psychischen", "Schichten"],
+        ["solche", "bewußte", "Phantasien", "gibt", "so", "kommen", "überreichlich", "unbewußt", "vor", "die", "wegen", "ihres", "Inhaltes", "und", "ihrer"],
+        ["Stücke", "desselben", "Traumes", "ich", "weiß", "dies", "sind", "unbewußt", "Phantasien", "die", "im", "Zusammenhange", "in", "den", "Traum"],
+        ["die", "Traumdeutung", "bin", "ich", "Träumen", "in", "denen", "unbewußt", "Phantasien", "eine", "erheblichere", "Rolle", "spielen", "möglichst", "ausgewichen"],
+        ["Narzissmus", "Jahrbuch", "der", "Psychoanalyse", "VI", "1914", "Das", "unbewußt", "Denken", "und", "die", "Traumarbeit", "Ich", "gehe", "nun"],
+        ["dieser", "sofort", "unbekannte", "wie", "wir", "ungenau", "sagen", "unbewußt", "Zielvorstellungen", "zur", "Macht", "kommen", "die", "jetzt", "den"],
+        ["wegen", "dieses", "letzteren", "Momentes", "wollen", "wir", "das", "unbewußt", "System", "als", "den", "Ausgangspunkt", "der", "Traumbildung", "annehmen"],
+        ["wieder", "zur", "Abfuhr", "leiten", "so", "oft", "die", "unbewußt", "Erregung", "sie", "wiederbesetzt", "Um", "mich", "eines", "Gleichnisses"],
+        ["bestand", "auch", "keiner", "in", "unserem", "Beispiele", "Der", "unbewußt", "Wunsch", "als", "Triebkraft", "des", "Traumes", "Ich", "kann"],
+        ["kann", "es", "nun", "scharf", "bezeichnen", "was", "der", "unbewußt", "Wuns", "Der", "unbewußte", "Wunsch", "als", "Triebkraft", "des"],
+        ["scharf", "bezeichnen", "was", "der", "unbewußte", "Wuns", "Der", "unbewußt", "Wunsch", "als", "Triebkraft", "des", "Traumes", "Ich", "kann"],
+        ["kann", "es", "nun", "scharf", "bezeichnen", "was", "der", "unbewußt", "Wunsch", "für", "den", "Traum", "bedeutet", "Ich", "will"],
+        ["befragt", "Aus", "dieser", "erfährt", "man", "daß", "die", "unbewußt", "Vorstellung", "als", "solche", "überhaupt", "unfähig", "ist", "ins"],
+        ["erst", "mit", "Herstellung", "des", "Schlafzustandes", "hat", "der", "unbewußt", "Wunsch", "sich", "den", "Weg", "zu", "den", "Tagesresten"],
+        ["Wenn", "aber", "der", "Schlafzustand", "besteht", "und", "der", "unbewußt", "Wunsch", "die", "Kraft", "gezeigt", "hat", "einen", "Traum"],
+        ["Studium", "der", "Neurosen", "speziell", "der", "Hysterie", "Der", "unbewußt", "Gedankenweg", "der", "zur", "Entladung", "im", "Anfall", "führt"],
+        ["die", "Bewußtseinserregung", "hingelenkt", "worden", "ist", "bindet", "die", "unbewußt", "Erregung", "des", "Traumes", "und", "macht", "sie", "als"],
+        ["an", "der", "Bildung", "der", "Traumgedanken", "hat", "die", "unbewußt", "Phantasietätigkeit", "den", "größten", "Anteil", "Wir", "bleiben", "_Scherner_"],
+        ["ist", "Die", "Erinnerungen", "von", "denen", "aus", "der", "unbewußt", "Wunsch", "die", "Affektentbindung", "hervorruft", "waren", "dem", "Vbw"],
+        ["als", "zweckmäßig", "Anders", "aber", "wenn", "der", "verdrängte", "unbewußt", "Wunsch", "eine", "organische", "Verstärkung", "erfährt", "die", "er"],
+        ["das", "Psychische", "sei", "eben", "das", "Bewußte", "und", "unbewußt", "psychische", "Vorgänge", "ein", "greifbarer", "Widersinn", "blieb", "eine"],
+        ["und", "der", "Philosoph", "zusammen", "wenn", "beide", "anerkennen", "unbewußt", "psychische", "Vorgänge", "seien", "der", "zweckmäßige", "und", "wohlberechtigte"],
+        ["in", "sich", "einschließt", "alles", "Bewußte", "hat", "eine", "unbewußt", "Vorstufe", "während", "das", "Unbewußte", "auf", "dieser", "Stufe"],
+        ["in", "sich", "einschließt", "alles", "Bewußte", "hat", "eine", "unbewußt", "Vorstufe", "während", "das", "Unbewußte", "auf", "dieser", "Stufe"],
+        ["daß", "es", "außer", "den", "bewußten", "Vorgängen", "auch", "unbewußt", "psychische", "gibt", "ist", "die", "heiß", "bestrittene", "und"]
+
+
+
+
+      ]
+
+    }
+  ]
+}

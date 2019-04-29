@@ -1,7 +1,7 @@
 import nltk
 
-Kapital = open('Traumdeutung.txt', 'rU', encoding="utf8")
-raw = Kapital.read()
+Freud = open('Traumdeutung.txt', 'rU', encoding="utf8")
+raw = Freud.read()
 
 # tokenize raw text
 tokens = nltk.word_tokenize(raw)
@@ -11,7 +11,7 @@ tokens = nltk.word_tokenize(raw)
 # create NLTK text from the tokens in order to perform all the linguistic processing that NLTK allows us to do
 text = nltk.Text(tokens)
 
-tmp = text.concordance('unbewußt', 200, lines=50)
+tmp = text.concordance('Traum', 200, lines=50)
 
 # print(tmp)
 

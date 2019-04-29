@@ -1,6 +1,6 @@
 let matrixData = [];
 
-function wrangeMatrixData() {
+function wrangleMatrixData() {
 
     // lookup array
     let lookup = {};
@@ -37,13 +37,14 @@ function wrangeMatrixData() {
         matrixEdges.push(tmpMatrixLink)
     });
 
-    console.log( matrixEdges);
-
     // finalize matrixData
     matrixData = {
         nodes: matrixNodes,
         links: matrixEdges
     };
+
+    // log data
+    console.log('data for MatrixVis:', matrixData);
 
     // draw MatrixVis
     drawMatrixVis(matrixData)
@@ -52,7 +53,7 @@ function wrangeMatrixData() {
 function drawMatrixVis(data) {
 
 // define dimensions && margins
-    let matrixMargin = { top: 100, right: 0, bottom: 50, left: 200 },
+    let matrixMargin = { top: 80, right: 80, bottom: 50, left: 80 },
         matrixWidth = $("#CreateYourCorpusContainer").height()  - matrixMargin.top -10,
         matrixHeight =$("#CreateYourCorpusContainer").height() - matrixMargin.top -10;
 
@@ -78,12 +79,9 @@ function drawMatrixVis(data) {
     let opacityScale = d3.scaleLinear().domain([0, 10]).range([0.3, 1.0]).clamp(true);
     let colorScale = d3.scaleOrdinal(d3.schemeCategory10);
 
-    console.log('edges:', data);
-
 // Create rows for the matrix
     matrixNodes.forEach(function(node) {
         node.count = 0;
-        node.group = groupToInt(node.group);
         matrix[node.index] = d3.range(total_items).map(item_index => {
             return {
                 x: item_index,
@@ -93,8 +91,6 @@ function drawMatrixVis(data) {
         });
     });
 
-
-    console.log('nodes after:',matrix);
 
 // Fill matrix with data from links and count how many times each item appears
     data.links.forEach(function(link) {
@@ -136,14 +132,14 @@ function drawMatrixVis(data) {
         .attr("y", matrixScale.bandwidth() / 2)
         .attr("dy", ".32em")
         .attr("text-anchor", "end")
-        .text((d, i) => capitalize_Words(matrixNodes[i].name));
+        .text((d, i) => matrixNodes[i].name);
     columns.append("text")
         .attr("class", "label")
         .attr("y", 100)
         .attr("y", matrixScale.bandwidth() / 2)
         .attr("dy", ".32em")
         .attr("text-anchor", "start")
-        .text((d, i) => capitalize_Words(matrixNodes[i].name));
+        .text((d, i) => matrixNodes[i].name);
 
 // Precompute the orders.
     let orders = {
@@ -193,9 +189,9 @@ function drawMatrixVis(data) {
             return i === p.x;
         });
         tooltip.transition().duration(200).style("opacity", .9);
-        tooltip.html(capitalize_Words(matrixNodes[p.y].name) + " [" + intToGroup(matrixNodes[p.y].group) + "]</br>" +
-            capitalize_Words(matrixNodes[p.x].name) + " [" + intToGroup(matrixNodes[p.x].group) + "]</br>" +
-            p.z + " trabalhos relacionados")
+        tooltip.html(matrixNodes[p.y].name + "</br>" +
+            matrixNodes[p.x].name + "</br>" +
+            p.z + " cooccurences")
             .style("left", (d3.event.pageX + 30) + "px")
             .style("top", (d3.event.pageY - 50) + "px");
     }
@@ -204,40 +200,4 @@ function drawMatrixVis(data) {
         tooltip.transition().duration(500).style("opacity", 0);
     }
 
-}
-
-/* utils */
-let groupToInt = function(area) {
-    if(area === "exatas"){
-        return 1;
-    }else if (area === "educacao"){
-        return 2;
-    }else if (area === "humanas"){
-        return 3;
-    }else if (area === "biologicas"){
-        return 4;
-    }else if (area === "linguagem"){
-        return 5;
-    }else if (area === "saude"){
-        return 6;
-    }
-};
-
-let intToGroup = function(area) {
-    if(area === 1){
-        return "exatas";
-    }else if (area === 2){
-        return "educacao";
-    }else if (area === 3){
-        return "humanas";
-    }else if (area === 4){
-        return "biologicas";
-    }else if (area === 5){
-        return "linguagem";
-    }else if (area === 6){
-        return "saude";
-    }
-};
-function capitalize_Words(str){
-    return str.replace(/\w\S*/g, function(txt){return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();});
 }

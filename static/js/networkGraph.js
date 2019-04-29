@@ -58,7 +58,7 @@ function wrangleNetworkData () {
         let tmpObj= {
             "id": key,
             "label": key,
-            "color": '#ff383f', // we're able to set individual colors!
+            "color": '#ffffff', // we're able to set individual colors!
             "value": tmpDistinctWordDict[key]
         };
         nodes.push(tmpObj);
