@@ -36,10 +36,10 @@ function TexTileDataWrangling(data){
 
 function TexTileVis (data){
 
-    // margin conventions
+    // margin conventions using the parent div's entire width & calculating the hight by using # of environments
     let margin = {top: 20, right: 20, bottom: 20, left: 20};
-    lineChartWidth = $("#FabricVisContainer").width() - margin.left - margin.right; // Use the window's width
-    lineChartHeight = (data.length*25 + 30) - margin.top - margin.bottom;//TODO calculate the height and pass it in
+    lineChartWidth = $("#FabricVisContainer").width() - margin.left - margin.right;
+    lineChartHeight = (data.length*25 + 30) - margin.top - margin.bottom;
 
     // TODO: fix dimensions, especially with regard to the tooltip
     let TexTileWidth = lineChartWidth/(15 + 1/4*14);
@@ -68,11 +68,12 @@ function TexTileVis (data){
         .attr("class", 'FabricRow');
 
     newRows.each(function(d, i){
-        // in case you wanna check all data available in a row: //console.log('test', d, this);
+        // in case you wanna check all data available in a row: //
+        // console.log('rowdata:', d, this);
 
-        let rectangles = d3.select(this).selectAll("rect").data(d);
+        let rectangles = d3.select(this).selectAll("rect").data(d); //TODO: If I send
         rectangles.enter().append("rect")
-            .attr("class", function (d){return d})
+            .attr("class", function (d){return d}) //TODO:  one solution would be to add a textID here
             .attr("width", TexTileWidth)
             .attr("height", 12)
             .attr("x", function (d, i) {
@@ -80,7 +81,8 @@ function TexTileVis (data){
             })
             .attr("y", i*25)
             .attr('fill', function(d){
-                // console.log(d);
+
+                // TODO: update! replace 'Traum' with var keyword. Store keyword when searching.
                 if (d === 'Traum') {
                     return '#fb8072'
                 }
@@ -124,6 +126,8 @@ function TexTileVis (data){
                 // remove color
                 lockColor(d);
             })
-    })
+    });
+
+    // TODO: ADD scrollbar
 }
 

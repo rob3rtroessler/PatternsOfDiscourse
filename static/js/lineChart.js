@@ -6,7 +6,7 @@ async function wrangleLineChartData(ArrayOfLockedWords, myData) {
     tmpLineChartData = [];
 
     // grab currently lockedWords and store them in 'selected'
-    let selected = lockedWords;
+    let selected = ArrayOfLockedWords;
 
     // Analyze the data by looping through the corpus.
     myData.data.data.forEach( d => {
@@ -122,9 +122,9 @@ function updateLineChart (data) {
 
     y.domain([0,
         d3.max(cities, function(c) {
-            console.log('hello', c);
+            //console.log('hello', c);
             return d3.max(c.values, function(v) {
-                console.log(v);
+                //console.log(v);
                 return v.value;
             });
         })

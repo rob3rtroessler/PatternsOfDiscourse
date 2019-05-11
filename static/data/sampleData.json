@@ -10,34 +10,52 @@
 
     "data": [
         {
-        "textID": "0",
-        "title": "Johann Friedrich Herbart",
-        "author": "Psychologie als Wissenschaft",
-        "year": 1824,
-        "CurrentKeyword": "Traum",
-        "environments": [
-            ["word21", "word4", "word1", "word2", "word5","word6","word7","Traum", "word9", "word10", "word11", "word12", "word13","word14","word15"],
-            ["word1", "word2", "word3", "word5", "word4","word6","word7","Traum", "word9", "word10", "word11", "word12", "word13","word14","word15"],
-            ["word11", "word2", "word23", "word4", "word5","word6","word7","Traum", "word9", "word10", "word11", "word12", "word13","word14","word15"],
-            ["word1", "word2", "word3", "word4", "word5","word6","word7","Traum", "word9", "word10", "word11", "word12", "word23","word14","word15"],
-            ["word15", "word2", "word3", "word4", "word5","word6","word7","Traum", "word9", "word10", "word11", "word12", "word3","word13","word15"],
-            ["word1", "word2", "word3", "word4", "word5","word6","word7","Traum", "word9", "word10", "word11", "word12", "word13","word34","word15"],
-            ["word24", "word2", "word30", "word7", "word5","word6","word7","Traum", "word9", "word10", "word11", "word12", "word13","word24","word15"],
-            ["word6", "word2", "word3", "word24", "word5","word6","word7","Traum", "word9", "word10", "word11", "word12", "word13","word14","word15"],
-            ["word1", "word2", "word3", "word4", "word5","word6","word7","Traum", "word9", "word21", "word11", "word12", "word23","word14","word15"],
-            ["word1", "word2", "word3", "word4", "word8","word6","word7","Traum", "word9", "word10", "word11", "word12", "word13","word14","word15"],
-            ["word1", "word2", "word3", "word4", "word5","word6","word7","Traum", "word9", "word10", "word11", "word12", "word13","word14","word15"],
-            ["word1", "word22", "word3", "word4", "word5","word6","word7","Traum", "word9", "word10", "word11", "word12", "word13","word14","word15"]
+            "textID": "0",
+            "author": "Psychologie als Wissenschaft",
+            "title": "Johann Friedrich Herbart",
+            "year": 1824,
+            "environments": [
+                ["word21", "word4", "word1", "word2", "word5","word6","word7","Traum", "word9", "word10", "word11", "word12", "word13","word14","word15"],
+                ["word1", "word2", "word3", "word5", "word4","word6","word7","Traum", "word9", "word10", "word11", "word12", "word13","word14","word15"],
+                ["word11", "word2", "word23", "word4", "word5","word6","word7","Traum", "word9", "word10", "word11", "word12", "word13","word14","word15"],
+                ["word1", "word2", "word3", "word4", "word5","word6","word7","Traum", "word9", "word10", "word11", "word12", "word23","word14","word15"],
+                ["word15", "word2", "word3", "word4", "word5","word6","word7","Traum", "word9", "word10", "word11", "word12", "word3","word13","word15"],
+                ["word1", "word2", "word3", "word4", "word5","word6","word7","Traum", "word9", "word10", "word11", "word12", "word13","word34","word15"],
+                ["word24", "word2", "word30", "word7", "word5","word6","word7","Traum", "word9", "word10", "word11", "word12", "word13","word24","word15"],
+                ["word6", "word2", "word3", "word24", "word5","word6","word7","Traum", "word9", "word10", "word11", "word12", "word13","word14","word15"],
+                ["word1", "word2", "word3", "word4", "word5","word6","word7","Traum", "word9", "word21", "word11", "word12", "word23","word14","word15"],
+                ["word1", "word2", "word3", "word4", "word8","word6","word7","Traum", "word9", "word10", "word11", "word12", "word13","word14","word15"],
+                ["word1", "word2", "word3", "word4", "word5","word6","word7","Traum", "word9", "word10", "word11", "word12", "word13","word14","word15"],
+                ["word1", "word22", "word3", "word4", "word5","word6","word7","Traum", "word9", "word10", "word11", "word12", "word13","word14","word15"]
             ]
         },
         {
-            "textID": "textID_2",
-            "title": "Title 2",
-            "author": "Fechner",
-            "year": 1860,
-            "CurrentKeyword": "Traum",
+            "textID": "1",
+            "author": "Lehrbuch zur Psychologie",
+            "title": "Johann Friedrich Herbart",
+            "year": 1834,
             "environments": [
-                ["word1", "word2", "word3", "word4", "word5","word6","word7","Traum", "word9", "word10", "word11", "word12", "word13","word14","word15"],
+                ["word21", "word4", "word1", "word2", "word5","word6","word7","Traum", "word9", "word10", "word11", "word12", "word13","word14","word15"],
+                ["word1", "word2", "word3", "word5", "word4","word6","word8","Traum", "word9", "word10", "word11", "word12", "word13","word14","word15"],
+                ["word11", "word2", "word23", "word4", "word5","word6","word7","Traum", "word9", "word10", "word11", "word12", "word13","word14","word15"],
+                ["word1", "word2", "word3", "word4", "word5","word6","word7","Traum", "word9", "word10", "word11", "word12", "word23","word14","word15"],
+                ["word15", "word2", "word3", "word4", "word5","word6","word7","Traum", "word9", "word10", "word11", "word12", "word3","word13","word15"],
+                ["word1", "word2", "word3", "word4", "word16","word6","word3","Traum", "word9", "word10", "word11", "word12", "word13","word34","word15"],
+                ["word24", "word2", "word30", "word7", "word5","word6","word7","Traum", "word9", "word10", "word11", "word12", "word13","word24","word15"],
+                ["word6", "word2", "word3", "word24", "word5","word6","word7","Traum", "word9", "word10", "word11", "word12", "word13","word14","word15"],
+                ["word1", "word2", "word3", "word17", "word5","word6","word7","Traum", "word9", "word21", "word11", "word12", "word23","word14","word15"],
+                ["word1", "word2", "word16", "word4", "word8","word6","word7","Traum", "word9", "word10", "word11", "word12", "word13","word14","word15"],
+                ["word1", "word19", "word3", "word4", "word5","word6","word7","Traum", "word9", "word10", "word11", "word12", "word13","word14","word15"],
+                ["word1", "word22", "word3", "word4", "word5","word6","word7","Traum", "word9", "word10", "word11", "word12", "word13","word14","word15"]
+            ]
+        },
+        {
+            "textID": "4",
+            "author": "Fechner",
+            "title": "Title 2",
+            "year": 1860,
+            "environments": [
+                ["word1", "word3", "word5", "word7", "word9","word11","word13","Traum", "word9", "word10", "word11", "word12", "word13","word14","word15"],
                 ["word1", "word2", "word3", "word4", "word5","word6","word7","Traum", "word9", "word10", "word11", "word12", "word13","word14","word15"]]
         },
         {

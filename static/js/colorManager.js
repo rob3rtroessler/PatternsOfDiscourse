@@ -7,8 +7,7 @@ let lockedWords = ['Traum', '','','','','','','','','','']; //11
 
 let colorTiles = ['#8dd3c7','#ffffb3','#bebada','#80b1d3','#fdb462','#b3de69','#fccde5','#bc80bd','#ccebc5','#ffed6f'];
 colorTiles.forEach((d)=> {
-    document.getElementById('colorScale').innerHTML += `<div class="row listItem" style="background-color:` + d + `"></div>`
-
+    document.getElementById('colorScale').innerHTML += `<div class="row" id='` + d + `' style="height: 10%; background-color: ` + d + `"></div>`;
 });
 
 
@@ -85,6 +84,15 @@ function lockColor (className){
                 wrangleLineChartData(lockedWords, rawData);
                 break;
             }
+        }
+    }
+}
+
+
+function lookUpColor (word){
+    for (let i = 0; i < lockedWords.length; ++i) {
+        if (lockedWords[i]=== word){
+            return colors[i]
         }
     }
 }

@@ -1,3 +1,9 @@
+/* disable scrolling */
+body {
+    overflow-y: hidden;
+    overflow-x: hidden;
+}
+
 /* Customize the label (the container) */
 .container {
     display: block;
@@ -108,10 +114,7 @@ h3 {
 
 /* Environment List */
 .t1-list-col {
-    font-family: 'Libre Franklin', sans-serif;
-    font-weight: 300;
-    font-size: 1.2vh;
-    height: 12.5%;
+    height: 18.5%;
     border-right: thin solid grey;
     border-bottom: thin solid grey;
 }
@@ -184,7 +187,3 @@ h3 {
     stroke: steelblue;
     stroke-width: 1.5px;
 }
-
-
-
-

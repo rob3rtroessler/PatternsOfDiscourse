@@ -1,6 +1,6 @@
 <html>
     <head>
-        <title>Patterns Of Discourse</title>
+        <title>TexTiles</title>
         <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
 
         <!-- google font -->
@@ -28,7 +28,7 @@
         <div id="PoD-App" class="carousel slide" data-ride="carousel">
 
             <!-- HEADING -->
-            <div class="row justify-content-center align-items-center" id="PoD-App_Heading"><h1>Patterns of Discourse</h1></div>
+            <div class="row justify-content-center align-items-center" id="PoD-App_Heading"><h1>TexTiles</h1></div>
 
             <!-- Wrapper for all Tabs -->
             <div id="PoD-App_TabWrapper" class="carousel-inner">
@@ -52,28 +52,34 @@
                                 <div class="col-3"><input id="TexTileWordInput" placeholder="Enter Word"></div>
                                 <div class="col-3"><div class="row justify-content-center align-items-center" id="GenTexTileButton" onclick="gatherCorpusData()"><h2>Generate</h2></div></div>
                             </div>
-                            <div class="row" style="height: 92%" data-simplebar>
-                                <div style="height: 100%" id="FabricVisContainer"></div>
+                            <div class="row" style="height: 92%">
+                                <div id="FabricVisContainer"></div>
                             </div>
                         </div>
 
                         <!-- right -->
-                        <div class="col-4" style="height: 100%">
+                        <div class="col-4">
                             <div class="row justify-content-center align-items-center" style="border-bottom: thin solid grey; height: 8%"><h2>Most Common Words in Surrounding</h2></div>
                             <div class="row" style="border-bottom: thin solid grey; height: 32%">
-                                <!--<div class="col-3" id="top10"></div>
-                                <div class="col-3" id="top20"></div>
-                                <div class="col-3" id="top30"></div>-->
-                                <div class="col-9" style="height: 100%" data-simplebar><div class="row" id="t1-list"></div></div>
-                                <div class="col-3">
-                                    <div class="row">
-                                        <div class="col-6" style="writing-mode: vertical-lr; height: 100%"><span>Color Table</span></div>
-                                        <div class="col-6" id="colorScale">
+
+                                <!-- word list 1 -->
+                                <div class="col-9">
+                                    <div class="row" style="height: 100%;">
+                                        <div class="col-12" style="overflow-y: scroll; overflow-x: hidden">
+                                            <div class="row" id="t1-list" style="height: 100%;"></div>
                                         </div>
                                     </div>
                                 </div>
+
+                                <!-- color scale -->
+                                <div class="col-3">
+                                    <div class="row" style="height: 100%">
+                                        <div class="col-6" style="writing-mode: vertical-lr; height: 100%"><span>Color Table</span></div>
+                                        <div class="col-6" id="colorScale"></div>
+                                    </div>
+                                </div>
                             </div>
-                            <div class="row justify-content-center align-items-center" style="border-bottom: thin solid grey; height: 8%"><h2 >Popularity of Word over time</h2></div>
+                            <div class="row justify-content-center align-items-center" style="border-bottom: thin solid grey; height: 8%"><h2>Popularity of Word over time</h2></div>
                             <div class="row" id='lineChartSVG' style="height: 52%"></div>
                         </div>
 
@@ -128,19 +134,9 @@
                                 </div>
 
                                 <!-- middle -->
-                                <!--<div class="col-3" style="border-right: thin solid grey">
-                                    <div class="row" style="height: 80%">
-                                        <div class="col-12" data-simplebar>
-                                            <div class="row" style="height: 100%" id="corpusList_Two"></div>
-                                        </div>
-                                    </div>
-                                    <div class="row" style="height: 80%"><div class="col-12">test</div></div>
-                                </div>-->
-
-                                <!-- right -->
                                 <div class="col-6">
-                                    <div class="row" style="height:100%; overflow-x: hidden" data-simplebar>
-                                        <div class="row" id="t2-list"></div>
+                                    <div class="row" style="height:100%; overflow-x: hidden">
+                                        <div class="row" style="height:100%" id="t2-list"></div>
                                     </div>
                                 </div>
                             </div>
@@ -243,7 +239,8 @@
 
         <script src="{{ url_for('static', filename='js/TexTileVis.js') }}"></script>
         <script src="{{ url_for('static', filename='js/corpus.js') }}"></script>
-        <script src="{{ url_for('static', filename='js/lineChart.js') }}"></script>
+        <!--<script src="{{ url_for('static', filename='js/lineChart.js') }}"></script>-->
+        <script src="{{ url_for('static', filename='js/lineTwo.js') }}"></script>
 
         <script src="{{ url_for('static', filename='js/chordVis.js') }}"></script>
         <script src="{{ url_for('static', filename='js/networkGraph.js') }}"></script>
