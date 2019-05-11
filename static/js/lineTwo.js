@@ -18,26 +18,17 @@ let circleRadius = 5;
 let circleRadiusHover = 9;
 
 // margin conventions
-let lineChartMargins = {
-    top: 50,
-    right: 50,
-    bottom: 20,
-    left: 50
-};
-let lineChartDiv = $("#lineChartSVG");
-console.log(lineChartDiv, lineChartDiv.width(), lineChartDiv.height());
-let lineChartWidth = lineChartDiv.width() - lineChartMargins.left - lineChartMargins.right;
-let lineChartHeight = lineChartDiv.height() - lineChartMargins.top - lineChartMargins.bottom;
+let lineChartDiv = $("#lineChartSVG"),
+    lineChartMargins = {top: 50, right: 50, bottom: 20, left: 50},
+    lineChartWidth = lineChartDiv.width() - lineChartMargins.left - lineChartMargins.right,
+    lineChartHeight = lineChartDiv.height() - lineChartMargins.top - lineChartMargins.bottom;
 
-console.log('hohe:', lineChartHeight);
-let spakkenTest = lineChartHeight;
 /* Add SVG */
 let lineChartSvg = d3.select("#LineChartSVG").append("svg")
     .attr("width", lineChartDiv.width() + lineChartMargins.left + lineChartMargins.right)
     .attr("height", lineChartDiv.height() + lineChartMargins.top + lineChartMargins.bottom)
     .append('g')
     .attr("transform", "translate(" + lineChartMargins.left + "," + lineChartMargins.top + ")");
-
 
 /* Initialize Scales */
 let lineChartScaleX = d3.scaleTime()
@@ -46,7 +37,6 @@ let lineChartScaleX = d3.scaleTime()
 let lineChartScaleY = d3.scaleLinear()
     .range([lineChartHeight, 0]);
 
-console.log('hohe:', lineChartHeight);
 
 
 /* * * * * * * * * * * * * * *
@@ -54,7 +44,7 @@ console.log('hohe:', lineChartHeight);
  * * * * * * * * * * * * * * */
 
 async function wrangleLineChartData(ArrayOfLockedWords, data) {
-    console.log('hohe:', lineChartHeight);
+
     // first, prepare an array with locked keywords
     let keywords = [];
     ArrayOfLockedWords.forEach( word => {
@@ -102,7 +92,7 @@ async function wrangleLineChartData(ArrayOfLockedWords, data) {
                     word: keyword,
                     value: tmpStructure[keyword],
                     date: dateOfText,
-                    relativeValue: tmpStructure[keyword]/tmpCount
+                    relativeValue: tmpStructure[keyword]/tmpCount*100
                 }
             )})
     });
@@ -162,7 +152,7 @@ function updateLineChart (data) {
         .data(data).enter()
         .append('g')
         .attr('class', 'line-group')
-        .on("mouseover", function(d, i) {
+        .on("mouseover", function(d) {
             lineChartSvg.append("text")
                 .attr("class", "title-text")
                 .style('fill', lookUpColor(d.word))
@@ -182,8 +172,6 @@ function updateLineChart (data) {
         .style('opacity', lineOpacity)
         .on("mouseover",  function () { highlightSelectedLine(this); }) // using ES5 notation to grab 'this' -> https://medium.freecodecamp.org/when-and-why-you-should-use-es6-arrow-functions-and-when-you-shouldnt-3d851d7f0b26
         .on("mouseout", function() { highlightOutSelectedLine(this); });
-
-
 
     /* Add circles in the line */
     lines.selectAll("circle-group")
@@ -228,17 +216,15 @@ function updateLineChart (data) {
                 .attr("r", circleRadius);
         });
 
-
     /* Add Axis into SVG */
     let xAxis = d3.axisBottom(lineChartScaleX).ticks(5);
-    let yAxis = d3.axisLeft(lineChartScaleY).ticks(5);
+    let yAxis = d3.axisLeft(lineChartScaleY).ticks(5).tickFormat(d => d + "%");
 
     lineChartSvg.append("g")
         .attr("class", "x axis")
-        .attr("transform", `translate(0, 200)`)
+        .attr("transform", `translate(0, ${lineChartHeight})`)
         .call(xAxis);
 
-    console.log(lineChartHeight, spakkenTest, '${lineChartHeight}');
     lineChartSvg.append("g")
         .attr("class", "y axis")
         .call(yAxis)

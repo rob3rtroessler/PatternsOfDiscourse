@@ -38,11 +38,11 @@ function TexTileVis (data){
 
     // margin conventions using the parent div's entire width & calculating the hight by using # of environments
     let margin = {top: 20, right: 20, bottom: 20, left: 20};
-    lineChartWidth = $("#FabricVisContainer").width() - margin.left - margin.right;
-    lineChartHeight = (data.length*25 + 30) - margin.top - margin.bottom;
+    FabricVisWidth = $("#FabricVisContainer").width() - margin.left - margin.right;
+    FabricVisHeight = (data.length*25 + 30) - margin.top - margin.bottom;
 
     // TODO: fix dimensions, especially with regard to the tooltip
-    let TexTileWidth = lineChartWidth/(15 + 1/4*14);
+    let TexTileWidth = FabricVisWidth/(15 + 1/4*14);
 
     // add tooltip div
     let tooltipDiv = d3.select("body").append("div")
@@ -55,8 +55,8 @@ function TexTileVis (data){
     // Add the SVG to the page
     FabricSVG = d3.select("#FabricVisContainer").append("svg")
         .attr("id", "FabricVis")
-        .attr("width", lineChartWidth + margin.left + margin.right)
-        .attr("height", lineChartHeight + margin.top + margin.bottom)
+        .attr("width", FabricVisWidth + margin.left + margin.right)
+        .attr("height", FabricVisHeight + margin.top + margin.bottom)
         .append("g")
         .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
