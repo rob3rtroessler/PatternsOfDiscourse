@@ -1,12 +1,14 @@
 function createDistinctTileList_TabOne (data) {
     let html = '';
     data.forEach( obj => {
-        html += `<div class="col-4 t1-list-col ` + obj.word + `" 
-        onclick="lockColor('` + obj.word + `', 1)" 
-        onmouseout="RemoveColorFromClass('` + obj.word + `')"
-        onmouseover="ColorToClass('` + obj.word + `')">` +
-            `<span class='t1-list-span'>` + obj.word + ` (` + obj.value +
-            `)</span></div>`;
+        console.log(obj.word, `${obj.word}`);
+        html +=
+            `<div class="col-4 t1-list-col ${obj.word}" 
+                onclick="lockColor('${obj.word}', 1)" 
+                onmouseout="RemoveColorFromClass('${obj.word}')"
+                onmouseover="ColorToClass('${obj.word}')">
+                    <span class='t1-list-span'>${obj.word} (${obj.value})</span>
+            </div>`;
     });
     document.getElementById('t1-list').innerHTML = html;
 
@@ -28,3 +30,4 @@ function createDistinctTileList_TabTwo(data){
 
     document.getElementById('t2-list').innerHTML = html
 }
+

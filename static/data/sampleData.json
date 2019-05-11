@@ -55,7 +55,12 @@
             "title": "Title 2",
             "year": 1860,
             "environments": [
-                ["word1", "word3", "word5", "word7", "word9","word11","word13","Traum", "word9", "word10", "word11", "word12", "word13","word14","word15"],
+                ["word5", "word2", "word3", "word4", "word1","word6","word7","Traum", "word9", "word10", "word11", "word12", "word13","word14","word15"],
+                ["word11", "word2", "word3", "word4", "word5","word6","word7","Traum", "word9", "word10", "word11", "word12", "word13","word14","word15"],
+                ["word12", "word2", "word3", "word4", "word5","word6","word7","Traum", "word9", "word10", "word11", "word12", "word13","word14","word15"],
+                ["word7", "word2", "word3", "word4", "word5","word6","word7","Traum", "word9", "word10", "word11", "word12", "word13","word14","word15"],
+                ["word6", "word2", "word3", "word4", "word5","word6","word7","Traum", "word9", "word10", "word11", "word12", "word13","word14","word15"],
+                ["word1", "word3", "word5", "word7", "word9","word11","word16","Traum", "word9", "word10", "word11", "word12", "word13","word14","word15"],
                 ["word1", "word2", "word3", "word4", "word5","word6","word7","Traum", "word9", "word10", "word11", "word12", "word13","word14","word15"]]
         },
         {

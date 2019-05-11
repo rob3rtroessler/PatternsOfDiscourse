@@ -1,7 +1,60 @@
 
-// use a function to wrangle lineChart data
-async function wrangleLineChartData(ArrayOfLockedWords, data) {
+/* * * * * * * * * * * * * * *
+     Initialize LineChart
+ * * * * * * * * * * * * * * */
 
+// define parameters
+let duration = 250;
+
+let lineOpacity = "1";
+let lineOpacityHover = "1";
+let otherLinesOpacityHover = "0.1";
+let lineStroke = "2px";
+let lineStrokeHover = "4px";
+
+let circleOpacity = '1';
+let circleOpacityOnLineHover = "0.5";
+let circleRadius = 5;
+let circleRadiusHover = 9;
+
+// margin conventions
+let lineChartMargins = {
+    top: 50,
+    right: 50,
+    bottom: 20,
+    left: 50
+};
+let lineChartDiv = $("#lineChartSVG");
+console.log(lineChartDiv, lineChartDiv.width(), lineChartDiv.height());
+let lineChartWidth = lineChartDiv.width() - lineChartMargins.left - lineChartMargins.right;
+let lineChartHeight = lineChartDiv.height() - lineChartMargins.top - lineChartMargins.bottom;
+
+console.log('hohe:', lineChartHeight);
+let spakkenTest = lineChartHeight;
+/* Add SVG */
+let lineChartSvg = d3.select("#LineChartSVG").append("svg")
+    .attr("width", lineChartDiv.width() + lineChartMargins.left + lineChartMargins.right)
+    .attr("height", lineChartDiv.height() + lineChartMargins.top + lineChartMargins.bottom)
+    .append('g')
+    .attr("transform", "translate(" + lineChartMargins.left + "," + lineChartMargins.top + ")");
+
+
+/* Initialize Scales */
+let lineChartScaleX = d3.scaleTime()
+    .range([0, lineChartWidth]);
+
+let lineChartScaleY = d3.scaleLinear()
+    .range([lineChartHeight, 0]);
+
+console.log('hohe:', lineChartHeight);
+
+
+/* * * * * * * * * * * * * * *
+     WRANGLE LineChart DATA
+ * * * * * * * * * * * * * * */
+
+async function wrangleLineChartData(ArrayOfLockedWords, data) {
+    console.log('hohe:', lineChartHeight);
     // first, prepare an array with locked keywords
     let keywords = [];
     ArrayOfLockedWords.forEach( word => {
@@ -28,8 +81,13 @@ async function wrangleLineChartData(ArrayOfLockedWords, data) {
             tmpStructure[keyword] = 0;
         });
 
+        // initialize tmpCount to keep track of # of environments
+        let tmpCount = 0;
+
         // loop through all environments and fill the temporary helperStructure with correct count
         text.environments.forEach( environment => {
+
+            tmpCount += 1;
             environment.forEach( word => {
                     if (keywords.includes(word)){
                         tmpStructure[word] += 1;
@@ -43,22 +101,24 @@ async function wrangleLineChartData(ArrayOfLockedWords, data) {
                 {
                     word: keyword,
                     value: tmpStructure[keyword],
-                    date: dateOfText
+                    date: dateOfText,
+                    relativeValue: tmpStructure[keyword]/tmpCount
                 }
             )})
     });
 
     //
     let wrangledData = [];
-    // finale struktur vorbereiten!
+
+    //
     keywords.forEach(keyword => {
         let wordValues = [];
         tmpOverall.forEach( element => {
             if (keyword === element.word){
                 let tmp = {
                     date: element.date,
-                    occurences: element.value
-
+                    occurences: element.value,
+                    relativeOccurences: element.relativeValue
                 };
                 wordValues.push(tmp)
             }
@@ -67,73 +127,34 @@ async function wrangleLineChartData(ArrayOfLockedWords, data) {
         //
         let superTmp = {
             word : keyword,
-            values: wordValues
+            values: wordValues,
         };
 
         wrangledData.push(superTmp)
     });
 
     console.log('FINALE', wrangledData);
-    drawLineChart (wrangledData);
+    updateLineChart (wrangledData);
 }
 
 
 
+/* * * * * * * * * * * * * * *
+   Draw & Update LineChart
+ * * * * * * * * * * * * * * */
 
-function drawLineChart (data) {
+function updateLineChart (data) {
 
-    $("#lineChartSVG").html('');
-
-// margin conventions
-    let lineMargins = {
-        top: 50,
-        right: 50,
-        bottom: 20,
-        left: 50
-    };
-    let width = $("#lineChartSVG").width() - lineMargins.right - lineMargins.right;
-    let height = $("#lineChartSVG").height() - lineMargins.top - lineMargins.bottom;
-
-    let duration = 250;
-
-    let lineOpacity = "1";
-    let lineOpacityHover = "1";
-    let otherLinesOpacityHover = "0.1";
-    let lineStroke = "2px";
-    let lineStrokeHover = "4px";
-
-    let circleOpacity = '1';
-    let circleOpacityOnLineHover = "0.5";
-    let circleRadius = 5;
-    let circleRadiusHover = 9;
-
-
-    /* Scale */
-    let xScale = d3.scaleTime()
-        .domain(d3.extent(data[0].values, d => d.date))
-        .range([0, width]);
-
-    let yScale = d3.scaleLinear()
-        .domain([0, d3.max(data[0].values, d => d.occurences)])
-        .range([height, 0]);
-
-    // TODO kann bald geloescht werden!
-    let colorLine = d3.scaleOrdinal(d3.schemeCategory10);
-
-    /* Add SVG */
-    let svg = d3.select("#LineChartSVG").append("svg")
-        .attr("width", $("#lineChartSVG").width() + lineMargins.left + lineMargins.right)
-        .attr("height", $("#lineChartSVG").height() + lineMargins.top + lineMargins.bottom)
-        .append('g')
-        .attr("transform", "translate(" + lineMargins.left + "," + lineMargins.top + ")");
-
+    /* finalizing scales */
+    lineChartScaleX.domain(d3.extent(data[0].values, d => d.date));
+    lineChartScaleY.domain([0, d3.max(data[0].values, d => d.relativeOccurences)]);
 
     /* Add line into SVG */
     let line = d3.line()
-        .x(d => xScale(d.date))
-        .y(d => yScale(d.occurences));
+        .x(d => lineChartScaleX(d.date))
+        .y(d => lineChartScaleY(d.relativeOccurences));
 
-    let lines = svg.append('g')
+    let lines = lineChartSvg.append('g')
         .attr('class', 'lines');
 
     // draw the lines
@@ -142,41 +163,25 @@ function drawLineChart (data) {
         .append('g')
         .attr('class', 'line-group')
         .on("mouseover", function(d, i) {
-            svg.append("text")
+            lineChartSvg.append("text")
                 .attr("class", "title-text")
-                .style("fill", colorLine(i))
+                .style('fill', lookUpColor(d.word))
                 .text(d.word)
                 .attr("text-anchor", "middle")
-                .attr("x", (width)/2)
-                .attr("y", 5);
+                .attr("x", (lineChartWidth)/2)
+                .attr("y", -20);
         })
         .on("mouseout", function(d) {
-            svg.select(".title-text").remove();
+            lineChartSvg.select(".title-text").remove();
         })
         .append('path')
         .attr('class', d => {return 'line '}) // TODO use this class!
         .attr('d', d => line(d.values))
+        .attr('id', d => {return ('lineWithColor'+ lookUpColor(d.word))})
         .style('stroke', (d, i) => lookUpColor(d.word))
         .style('opacity', lineOpacity)
-        .on("mouseover", function(d) {
-            d3.selectAll('.line')
-                .style('opacity', otherLinesOpacityHover);
-            d3.selectAll('.circle')
-                .style('opacity', circleOpacityOnLineHover);
-            d3.select(this)
-                .style('opacity', lineOpacityHover)
-                .style("stroke-width", lineStrokeHover)
-                .style("cursor", "pointer");
-        })
-        .on("mouseout", function(d) {
-            d3.selectAll(".line")
-                .style('opacity', lineOpacity);
-            d3.selectAll('.circle')
-                .style('opacity', circleOpacity);
-            d3.select(this)
-                .style("stroke-width", lineStroke)
-                .style("cursor", "none");
-        });
+        .on("mouseover",  function () { highlightSelectedLine(this); }) // using ES5 notation to grab 'this' -> https://medium.freecodecamp.org/when-and-why-you-should-use-es6-arrow-functions-and-when-you-shouldnt-3d851d7f0b26
+        .on("mouseout", function() { highlightOutSelectedLine(this); });
 
 
 
@@ -194,9 +199,9 @@ function drawLineChart (data) {
                 .style("cursor", "pointer")
                 .append("text")
                 .attr("class", "text")
-                .text(`${d.occurences}`)
-                .attr("x", d => xScale(d.date) + 5)
-                .attr("y", d => yScale(d.occurences) - 10);
+                .text(`so oft: ${d.occurences}, relativ: ${d.relativeOccurences}`)
+                .attr("x", d => lineChartScaleX(d.date) + 5)
+                .attr("y", d => lineChartScaleY(d.relativeOccurences) - 10);
         })
         .on("mouseout", function(d) {
             d3.select(this)
@@ -206,8 +211,8 @@ function drawLineChart (data) {
                 .selectAll(".text").remove();
         })
         .append('circle')
-        .attr("cx", d => xScale(d.date))
-        .attr("cy", d => yScale(d.occurences))
+        .attr("cx", d => lineChartScaleX(d.date))
+        .attr("cy", d => lineChartScaleY(d.relativeOccurences))
         .attr("r", circleRadius)
         .style('opacity', circleOpacity)
         .on('mouseover', function(d) {
@@ -225,15 +230,16 @@ function drawLineChart (data) {
 
 
     /* Add Axis into SVG */
-    let xAxis = d3.axisBottom(xScale).ticks(5);
-    let yAxis = d3.axisLeft(yScale).ticks(5);
+    let xAxis = d3.axisBottom(lineChartScaleX).ticks(5);
+    let yAxis = d3.axisLeft(lineChartScaleY).ticks(5);
 
-    svg.append("g")
+    lineChartSvg.append("g")
         .attr("class", "x axis")
-        .attr("transform", `translate(0, ${height})`)
+        .attr("transform", `translate(0, 200)`)
         .call(xAxis);
 
-    svg.append("g")
+    console.log(lineChartHeight, spakkenTest, '${lineChartHeight}');
+    lineChartSvg.append("g")
         .attr("class", "y axis")
         .call(yAxis)
         .append('text')
@@ -241,7 +247,34 @@ function drawLineChart (data) {
         .attr("transform", "rotate(-90)")
         .attr("fill", "#000")
         .text("Total values");
+}
 
+
+
+/* * * * * * * * * * * * * * *
+      Helper Functions
+ * * * * * * * * * * * * * * */
+
+function highlightSelectedLine (id) {
+
+    d3.selectAll('.line')
+        .style('opacity', otherLinesOpacityHover);
+    d3.selectAll('.circle')
+        .style('opacity', circleOpacityOnLineHover);
+    d3.select(id)
+        .style('opacity', lineOpacityHover)
+        .style("stroke-width", lineStrokeHover)
+        .style("cursor", "pointer");
+}
+
+function highlightOutSelectedLine (id) {
+    d3.selectAll(".line")
+        .style('opacity', lineOpacity);
+    d3.selectAll('.circle')
+        .style('opacity', circleOpacity);
+    d3.select(id)
+        .style("stroke-width", lineStroke)
+        .style("cursor", "none");
 }
 
 
