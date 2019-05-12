@@ -2,35 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="58533c6a-87d9-415d-949a-9c34be766325" name="Default" comment="">
+      <change beforePath="" afterPath="$PROJECT_DIR$/static/js/UpdatingLineVis.js" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change beforePath="$PROJECT_DIR$/static/js/TexTileVis.js" afterPath="$PROJECT_DIR$/static/js/TexTileVis.js" />
       <change beforePath="$PROJECT_DIR$/static/js/colorManager.js" afterPath="$PROJECT_DIR$/static/js/colorManager.js" />
       <change beforePath="$PROJECT_DIR$/static/js/htmlAutomats.js" afterPath="$PROJECT_DIR$/static/js/htmlAutomats.js" />
-      <change beforePath="$PROJECT_DIR$/static/js/lineChart.js" afterPath="$PROJECT_DIR$/static/js/OldiesAndTests/lineChart.js" />
-      <change beforePath="$PROJECT_DIR$/static/js/lineTwo.js" afterPath="$PROJECT_DIR$/static/js/lineVis.js" />
-      <change beforePath="$PROJECT_DIR$/static/js/main.js" afterPath="$PROJECT_DIR$/static/js/main.js" />
-      <change beforePath="$PROJECT_DIR$/static/js/matrix.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/static/js/networkGraph.js" afterPath="$PROJECT_DIR$/static/js/networkVis.js" />
-      <change beforePath="$PROJECT_DIR$/static/js/tests/MatrixTest.html" afterPath="$PROJECT_DIR$/static/js/OldiesAndTests/MatrixTest.html" />
-      <change beforePath="$PROJECT_DIR$/static/js/tests/chord/bootstrap.popover.js" afterPath="$PROJECT_DIR$/static/js/OldiesAndTests/chord/bootstrap.popover.js" />
-      <change beforePath="$PROJECT_DIR$/static/js/tests/chord/bootstrap.tooltip.js" afterPath="$PROJECT_DIR$/static/js/OldiesAndTests/chord/bootstrap.tooltip.js" />
-      <change beforePath="$PROJECT_DIR$/static/js/tests/chord/chord.js" afterPath="$PROJECT_DIR$/static/js/OldiesAndTests/chord/chord.js" />
-      <change beforePath="$PROJECT_DIR$/static/js/tests/chord/chordTest.html" afterPath="$PROJECT_DIR$/static/js/OldiesAndTests/chord/chordTest.html" />
-      <change beforePath="$PROJECT_DIR$/static/js/tests/chord/d3.layout.chord.sort.js" afterPath="$PROJECT_DIR$/static/js/OldiesAndTests/chord/d3.layout.chord.sort.js" />
-      <change beforePath="$PROJECT_DIR$/static/js/tests/chord/test2.html" afterPath="$PROJECT_DIR$/static/js/OldiesAndTests/chord/test2.html" />
-      <change beforePath="$PROJECT_DIR$/static/js/tests/chord/test3.html" afterPath="$PROJECT_DIR$/static/js/OldiesAndTests/chord/test3.html" />
-      <change beforePath="$PROJECT_DIR$/static/js/tests/example2/data.csv" afterPath="$PROJECT_DIR$/static/js/OldiesAndTests/example2/data.csv" />
-      <change beforePath="$PROJECT_DIR$/static/js/tests/example2/ex2.html" afterPath="$PROJECT_DIR$/static/js/OldiesAndTests/example2/ex2.html" />
-      <change beforePath="$PROJECT_DIR$/static/js/tests/newchord/chord.js" afterPath="$PROJECT_DIR$/static/js/OldiesAndTests/newchord/chord.js" />
-      <change beforePath="$PROJECT_DIR$/static/js/tests/newchord/chords3.js" afterPath="$PROJECT_DIR$/static/js/OldiesAndTests/newchord/chords3.js" />
-      <change beforePath="$PROJECT_DIR$/static/js/tests/newchord/foursix.json" afterPath="$PROJECT_DIR$/static/js/OldiesAndTests/newchord/foursix.json" />
-      <change beforePath="$PROJECT_DIR$/static/js/tests/newchord/perfectChord.html" afterPath="$PROJECT_DIR$/static/js/OldiesAndTests/newchord/perfectChord.html" />
-      <change beforePath="$PROJECT_DIR$/static/js/tests/newchord/perfectChord3.html" afterPath="$PROJECT_DIR$/static/js/OldiesAndTests/newchord/perfectChord3.html" />
-      <change beforePath="$PROJECT_DIR$/static/js/tests/newchord/regionsfish.csv" afterPath="$PROJECT_DIR$/static/js/OldiesAndTests/newchord/regionsfish.csv" />
-      <change beforePath="$PROJECT_DIR$/static/js/tests/newchord/style.css" afterPath="$PROJECT_DIR$/static/js/OldiesAndTests/newchord/style.css" />
-      <change beforePath="$PROJECT_DIR$/static/js/tests/newchord/tentwelve.json" afterPath="$PROJECT_DIR$/static/js/OldiesAndTests/newchord/tentwelve.json" />
-      <change beforePath="$PROJECT_DIR$/static/js/tests/newchord/thirteenfiveteen.json" afterPath="$PROJECT_DIR$/static/js/OldiesAndTests/newchord/thirteenfiveteen.json" />
-      <change beforePath="$PROJECT_DIR$/templates/index.html" afterPath="$PROJECT_DIR$/templates/index.html" />
+      <change beforePath="$PROJECT_DIR$/static/js/lineVis.js" afterPath="$PROJECT_DIR$/static/js/lineVis.js" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -47,7 +24,7 @@
       <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/templates/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1268">
+            <state relative-caret-position="570">
               <caret line="252" column="27" lean-forward="false" selection-start-line="252" selection-start-column="27" selection-end-line="252" selection-end-column="27" />
               <folding>
                 <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
@@ -109,8 +86,8 @@
       <file leaf-file-name="TexTileVis.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/static/js/TexTileVis.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="546">
-              <caret line="26" column="36" lean-forward="false" selection-start-line="26" selection-start-column="36" selection-end-line="26" selection-end-column="36" />
+            <state relative-caret-position="609">
+              <caret line="111" column="43" lean-forward="false" selection-start-line="111" selection-start-column="43" selection-end-line="111" selection-end-column="43" />
               <folding />
             </state>
           </provider>
@@ -119,18 +96,8 @@
       <file leaf-file-name="lineVis.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/static/js/lineVis.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="189">
-              <caret line="176" column="32" lean-forward="true" selection-start-line="176" selection-start-column="32" selection-end-line="176" selection-end-column="32" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="linegraph.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/../../../CS100/FinalProject/static/Script/linegraph.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="378">
-              <caret line="66" column="35" lean-forward="false" selection-start-line="66" selection-start-column="35" selection-end-line="66" selection-end-column="35" />
+            <state relative-caret-position="420">
+              <caret line="248" column="27" lean-forward="false" selection-start-line="248" selection-start-column="27" selection-end-line="248" selection-end-column="27" />
               <folding />
             </state>
           </provider>
@@ -139,7 +106,7 @@
       <file leaf-file-name="networkVis.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/static/js/networkVis.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2625">
+            <state relative-caret-position="2814">
               <caret line="134" column="35" lean-forward="false" selection-start-line="134" selection-start-column="35" selection-end-line="134" selection-end-column="35" />
               <folding />
             </state>
@@ -159,12 +126,12 @@
       <file leaf-file-name="colorManager.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/static/js/colorManager.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1580">
-              <caret line="84" column="17" lean-forward="false" selection-start-line="84" selection-start-column="17" selection-end-line="84" selection-end-column="17" />
+            <state relative-caret-position="693">
+              <caret line="138" column="0" lean-forward="true" selection-start-line="138" selection-start-column="0" selection-end-line="138" selection-end-column="0" />
               <folding>
-                <marker date="1557622546919" expanded="true" signature="564:595" ph="..." />
-                <marker date="1557622546919" expanded="true" signature="577:594" ph="..." />
-                <marker date="1557622546919" expanded="true" signature="577:595" ph="..." />
+                <marker date="1557691798342" expanded="true" signature="569:600" ph="..." />
+                <marker date="1557691798342" expanded="true" signature="582:599" ph="..." />
+                <marker date="1557691798342" expanded="true" signature="582:600" ph="..." />
               </folding>
             </state>
           </provider>
@@ -173,15 +140,15 @@
       <file leaf-file-name="htmlAutomats.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/static/js/htmlAutomats.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="231">
-              <caret line="11" column="7" lean-forward="false" selection-start-line="11" selection-start-column="7" selection-end-line="11" selection-end-column="7" />
+            <state relative-caret-position="294">
+              <caret line="14" column="50" lean-forward="false" selection-start-line="14" selection-start-column="50" selection-end-line="14" selection-end-column="50" />
               <folding>
-                <marker date="1557622328411" expanded="true" signature="166:444" ph="..." />
-                <marker date="1557622328411" expanded="true" signature="182:444" ph="..." />
-                <marker date="1557622328411" expanded="true" signature="303:444" ph="..." />
-                <marker date="1557622328411" expanded="true" signature="392:418" ph="..." />
-                <marker date="1557622328411" expanded="true" signature="909:1115" ph="..." />
-                <marker date="1557622328411" expanded="true" signature="909:1176" ph="..." />
+                <marker date="1557680058373" expanded="true" signature="166:528" ph="..." />
+                <marker date="1557680058373" expanded="true" signature="182:528" ph="..." />
+                <marker date="1557680058373" expanded="true" signature="428:528" ph="..." />
+                <marker date="1557680058373" expanded="true" signature="476:502" ph="..." />
+                <marker date="1557680058373" expanded="true" signature="993:1199" ph="..." />
+                <marker date="1557680058373" expanded="true" signature="993:1260" ph="..." />
               </folding>
             </state>
           </provider>
@@ -200,10 +167,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>groupTo</find>
-      <find>int</find>
-      <find>capit</find>
-      <find>words</find>
       <find>overf</find>
       <find>area</find>
       <find>colorS</find>
@@ -230,6 +193,10 @@
       <find>width</find>
       <find>lineChartHeight</find>
       <find>lineChart</find>
+      <find>lines</find>
+      <find>lineWi</find>
+      <find>line</find>
+      <find>line =</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -415,12 +382,12 @@
       <workItem from="1556551560874" duration="8075000" />
       <workItem from="1557329830948" duration="17001000" />
       <workItem from="1557439335325" duration="36645000" />
-      <workItem from="1557599182346" duration="11212000" />
+      <workItem from="1557599182346" duration="39253000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="205075000" />
+    <option name="totallyTimeSpent" value="233116000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-9" y="-9" width="1938" height="1048" extended-state="6" />
@@ -477,7 +444,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/python/MarxKapital (1).py" />
     <entry file="file://$PROJECT_DIR$/static/js/OldiesAndTests/newchord/tentwelve.json">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="462">
@@ -733,9 +699,33 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/static/js/OldiesAndTests/lineChart.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-560">
+          <caret line="37" column="42" lean-forward="false" selection-start-line="37" selection-start-column="42" selection-end-line="37" selection-end-column="42" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../../../CS100/FinalProject/static/Script/linegraph.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="588">
+          <caret line="140" column="33" lean-forward="false" selection-start-line="140" selection-start-column="3" selection-end-line="140" selection-end-column="33" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/js/main.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="824">
+          <caret line="56" column="42" lean-forward="false" selection-start-line="56" selection-start-column="42" selection-end-line="56" selection-end-column="42" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/templates/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1268">
+        <state relative-caret-position="570">
           <caret line="252" column="27" lean-forward="false" selection-start-line="252" selection-start-column="27" selection-end-line="252" selection-end-column="27" />
           <folding>
             <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
@@ -783,10 +773,41 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/static/js/OldiesAndTests/lineChart.js">
+    <entry file="file://$PROJECT_DIR$/static/js/UpdatingLineVis.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-560">
-          <caret line="37" column="42" lean-forward="false" selection-start-line="37" selection-start-column="42" selection-end-line="37" selection-end-column="42" />
+        <state relative-caret-position="840">
+          <caret line="198" column="26" lean-forward="true" selection-start-line="198" selection-start-column="26" selection-end-line="198" selection-end-column="26" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/js/htmlAutomats.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="294">
+          <caret line="14" column="50" lean-forward="false" selection-start-line="14" selection-start-column="50" selection-end-line="14" selection-end-column="50" />
+          <folding>
+            <marker date="1557680058373" expanded="true" signature="166:528" ph="..." />
+            <marker date="1557680058373" expanded="true" signature="182:528" ph="..." />
+            <marker date="1557680058373" expanded="true" signature="428:528" ph="..." />
+            <marker date="1557680058373" expanded="true" signature="476:502" ph="..." />
+            <marker date="1557680058373" expanded="true" signature="993:1199" ph="..." />
+            <marker date="1557680058373" expanded="true" signature="993:1260" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/js/networkVis.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2814">
+          <caret line="134" column="35" lean-forward="false" selection-start-line="134" selection-start-column="35" selection-end-line="134" selection-end-column="35" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/js/TexTileVis.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="609">
+          <caret line="111" column="43" lean-forward="false" selection-start-line="111" selection-start-column="43" selection-end-line="111" selection-end-column="43" />
           <folding />
         </state>
       </provider>
@@ -799,69 +820,22 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/static/js/main.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="824">
-          <caret line="56" column="42" lean-forward="false" selection-start-line="56" selection-start-column="42" selection-end-line="56" selection-end-column="42" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/static/js/htmlAutomats.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="231">
-          <caret line="11" column="7" lean-forward="false" selection-start-line="11" selection-start-column="7" selection-end-line="11" selection-end-column="7" />
-          <folding>
-            <marker date="1557622328411" expanded="true" signature="166:444" ph="..." />
-            <marker date="1557622328411" expanded="true" signature="182:444" ph="..." />
-            <marker date="1557622328411" expanded="true" signature="303:444" ph="..." />
-            <marker date="1557622328411" expanded="true" signature="392:418" ph="..." />
-            <marker date="1557622328411" expanded="true" signature="909:1115" ph="..." />
-            <marker date="1557622328411" expanded="true" signature="909:1176" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/static/js/networkVis.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2625">
-          <caret line="134" column="35" lean-forward="false" selection-start-line="134" selection-start-column="35" selection-end-line="134" selection-end-column="35" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/static/js/TexTileVis.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="546">
-          <caret line="26" column="36" lean-forward="false" selection-start-line="26" selection-start-column="36" selection-end-line="26" selection-end-column="36" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/static/js/colorManager.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1580">
-          <caret line="84" column="17" lean-forward="false" selection-start-line="84" selection-start-column="17" selection-end-line="84" selection-end-column="17" />
+        <state relative-caret-position="693">
+          <caret line="138" column="0" lean-forward="true" selection-start-line="138" selection-start-column="0" selection-end-line="138" selection-end-column="0" />
           <folding>
-            <marker date="1557622546919" expanded="true" signature="564:595" ph="..." />
-            <marker date="1557622546919" expanded="true" signature="577:594" ph="..." />
-            <marker date="1557622546919" expanded="true" signature="577:595" ph="..." />
+            <marker date="1557691798342" expanded="true" signature="569:600" ph="..." />
+            <marker date="1557691798342" expanded="true" signature="582:599" ph="..." />
+            <marker date="1557691798342" expanded="true" signature="582:600" ph="..." />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../../../CS100/FinalProject/static/Script/linegraph.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="378">
-          <caret line="66" column="35" lean-forward="false" selection-start-line="66" selection-start-column="35" selection-end-line="66" selection-end-column="35" />
-          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/static/js/lineVis.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="189">
-          <caret line="176" column="32" lean-forward="true" selection-start-line="176" selection-start-column="32" selection-end-line="176" selection-end-column="32" />
+        <state relative-caret-position="420">
+          <caret line="248" column="27" lean-forward="false" selection-start-line="248" selection-start-column="27" selection-end-line="248" selection-end-column="27" />
           <folding />
         </state>
       </provider>

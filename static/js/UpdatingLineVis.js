@@ -3,7 +3,7 @@
      Initialize LineChart
  * * * * * * * * * * * * * * */
 
-// define parameters & global variables
+// define parameters
 let duration = 250;
 
 let lineOpacity = "1";
@@ -13,15 +13,13 @@ let lineStroke = "2px";
 let lineStrokeHover = "4px";
 
 let circleOpacity = '1';
-let circleOpacityOnLineHover = "0.2";
+let circleOpacityOnLineHover = "0.5";
 let circleRadius = 5;
 let circleRadiusHover = 9;
 
-
-let lineChartDiv = $("#lineChartSVG");
-
 // margin conventions
-let lineChartMargins = {top: 50, right: 50, bottom: 20, left: 50},
+let lineChartDiv = $("#lineChartSVG"),
+    lineChartMargins = {top: 50, right: 50, bottom: 20, left: 50},
     lineChartWidth = lineChartDiv.width() - lineChartMargins.left - lineChartMargins.right,
     lineChartHeight = lineChartDiv.height() - lineChartMargins.top - lineChartMargins.bottom;
 
@@ -30,8 +28,27 @@ let lineChartSvg = d3.select("#LineChartSVG").append("svg")
     .attr("width", lineChartDiv.width() + lineChartMargins.left + lineChartMargins.right)
     .attr("height", lineChartDiv.height() + lineChartMargins.top + lineChartMargins.bottom)
     .append('g')
-    .attr("transform", "translate(" + lineChartMargins.left + "," + lineChartMargins.top + ")")
-    .attr('id', 'LineChartSVGinner');
+    .attr("transform", "translate(" + lineChartMargins.left + "," + lineChartMargins.top + ")");
+
+/* Initialize Scales */
+let lineChartScaleX = d3.scaleTime()
+    .range([0, lineChartWidth]);
+
+let lineChartScaleY = d3.scaleLinear()
+    .range([lineChartHeight, 0]);
+
+// initialize x axis
+lineChartSvg.append("g")
+    .attr("class", "x-axisLineChart")
+    .attr("transform", `translate(0, ${lineChartHeight})`);
+
+lineChartSvg.append("g")
+    .attr("class", "y-axisLineChart");
+
+
+// initialize new sub group 'lines'
+lineChartSvg.append('g')
+    .attr('class', 'lines');
 
 /* * * * * * * * * * * * * * *
      WRANGLE LineChart DATA
@@ -73,11 +90,11 @@ async function wrangleLineChartData(ArrayOfLockedWords, data) {
 
             tmpCount += 1;
             environment.forEach( word => {
-                if (keywords.includes(word)){
-                    tmpStructure[word] += 1;
-                }
-            })
-        });
+                    if (keywords.includes(word)){
+                        tmpStructure[word] += 1;
+                    }
+                })
+            });
 
         // fill the overall helper Array
         keywords.forEach( keyword => {
@@ -102,8 +119,7 @@ async function wrangleLineChartData(ArrayOfLockedWords, data) {
                 let tmp = {
                     date: element.date,
                     occurences: element.value,
-                    relativeOccurences: element.relativeValue,
-                    word: element.word // looks redundant, but we need to access the word also on the element level!
+                    relativeOccurences: element.relativeValue
                 };
                 if (element.relativeValue > maximumY){
                     maximumY = element.relativeValue
@@ -121,8 +137,8 @@ async function wrangleLineChartData(ArrayOfLockedWords, data) {
         wrangledData.push(superTmp)
     });
 
-    console.log('data for LineChart:', wrangledData);
-    drawLineChart (maximumY, wrangledData);
+    // console.log('FINALE', wrangledData);
+    updateLineChart (maximumY, wrangledData);
 }
 
 
@@ -131,66 +147,93 @@ async function wrangleLineChartData(ArrayOfLockedWords, data) {
    Draw & Update LineChart
  * * * * * * * * * * * * * * */
 
-function drawLineChart (maximumY, data) {
+function updateLineChart (maximumY, data) {
 
-
-    // preliminary, trivial solution since enter, merge(), transition method is a little bit tricky with the
-    // multiple circles
-    document.getElementById('LineChartSVGinner').innerHTML ='';
-
-    /* Initialize Scales */
-    let lineChartScaleX = d3.scaleTime()
-        .range([0, lineChartWidth]);
-
-    let lineChartScaleY = d3.scaleLinear()
-        .range([lineChartHeight, 0]);
-
-// initialize x axis
-    lineChartSvg.append("g")
-        .attr("class", "x-axisLineChart")
-        .attr("transform", `translate(0, ${lineChartHeight})`);
-
-
-    lineChartSvg.append("g")
-        .attr("class", "y-axisLineChart");
-
-
-
+    console.log('running', data);
 
     /* finalizing scales */
     lineChartScaleX.domain(d3.extent(data[0].values, d => d.date));
     lineChartScaleY.domain([0, maximumY]);
 
+    //console.log(d3.max(data[0].values, d => d.relativeOccurences));
+
+
     /* Add line into SVG */
     let line = d3.line()
         .x(d => lineChartScaleX(d.date))
-        .y(d => lineChartScaleY(d.relativeOccurences))
-        .curve(d3.curveCatmullRom);
+        .y(d => lineChartScaleY(d.relativeOccurences));
 
-    let lines = lineChartSvg.append('g')
-        .attr('class', 'lines');
+    //let test = lineChartSvg.selectAll(".lines");
 
-    // draw the lines
-    lines.selectAll('.line-group')
-        .data(data).enter()
+    // binding data
+    let lines = lineChartSvg.selectAll(".lines").selectAll('.line') // TODO: I dont get, why I cannot assign lines to lineGroup
+        .data(data);
+
+    lines.enter()
         .append('path')
-        .attr('class', d => {return 'line '}) // TODO use this class!
-        .attr('d', d => line(d.values))
+        .attr('class', 'line')
         .attr('id', d => {return ('lineForWord'+ d.word)})
         .style('stroke', (d, i) => lookUpColor(d.word))
         .style('opacity', lineOpacity)
-        .on("mouseover",  function (d) { highlightLineThroughTile(d.word) })
-        .on("mouseout", function(d) { DeHighlightLineThroughTile(d.word) });
+        .on("mouseover", function(d) {
+            lineChartSvg.append("text")
+                    .attr("class", "title-text")
+                    .style('fill', lookUpColor(d.word)) // TODO: don't assign color, but do a color assigner at the end
+                    // according to id!
+                    .text(d.word)
+                    .attr("text-anchor", "middle")
+                    .attr("x", (lineChartWidth)/2)
+                    .attr("y", -20);
+            highlightSelectedLine(this) // avoiding arrow notation but rather using ES5 notation to grab 'this' ->
+            // https://medium.freecodecamp.org/when-and-why-you-should-use-es6-arrow-functions-and-when-you-shouldnt-3d851d7f0b26
+        })
+        .on("mouseout", function() {
+            lineChartSvg.select(".title-text").remove();
+            highlightOutSelectedLine(this);
+        })
+        .merge(lines)
+        .transition()
+        .attr('d', d => line(d.values))
+    ;
+
+    lines.exit().remove();
+
+    // TODO: Here's the problem!
+    // binding data
+    let circleGroup = lineChartSvg.selectAll('.lines').selectAll('.circle-group')
+        .data(data);
+
+    // create a circle group for each element, i.e. distinct word in data
+    circleGroup.enter()
+        .append('g')
+        .attr("class","circle-group")
+        .style("fill", (d) => {return ( lookUpColor(d.word) )});
+
+    console.log(circleGroup);
+    let circle = circleGroup.selectAll("circle")
+        .data(d => {console.log(d.values); return d.values});
+
+    circle.enter()
+        .append('circle')
+        .merge(circle)
+        .transition()
+        .attr("cx", d => lineChartScaleX(d.date))
+        .attr("cy", d => lineChartScaleY(d.relativeOccurences))
+        .attr("r", circleRadius)
+        .style('opacity', circleOpacity);
+
+    circleGroup.exit().remove();
+    //circle.exit().remove();
 
     /* Add circles in the line */
-    lines.selectAll("circle-group")
+    /*linegroup.selectAll("circle-group")
         .data(data).enter()
         .append("g")
-        .style("fill", (d) => { return ( lookUpColor(d.word) )})
+        .style("fill", (d) => {return ( lookUpColor(d.word) )})
         .selectAll("circle")
         .data(d => d.values).enter()
         .append("g")
-        .attr("class", function (d){ return ('circle circleForLine' + d.word) })
+        .attr("class", "circle")
         .on("mouseover", function(d) {
             d3.select(this)
                 .style("cursor", "pointer")
@@ -220,10 +263,10 @@ function drawLineChart (maximumY, data) {
         })
         .on("mouseout", function(d) {
             d3.select(this)
-                .transition()
+                //.transition()
                 .duration(duration)
                 .attr("r", circleRadius);
-        });
+        });*/
 
     // set up axis
     let xAxis = d3.axisBottom(lineChartScaleX).ticks(5);
@@ -245,38 +288,28 @@ function drawLineChart (maximumY, data) {
       Helper Functions
  * * * * * * * * * * * * * * */
 
-function highlightSelectedLine (id, word) {
-    // console.log(id, word);
+function highlightSelectedLine (htmlElementID) {
 
-    // set low opacity to all lines
+    console.log(htmlElementID);
     d3.selectAll('.line')
         .style('opacity', otherLinesOpacityHover);
-
-    // then set high opacity to selected line
-    d3.select(id)
+    d3.selectAll('.circle')
+        .style('opacity', circleOpacityOnLineHover);
+    d3.select(htmlElementID)
         .style('opacity', lineOpacityHover)
         .style("stroke-width", lineStrokeHover)
         .style("cursor", "pointer");
-
-    // then set low opacity to all circles;
-    d3.selectAll('.circle')
-        .style('opacity', circleOpacityOnLineHover);
-
-    // then set high opacity value to circles of selected line
-    d3.selectAll('.circleForLine'+ word)
-        .style('opacity', 1);
-
-
 }
 
-function highlightOutSelectedLine (id, word) {
-
+function highlightOutSelectedLine (htmlElementID) {
     d3.selectAll(".line")
-        .style('opacity', lineOpacity)
-        .style("stroke-width", lineStroke);
+        .style('opacity', lineOpacity);
     d3.selectAll('.circle')
         .style('opacity', circleOpacity);
-    d3.select(id)
+    d3.select(htmlElementID)
         .style("stroke-width", lineStroke)
         .style("cursor", "none");
 }
+
+
+

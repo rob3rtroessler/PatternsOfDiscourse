@@ -65,9 +65,9 @@ function TexTileVis (data){
         // in case you wanna check all data available in a row: //
         // console.log('rowdata:', d, this);
 
-        let rectangles = d3.select(this).selectAll("rect").data(d); //TODO: If I send
+        let rectangles = d3.select(this).selectAll("rect").data(d);
         rectangles.enter().append("rect")
-            .attr("class", function (d){return d}) //TODO:  one solution would be to add a textID here
+            .attr("class", function (d){return d})
             .attr("width", TexTileWidth)
             .attr("height", 12)
             .attr("x", function (d, i) {
@@ -75,7 +75,6 @@ function TexTileVis (data){
             })
             .attr("y", i*25)
             .attr('fill', function(d){
-
                 // TODO: update! replace 'Traum' with var keyword. Store keyword when searching.
                 if (d === 'Traum') {
                     return '#fb8072'
@@ -88,6 +87,9 @@ function TexTileVis (data){
 
                 // assign color to the tile
                 ColorToClass(d);
+
+                // update LineChart
+                highlightLineThroughTile(d);
 
                 // display tooltip
                 tooltipDiv
@@ -107,8 +109,9 @@ function TexTileVis (data){
             })
             .on('mouseout', function(d){
 
-                // remove color
+                // remove color & turn off highlight in LineChart
                 RemoveColorFromClass(d);
+                DeHighlightLineThroughTile(d);
 
                 // tooltip
                 tooltipDiv.transition()
@@ -120,12 +123,6 @@ function TexTileVis (data){
                 // remove color
                 lockColor(d);
             });
-
     });
-
-    // lastly, lock the color that has been manually assigned for the keyword;
-    lockColor('Traum');
-    // TODO: ADD scrollbar
-
 }
 

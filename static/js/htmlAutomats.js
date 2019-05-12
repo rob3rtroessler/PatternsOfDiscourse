@@ -5,8 +5,8 @@ function createDistinctTileList_TabOne (data) {
         html +=
             `<div class="col-4 t1-list-col ${obj.word}"
                 onclick="lockColor('${obj.word}', 1)" 
-                onmouseout="RemoveColorFromClass('${obj.word}')"
-                onmouseover="ColorToClass('${obj.word}')">
+                onmouseover="ColorToClass('${obj.word}'); highlightLineThroughTile('${obj.word}')"
+                onmouseout="RemoveColorFromClass('${obj.word}'); DeHighlightLineThroughTile('${obj.word}')">
                     <span class='t1-list-span'>${obj.word} (${obj.value})</span>
             </div>`;
     });
