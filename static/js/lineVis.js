@@ -37,7 +37,14 @@ let lineChartScaleX = d3.scaleTime()
 let lineChartScaleY = d3.scaleLinear()
     .range([lineChartHeight, 0]);
 
+// initialize x axis
+lineChartSvg.append("g")
+    .attr("class", "x-axisLineChart")
+    .attr("transform", `translate(0, ${lineChartHeight})`);
 
+
+lineChartSvg.append("g")
+    .attr("class", "y-axisLineChart");
 
 /* * * * * * * * * * * * * * *
      WRANGLE LineChart DATA
@@ -48,7 +55,7 @@ async function wrangleLineChartData(ArrayOfLockedWords, data) {
     // first, prepare an array with locked keywords
     let keywords = [];
     ArrayOfLockedWords.forEach( word => {
-        if (word !== '' && word !== 'Traum'){
+        if (word !== ''){
             keywords.push(word);
         }
     });
@@ -99,7 +106,7 @@ async function wrangleLineChartData(ArrayOfLockedWords, data) {
 
     //
     let wrangledData = [];
-
+    let maximumY = 0;
     //
     keywords.forEach(keyword => {
         let wordValues = [];
@@ -110,6 +117,9 @@ async function wrangleLineChartData(ArrayOfLockedWords, data) {
                     occurences: element.value,
                     relativeOccurences: element.relativeValue
                 };
+                if (element.relativeValue > maximumY){
+                    maximumY = element.relativeValue
+                }
                 wordValues.push(tmp)
             }
         });
@@ -124,7 +134,7 @@ async function wrangleLineChartData(ArrayOfLockedWords, data) {
     });
 
     console.log('FINALE', wrangledData);
-    updateLineChart (wrangledData);
+    updateLineChart (maximumY, wrangledData);
 }
 
 
@@ -133,11 +143,16 @@ async function wrangleLineChartData(ArrayOfLockedWords, data) {
    Draw & Update LineChart
  * * * * * * * * * * * * * * */
 
-function updateLineChart (data) {
+function updateLineChart (maximumY, data) {
 
     /* finalizing scales */
     lineChartScaleX.domain(d3.extent(data[0].values, d => d.date));
-    lineChartScaleY.domain([0, d3.max(data[0].values, d => d.relativeOccurences)]);
+    lineChartScaleY.domain([0, maximumY]);
+
+    //console.log(d3.max(data[0].values, d => d.relativeOccurences));
+
+
+    console.log(maximumY);
 
     /* Add line into SVG */
     let line = d3.line()
@@ -211,28 +226,23 @@ function updateLineChart (data) {
         })
         .on("mouseout", function(d) {
             d3.select(this)
-                .transition()
+                //.transition()
                 .duration(duration)
                 .attr("r", circleRadius);
         });
 
-    /* Add Axis into SVG */
+    // set up axis
     let xAxis = d3.axisBottom(lineChartScaleX).ticks(5);
     let yAxis = d3.axisLeft(lineChartScaleY).ticks(5).tickFormat(d => d + "%");
 
-    lineChartSvg.append("g")
-        .attr("class", "x axis")
-        .attr("transform", `translate(0, ${lineChartHeight})`)
+    // add axis in such a way that they update automatically
+    lineChartSvg.selectAll(".x-axisLineChart")
+        .transition()
         .call(xAxis);
 
-    lineChartSvg.append("g")
-        .attr("class", "y axis")
-        .call(yAxis)
-        .append('text')
-        .attr("y", 15)
-        .attr("transform", "rotate(-90)")
-        .attr("fill", "#000")
-        .text("Total values");
+    lineChartSvg.selectAll(".y-axisLineChart")
+        .transition()
+        .call(yAxis);
 }
 
 

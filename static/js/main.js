@@ -54,23 +54,12 @@ function initTexTileModule(data){
 
     // call async function
     initializeTexTileModule(data)
-        .then( TexTileDataWrangling(data) )    // the reason why we passed the 'promised' data from function to function
+        .then( wrangleTexTileData(data) )    // the reason why we passed the 'promised' data from function to function
         .then( wrangleLineChartData(lockedWords, data) )    // lineChart data should take info from lockedWords from
     // searched word should be computed in python and passed into the JSON file's 'metadata'.
         .then( wrangleNetworkData() )
         .then( wrangleMatrixData() )
 }
-
-
-// height-checking since the caroussel is causing problems
-/*console.log($("#matrixSVG").height());
-console.log('Tab1masterRow', $("#Tab1masterRow").height());
-console.log('test2', $("#test2").height());
-console.log('Tab3masterRow', $("#Tab3masterRow").height());
-console.log($("#lineChartSVG").height());
-console.log($("#Tab1masterRow").width());*/
-
-// scrollbars
 
 
 

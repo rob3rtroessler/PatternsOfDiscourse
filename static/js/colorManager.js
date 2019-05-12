@@ -3,7 +3,7 @@
 
 // declare 2 arrays - array 1: 10 colors using color brewer; array 2: storage array for colors used
 let colors = ['#fb8072', '#8dd3c7','#ffffb3','#bebada','#80b1d3','#fdb462','#b3de69','#fccde5','#bc80bd','#ccebc5','#ffed6f']; //11 colors
-let lockedWords = ['Traum', '','','','','','','','','','']; //11
+let lockedWords = ['', '','','','','','','','','','']; //11
 
 let colorTiles = ['#8dd3c7','#ffffb3','#bebada','#80b1d3','#fdb462','#b3de69','#fccde5','#bc80bd','#ccebc5','#ffed6f'];
 colorTiles.forEach((d)=> {
@@ -80,7 +80,9 @@ function lockColor (className){
                 ColorToClass(className);
                 lockedWords[i] = className;
 
-                console.log('recalculating data for line chart -> calling wrangleLineChartData');
+                console.log('new color has been locked, i.e. new word has been selected -> recalculating data for' +
+                    ' line chart -> calling' +
+                    ' wrangleLineChartData');
                 wrangleLineChartData(lockedWords, rawData);
                 break;
             }

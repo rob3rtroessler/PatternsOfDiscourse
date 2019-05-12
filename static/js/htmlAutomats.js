@@ -1,9 +1,9 @@
 function createDistinctTileList_TabOne (data) {
+
     let html = '';
     data.forEach( obj => {
-        console.log(obj.word, `${obj.word}`);
         html +=
-            `<div class="col-4 t1-list-col ${obj.word}" 
+            `<div class="col-4 t1-list-col ${obj.word}"
                 onclick="lockColor('${obj.word}', 1)" 
                 onmouseout="RemoveColorFromClass('${obj.word}')"
                 onmouseover="ColorToClass('${obj.word}')">
@@ -11,6 +11,11 @@ function createDistinctTileList_TabOne (data) {
             </div>`;
     });
     document.getElementById('t1-list').innerHTML = html;
+
+    // manually solve the 'first' color assignment
+    $(".Traum")
+        .css("fill", '#fb8072')
+        .css("background", '#fb8072');
 
     // add scrollbar:
     new SimpleBar(document.getElementById('t1-list').parentElement);

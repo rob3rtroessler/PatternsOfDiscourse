@@ -227,27 +227,28 @@
         <script src="https://unpkg.com/simplebar@latest/dist/simplebar.min.js"></script>
 
         <!-- adding d3.js, vis.js, and viz.js-->
-        <!--<script src="js/libs/d3.min.js"></script>-->
         <script src="https://d3js.org/d3.v5.min.js"></script>
-        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/vis/4.21.0/vis.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/vis/4.21.0/vis.min.js"></script>
         <script src="http://vizjs.org/viz.v1.1.0.min.js"></script>
 
         <!-- OWN JAVASCRIPT FILES -->
 
+        <!-- HELPER FUNCTIONS -->
+        <script src="{{ url_for('static', filename='js/corpus.js') }}"></script>
         <script src="{{ url_for('static', filename='js/htmlAutomats.js') }}"></script>
         <script src="{{ url_for('static', filename='js/colorManager.js') }}"></script>
 
+        <!-- GRAPHS -->
         <script src="{{ url_for('static', filename='js/TexTileVis.js') }}"></script>
-        <script src="{{ url_for('static', filename='js/corpus.js') }}"></script>
-        <!--<script src="{{ url_for('static', filename='js/lineChart.js') }}"></script>-->
-        <script src="{{ url_for('static', filename='js/lineTwo.js') }}"></script>
-
+        <script src="{{ url_for('static', filename='js/lineVis.js') }}"></script>
         <script src="{{ url_for('static', filename='js/chordVis.js') }}"></script>
-        <script src="{{ url_for('static', filename='js/networkGraph.js') }}"></script>
-        <script src="{{ url_for('static', filename='js/matrix.js') }}"></script>
+        <script src="{{ url_for('static', filename='js/networkVis.js') }}"></script>
+        <script src="{{ url_for('static', filename='js/matrixVis.js') }}"></script>
 
+        <!-- MAIN -->
         <script src="{{ url_for('static', filename='js/main.js') }}"></script>
 
+        <!-- INITIALIZE CAROUSEL -->
         <script>$('.carousel').carousel({
             interval: false
         })</script>

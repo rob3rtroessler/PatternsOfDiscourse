@@ -4,7 +4,7 @@ let WrangledTexTileData =[];
 
 
 
-function TexTileDataWrangling(data){
+function wrangleTexTileData(data){
 
     // store the data in rawData
     rawData = data;
@@ -13,13 +13,7 @@ function TexTileDataWrangling(data){
     WrangledTexTileData =[];
 
     // access actual data and store it in tmp variable relevantData
-    relevantData = [];
-    data.data.data.forEach(function(d){
-        if (true){
-            relevantData.push(d);
-        }
-    });
-    relevantData = data.data.data;
+    let relevantData = data.data.data;
 
     // loop through all environments of relevant data and push to array 'WrangledTexTileData'
     relevantData.forEach( function (d){
@@ -125,9 +119,13 @@ function TexTileVis (data){
 
                 // remove color
                 lockColor(d);
-            })
+            });
+
     });
 
+    // lastly, lock the color that has been manually assigned for the keyword;
+    lockColor('Traum');
     // TODO: ADD scrollbar
+
 }
 
