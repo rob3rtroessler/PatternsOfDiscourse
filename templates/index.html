@@ -17,6 +17,7 @@
         <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
         <link rel="stylesheet" href="{{ url_for('static', filename='css/grid.css') }}">
         <link rel="stylesheet" href="{{ url_for('static', filename='css/TexTile.css') }}">
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/lineVis.css') }}">
         <link rel="stylesheet" href="{{ url_for('static', filename='css/matrix.css') }}">
     </head>
 
@@ -108,24 +109,21 @@
                                         <div class="col-12">FILTER</div>
                                         <div class="col-8 offset-1">
                                             <div class="row" style=" height: 75%; border-right: thin solid grey; text-align: left">
-                                                <form>
-                                                    <input type="radio" id="contactChoice1"
-                                                           name="contact" value="email">
-                                                    <label for="contactChoice1">visualize only selected words</label><br>
-                                                    <input type="radio" id="contactChoice2"
-                                                           name="contact" value="phone">
-                                                    <label for="contactChoice2">visualize selected words and their environments</label><br>
-                                                    <input type="radio" id="contactChoice3"
-                                                           name="contact" value="mail">
-                                                    <label for="contactChoice3">visualize all words that appear in environments of the keyword</label>
+                                                <form id="networkDataFilterForm" style="font-size: 1.5vh">
+                                                    <input type="radio" id="filterBySelectedWords" name="contact" checked>
+                                                    <label for="filterBySelectedWords">visualize only selected words</label><br>
+                                                    <input type="radio" id="filterBySelectedWordsAndEnvironments" name="contact">
+                                                    <label for="filterBySelectedWordsAndEnvironments">visualize selected words and their environments</label><br>
+                                                    <input type="radio" id="noFilters" name="contact">
+                                                    <label for="noFilters">visualize all words that appear in environments of the keyword</label>
                                                 </form>
                                             </div>
                                         </div>
                                         <div class="col-3">
-                                            <form style="font-size: 2vh">
+                                            <form style="font-size: 1.5vh">
                                                 <input type="checkbox" id="test"
                                                        name="contact" value="email">
-                                                <label for="contactChoice1">disable automatic updating</label>
+                                                <label for="test">disable automatic updating</label>
                                                 <button>apply & redraw</button>
                                             </form>
 

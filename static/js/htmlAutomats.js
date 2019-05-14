@@ -33,6 +33,7 @@ function createDistinctTileList_TabTwo(data){
             `)</span></div>`;
     });
 
-    document.getElementById('t2-list').innerHTML = html
+    document.getElementById('t2-list').innerHTML = html;
+    //new SimpleBar(document.getElementById('t1-list').parentElement);
 }
 

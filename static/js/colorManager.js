@@ -5,9 +5,9 @@
 let colors = ['#fb8072', '#8dd3c7','#ffffb3','#bebada','#80b1d3','#fdb462','#b3de69','#fccde5','#bc80bd','#ccebc5','#ffed6f']; //11 colors
 let lockedWords = ['Traum', '','','','','','','','','','']; //11
 
-let colorTiles = ['#8dd3c7','#ffffb3','#bebada','#80b1d3','#fdb462','#b3de69','#fccde5','#bc80bd','#ccebc5','#ffed6f'];
+let colorTiles = ['8dd3c7','ffffb3','bebada','80b1d3','fdb462','b3de69','fccde5','bc80bd','ccebc5','ffed6f'];
 colorTiles.forEach((d)=> {
-    document.getElementById('colorScale').innerHTML += `<div class="row" id='` + d + `' style="height: 10%; background-color: ` + d + `"></div>`;
+    document.getElementById('colorScale').innerHTML += `<div class="row" id='colorTile` + d + `' style="height: 10%; background-color: #` + d + `"></div>`;
 });
 
 
@@ -52,19 +52,18 @@ function RemoveColorFromClass (className){
 // declare function that locks a color to a word
 function lockColor (className){
 
-    // check if word is locked
+    // check if word is locked, if so -> unlock
     if (lockedWords.includes(className)){
-        // console.log("oh,", className, "is already locked");
-        // console.log("let's unlock/deselect it and then redraw the lineChart");
+        // console.log("oh,", className, "is already locked! let's unlock/deselect it and then redraw the lineChart");
 
-        // find position of that word and unlock that color
+        // find position of word in lockedWords and unlock the word & color
         for (let i = 0; i < lockedWords.length; ++i) {
             if (lockedWords[i]=== className){
 
-                // delete word from array
+                // unlock word -> reset word position in array
                 lockedWords[i] = '';
 
-                // assign base color to class
+                // unlock color -> assign base color to class
                 $("." + className)
                     .css("fill", 'lightgrey')
                     .css("background", 'transparent');

@@ -64,6 +64,8 @@ function TexTileVis (data){
     newRows.each(function(d, i){
         // in case you wanna check all data available in a row: //
         // console.log('rowdata:', d, this);
+        console.log('row', d);
+        let toolTipData = d;
 
         let rectangles = d3.select(this).selectAll("rect").data(d);
         rectangles.enter().append("rect")
@@ -91,6 +93,18 @@ function TexTileVis (data){
                 // update LineChart
                 highlightLineThroughTile(d);
 
+                // define html inside the tooltip
+                let html = `text: </br>`;
+                toolTipData.forEach(word => {
+                    let color = lookUpColor(word);
+                    if (word === d){
+                        html += `<span style="font-size: 1.3vh; background-color: ${color}" class=${word}><b>${word}</b></span> `
+                    }
+                    else {
+                        html += `<span style="font-size: 1vh; background-color: ${color}" class=${word}>${word}</span> `
+                    }
+                });
+
                 // display tooltip
                 tooltipDiv
                     .transition()
@@ -99,7 +113,7 @@ function TexTileVis (data){
 
                 // position tooltip
                 tooltipDiv
-                    .html("<b>"+ d + "</b>")
+                    .html(html)
                     .style("left", function(d){
                         tmp = $("#CreateYourCorpusContainer").width();
                         // console.log(tmp);

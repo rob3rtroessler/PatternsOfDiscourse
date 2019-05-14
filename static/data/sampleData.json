@@ -11,8 +11,8 @@
     "data": [
         {
             "textID": "0",
-            "author": "Psychologie als Wissenschaft",
-            "title": "Johann Friedrich Herbart",
+            "author": "Johann Friedrich Herbart",
+            "title": "Psychologie als Wissenschaft",
             "year": 1824,
             "environments": [
                 ["word21", "word4", "word1", "word2", "word5","word6","word7","Traum", "word9", "word10", "word11", "word12", "word13","word14","word15"],
@@ -31,8 +31,8 @@
         },
         {
             "textID": "1",
-            "author": "Lehrbuch zur Psychologie",
-            "title": "Johann Friedrich Herbart",
+            "author": "Johann Friedrich Herbart",
+            "title": "Lehrbuch zur Psychologie",
             "year": 1834,
             "environments": [
                 ["word21", "word4", "word1", "word2", "word5","word6","word7","Traum", "word9", "word10", "word11", "word12", "word13","word14","word15"],
@@ -52,7 +52,7 @@
         {
             "textID": "4",
             "author": "Fechner",
-            "title": "Title 2",
+            "title": "Elemente der Psychophysik",
             "year": 1860,
             "environments": [
                 ["word5", "word2", "word3", "word4", "word1","word6","word7","Traum", "word9", "word10", "word11", "word12", "word13","word14","word15"],

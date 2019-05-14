@@ -1,4 +1,6 @@
 
+
+
 /* * * * * * * * * * * * * * *
      Initialize LineChart
  * * * * * * * * * * * * * * */
@@ -8,12 +10,12 @@ let duration = 250;
 
 let lineOpacity = "1";
 let lineOpacityHover = "1";
-let otherLinesOpacityHover = "0.1";
+let otherLinesOpacityHover = "0.25";
 let lineStroke = "2px";
 let lineStrokeHover = "4px";
 
 let circleOpacity = '1';
-let circleOpacityOnLineHover = "0.2";
+let circleOpacityOnLineHover = "0.25";
 let circleRadius = 5;
 let circleRadiusHover = 9;
 
@@ -21,7 +23,7 @@ let circleRadiusHover = 9;
 let lineChartDiv = $("#lineChartSVG");
 
 // margin conventions
-let lineChartMargins = {top: 50, right: 50, bottom: 20, left: 50},
+let lineChartMargins = {top: 80, right: 50, bottom: 20, left: 50},
     lineChartWidth = lineChartDiv.width() - lineChartMargins.left - lineChartMargins.right,
     lineChartHeight = lineChartDiv.height() - lineChartMargins.top - lineChartMargins.bottom;
 
@@ -32,6 +34,8 @@ let lineChartSvg = d3.select("#LineChartSVG").append("svg")
     .append('g')
     .attr("transform", "translate(" + lineChartMargins.left + "," + lineChartMargins.top + ")")
     .attr('id', 'LineChartSVGinner');
+
+
 
 /* * * * * * * * * * * * * * *
      WRANGLE LineChart DATA
@@ -47,6 +51,9 @@ async function wrangleLineChartData(ArrayOfLockedWords, data) {
         }
     });
 
+    // store years of all text in separate array
+    let selectedTexts = [];
+
     // set up timeParser
     let parseDate = d3.timeParse("%Y%m%d");
 
@@ -58,6 +65,7 @@ async function wrangleLineChartData(ArrayOfLockedWords, data) {
 
         // date of current text
         let dateOfText = parseDate(text.year + '0101');
+        selectedTexts.push({date: dateOfText, textID: text.textID, title: text.title});
 
         // initiate helperStructure
         let tmpStructure = {};
@@ -122,7 +130,7 @@ async function wrangleLineChartData(ArrayOfLockedWords, data) {
     });
 
     console.log('data for LineChart:', wrangledData);
-    drawLineChart (maximumY, wrangledData);
+    drawLineChart (maximumY, wrangledData, selectedTexts);
 }
 
 
@@ -131,7 +139,7 @@ async function wrangleLineChartData(ArrayOfLockedWords, data) {
    Draw & Update LineChart
  * * * * * * * * * * * * * * */
 
-function drawLineChart (maximumY, data) {
+function drawLineChart (maximumY, data, selectedTexts) {
 
 
     // preliminary, trivial solution since enter, merge(), transition method is a little bit tricky with the
@@ -145,7 +153,7 @@ function drawLineChart (maximumY, data) {
     let lineChartScaleY = d3.scaleLinear()
         .range([lineChartHeight, 0]);
 
-// initialize x axis
+    // initialize x axis
     lineChartSvg.append("g")
         .attr("class", "x-axisLineChart")
         .attr("transform", `translate(0, ${lineChartHeight})`);
@@ -155,11 +163,45 @@ function drawLineChart (maximumY, data) {
         .attr("class", "y-axisLineChart");
 
 
-
-
     /* finalizing scales */
     lineChartScaleX.domain(d3.extent(data[0].values, d => d.date));
     lineChartScaleY.domain([0, maximumY]);
+
+    // draw gridLines that indicate the correct date of the texts selected in the corpus
+    let gridLines = lineChartSvg.append('g')
+        .attr('class', 'gridLines');
+
+    gridLines.selectAll('.gridLine')
+        .data(selectedTexts)
+        .enter()
+        .append('line')
+        .attr('class', 'gridLine')
+        .attr("x1", function(d) {return lineChartScaleX(d.date)})
+        .attr("y1", 0)
+        .attr("x2", function(d) {return lineChartScaleX(d.date)})
+        .attr("y2", lineChartHeight)
+        .style("stroke-width", 1)
+        .style("stroke", "#929292")
+        .style("stroke-dasharray", ("3, 3"))
+        .style("opacity", 0.3)
+        .style("fill", "none");
+
+
+    // draw bibliographical info to the gridLines
+    let bibText = lineChartSvg.append('g')
+        .attr('class', 'bibTexts');
+
+    bibText.selectAll('.bibText')
+        .data(selectedTexts)
+        .enter()
+        .append('text')
+        .attr('class', 'bibText')
+        .attr('id', d => (' - ' + d.textID))
+        .attr("dx", function(d) {return lineChartScaleX(d.date)})
+        .attr("dy", 0)
+        .text(d => d.title)
+        .attr('transform', function(d) {return ('translate(7, -5) ' + 'rotate(-40 ' + lineChartScaleX(d.date) + ' ' + 0 + ')')});
+
 
     /* Add line into SVG */
     let line = d3.line()
@@ -191,7 +233,7 @@ function drawLineChart (maximumY, data) {
         .data(d => d.values).enter()
         .append("g")
         .attr("class", function (d){ return ('circle circleForLine' + d.word) })
-        .on("mouseover", function(d) {
+        .on("mouseover", function(d,i) {
             d3.select(this)
                 .style("cursor", "pointer")
                 .append("text")
@@ -207,12 +249,14 @@ function drawLineChart (maximumY, data) {
                 .duration(duration)
                 .selectAll(".text").remove();
         })
+
         .append('circle')
         .attr("cx", d => lineChartScaleX(d.date))
         .attr("cy", d => lineChartScaleY(d.relativeOccurences))
         .attr("r", circleRadius)
         .style('opacity', circleOpacity)
         .on('mouseover', function(d) {
+            console.log(this);
             d3.select(this)
                 .transition()
                 .duration(duration)
@@ -224,6 +268,8 @@ function drawLineChart (maximumY, data) {
                 .duration(duration)
                 .attr("r", circleRadius);
         });
+
+
 
     // set up axis
     let xAxis = d3.axisBottom(lineChartScaleX).ticks(5);
@@ -239,6 +285,10 @@ function drawLineChart (maximumY, data) {
         .call(yAxis);
 }
 
+
+helperToolTip = d3.select("body").append("div")
+    .attr("class", "helperToolTip")
+    .style("opacity", 0);
 
 
 /* * * * * * * * * * * * * * *

@@ -6,7 +6,11 @@ function wrangleNetworkData () {
     nodes = [];
     edges = [];
     chordData = [];
+
+    // tmp variables
     let tmpDistinctWordDict = {};
+    let filterMethode = $("#networkDataFilterForm input[type=radio]:checked").attr('id');
+
 
     // create dict with all unique words plus the # of occurences
     WrangledTexTileData.forEach(
@@ -41,6 +45,7 @@ function wrangleNetworkData () {
     tmpDistinctWordDict_sorted.sort(function (a, b) {return b.value - a.value});
 
     console.log('data for TileLists:',  tmpDistinctWordDict_sorted);
+
     // having created a distinctWordDict_sorted, we can createDistinctTileList_TabOne and _TabTwo
     createDistinctTileList_TabOne(tmpDistinctWordDict_sorted);
     createDistinctTileList_TabTwo(tmpDistinctWordDict_sorted);
@@ -122,7 +127,9 @@ function wrangleNetworkData () {
         edges.push(tmpObj);
 
         // fill obj for chord graph
-        chordData.push([key.split('To')[0],key.split('To')[1],tmpDict[key]],[key.split('To')[1],key.split('To')[0],tmpDict[key]]);
+        chordData.push(
+            [key.split('To')[0],key.split('To')[1],tmpDict[key]]
+        /*, [key.split('To')[1],key.split('To')[0],tmpDict[key]]*/);
     }
 
 
