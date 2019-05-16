@@ -59,12 +59,11 @@ function TexTileVis (data){
 
     let newRows = row.enter()
         .append("g")
-        .attr("class", 'FabricRow');
+        .attr("class", 'row');
 
     newRows.each(function(d, i){
         // in case you wanna check all data available in a row: //
         // console.log('rowdata:', d, this);
-        console.log('row', d);
         let toolTipData = d;
 
         let rectangles = d3.select(this).selectAll("rect").data(d);
@@ -90,11 +89,13 @@ function TexTileVis (data){
                 // assign color to the tile
                 ColorToClass(d);
 
-                // update LineChart
+                // then highlight correct line in LineChart
                 highlightLineThroughTile(d);
 
                 // define html inside the tooltip
-                let html = `text: </br>`;
+                let html = `word environment for <b>Traum</b> in <span style="font-style: italic">Sigmund Freud: Die Traumdeutung (1900)</span> on 
+pp. 210: 
+</br>`;          //TODO: data structure needs to be changed, if we want author and title
                 toolTipData.forEach(word => {
                     let color = lookUpColor(word);
                     if (word === d){
@@ -114,11 +115,7 @@ function TexTileVis (data){
                 // position tooltip
                 tooltipDiv
                     .html(html)
-                    .style("left", function(d){
-                        tmp = $("#CreateYourCorpusContainer").width();
-                        // console.log(tmp);
-                        return (tmp + 45 +  "px")
-                    })
+                    .style("left", $('#FabricVisContainer').offset().left)
                     .style("top", (d3.event.pageY +10) + "px");
             })
             .on('mouseout', function(d){

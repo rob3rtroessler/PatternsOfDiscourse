@@ -94,7 +94,8 @@ async function wrangleLineChartData(ArrayOfLockedWords, data) {
                     word: keyword,
                     value: tmpStructure[keyword],
                     date: dateOfText,
-                    relativeValue: tmpStructure[keyword]/tmpCount*100
+                    relativeValue: tmpStructure[keyword]/tmpCount*100,
+                    title: text.title
                 }
             )})
     });
@@ -111,7 +112,8 @@ async function wrangleLineChartData(ArrayOfLockedWords, data) {
                     date: element.date,
                     occurences: element.value,
                     relativeOccurences: element.relativeValue,
-                    word: element.word // looks redundant, but we need to access the word also on the element level!
+                    word: element.word, // looks redundant, but we need to access the word also on the element level!
+                    title: element.title
                 };
                 if (element.relativeValue > maximumY){
                     maximumY = element.relativeValue
@@ -176,6 +178,7 @@ function drawLineChart (maximumY, data, selectedTexts) {
         .enter()
         .append('line')
         .attr('class', 'gridLine')
+        .attr('id', d => {console.log(d); return ('gridline' + d.textID)})
         .attr("x1", function(d) {return lineChartScaleX(d.date)})
         .attr("y1", 0)
         .attr("x2", function(d) {return lineChartScaleX(d.date)})
@@ -185,6 +188,13 @@ function drawLineChart (maximumY, data, selectedTexts) {
         .style("stroke-dasharray", ("3, 3"))
         .style("opacity", 0.3)
         .style("fill", "none");
+        /*.on('mouseover', d => {
+            console.log('test');
+            d3.select('#gridline' + d.textID)
+                .attr('y1', -50)
+                .style("stroke-width", 3)
+                .style("stroke", "#922632");
+        })*/
 
 
     // draw bibliographical info to the gridLines
@@ -234,15 +244,15 @@ function drawLineChart (maximumY, data, selectedTexts) {
         .append("g")
         .attr("class", function (d){ return ('circle circleForLine' + d.word) })
         .on("mouseover", function(d,i) {
-            d3.select(this)
-                .style("cursor", "pointer")
-                .append("text")
-                .attr("class", "text")
-                .text(`so oft: ${d.occurences}, relativ: ${d.relativeOccurences}`)
-                .attr("x", d => lineChartScaleX(d.date) + 5)
-                .attr("y", d => lineChartScaleY(d.relativeOccurences) - 10);
+            let html = `<span id="alternativeLineChartHeader">${d.occurences} occurences (=` + (d.relativeOccurences).toFixed(2) + `%) of ${d.word} in 
+<span style="font-style: italic">${d.title}</span></span>`;
+            $("#lineChartHeader").html(html);
+            $("#lineChartHeader").css('background-color', lookUpColor(d.word))
         })
         .on("mouseout", function(d) {
+            $("#lineChartHeader")
+                .html('<h2>Popularity of Word over time</h2>')
+                .css('background-color', 'transparent');
             d3.select(this)
                 .style("cursor", "none")
                 .transition()
@@ -251,6 +261,7 @@ function drawLineChart (maximumY, data, selectedTexts) {
         })
 
         .append('circle')
+        .attr('class', 'lineChartCircle')
         .attr("cx", d => lineChartScaleX(d.date))
         .attr("cy", d => lineChartScaleY(d.relativeOccurences))
         .attr("r", circleRadius)
@@ -329,4 +340,41 @@ function highlightOutSelectedLine (id, word) {
     d3.select(id)
         .style("stroke-width", lineStroke)
         .style("cursor", "none");
+}
+
+
+function highlightLineThroughTile(word) {
+
+    // highlightLineThroughTile only if word, i.e. tile is locked
+    if (lockedWords.includes(word)){
+        // console.log(word, "is locked, so let's highlight it");
+
+        // then lookup the correct html element and send it to highlightSelectedLine
+        let htmlElementID = document.getElementById('lineForWord' + word);
+        highlightSelectedLine(htmlElementID, word);
+
+        // then print word
+        $("#lineChartHeader")
+            .html(`<h2>${word}</h2>`)
+            .css('background-color', lookUpColor(word));
+    }
+    else {
+        // console.log(word, "word is not locked - no highlighting then!")
+    }
+}
+
+function DeHighlightLineThroughTile(word) {
+
+    // now we can grab global variable 'color' and create ID
+    let ID = 'lineForWord' + word;
+
+    // then lookup the correct html element and send it to highlightSelectedLine
+    let htmlElementID = document.getElementById(ID);
+    highlightOutSelectedLine(htmlElementID, word);
+
+    // then remove the word
+    // then print word
+    $("#lineChartHeader")
+        .html('<h2>Popularity of Word over time</h2>')
+        .css('background-color', 'transparent');
 }

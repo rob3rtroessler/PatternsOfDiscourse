@@ -7,7 +7,8 @@ let lockedWords = ['Traum', '','','','','','','','','','']; //11
 
 let colorTiles = ['8dd3c7','ffffb3','bebada','80b1d3','fdb462','b3de69','fccde5','bc80bd','ccebc5','ffed6f'];
 colorTiles.forEach((d)=> {
-    document.getElementById('colorScale').innerHTML += `<div class="row" id='colorTile` + d + `' style="height: 10%; background-color: #` + d + `"></div>`;
+    document.getElementById('colorScale').innerHTML += `<div class="row" id='colorTile` + d + `' style="height: 10%; 
+                                                            align-items: center; background-color:#` + d + `"></div>`;
 });
 
 
@@ -60,6 +61,10 @@ function lockColor (className){
         for (let i = 0; i < lockedWords.length; ++i) {
             if (lockedWords[i]=== className){
 
+                // then write word into adequate colorTile
+                let tmpID = 'colorTile' + lookUpColor(className).split('#')[1];
+                document.getElementById(tmpID).innerHTML = '';
+
                 // unlock word -> reset word position in array
                 lockedWords[i] = '';
 
@@ -76,8 +81,15 @@ function lockColor (className){
     else {
         for (let i = 0; i < lockedWords.length; ++i) {
             if (lockedWords[i]===''){
+
+                // assign color to class and lock the word
                 ColorToClass(className);
                 lockedWords[i] = className;
+
+                // then write word into adequate colorTile
+                let tmpID = 'colorTile' + lookUpColor(className).split('#')[1];
+                document.getElementById(tmpID).innerHTML = `<div class="col-12 colorTileText">${className}</div>`;// `<span
+                // class="colorTileTextSpan">${className}</span>`;
 
                 console.log('new color has been locked, i.e. new word has been selected -> recalculating data for' +
                     ' line chart -> calling wrangleLineChartData');
@@ -96,42 +108,5 @@ function lookUpColor (word){
             return colors[i]
         }
     }
-}
-
-function highlightLineThroughTile(word) {
-
-    // highlightLineThroughTile only if word, i.e. tile is locked
-    if (lockedWords.includes(word)){
-        // console.log(word, "is locked, so let's highlight it");
-
-        // then lookup the correct html element and send it to highlightSelectedLine
-        let htmlElementID = document.getElementById('lineForWord' + word);
-        highlightSelectedLine(htmlElementID, word);
-
-        // then print word
-        lineChartSvg.append("text")
-            .attr("class", "title-text")
-            .style('fill', lookUpColor(word))
-            .text(word)
-            .attr("text-anchor", "middle")
-            .attr("x", (lineChartWidth)/2)
-            .attr("y", -20);
-    }
-    else {
-        // console.log(word, "word is not locked - no highlighting then!")
-    }
-}
-
-function DeHighlightLineThroughTile(word) {
-
-    // now we can grab global variable 'color' and create ID
-    let ID = 'lineForWord' + word;
-
-    // then lookup the correct html element and send it to highlightSelectedLine
-    let htmlElementID = document.getElementById(ID);
-    highlightOutSelectedLine(htmlElementID, word);
-
-    // then remove the word
-    lineChartSvg.select(".title-text").remove()
 }
 

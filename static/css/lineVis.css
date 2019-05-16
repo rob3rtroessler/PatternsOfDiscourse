@@ -8,3 +8,19 @@
     height:100%;
     color: #4f130f;
 }
+
+.lineChartCircle {
+    
+}
+
+
+.lineChartCircle:hover{
+    cursor: pointer;
+}
+
+#alternativeLineChartHeader {
+    font-family: 'Libre Franklin', sans-serif;
+    font-weight: 300;
+    font-size: 1.5vh;
+    text-align: center;
+}

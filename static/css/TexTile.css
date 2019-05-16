@@ -37,16 +37,34 @@
 
 /* VISUALIZATION */
 .tooltip {
-    position: absolute;
     text-align: center;
-    height: 30px;
-    font: 12px sans-serif;
+    font-family: 'Libre Franklin', sans-serif;
+    font-weight: 500;
+    font-size: 1.5vh;
+    position: absolute;
+    height: 5vh;
     background: #ffffff;
-    border: thin solid grey;
+    border-top: thin solid grey;
+    border-bottom: thin solid grey;
     pointer-events: none;
 }
 
 
+.colorTile {
+    text-align: center;
+    font-family: 'Libre Franklin', sans-serif;
+    font-weight: 500;
+    font-size: 1.5vh;
+    height: 10%;
+    line-height: 10%;
+}
 
-
+.colorTileText {
+    justify-content: center;
+    align-items: center;
+    font-family: 'Libre Franklin', sans-serif;
+    font-weight: 500;
+    font-size: 1vh;
+    color: rgba(101, 101, 101, 0.56);
+}
 
