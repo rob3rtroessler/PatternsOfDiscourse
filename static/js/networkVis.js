@@ -138,8 +138,10 @@ function wrangleNetworkData () {
     * call chordGraph and networkGraph *
     *                                  *
     ***********************************/
-    drawChordGraph(chordData, tmpDistinctWordDict);
+    // drawChordGraph(chordData, tmpDistinctWordDict);
+    console.log('wrong chord data:',chordData);
     drawNetworkGraph(nodes, edges);
+    wrangleChordData();
 }
 
 

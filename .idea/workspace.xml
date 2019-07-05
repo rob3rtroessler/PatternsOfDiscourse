@@ -2,11 +2,17 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="58533c6a-87d9-415d-949a-9c34be766325" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/static/css/TexTile.css" afterPath="$PROJECT_DIR$/static/css/TexTile.css" />
-      <change beforePath="$PROJECT_DIR$/static/css/lineVis.css" afterPath="$PROJECT_DIR$/static/css/lineVis.css" />
-      <change beforePath="$PROJECT_DIR$/static/js/TexTileVis.js" afterPath="$PROJECT_DIR$/static/js/TexTileVis.js" />
-      <change beforePath="$PROJECT_DIR$/static/js/colorManager.js" afterPath="$PROJECT_DIR$/static/js/colorManager.js" />
-      <change beforePath="$PROJECT_DIR$/static/js/lineVis.js" afterPath="$PROJECT_DIR$/static/js/lineVis.js" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/static/css/libs/simplebar.css" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/static/js/chordVisNew.js" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/static/js/libs/simplebar.js" />
+      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change beforePath="$PROJECT_DIR$/python/.idea/inspectionProfiles/Project_Default.xml" afterPath="$PROJECT_DIR$/python/.idea/inspectionProfiles/Project_Default.xml" />
+      <change beforePath="$PROJECT_DIR$/python/.idea/workspace.xml" afterPath="$PROJECT_DIR$/python/.idea/workspace.xml" />
+      <change beforePath="$PROJECT_DIR$/python/jupyter/test.py" afterPath="$PROJECT_DIR$/python/jupyter/test.py" />
+      <change beforePath="$PROJECT_DIR$/static/js/UpdatingLineVis.js" afterPath="$PROJECT_DIR$/static/js/OldiesAndTests/UpdatingLineVis.js" />
+      <change beforePath="$PROJECT_DIR$/static/js/matrixVis.js" afterPath="$PROJECT_DIR$/static/js/matrixVis.js" />
+      <change beforePath="$PROJECT_DIR$/static/js/networkVis.js" afterPath="$PROJECT_DIR$/static/js/networkVis.js" />
       <change beforePath="$PROJECT_DIR$/templates/index.html" afterPath="$PROJECT_DIR$/templates/index.html" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
@@ -24,51 +30,72 @@
       <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/templates/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="259">
-              <caret line="56" column="67" lean-forward="true" selection-start-line="56" selection-start-column="67" selection-end-line="56" selection-end-column="67" />
+            <state relative-caret-position="378">
+              <caret line="73" column="37" lean-forward="true" selection-start-line="73" selection-start-column="37" selection-end-line="73" selection-end-column="37" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="UpdatingLineVis.js" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/static/js/OldiesAndTests/UpdatingLineVis.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="546">
+              <caret line="209" column="62" lean-forward="true" selection-start-line="209" selection-start-column="62" selection-end-line="209" selection-end-column="62" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="simplebar.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/static/js/libs/simplebar.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="126">
+              <caret line="11" column="19" lean-forward="false" selection-start-line="11" selection-start-column="19" selection-end-line="11" selection-end-column="19" />
               <folding>
-                <element signature="n#style#0;n#div#2;n#div#2;n#div#0;n#div#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#3;n#div#2;n#div#0;n#div#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="e#0#44#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="TexTileVis.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/static/js/TexTileVis.js">
+      <file leaf-file-name="chordVisNew.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/static/js/chordVisNew.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="672">
-              <caret line="65" column="44" lean-forward="false" selection-start-line="65" selection-start-column="44" selection-end-line="65" selection-end-column="44" />
+            <state relative-caret-position="1365">
+              <caret line="65" column="23" lean-forward="false" selection-start-line="65" selection-start-column="23" selection-end-line="65" selection-end-column="23" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="matrixVis.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/static/js/matrixVis.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="2982">
+              <caret line="142" column="37" lean-forward="false" selection-start-line="142" selection-start-column="37" selection-end-line="142" selection-end-column="37" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="colorManager.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/static/js/colorManager.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="126">
+              <caret line="6" column="0" lean-forward="false" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
               <folding>
-                <marker date="1558027804610" expanded="true" signature="3225:3243" ph="..." />
-                <marker date="1558027804610" expanded="true" signature="3574:3590" ph="..." />
-                <marker date="1558027804610" expanded="true" signature="3574:3610" ph="..." />
-                <marker date="1558027804610" expanded="true" signature="3574:3611" ph="..." />
-                <marker date="1558027804610" expanded="true" signature="3753:3767" ph="..." />
-                <marker date="1558027804610" expanded="true" signature="3753:3787" ph="..." />
+                <marker date="1557887393355" expanded="true" signature="568:681" ph="..." />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="lineVis.js" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/static/js/lineVis.js">
+      <file leaf-file-name="networkVis.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/static/js/networkVis.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="611">
-              <caret line="378" column="48" lean-forward="false" selection-start-line="378" selection-start-column="48" selection-end-line="378" selection-end-column="48" />
-              <folding>
-                <marker date="1558028003847" expanded="true" signature="7748:7895" ph="..." />
-                <marker date="1558028003847" expanded="true" signature="7852:7870" ph="..." />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="sampleData.json" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/static/data/sampleData.json">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1134">
-              <caret line="54" column="47" lean-forward="false" selection-start-line="54" selection-start-column="47" selection-end-line="54" selection-end-column="47" />
+            <state relative-caret-position="5334">
+              <caret line="254" column="34" lean-forward="false" selection-start-line="254" selection-start-column="26" selection-end-line="254" selection-end-column="34" />
               <folding />
             </state>
           </provider>
@@ -77,48 +104,12 @@
       <file leaf-file-name="corpus.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/static/js/corpus.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="315">
-              <caret line="15" column="2" lean-forward="false" selection-start-line="15" selection-start-column="2" selection-end-line="15" selection-end-column="2" />
+            <state relative-caret-position="462">
+              <caret line="22" column="41" lean-forward="false" selection-start-line="22" selection-start-column="41" selection-end-line="22" selection-end-column="41" />
               <folding>
                 <marker date="1556555618474" expanded="true" signature="1133:1395" ph="..." />
-                <marker date="1556555618474" expanded="false" signature="1168:1186" ph="..." />
+                <marker date="1556555618474" expanded="true" signature="1168:1186" ph="..." />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="colorManager.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/static/js/colorManager.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="259">
-              <caret line="39" column="1" lean-forward="false" selection-start-line="39" selection-start-column="1" selection-end-line="39" selection-end-column="1" />
-              <folding>
-                <marker date="1557887393355" expanded="true" signature="568:680" ph="..." />
-                <marker date="1557887393355" expanded="true" signature="568:681" ph="..." />
-                <marker date="1557887393355" expanded="true" signature="568:690" ph="..." />
-                <marker date="1557887393355" expanded="true" signature="663:680" ph="..." />
-                <marker date="1557887393355" expanded="true" signature="3469:4020" ph="..." />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="TexTile.css" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/static/css/TexTile.css">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="273">
-              <caret line="40" column="46" lean-forward="false" selection-start-line="40" selection-start-column="46" selection-end-line="40" selection-end-column="46" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="lineVis.css" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/static/css/lineVis.css">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="483">
-              <caret line="23" column="18" lean-forward="false" selection-start-line="23" selection-start-column="18" selection-end-line="23" selection-end-column="18" />
-              <folding />
             </state>
           </provider>
         </entry>
@@ -126,26 +117,25 @@
       <file leaf-file-name="htmlAutomats.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/static/js/htmlAutomats.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="105">
-              <caret line="5" column="22" lean-forward="false" selection-start-line="5" selection-start-column="22" selection-end-line="5" selection-end-column="22" />
+            <state relative-caret-position="252">
+              <caret line="12" column="56" lean-forward="false" selection-start-line="12" selection-start-column="56" selection-end-line="12" selection-end-column="56" />
               <folding>
                 <marker date="1557777347184" expanded="true" signature="166:528" ph="..." />
-                <marker date="1557777347184" expanded="true" signature="182:528" ph="..." />
-                <marker date="1557777347184" expanded="true" signature="428:528" ph="..." />
-                <marker date="1557777347184" expanded="true" signature="476:502" ph="..." />
-                <marker date="1557777347184" expanded="true" signature="993:1199" ph="..." />
                 <marker date="1557777347184" expanded="true" signature="993:1260" ph="..." />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="styles.css" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/static/css/styles.css">
+      <file leaf-file-name="lineVis.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/static/js/lineVis.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="462">
-              <caret line="134" column="0" lean-forward="false" selection-start-line="134" selection-start-column="0" selection-end-line="134" selection-end-column="0" />
-              <folding />
+            <state relative-caret-position="315">
+              <caret line="15" column="0" lean-forward="true" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
+              <folding>
+                <marker date="1558028003847" expanded="true" signature="7748:7895" ph="..." />
+                <marker date="1558028003847" expanded="false" signature="7852:7870" ph="..." />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -156,16 +146,13 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="HTML File" />
-        <option value="JavaScript File" />
         <option value="CSS File" />
+        <option value="JavaScript File" />
       </list>
     </option>
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>margi</find>
-      <find>colorLine</find>
-      <find>color</find>
       <find>name</find>
       <find>price</find>
       <find>parse</find>
@@ -174,7 +161,6 @@
       <find>0101</find>
       <find>colorLi</find>
       <find>occur</find>
-      <find>text</find>
       <find>heigh</find>
       <find>width</find>
       <find>lineChartHeight</find>
@@ -193,6 +179,10 @@
       <find>pop</find>
       <find>Fabr</find>
       <find>/2</find>
+      <find>item_in</find>
+      <find>selected</find>
+      <find>visuali</find>
+      <find>text</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -230,22 +220,24 @@
         <option value="$PROJECT_DIR$/static/data/actualData.json" />
         <option value="$PROJECT_DIR$/static/js/corpus.js" />
         <option value="$PROJECT_DIR$/static/js/networkGraph.js" />
-        <option value="$PROJECT_DIR$/application.py" />
         <option value="$PROJECT_DIR$/static/css/grid.css" />
         <option value="$PROJECT_DIR$/static/css/styles.css" />
         <option value="$PROJECT_DIR$/static/js/lineChart.js" />
         <option value="$PROJECT_DIR$/static/js/lineTwo.js" />
         <option value="$PROJECT_DIR$/static/js/main.js" />
         <option value="$PROJECT_DIR$/static/js/htmlAutomats.js" />
-        <option value="$PROJECT_DIR$/static/js/networkVis.js" />
         <option value="$PROJECT_DIR$/static/css/matrix.css" />
         <option value="$PROJECT_DIR$/static/data/sampleData.json" />
         <option value="$PROJECT_DIR$/static/css/TexTile.css" />
         <option value="$PROJECT_DIR$/static/js/colorManager.js" />
         <option value="$PROJECT_DIR$/static/css/lineVis.css" />
         <option value="$PROJECT_DIR$/static/js/TexTileVis.js" />
-        <option value="$PROJECT_DIR$/templates/index.html" />
         <option value="$PROJECT_DIR$/static/js/lineVis.js" />
+        <option value="$PROJECT_DIR$/application.py" />
+        <option value="$PROJECT_DIR$/static/js/networkVis.js" />
+        <option value="$PROJECT_DIR$/static/js/chordVisNew.js" />
+        <option value="$PROJECT_DIR$/static/js/matrixVis.js" />
+        <option value="$PROJECT_DIR$/templates/index.html" />
       </list>
     </option>
   </component>
@@ -282,8 +274,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
-      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -305,19 +295,14 @@
               <item name="PatternsOfDiscourse" type="b2602c69:ProjectViewProjectNode" />
               <item name="PatternsOfDiscourse" type="462c0819:PsiDirectoryNode" />
               <item name="static" type="462c0819:PsiDirectoryNode" />
-              <item name="css" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="PatternsOfDiscourse" type="b2602c69:ProjectViewProjectNode" />
-              <item name="PatternsOfDiscourse" type="462c0819:PsiDirectoryNode" />
-              <item name="static" type="462c0819:PsiDirectoryNode" />
-              <item name="data" type="462c0819:PsiDirectoryNode" />
+              <item name="js" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="PatternsOfDiscourse" type="b2602c69:ProjectViewProjectNode" />
               <item name="PatternsOfDiscourse" type="462c0819:PsiDirectoryNode" />
               <item name="static" type="462c0819:PsiDirectoryNode" />
               <item name="js" type="462c0819:PsiDirectoryNode" />
+              <item name="libs" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="PatternsOfDiscourse" type="b2602c69:ProjectViewProjectNode" />
@@ -328,12 +313,14 @@
           <select />
         </subPane>
       </pane>
+      <pane id="Scratches" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/static/js/lineTwo.js" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="HbShouldOpenHtmlAsHb" value="" />
     <property name="settings.editor.selected.configurable" value="Settings.JavaScript" />
     <property name="JavaScriptWeakerCompletionTypeGuess" value="true" />
@@ -345,10 +332,13 @@
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="D:\GoogleDrive\Harvard University (Teaching, Courses, Affiliations, Bureaucracy)\Secondary Field - Computer Science\CS271\Project\PatternsOfDiscourse\static\js\OldiesAndTests" />
+      <recent name="D:\GoogleDrive\Harvard University (Teaching, Courses, Affiliations, Bureaucracy)\Secondary Field - Computer Science\CS271\Project\PatternsOfDiscourse\static\js\libs" />
       <recent name="D:\GoogleDrive\Harvard University (Teaching, Courses, Affiliations, Bureaucracy)\Secondary Field - Computer Science\CS271\Project\PatternsOfDiscourse\static\js\tests" />
       <recent name="D:\GoogleDrive\Harvard University (Teaching, Courses, Affiliations, Bureaucracy)\Secondary Field - Computer Science\CS271\Project\PatternsOfDiscourse\static" />
       <recent name="D:\GoogleDrive\Harvard University (Teaching, Courses, Affiliations, Bureaucracy)\Secondary Field - Computer Science\CS271\Project\PatternsOfDiscourse\static\js\tests\newchord" />
-      <recent name="D:\GoogleDrive\Harvard University (Teaching, Courses, Affiliations, Bureaucracy)\Secondary Field - Computer Science\CS271\Project\PatternsOfDiscourse\static\js\newchord" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\GoogleDrive\Harvard University (Teaching, Courses, Affiliations, Bureaucracy)\Secondary Field - Computer Science\CS271\Project\PatternsOfDiscourse\static\css\libs" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -382,31 +372,44 @@
       <workItem from="1557329830948" duration="17001000" />
       <workItem from="1557439335325" duration="36645000" />
       <workItem from="1557599182346" duration="59749000" />
-      <workItem from="1557849972037" duration="18289000" />
+      <workItem from="1557849972037" duration="18886000" />
+      <workItem from="1558619949117" duration="489000" />
+      <workItem from="1559627637277" duration="1339000" />
+      <workItem from="1559764184539" duration="80000" />
+      <workItem from="1559768737371" duration="685000" />
+      <workItem from="1559769799585" duration="663000" />
+      <workItem from="1559921874882" duration="757000" />
+      <workItem from="1560170693473" duration="4661000" />
+      <workItem from="1560338559680" duration="2949000" />
+      <workItem from="1560524937024" duration="2264000" />
+      <workItem from="1561729375720" duration="24000" />
+      <workItem from="1562075212702" duration="3410000" />
+      <workItem from="1562177998136" duration="48000" />
+      <workItem from="1562348186869" duration="83000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="271901000" />
+    <option name="totallyTimeSpent" value="289950000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-9" y="-9" width="1938" height="1048" extended-state="6" />
-    <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.1988366" sideWeight="0.5" order="0" side_tool="true" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.1988366" sideWeight="0.5" order="0" side_tool="true" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Docker" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3295325" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3295325" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -444,69 +447,8 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/static/js/OldiesAndTests/newchord/foursix.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="336">
-          <caret line="16" column="25" lean-forward="false" selection-start-line="16" selection-start-column="25" selection-end-line="16" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/static/js/OldiesAndTests/newchord/perfectChord3.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="609">
-          <caret line="333" column="0" lean-forward="false" selection-start-line="333" selection-start-column="0" selection-end-line="333" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/static/js/OldiesAndTests/example2/data.csv">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="771">
-          <caret line="49" column="43" lean-forward="false" selection-start-line="49" selection-start-column="43" selection-end-line="49" selection-end-column="43" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/static/js/OldiesAndTests/example2/ex2.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="740">
-          <caret line="128" column="42" lean-forward="true" selection-start-line="128" selection-start-column="42" selection-end-line="128" selection-end-column="42" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/static/js/OldiesAndTests/newchord/chord.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="271">
-          <caret line="117" column="38" lean-forward="true" selection-start-line="117" selection-start-column="38" selection-end-line="117" selection-end-column="38" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/static/js/OldiesAndTests/newchord/chords3.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="315">
-          <caret line="99" column="31" lean-forward="true" selection-start-line="99" selection-start-column="31" selection-end-line="99" selection-end-column="31" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/static/js/OldiesAndTests/newchord/style.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="84">
-          <caret line="4" column="4" lean-forward="true" selection-start-line="4" selection-start-column="4" selection-end-line="4" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/static/js/OldiesAndTests/newchord/regionsfish.csv">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="126">
-          <caret line="6" column="22" lean-forward="false" selection-start-line="6" selection-start-column="22" selection-end-line="6" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/static/js/OldiesAndTests/newchord/perfectChord.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="273">
-          <caret line="13" column="0" lean-forward="false" selection-start-line="13" selection-start-column="0" selection-end-line="13" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/static/js/OldiesAndTests/newchord/regionsfish.csv" />
+    <entry file="file://$PROJECT_DIR$/static/js/OldiesAndTests/newchord/perfectChord.html" />
     <entry file="file://$PROJECT_DIR$/static/favicon.png" />
     <entry file="file://$PROJECT_DIR$/python/nltk_example.py">
       <provider selected="true" editor-type-id="text-editor">
@@ -515,27 +457,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/static/js/OldiesAndTests/MatrixTest.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="483">
-          <caret line="23" column="24" lean-forward="true" selection-start-line="23" selection-start-column="24" selection-end-line="23" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/static/js/matrixVis.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="21">
-          <caret line="130" column="22" lean-forward="false" selection-start-line="130" selection-start-column="22" selection-end-line="130" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="10" column="28" lean-forward="false" selection-start-line="10" selection-start-column="28" selection-end-line="10" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/static/js/OldiesAndTests/MatrixTest.html" />
     <entry file="file://$USER_HOME$/AppData/Local/Temp/Rar$DIa21040.20878/mdb.css" />
     <entry file="file://$USER_HOME$/AppData/Local/Temp/Rar$DIa21040.23579/bootstrap.min.css" />
     <entry file="file://$USER_HOME$/AppData/Local/Temp/Rar$DIa21040.25373/mdb.css" />
@@ -625,39 +547,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/static/data/actualData.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="805">
-          <caret line="45" column="107" lean-forward="false" selection-start-line="45" selection-start-column="107" selection-end-line="45" selection-end-column="107" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="uml://JavaScript-modules-diagram/D:/GoogleDrive/Harvard University (Teaching, Courses, Affiliations, Bureaucracy)/Secondary Field - Computer Science/CS271/Project/PatternsOfDiscourse/static/js/lineChart.js">
-      <provider selected="true" editor-type-id="UmlEditorProvider">
-        <state>
-          <ID>JavaScript-modules-diagram</ID>
-          <OriginalElement>$PROJECT_DIR$/static/js/lineChart.js</OriginalElement>
-          <nodes />
-          <notes />
-          <edges />
-          <settings layout="Hierarchic Group" zoom="1.0" x="998.0" y="567.0" />
-          <SelectedNodes />
-          <Categories>
-            <Category>All</Category>
-          </Categories>
-          <SCOPE>All</SCOPE>
-          <VISIBILITY>Details</VISIBILITY>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/static/js/OldiesAndTests/lineChart.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-560">
-          <caret line="37" column="42" lean-forward="false" selection-start-line="37" selection-start-column="42" selection-end-line="37" selection-end-column="42" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/static/data/actualData.json" />
+    <entry file="uml://JavaScript-modules-diagram/D:/GoogleDrive/Harvard University (Teaching, Courses, Affiliations, Bureaucracy)/Secondary Field - Computer Science/CS271/Project/PatternsOfDiscourse/static/js/lineChart.js" />
+    <entry file="file://$PROJECT_DIR$/static/js/OldiesAndTests/lineChart.js" />
     <entry file="file://$PROJECT_DIR$/../../../CS100/FinalProject/static/Script/linegraph.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="588">
@@ -665,35 +557,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/static/js/main.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="824">
-          <caret line="56" column="42" lean-forward="false" selection-start-line="56" selection-start-column="42" selection-end-line="56" selection-end-column="42" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/static/js/UpdatingLineVis.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="840">
-          <caret line="198" column="26" lean-forward="true" selection-start-line="198" selection-start-column="26" selection-end-line="198" selection-end-column="26" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/static/js/chordVis.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="378">
           <caret line="18" column="30" lean-forward="false" selection-start-line="18" selection-start-column="30" selection-end-line="18" selection-end-column="30" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/static/js/networkVis.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-21">
-          <caret line="35" column="50" lean-forward="false" selection-start-line="35" selection-start-column="50" selection-end-line="35" selection-end-column="50" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -701,15 +568,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="315">
           <caret line="15" column="25" lean-forward="false" selection-start-line="15" selection-start-column="25" selection-end-line="15" selection-end-column="25" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/static/data/sampleData.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1134">
-          <caret line="54" column="47" lean-forward="false" selection-start-line="54" selection-start-column="47" selection-end-line="54" selection-end-column="47" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -717,108 +575,178 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="378">
           <caret line="18" column="24" lean-forward="false" selection-start-line="18" selection-start-column="24" selection-end-line="18" selection-end-column="24" />
-          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/static/css/styles.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="462">
+        <state relative-caret-position="2814">
           <caret line="134" column="0" lean-forward="false" selection-start-line="134" selection-start-column="0" selection-end-line="134" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/static/js/htmlAutomats.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="5" column="22" lean-forward="false" selection-start-line="5" selection-start-column="22" selection-end-line="5" selection-end-column="22" />
-          <folding>
-            <marker date="1557777347184" expanded="true" signature="166:528" ph="..." />
-            <marker date="1557777347184" expanded="true" signature="182:528" ph="..." />
-            <marker date="1557777347184" expanded="true" signature="428:528" ph="..." />
-            <marker date="1557777347184" expanded="true" signature="476:502" ph="..." />
-            <marker date="1557777347184" expanded="true" signature="993:1199" ph="..." />
-            <marker date="1557777347184" expanded="true" signature="993:1260" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/static/js/corpus.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="315">
-          <caret line="15" column="2" lean-forward="false" selection-start-line="15" selection-start-column="2" selection-end-line="15" selection-end-column="2" />
-          <folding>
-            <marker date="1556555618474" expanded="true" signature="1133:1395" ph="..." />
-            <marker date="1556555618474" expanded="false" signature="1168:1186" ph="..." />
-          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/static/css/TexTile.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="273">
+        <state relative-caret-position="840">
           <caret line="40" column="46" lean-forward="false" selection-start-line="40" selection-start-column="46" selection-end-line="40" selection-end-column="46" />
-          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/static/css/lineVis.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="483">
-          <caret line="23" column="18" lean-forward="false" selection-start-line="23" selection-start-column="18" selection-end-line="23" selection-end-column="18" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/static/css/lineVis.css" />
     <entry file="file://$PROJECT_DIR$/static/js/TexTileVis.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="672">
-          <caret line="65" column="44" lean-forward="false" selection-start-line="65" selection-start-column="44" selection-end-line="65" selection-end-column="44" />
+        <state relative-caret-position="1197">
+          <caret line="57" column="35" lean-forward="false" selection-start-line="57" selection-start-column="35" selection-end-line="57" selection-end-column="35" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/python/jupyter/TexTile.ipynb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-126">
+          <caret line="17" column="23" lean-forward="true" selection-start-line="17" selection-start-column="23" selection-end-line="17" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/python/jupyter/ConcordancesToFile.ipynb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1113">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="588">
+          <caret line="28" column="0" lean-forward="false" selection-start-line="28" selection-start-column="0" selection-end-line="28" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/data/sampleData.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="378">
+          <caret line="18" column="38" lean-forward="false" selection-start-line="18" selection-start-column="38" selection-end-line="18" selection-end-column="38" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/js/main.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1281">
+          <caret line="61" column="1" lean-forward="false" selection-start-line="61" selection-start-column="1" selection-end-line="61" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/js/networkVis.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="5334">
+          <caret line="254" column="34" lean-forward="false" selection-start-line="254" selection-start-column="26" selection-end-line="254" selection-end-column="34" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/js/corpus.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="462">
+          <caret line="22" column="41" lean-forward="false" selection-start-line="22" selection-start-column="41" selection-end-line="22" selection-end-column="41" />
           <folding>
-            <marker date="1558027804610" expanded="true" signature="3225:3243" ph="..." />
-            <marker date="1558027804610" expanded="true" signature="3574:3590" ph="..." />
-            <marker date="1558027804610" expanded="true" signature="3574:3610" ph="..." />
-            <marker date="1558027804610" expanded="true" signature="3574:3611" ph="..." />
-            <marker date="1558027804610" expanded="true" signature="3753:3767" ph="..." />
-            <marker date="1558027804610" expanded="true" signature="3753:3787" ph="..." />
+            <marker date="1556555618474" expanded="true" signature="1133:1395" ph="..." />
+            <marker date="1556555618474" expanded="true" signature="1168:1186" ph="..." />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/index.html">
+    <entry file="file://$PROJECT_DIR$/static/js/htmlAutomats.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="259">
-          <caret line="56" column="67" lean-forward="true" selection-start-line="56" selection-start-column="67" selection-end-line="56" selection-end-column="67" />
+        <state relative-caret-position="252">
+          <caret line="12" column="56" lean-forward="false" selection-start-line="12" selection-start-column="56" selection-end-line="12" selection-end-column="56" />
           <folding>
-            <element signature="n#style#0;n#div#2;n#div#2;n#div#0;n#div#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#3;n#div#2;n#div#0;n#div#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <marker date="1557777347184" expanded="true" signature="166:528" ph="..." />
+            <marker date="1557777347184" expanded="true" signature="993:1260" ph="..." />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/static/js/colorManager.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="259">
-          <caret line="39" column="1" lean-forward="false" selection-start-line="39" selection-start-column="1" selection-end-line="39" selection-end-column="1" />
+        <state relative-caret-position="126">
+          <caret line="6" column="0" lean-forward="false" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
           <folding>
-            <marker date="1557887393355" expanded="true" signature="568:680" ph="..." />
             <marker date="1557887393355" expanded="true" signature="568:681" ph="..." />
-            <marker date="1557887393355" expanded="true" signature="568:690" ph="..." />
-            <marker date="1557887393355" expanded="true" signature="663:680" ph="..." />
-            <marker date="1557887393355" expanded="true" signature="3469:4020" ph="..." />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/js/matrixVis.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2982">
+          <caret line="142" column="37" lean-forward="false" selection-start-line="142" selection-start-column="37" selection-end-line="142" selection-end-column="37" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/Downloads/Solution/Solution/4-matrix/js/matrix.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3171">
+          <caret line="165" column="0" lean-forward="true" selection-start-line="165" selection-start-column="0" selection-end-line="165" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/Downloads/Solution/Solution/4-matrix/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="168">
+          <caret line="8" column="56" lean-forward="true" selection-start-line="8" selection-start-column="56" selection-end-line="8" selection-end-column="56" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/static/js/lineVis.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="611">
-          <caret line="378" column="48" lean-forward="false" selection-start-line="378" selection-start-column="48" selection-end-line="378" selection-end-column="48" />
+        <state relative-caret-position="315">
+          <caret line="15" column="0" lean-forward="true" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
           <folding>
             <marker date="1558028003847" expanded="true" signature="7748:7895" ph="..." />
-            <marker date="1558028003847" expanded="true" signature="7852:7870" ph="..." />
+            <marker date="1558028003847" expanded="false" signature="7852:7870" ph="..." />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/js/chordVisNew.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1365">
+          <caret line="65" column="23" lean-forward="false" selection-start-line="65" selection-start-column="23" selection-end-line="65" selection-end-column="23" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/js/libs/simplebar.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="126">
+          <caret line="11" column="19" lean-forward="false" selection-start-line="11" selection-start-column="19" selection-end-line="11" selection-end-column="19" />
+          <folding>
+            <element signature="e#0#44#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/css/libs/simplebar.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="378">
+          <caret line="73" column="37" lean-forward="true" selection-start-line="73" selection-start-column="37" selection-end-line="73" selection-end-column="37" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/js/OldiesAndTests/UpdatingLineVis.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="546">
+          <caret line="209" column="62" lean-forward="true" selection-start-line="209" selection-start-column="62" selection-end-line="209" selection-end-column="62" />
+          <folding />
         </state>
       </provider>
     </entry>

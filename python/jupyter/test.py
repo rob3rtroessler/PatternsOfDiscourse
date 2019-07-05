@@ -1,6 +1,6 @@
-import re
-import string
-import json
+    import re
+    import string
+    import json
 sample = open('stdout.txt', 'rU', encoding="utf8")
 sampleText = sample.read()
 print(sampleText)

@@ -92,13 +92,15 @@ function drawMatrixVis(data) {
     });
 
 
-// Fill matrix with data from links and count how many times each item appears
+    // Fill matrix with data from links and count how many times each item appears
     data.links.forEach(function(link) {
         matrix[link.source][link.target].z += link.value;
         matrix[link.target][link.source].z += link.value;
         matrixNodes[link.source].count += link.value;
         matrixNodes[link.target].count += link.value;
     });
+
+    console.log('matrix here', matrix);
 // Draw each row (translating the y coordinate)
     let rows = matrixSvg.selectAll(".row")
         .data(matrix)
@@ -141,7 +143,7 @@ function drawMatrixVis(data) {
         .attr("text-anchor", "start")
         .text((d, i) => matrixNodes[i].name);
 
-// Precompute the orders.
+// Precompute the orders
     let orders = {
         name: d3.range(total_items).sort((a, b) => {
             return d3.ascending(matrixNodes[a].name, matrixNodes[b].name);
