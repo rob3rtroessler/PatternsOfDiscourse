@@ -11,8 +11,6 @@ let corpus = [
     {id: 8, author: "Ernst Mach", title: "Die Analyse der Empfindungen und das Verhältnis des Physischen zum" +
         " Psychischen (1886)"},
     {id: 9, author: "Sigmund Freud", title: "Die Traumdeutung (1900)"}
-
-
 ];
 
 let htmlArray = [];

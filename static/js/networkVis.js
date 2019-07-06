@@ -49,6 +49,7 @@ function wrangleNetworkData () {
     // having created a distinctWordDict_sorted, we can createDistinctTileList_TabOne and _TabTwo
     createDistinctTileList_TabOne(tmpDistinctWordDict_sorted);
     createDistinctTileList_TabTwo(tmpDistinctWordDict_sorted);
+    createDistinctTileList_TabThree(tmpDistinctWordDict_sorted);
 
     // reset nodes
     nodes = [];

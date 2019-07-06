@@ -80,19 +80,10 @@ function drawMatrixVis(data) {
     let colorScale = d3.scaleOrdinal(d3.schemeCategory10);
     let colorScaleTwo = d3.scaleOrdinal(['#2ca02c']);
 
-    let colors_D1 = ['#eff3ff','#c6dbef','#9ecae1','#6baed6','#3182bd','#08519c'];
-    let colors_D2 = ['#fee5d9','#fcbba1','#fc9272','#fb6a4a','#de2d26','#a50f15'];
-
-    let colorScaleD1 = d3.scaleThreshold()
-        .domain([0,5,10,20,35,60])
-        .range(colors_D1);
-    let colorScaleD2 = d3.scaleThreshold()
-        .domain([0,5,10,20,35,60])
-        .range(colors_D2);
-
     console.log('schema:', d3.schemeCategory10);
 
-
+    let colors_D1 = ['#fee5d9','#fcae91','#fb6a4a','#de2d26','#a50f15'];
+    let colors_D2 = ['#eff3ff', '#bdd7e7','#6baed6', '#3182bd', '#08519c'];
 
     // Create rows for the matrix
     matrixNodes.forEach(function(node) {
@@ -125,29 +116,21 @@ function drawMatrixVis(data) {
         .attr("transform", (d, i) => {
             return "translate(0," + matrixScale(i) + ")";
         });
-
     let squaresOne = rows.selectAll(".cell")
         .data(d => d.filter(item => item.z > 0))
-        .enter()
-        /* alternative: small rect
-        .append("rect")
+        /*.enter().append("rect")
         .attr("class", "cell")
         .attr("x", function(d){ return matrixScale(d.x) })
         .attr("width", matrixScale.bandwidth())
-        .attr("height", matrixScale.bandwidth()/2)
-        */
-
-        // polygons
-        .append("polygon")
-        .attr("class", "cell")
+        .attr("height", matrixScale.bandwidth()/2)*/
+        .enter().append("polygon")
         .attr('points', function(d){return (
             matrixScale(d.x) + ',0 ' +
             (matrixScale(d.x)+ matrixScale.bandwidth()) + ',0 ' +
             (matrixScale(d.x)+ matrixScale.bandwidth()) + ',' + matrixScale.bandwidth() )})
-/*        .style("fill-opacity", d => opacityScale(d.z)).style("fill", d => {
+        .style("fill-opacity", d => opacityScale(d.z)).style("fill", d => {
             return matrixNodes[d.x].group === matrixNodes[d.y].group ? colorScale(matrixNodes[d.x].group) : "grey";
-        })*/
-        .attr('fill', function (d){return colorScaleD1(d.z)})
+        })
         .on("mouseover", mouseover)
         .on("mouseout", mouseout);
 
@@ -162,25 +145,20 @@ function drawMatrixVis(data) {
         });
     let squaresTwo = rowsTwo.selectAll(".cell-D-2")
         .data(d => d.filter(item => item.z > 0))
-        .enter()
-        /* alternative: small rect
-        .append("rect")
+        /*.enter().append("rect")
         .attr("class", "cell-D-2")
         .attr("x", function(d){ return matrixScale(d.x) })
         .attr("transform", "translate(0," + matrixScale.bandwidth()/2 + ")")
         .attr("width", matrixScale.bandwidth())
-        .attr("height", matrixScale.bandwidth()/2)
-        */
-        .append("polygon")
-        .attr("class", "cell-D-2")
+        .attr("height", matrixScale.bandwidth()/2)*/
+        .enter().append("polygon")
         .attr('points', function(d){return (
             matrixScale(d.x) + ',0 ' +
             matrixScale(d.x) + ',' + matrixScale.bandwidth() + ' ' +
             (matrixScale(d.x)+ matrixScale.bandwidth()) + ',' + matrixScale.bandwidth() )})
-/*        .style("fill-opacity", d => opacityScale(d.z)).style("fill", d => {
+        .style("fill-opacity", d => opacityScale(d.z)).style("fill", d => {
             return matrixNodes[d.x].group === matrixNodes[d.y].group ? colorScaleTwo(matrixNodes[d.x].group) : "grey";
-        })*/
-        .attr('fill', function (d){return colorScaleD2(d.z)})
+        })
         .on("mouseover", mouseover)
         .on("mouseout", mouseout);
 
@@ -219,7 +197,7 @@ function drawMatrixVis(data) {
 
     let tooltip = d3.select("body")
         .append("div")
-        .attr("class", "tooltip_matrix")
+        .attr("class", "tooltip")
         .style("opacity", 0);
 
     // Precompute the orders
@@ -234,7 +212,7 @@ function drawMatrixVis(data) {
             return matrixNodes[b].group - matrixNodes[a].group;
         })
     };
-    d3.select("#matrixReorder").on("change", function() {
+    d3.select("#order").on("change", function() {
         changeOrder(this.value);
     });
 
@@ -252,11 +230,7 @@ function drawMatrixVis(data) {
             })
             .selectAll(".cell")
             .delay(d => matrixScale(d.x) * 4)
-            //.attr("x", d => matrixScale(d.x));
-            .attr('points', function(d){return (
-                matrixScale(d.x) + ',0 ' +
-                (matrixScale(d.x)+ matrixScale.bandwidth()) + ',0 ' +
-                (matrixScale(d.x)+ matrixScale.bandwidth()) + ',' + matrixScale.bandwidth() )});
+            .attr("x", d => matrixScale(d.x));
 
         // second set
         t.selectAll(".rowTwo")
@@ -266,11 +240,7 @@ function drawMatrixVis(data) {
             })
             .selectAll(".cell-D-2")
             .delay(d => matrixScale(d.x) * 4)
-            .attr('points', function(d){return (
-                matrixScale(d.x) + ',0 ' +
-                matrixScale(d.x) + ',' + matrixScale.bandwidth() + ' ' +
-                (matrixScale(d.x)+ matrixScale.bandwidth()) + ',' + matrixScale.bandwidth() )});
-
+            .attr("x", d => matrixScale(d.x));
         t.selectAll(".column")
             .delay((d, i) => matrixScale(i) * 4)
             .attr("transform", (d, i) => "translate(" + matrixScale(i) + ")rotate(-90)");

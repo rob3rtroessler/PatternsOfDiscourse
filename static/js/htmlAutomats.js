@@ -37,3 +37,12 @@ function createDistinctTileList_TabTwo(data){
     //new SimpleBar(document.getElementById('t1-list').parentElement);
 }
 
+function createDistinctTileList_TabThree(data){
+
+    let html = '';
+    data.forEach((obj, i) => {
+        html += `<div class="col-3 t3-list-col"><span class='t3-list-span'>${obj.word}(${ obj.value})</span></div>`;
+    });
+    document.getElementById('t3-list').innerHTML = html;
+    //new SimpleBar(document.getElementById('t1-list').parentElement);
+}

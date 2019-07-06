@@ -46,7 +46,7 @@ body {
     background-color: #ccc;
 }
 
-/* When the checkbox is checked, add a blue background */
+/* When the checkbox is checked, add a red background */
 .container input:checked ~ .checkmark {
     background-color: #fb8072;
 }
@@ -149,6 +149,25 @@ h3 {
     display: flex;
     height:100%;
     font-size: 1.2vh
+}
+
+
+.t3-list-col {
+    height: 12.5%;
+    border-right: thin solid grey;
+    border-bottom: thin solid grey;
+}
+
+.t3-list-col:hover {
+    cursor: pointer;
+}
+
+.t3-list-span {
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    height:100%;
+    font-size: 1.5vh
 }
 
 

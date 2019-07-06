@@ -167,20 +167,33 @@
 
                         <!-- left -->
                         <div class="col-3" style="height: 100%; border: thin solid grey; border-radius: 5px">
-                            <div class="row justify-content-center align-items-center" style="border-bottom: thin solid grey; height: 8%"><h2>Sort</h2></div>
-                            <div class="row" style="height: 5%">
-                                    <select id="order" style="width: 100%; border: 0; background: #d36a6a; text-align-last: center">
-                                        <option value="name">alphabetical</option>
-                                        <option value="count">by frequence</option>
-                                        <option value="group">test (e.g. by group)</option>
-                                    </select>
 
+                            <!-- CURATE YOUR CORPUS -->
+                            <div class="row justify-content-center align-items-center" style="border-bottom: thin solid grey; height: 8%"><h2>Curate Contrasting Corpora</h2></div>
+
+                            <div class="row" style="height: 82%; overflow-y: scroll">
+                                <div class="container-fluid" id="matrixCorpusList">
+
+
+                                    <div class="row" style="border-bottom: thin solid grey; height: 10%">
+                                        <div class="col-2">
+                                            <div class="centeredCheckbox">
+                                                <input type="checkbox" id="1-D1" class="cbx-d1" style="display:none"/>
+                                                <label for="1-D1" class="toggle"><span></span></label>
+                                            </div>
+                                        </div>
+                                        <div class="col-8">Johann Friedrich Herbart <br> Psychologie als Wissenschaft (1824)</div>
+                                        <div class="col-2">
+                                            <div class="centeredCheckbox">
+                                                <input type="checkbox" id="1-D2" class="cbx-d2" style="display:none"/>
+                                                <label for="1-D2" class="toggle"><span></span></label>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
                             </div>
-                            <div class="row" style="height: 11%"></div>
-                            <div class="row justify-content-center align-items-center" style="border-bottom: thin solid grey; height: 8%"><h2>Filter1</h2></div>
-                            <div class="row" style="height: 30%"></div>
-                            <div class="row justify-content-center align-items-center" style="border-bottom: thin solid grey; height: 8%"><h2>Filter2</h2></div>
-                            <div class="row" style="height: 30%"></div>
+                            <div class="row justify-content-center align-items-center" style="height: 10%; background-color: #fb8072"><h2>APPLY</h2></div>
                         </div>
 
                         <!-- center -->
@@ -190,10 +203,32 @@
 
                         <!-- right -->
                         <div class="col-3" style="height:100%; border: thin solid grey; border-radius: 5px">
-                            <div class="row justify-content-center align-items-center" style="border-bottom: thin solid grey; height: 8%"><h2>metaInfo</h2></div>
-                            <div class="row" style="height: 30%"></div>
-                            <div class="row justify-content-center align-items-center" style="border-bottom: thin solid grey; height: 8%"><h2>usage</h2></div>
-                            <div class="row" style="height: 30%"></div>
+
+                            <!-- REORDER MATRIX -->
+                            <div class="row justify-content-center align-items-center" style="border-bottom: thin solid grey; height: 8%"><h2>Reorder Matrix</h2></div>
+                            <div class="row" style="height: 5%">
+                                <select id="matrixReorder" style="width: 100%; border: 0; background: #fb8072; text-align-last: center">
+                                    <option value="name">alphabetical</option>
+                                    <option value="count">by frequence</option>
+                                    <option value="group">test (e.g. by group)</option>
+                                </select>
+                            </div>
+                            <!-- margin div --><div class="row" style="height: 5%"></div>
+
+                            <!-- FILTER MATRIX -->
+                            <div class="row justify-content-center align-items-center" style="border-bottom: thin solid grey; height: 8%"><h2>Filter Matrix</h2></div>
+                            <div class="row" style="height: 5%">
+                                <select id="matrixFilter" style="width: 100%; border: 0; background: #fb8072; text-align-last: center">
+                                    <option value="filterBySelectedWords">visualize only selected words</option>
+                                    <option value="filterBySelectedWordsAndEnvironments">visualize selected words and their environments</option>
+                                    <option value="noFilters">visualize all words that appear in environments of the keyword</option>
+                                </select>
+                            </div>
+                            <!-- margin div --><div class="row" style="height: 5%"></div>
+
+                            <!-- SELECT  WORDS -->
+                            <div class="row justify-content-center align-items-center" style="border-bottom: thin solid grey; height: 8%"><h2>Selected Words</h2></div>
+                            <div class="row" id="t3-list" style="height: 56%; overflow-y: scroll"></div>
                         </div>
                     </div>
                 </div>
@@ -241,6 +276,7 @@
         <script src="{{ url_for('static', filename='js/chordVisNew.js') }}"></script>
         <script src="{{ url_for('static', filename='js/networkVis.js') }}"></script>
         <script src="{{ url_for('static', filename='js/matrixVis.js') }}"></script>
+        <script src="{{ url_for('static', filename='js/matrixEnvironment.js') }}"></script>
 
         <!-- MAIN -->
         <script src="{{ url_for('static', filename='js/main.js') }}"></script>
