@@ -98,58 +98,53 @@
                     <!-- overall row for Tab 2 --- !START HERE! -->
                     <div class="row" id="Tab2masterRow">
 
-                        <!-- filter -->
-                        <div class="col-12" style="height: 20%; border: thin solid grey; border-radius: 5px">
-                            <div class="row" style="height: 100%; margin-bottom: 1%">
-
-                                <!-- left -->
-                                <div class="col-6" style="border-right: thin solid grey">
-                                    <div class="row">
-                                        <div class="col-12">FILTER</div>
-                                        <div class="col-8 offset-1">
-                                            <div class="row" style=" height: 75%; border-right: thin solid grey; text-align: left">
-                                                <form id="networkDataFilterForm" style="font-size: 1.5vh">
-                                                    <input type="radio" id="filterBySelectedWords" name="contact" checked>
-                                                    <label for="filterBySelectedWords">visualize only selected words</label><br>
-                                                    <input type="radio" id="filterBySelectedWordsAndEnvironments" name="contact">
-                                                    <label for="filterBySelectedWordsAndEnvironments">visualize selected words and their environments</label><br>
-                                                    <input type="radio" id="noFilters" name="contact">
-                                                    <label for="noFilters">visualize all words that appear in environments of the keyword</label>
-                                                </form>
-                                            </div>
-                                        </div>
-                                        <div class="col-3">
-                                            <form style="font-size: 1.5vh">
-                                                <input type="checkbox" id="test"
-                                                       name="contact" value="email">
-                                                <label for="test">disable automatic updating</label>
-                                                <button>apply & redraw</button>
-                                            </form>
-
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <!-- middle -->
-                                <div class="col-6">
-                                    <div class="row" style="height:100%; overflow-x: hidden">
-                                        <div class="row" style="height:100%" id="t2-list"></div>
+                        <!-- left -->
+                        <div class="col-3" style="height: 100%; border: thin solid grey; border-radius: 5px">
+                            <!-- FILTER -->
+                            <div class="row justify-content-center align-items-center" style="border-bottom: thin solid grey; height: 8%"><h2>Filter</h2></div>
+                            <div class="row" style="height: 5%">
+                                <div class="col-10 my-auto" style="text-align: right">visualize selected words only</div>
+                                <div class="col-2">
+                                    <div class="centeredCheckbox">
+                                        <input type="checkbox" id="networkOptionOne" class="cbx-d1" style="display:none" checked/>
+                                        <label for="networkOptionOne" class="toggle"><span></span></label>
                                     </div>
                                 </div>
                             </div>
-                        </div>
-
-                        <!-- chord vis -->
-                        <div class="col-6" style="height: 79%; border-right: thin solid transparent;">
-                            <div class="row" id="chordVisDiv" style="border: thin solid grey; border-radius: 5px; height: 100%">
+                            <div class="row" style="height: 5%">
+                                <div class="col-10 my-auto" style="text-align: right">visualize selected words +</div>
+                                <div class="col-2">
+                                    <div class="centeredCheckbox">
+                                        <input type="checkbox" id="networkOptionTwo" class="cbx-d1" style="display:none"/>
+                                        <label for="networkOptionTwo" class="toggle"><span></span></label>
+                                    </div>
+                                </div>
                             </div>
+                            <div class="row" style="height: 5%">
+                                <div class="col-10 my-auto" style="text-align: right"> visualize all words</div>
+                                <div class="col-2">
+                                    <div class="centeredCheckbox">
+                                        <input type="checkbox" id="networkOptionThree" class="cbx-d1" style="display:none"/>
+                                        <label for="networkOptionThree" class="toggle"><span></span></label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row" style="height: 5%; border-top: thin solid grey"></div>
+
+                            <!-- SELECT WORDS -->
+                            <div class="row justify-content-center align-items-center" style="border-bottom: thin solid grey; height: 8%"><h2>Select Words</h2></div>
+                            <div class="row" style="height:54%; overflow-y: scroll" id="t2-list"></div>
+
+                            <div class="row justify-content-center align-items-center" id='initiateNetworkButton' style="height: 10%; background-color: #fb8072"><h2>APPLY</h2></div>
+
+
                         </div>
 
-                        <!-- network vis -->
-                        <div class="col-6" style="height: 79%; border-left: thin solid transparent;">
-                            <div class='row' id="NetworkGraphDiv" style="border: thin solid grey; border-radius: 5px; height: 100%"></div>
+                        <!-- center -->
+                        <div class="col-9">
+                            <!-- network vis -->
+                             <div class='row' id="NetworkGraphDiv" style="height: 100%"></div>
                         </div>
-
                     </div>
                 </div>
 
@@ -170,28 +165,8 @@
 
                             <!-- CURATE YOUR CORPUS -->
                             <div class="row justify-content-center align-items-center" style="border-bottom: thin solid grey; height: 8%"><h2>Curate Contrasting Corpora</h2></div>
-
                             <div class="row" style="height: 82%; overflow-y: scroll">
-                                <div class="container-fluid" id="matrixCorpusList">
-
-
-                                    <div class="row" style="border-bottom: thin solid grey; height: 10%">
-                                        <div class="col-2">
-                                            <div class="centeredCheckbox">
-                                                <input type="checkbox" id="1-D1" class="cbx-d1" style="display:none"/>
-                                                <label for="1-D1" class="toggle"><span></span></label>
-                                            </div>
-                                        </div>
-                                        <div class="col-8">Johann Friedrich Herbart <br> Psychologie als Wissenschaft (1824)</div>
-                                        <div class="col-2">
-                                            <div class="centeredCheckbox">
-                                                <input type="checkbox" id="1-D2" class="cbx-d2" style="display:none"/>
-                                                <label for="1-D2" class="toggle"><span></span></label>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                </div>
+                                <div class="container-fluid" id="matrixCorpusList"></div>
                             </div>
                             <div class="row justify-content-center align-items-center" style="height: 10%; background-color: #fb8072"><h2>APPLY</h2></div>
                         </div>
@@ -273,10 +248,12 @@
         <!-- GRAPHS -->
         <script src="{{ url_for('static', filename='js/TexTileVis.js') }}"></script>
         <script src="{{ url_for('static', filename='js/lineVis.js') }}"></script>
-        <script src="{{ url_for('static', filename='js/chordVisNew.js') }}"></script>
-        <script src="{{ url_for('static', filename='js/networkVis.js') }}"></script>
-        <script src="{{ url_for('static', filename='js/matrixVis.js') }}"></script>
+        <!--<script src="{{ url_for('static', filename='js/chordVisNew.js') }}"></script>-->
+
         <script src="{{ url_for('static', filename='js/matrixEnvironment.js') }}"></script>
+        <script src="{{ url_for('static', filename='js/matrixVis.js') }}"></script>
+        <script src="{{ url_for('static', filename='js/networkVis.js') }}"></script>
+
 
         <!-- MAIN -->
         <script src="{{ url_for('static', filename='js/main.js') }}"></script>

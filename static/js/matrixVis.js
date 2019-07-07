@@ -90,7 +90,6 @@ function drawMatrixVis(data) {
         .domain([0,5,10,20,35,60])
         .range(colors_D2);
 
-    console.log('schema:', d3.schemeCategory10);
 
 
 

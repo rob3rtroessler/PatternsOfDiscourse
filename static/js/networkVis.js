@@ -1,16 +1,7 @@
+// variables
+let tmpDistinctWordDict = {};
 
-// wrangle data
-function wrangleNetworkData () {
-
-    // reset nodes & edges
-    nodes = [];
-    edges = [];
-    chordData = [];
-
-    // tmp variables
-    let tmpDistinctWordDict = {};
-    let filterMethode = $("#networkDataFilterForm input[type=radio]:checked").attr('id');
-
+function computeDistinctWords () {
 
     // create dict with all unique words plus the # of occurences
     WrangledTexTileData.forEach(
@@ -28,7 +19,6 @@ function wrangleNetworkData () {
         }
     );
 
-
     // sort tmpDistinctWords
     let tmpDistinctWordDict_sorted = [];
 
@@ -41,7 +31,7 @@ function wrangleNetworkData () {
         tmpDistinctWordDict_sorted.push(tmpObj);
     });
 
-    // sort
+    // sort distinct words by # of occurrences
     tmpDistinctWordDict_sorted.sort(function (a, b) {return b.value - a.value});
 
     console.log('data for TileLists:',  tmpDistinctWordDict_sorted);
@@ -50,6 +40,23 @@ function wrangleNetworkData () {
     createDistinctTileList_TabOne(tmpDistinctWordDict_sorted);
     createDistinctTileList_TabTwo(tmpDistinctWordDict_sorted);
     createDistinctTileList_TabThree(tmpDistinctWordDict_sorted);
+}
+
+
+
+// initiate the network on click
+document.getElementById('initiateNetworkButton').addEventListener('click', wrangleNetworkData);
+document.getElementById('initiateNetworkButton').addEventListener('click', wrangleMatrixData);
+
+
+// wrangle data
+function wrangleNetworkData () {
+
+    /************************************
+     *                                  *
+     *          data for NODES          *
+     *                                  *
+     ***********************************/
 
     // reset nodes
     nodes = [];
@@ -60,15 +67,30 @@ function wrangleNetworkData () {
         // TODO: if key === keyword, drop it. else, move on!
         // TODO: build switch that allows to: 1) show all, 2) show only those, that are connected, 3) show only sel
 
-        // prepare data for network graph
-        let tmpObj= {
-            "id": key,
-            "label": key,
-            "color": '#ffffff', // we're able to set individual colors!
-            "value": tmpDistinctWordDict[key]
-        };
-        nodes.push(tmpObj);
-        id += 1;
+        // if option one is checked
+        if ( $("#networkOptionOne").prop('checked') ) {
+            // then only prepare nodes that are in the selected words list
+            console.log('currently locked words:', lockedWords, key);
+
+            if (lockedWords.includes(key)){
+                console.log(key);
+                // prepare data for network graph
+                let tmpObj= {
+                    "id": key,
+                    "label": key,
+                    "color": '#ffffff', // we're able to set individual colors!
+                    "value": tmpDistinctWordDict[key]
+                };
+                nodes.push(tmpObj);
+                id += 1;
+            }
+
+
+
+        }
+
+
+
     }
 
 
@@ -142,7 +164,7 @@ function wrangleNetworkData () {
     // drawChordGraph(chordData, tmpDistinctWordDict);
     console.log('wrong chord data:',chordData);
     drawNetworkGraph(nodes, edges);
-    wrangleChordData();
+    //wrangleChordData();
 }
 
 

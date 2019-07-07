@@ -2,15 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="58533c6a-87d9-415d-949a-9c34be766325" name="Default" comment="">
-      <change beforePath="" afterPath="$PROJECT_DIR$/static/js/matrixEnvironment.js" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/static/js/saves/matrixVis.js" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/static/css/matrix.css" afterPath="$PROJECT_DIR$/static/css/matrix.css" />
       <change beforePath="$PROJECT_DIR$/static/css/styles.css" afterPath="$PROJECT_DIR$/static/css/styles.css" />
-      <change beforePath="$PROJECT_DIR$/static/js/corpus.js" afterPath="$PROJECT_DIR$/static/js/corpus.js" />
       <change beforePath="$PROJECT_DIR$/static/js/htmlAutomats.js" afterPath="$PROJECT_DIR$/static/js/htmlAutomats.js" />
+      <change beforePath="$PROJECT_DIR$/static/js/main.js" afterPath="$PROJECT_DIR$/static/js/main.js" />
+      <change beforePath="$PROJECT_DIR$/static/js/matrixEnvironment.js" afterPath="$PROJECT_DIR$/static/js/matrixEnvironment.js" />
       <change beforePath="$PROJECT_DIR$/static/js/matrixVis.js" afterPath="$PROJECT_DIR$/static/js/matrixVis.js" />
       <change beforePath="$PROJECT_DIR$/static/js/networkVis.js" afterPath="$PROJECT_DIR$/static/js/networkVis.js" />
+      <change beforePath="$PROJECT_DIR$/static/js/saves/matrixVis.js" afterPath="" />
       <change beforePath="$PROJECT_DIR$/templates/index.html" afterPath="$PROJECT_DIR$/templates/index.html" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
@@ -32,7 +31,7 @@
               <entry file="file://$PROJECT_DIR$/static/css/matrix.css">
                 <provider selected="true" editor-type-id="text-editor">
                   <state relative-caret-position="1386">
-                    <caret line="166" column="32" lean-forward="true" selection-start-line="166" selection-start-column="32" selection-end-line="166" selection-end-column="32" />
+                    <caret line="166" column="32" lean-forward="false" selection-start-line="166" selection-start-column="32" selection-end-line="166" selection-end-column="32" />
                     <folding />
                   </state>
                 </provider>
@@ -48,17 +47,29 @@
       <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/templates/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="441">
-              <caret line="228" column="50" lean-forward="true" selection-start-line="228" selection-start-column="50" selection-end-line="228" selection-end-column="50" />
+            <state relative-caret-position="402">
+              <caret line="253" column="83" lean-forward="true" selection-start-line="253" selection-start-column="83" selection-end-line="253" selection-end-column="83" />
               <folding>
                 <element signature="n#style#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#form#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#0;n#div#0;n#div#1;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#1;n#div#0;n#div#0;n#div#1;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#1;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#input#0;n#div#0;n#div#1;n#div#1;n#div#0;n#div#0;n#div#1;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#2;n#div#0;n#div#0;n#div#1;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#0;n#div#2;n#div#0;n#div#0;n#div#1;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#input#0;n#div#0;n#div#1;n#div#2;n#div#0;n#div#0;n#div#1;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#3;n#div#0;n#div#0;n#div#1;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#0;n#div#3;n#div#0;n#div#0;n#div#1;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#input#0;n#div#0;n#div#1;n#div#3;n#div#0;n#div#0;n#div#1;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#4;n#div#0;n#div#0;n#div#1;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#5;n#div#0;n#div#0;n#div#1;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#6;n#div#0;n#div#0;n#div#1;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#7;n#div#0;n#div#0;n#div#1;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#0;n#div#1;n#div#0;n#div#1;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#div#0;n#div#0;n#div#2;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#2;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#div#1;n#div#0;n#div#0;n#div#2;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#2;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#input#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#2;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#input#0;n#div#0;n#div#2;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#2;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#div#2;n#div#0;n#div#0;n#div#2;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#div#2;n#div#0;n#div#2;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#div#0;n#div#2;n#div#0;n#div#2;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
@@ -79,23 +90,23 @@
       <file leaf-file-name="matrixEnvironment.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/static/js/matrixEnvironment.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="84">
-              <caret line="4" column="38" lean-forward="false" selection-start-line="4" selection-start-column="38" selection-end-line="4" selection-end-column="38" />
+            <state relative-caret-position="294">
+              <caret line="14" column="46" lean-forward="false" selection-start-line="9" selection-start-column="39" selection-end-line="14" selection-end-column="46" />
               <folding>
-                <marker date="1562446953700" expanded="true" signature="270:300" ph="..." />
-                <marker date="1562446953700" expanded="true" signature="270:313" ph="..." />
-                <marker date="1562446953700" expanded="true" signature="314:1450" ph="..." />
-                <marker date="1562446953700" expanded="true" signature="314:1532" ph="..." />
-                <marker date="1562446953700" expanded="true" signature="374:781" ph="..." />
-                <marker date="1562446953700" expanded="true" signature="449:734" ph="..." />
-                <marker date="1562446953700" expanded="true" signature="560:572" ph="..." />
-                <marker date="1562446953700" expanded="true" signature="849:866" ph="..." />
-                <marker date="1562446953700" expanded="true" signature="867:940" ph="..." />
-                <marker date="1562446953700" expanded="true" signature="897:915" ph="..." />
-                <marker date="1562446953700" expanded="true" signature="916:934" ph="..." />
-                <marker date="1562446953700" expanded="true" signature="1000:1407" ph="..." />
-                <marker date="1562446953700" expanded="true" signature="1075:1360" ph="..." />
-                <marker date="1562446953700" expanded="true" signature="1186:1198" ph="..." />
+                <marker date="1562455697707" expanded="true" signature="273:303" ph="..." />
+                <marker date="1562455697707" expanded="true" signature="273:316" ph="..." />
+                <marker date="1562455697707" expanded="true" signature="317:1453" ph="..." />
+                <marker date="1562455697707" expanded="true" signature="317:1535" ph="..." />
+                <marker date="1562455697707" expanded="true" signature="377:784" ph="..." />
+                <marker date="1562455697707" expanded="true" signature="452:737" ph="..." />
+                <marker date="1562455697707" expanded="true" signature="563:575" ph="..." />
+                <marker date="1562455697707" expanded="true" signature="852:869" ph="..." />
+                <marker date="1562455697707" expanded="true" signature="870:943" ph="..." />
+                <marker date="1562455697707" expanded="true" signature="900:918" ph="..." />
+                <marker date="1562455697707" expanded="true" signature="919:937" ph="..." />
+                <marker date="1562455697707" expanded="true" signature="1003:1410" ph="..." />
+                <marker date="1562455697707" expanded="true" signature="1078:1363" ph="..." />
+                <marker date="1562455697707" expanded="true" signature="1189:1201" ph="..." />
               </folding>
             </state>
           </provider>
@@ -104,7 +115,7 @@
       <file leaf-file-name="TexTileVis.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/static/js/TexTileVis.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="609">
+            <state relative-caret-position="1680">
               <caret line="80" column="35" lean-forward="false" selection-start-line="80" selection-start-column="29" selection-end-line="80" selection-end-column="35" />
               <folding>
                 <marker date="1558027804610" expanded="true" signature="3225:3243" ph="..." />
@@ -115,32 +126,34 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="matrixVis.js" pinned="false" current-in-tab="false">
+      <file leaf-file-name="matrixVis.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/static/js/matrixVis.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="126">
-              <caret line="174" column="34" lean-forward="true" selection-start-line="174" selection-start-column="34" selection-end-line="174" selection-end-column="34" />
+            <state relative-caret-position="525">
+              <caret line="111" column="57" lean-forward="true" selection-start-line="111" selection-start-column="57" selection-end-line="111" selection-end-column="57" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="TexTile.css" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/static/css/TexTile.css">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="210">
-              <caret line="17" column="29" lean-forward="false" selection-start-line="17" selection-start-column="23" selection-end-line="17" selection-end-column="29" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="styles.css" pinned="false" current-in-tab="true">
+      <file leaf-file-name="styles.css" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/static/css/styles.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="399">
-              <caret line="155" column="16" lean-forward="false" selection-start-line="155" selection-start-column="16" selection-end-line="155" selection-end-column="16" />
+            <state relative-caret-position="210">
+              <caret line="188" column="0" lean-forward="false" selection-start-line="188" selection-start-column="0" selection-end-line="188" selection-end-column="0" />
               <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="colorManager.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/static/js/colorManager.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="105">
+              <caret line="5" column="0" lean-forward="false" selection-start-line="5" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
+              <folding>
+                <marker date="1557887393355" expanded="true" signature="568:681" ph="..." />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -148,22 +161,19 @@
       <file leaf-file-name="networkVis.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/static/js/networkVis.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="231">
-              <caret line="38" column="43" lean-forward="true" selection-start-line="38" selection-start-column="43" selection-end-line="38" selection-end-column="43" />
+            <state relative-caret-position="420">
+              <caret line="50" column="0" lean-forward="true" selection-start-line="50" selection-start-column="0" selection-end-line="50" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="corpus.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/static/js/corpus.js">
+      <file leaf-file-name="application.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/application.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="483">
-              <caret line="23" column="47" lean-forward="false" selection-start-line="23" selection-start-column="47" selection-end-line="23" selection-end-column="47" />
-              <folding>
-                <marker date="1562442210311" expanded="true" signature="1131:1393" ph="..." />
-                <marker date="1562442210311" expanded="true" signature="1166:1184" ph="..." />
-              </folding>
+            <state relative-caret-position="441">
+              <caret line="21" column="60" lean-forward="false" selection-start-line="21" selection-start-column="60" selection-end-line="21" selection-end-column="60" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -171,24 +181,9 @@
       <file leaf-file-name="main.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/static/js/main.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-63">
-              <caret line="29" column="1" lean-forward="false" selection-start-line="29" selection-start-column="1" selection-end-line="29" selection-end-column="1" />
+            <state relative-caret-position="616">
+              <caret line="61" column="17" lean-forward="false" selection-start-line="61" selection-start-column="17" selection-end-line="61" selection-end-column="36" />
               <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="htmlAutomats.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/static/js/htmlAutomats.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="504">
-              <caret line="39" column="40" lean-forward="true" selection-start-line="39" selection-start-column="9" selection-end-line="39" selection-end-column="40" />
-              <folding>
-                <marker date="1562450376356" expanded="true" signature="166:528" ph="..." />
-                <marker date="1562450376356" expanded="true" signature="993:1260" ph="..." />
-                <marker date="1562450376356" expanded="true" signature="1550:1616" ph="..." />
-                <marker date="1562450376356" expanded="true" signature="1550:1757" ph="..." />
-              </folding>
             </state>
           </provider>
         </entry>
@@ -275,23 +270,23 @@
         <option value="$PROJECT_DIR$/static/css/grid.css" />
         <option value="$PROJECT_DIR$/static/js/lineChart.js" />
         <option value="$PROJECT_DIR$/static/js/lineTwo.js" />
-        <option value="$PROJECT_DIR$/static/js/main.js" />
         <option value="$PROJECT_DIR$/static/data/sampleData.json" />
         <option value="$PROJECT_DIR$/static/css/TexTile.css" />
         <option value="$PROJECT_DIR$/static/js/colorManager.js" />
         <option value="$PROJECT_DIR$/static/css/lineVis.css" />
         <option value="$PROJECT_DIR$/static/js/TexTileVis.js" />
         <option value="$PROJECT_DIR$/static/js/lineVis.js" />
-        <option value="$PROJECT_DIR$/application.py" />
         <option value="$PROJECT_DIR$/static/js/chordVisNew.js" />
         <option value="$PROJECT_DIR$/static/js/corpus.js" />
-        <option value="$PROJECT_DIR$/static/js/matrixEnvironment.js" />
         <option value="$PROJECT_DIR$/static/css/matrix.css" />
+        <option value="$PROJECT_DIR$/static/js/matrixEnvironment.js" />
+        <option value="$PROJECT_DIR$/static/js/main.js" />
+        <option value="$PROJECT_DIR$/static/css/styles.css" />
         <option value="$PROJECT_DIR$/static/js/htmlAutomats.js" />
         <option value="$PROJECT_DIR$/static/js/networkVis.js" />
-        <option value="$PROJECT_DIR$/static/js/matrixVis.js" />
         <option value="$PROJECT_DIR$/templates/index.html" />
-        <option value="$PROJECT_DIR$/static/css/styles.css" />
+        <option value="$PROJECT_DIR$/application.py" />
+        <option value="$PROJECT_DIR$/static/js/matrixVis.js" />
       </list>
     </option>
   </component>
@@ -350,6 +345,12 @@
               <item name="PatternsOfDiscourse" type="462c0819:PsiDirectoryNode" />
               <item name="static" type="462c0819:PsiDirectoryNode" />
               <item name="css" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="PatternsOfDiscourse" type="b2602c69:ProjectViewProjectNode" />
+              <item name="PatternsOfDiscourse" type="462c0819:PsiDirectoryNode" />
+              <item name="static" type="462c0819:PsiDirectoryNode" />
+              <item name="data" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="PatternsOfDiscourse" type="b2602c69:ProjectViewProjectNode" />
@@ -440,12 +441,12 @@
       <workItem from="1561729375720" duration="24000" />
       <workItem from="1562075212702" duration="3410000" />
       <workItem from="1562177998136" duration="48000" />
-      <workItem from="1562348186869" duration="26675000" />
+      <workItem from="1562348186869" duration="37092000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="316542000" />
+    <option name="totallyTimeSpent" value="326959000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-9" y="-9" width="1938" height="1048" extended-state="6" />
@@ -632,27 +633,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="588">
-          <caret line="28" column="0" lean-forward="false" selection-start-line="28" selection-start-column="0" selection-end-line="28" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/static/data/sampleData.json">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="378">
           <caret line="18" column="38" lean-forward="false" selection-start-line="18" selection-start-column="38" selection-end-line="18" selection-end-column="38" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/static/js/colorManager.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="126">
-          <caret line="6" column="0" lean-forward="false" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
-          <folding>
-            <marker date="1557887393355" expanded="true" signature="568:681" ph="..." />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -678,14 +662,6 @@
             <marker date="1558028003847" expanded="true" signature="7748:7895" ph="..." />
             <marker date="1558028003847" expanded="false" signature="7852:7870" ph="..." />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/static/js/chordVisNew.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1365">
-          <caret line="65" column="23" lean-forward="false" selection-start-line="65" selection-start-column="23" selection-end-line="65" selection-end-column="23" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -747,18 +723,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/static/js/main.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-63">
-          <caret line="29" column="1" lean-forward="false" selection-start-line="29" selection-start-column="1" selection-end-line="29" selection-end-column="1" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/static/css/matrix.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1386">
-          <caret line="166" column="32" lean-forward="true" selection-start-line="166" selection-start-column="32" selection-end-line="166" selection-end-column="32" />
+          <caret line="166" column="32" lean-forward="false" selection-start-line="166" selection-start-column="32" selection-end-line="166" selection-end-column="32" />
           <folding />
         </state>
       </provider>
@@ -767,6 +735,55 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="210">
           <caret line="17" column="29" lean-forward="false" selection-start-line="17" selection-start-column="23" selection-end-line="17" selection-end-column="29" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/js/chordVisNew.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1365">
+          <caret line="65" column="23" lean-forward="false" selection-start-line="65" selection-start-column="23" selection-end-line="65" selection-end-column="23" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/js/matrixEnvironment.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="294">
+          <caret line="14" column="46" lean-forward="false" selection-start-line="9" selection-start-column="39" selection-end-line="14" selection-end-column="46" />
+          <folding>
+            <marker date="1562455697707" expanded="true" signature="273:303" ph="..." />
+            <marker date="1562455697707" expanded="true" signature="273:316" ph="..." />
+            <marker date="1562455697707" expanded="true" signature="317:1453" ph="..." />
+            <marker date="1562455697707" expanded="true" signature="317:1535" ph="..." />
+            <marker date="1562455697707" expanded="true" signature="377:784" ph="..." />
+            <marker date="1562455697707" expanded="true" signature="452:737" ph="..." />
+            <marker date="1562455697707" expanded="true" signature="563:575" ph="..." />
+            <marker date="1562455697707" expanded="true" signature="852:869" ph="..." />
+            <marker date="1562455697707" expanded="true" signature="870:943" ph="..." />
+            <marker date="1562455697707" expanded="true" signature="900:918" ph="..." />
+            <marker date="1562455697707" expanded="true" signature="919:937" ph="..." />
+            <marker date="1562455697707" expanded="true" signature="1003:1410" ph="..." />
+            <marker date="1562455697707" expanded="true" signature="1078:1363" ph="..." />
+            <marker date="1562455697707" expanded="true" signature="1189:1201" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/js/colorManager.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="5" column="0" lean-forward="false" selection-start-line="5" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
+          <folding>
+            <marker date="1557887393355" expanded="true" signature="568:681" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/css/styles.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="188" column="0" lean-forward="false" selection-start-line="188" selection-start-column="0" selection-end-line="188" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -782,9 +799,21 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/static/js/htmlAutomats.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="364">
+          <caret line="21" column="1" lean-forward="true" selection-start-line="21" selection-start-column="1" selection-end-line="21" selection-end-column="1" />
+          <folding>
+            <marker date="1562464970535" expanded="true" signature="166:528" ph="..." />
+            <marker date="1562464970535" expanded="true" signature="995:1262" ph="..." />
+            <marker date="1562464970535" expanded="true" signature="1554:1620" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/static/js/TexTileVis.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="609">
+        <state relative-caret-position="1680">
           <caret line="80" column="35" lean-forward="false" selection-start-line="80" selection-start-column="29" selection-end-line="80" selection-end-column="35" />
           <folding>
             <marker date="1558027804610" expanded="true" signature="3225:3243" ph="..." />
@@ -794,58 +823,47 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/static/js/matrixEnvironment.js">
+    <entry file="file://$PROJECT_DIR$/static/js/main.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="84">
-          <caret line="4" column="38" lean-forward="false" selection-start-line="4" selection-start-column="38" selection-end-line="4" selection-end-column="38" />
-          <folding>
-            <marker date="1562446953700" expanded="true" signature="270:300" ph="..." />
-            <marker date="1562446953700" expanded="true" signature="270:313" ph="..." />
-            <marker date="1562446953700" expanded="true" signature="314:1450" ph="..." />
-            <marker date="1562446953700" expanded="true" signature="314:1532" ph="..." />
-            <marker date="1562446953700" expanded="true" signature="374:781" ph="..." />
-            <marker date="1562446953700" expanded="true" signature="449:734" ph="..." />
-            <marker date="1562446953700" expanded="true" signature="560:572" ph="..." />
-            <marker date="1562446953700" expanded="true" signature="849:866" ph="..." />
-            <marker date="1562446953700" expanded="true" signature="867:940" ph="..." />
-            <marker date="1562446953700" expanded="true" signature="897:915" ph="..." />
-            <marker date="1562446953700" expanded="true" signature="916:934" ph="..." />
-            <marker date="1562446953700" expanded="true" signature="1000:1407" ph="..." />
-            <marker date="1562446953700" expanded="true" signature="1075:1360" ph="..." />
-            <marker date="1562446953700" expanded="true" signature="1186:1198" ph="..." />
-          </folding>
+        <state relative-caret-position="616">
+          <caret line="61" column="17" lean-forward="false" selection-start-line="61" selection-start-column="17" selection-end-line="61" selection-end-column="36" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/static/js/networkVis.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="231">
-          <caret line="38" column="43" lean-forward="true" selection-start-line="38" selection-start-column="43" selection-end-line="38" selection-end-column="43" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/static/js/matrixVis.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="126">
-          <caret line="174" column="34" lean-forward="true" selection-start-line="174" selection-start-column="34" selection-end-line="174" selection-end-column="34" />
+        <state relative-caret-position="420">
+          <caret line="50" column="0" lean-forward="true" selection-start-line="50" selection-start-column="0" selection-end-line="50" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/templates/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="441">
-          <caret line="228" column="50" lean-forward="true" selection-start-line="228" selection-start-column="50" selection-end-line="228" selection-end-column="50" />
+        <state relative-caret-position="402">
+          <caret line="253" column="83" lean-forward="true" selection-start-line="253" selection-start-column="83" selection-end-line="253" selection-end-column="83" />
           <folding>
             <element signature="n#style#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#form#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#0;n#div#1;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#1;n#div#0;n#div#0;n#div#1;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#1;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#input#0;n#div#0;n#div#1;n#div#1;n#div#0;n#div#0;n#div#1;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#2;n#div#0;n#div#0;n#div#1;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#2;n#div#0;n#div#0;n#div#1;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#input#0;n#div#0;n#div#1;n#div#2;n#div#0;n#div#0;n#div#1;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#3;n#div#0;n#div#0;n#div#1;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#3;n#div#0;n#div#0;n#div#1;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#input#0;n#div#0;n#div#1;n#div#3;n#div#0;n#div#0;n#div#1;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#4;n#div#0;n#div#0;n#div#1;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#5;n#div#0;n#div#0;n#div#1;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#6;n#div#0;n#div#0;n#div#1;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#7;n#div#0;n#div#0;n#div#1;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#1;n#div#0;n#div#1;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#div#0;n#div#0;n#div#2;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#2;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#div#1;n#div#0;n#div#0;n#div#2;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#2;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#input#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#2;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#input#0;n#div#0;n#div#2;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#2;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#div#2;n#div#0;n#div#0;n#div#2;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#div#2;n#div#0;n#div#2;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#div#0;n#div#2;n#div#0;n#div#2;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
@@ -862,23 +880,18 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/static/js/htmlAutomats.js">
+    <entry file="file://$PROJECT_DIR$/application.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="504">
-          <caret line="39" column="40" lean-forward="true" selection-start-line="39" selection-start-column="9" selection-end-line="39" selection-end-column="40" />
-          <folding>
-            <marker date="1562450376356" expanded="true" signature="166:528" ph="..." />
-            <marker date="1562450376356" expanded="true" signature="993:1260" ph="..." />
-            <marker date="1562450376356" expanded="true" signature="1550:1616" ph="..." />
-            <marker date="1562450376356" expanded="true" signature="1550:1757" ph="..." />
-          </folding>
+        <state relative-caret-position="441">
+          <caret line="21" column="60" lean-forward="false" selection-start-line="21" selection-start-column="60" selection-end-line="21" selection-end-column="60" />
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/static/css/styles.css">
+    <entry file="file://$PROJECT_DIR$/static/js/matrixVis.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="399">
-          <caret line="155" column="16" lean-forward="false" selection-start-line="155" selection-start-column="16" selection-end-line="155" selection-end-column="16" />
+        <state relative-caret-position="525">
+          <caret line="111" column="57" lean-forward="true" selection-start-line="111" selection-start-column="57" selection-end-line="111" selection-end-column="57" />
           <folding />
         </state>
       </provider>

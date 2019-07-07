@@ -134,7 +134,7 @@ h3 {
 }
 
 .t2-list-col {
-    height: 25%;
+    height: 12.5%;
     border-right: thin solid grey;
     border-bottom: thin solid grey;
 }
@@ -206,3 +206,11 @@ h3 {
     stroke: steelblue;
     stroke-width: 1.5px;
 }
+
+
+#initiateNetworkButton:hover {
+    cursor: pointer;
+    opacity: 0.8;
+}
+
+

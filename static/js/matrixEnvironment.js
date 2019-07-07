@@ -5,7 +5,7 @@
 // checked when selected - if in array
 let matrixCorpusArray = [];
 corpus.forEach( d => {
-    console.log('corpusinfo:', d);
+    // console.log('corpusinfo:', d);
     matrixCorpusArray += `<div class="row" style="border-bottom: thin solid grey; height: 10%">
                                         <div class="col-2">
                                             <div class="centeredCheckbox">
