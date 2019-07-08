@@ -178,7 +178,7 @@ function drawLineChart (maximumY, data, selectedTexts) {
         .enter()
         .append('line')
         .attr('class', 'gridLine')
-        .attr('id', d => {console.log(d); return ('gridline' + d.textID)})
+        .attr('id', d => {return ('gridline' + d.textID)})
         .attr("x1", function(d) {return lineChartScaleX(d.date)})
         .attr("y1", 0)
         .attr("x2", function(d) {return lineChartScaleX(d.date)})

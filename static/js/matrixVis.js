@@ -1,6 +1,173 @@
+// global variables
 let matrixData = [];
+let matrixLockedWords = [];
 
-function wrangleMatrixData() {
+function fillMatrixLockedWordsArray (TileName){
+
+    // change color and mark that word is selected
+    let MatrixTileIdName = 'M-'+ TileName;
+
+    if (!$("#" + MatrixTileIdName).hasClass('M-selected')){
+
+        // add word to array & color the tile
+        matrixLockedWords.push(TileName);
+        $("#" + MatrixTileIdName).addClass('M-selected');
+
+    }
+    else {
+        $("#" + MatrixTileIdName).removeClass('M-selected');
+        matrixLockedWords.forEach(function(d,i){
+            console.log('doing it for all', d, i,MatrixTileIdName);
+            if (d === MatrixTileIdName.split('-')[1]){
+                delete matrixLockedWords[i];
+            }
+        });
+    }
+
+    console.log(matrixLockedWords);
+}
+
+// initiate matrix through APPLY-BTN
+document.getElementById('initiateMatrixButton').addEventListener('click', initiateMatrix);
+
+// initiate Matrix
+function initiateMatrix () {
+
+    // whenever we initiate a matrix, we delete the old one
+    $("#matrixSVG").html(' ');
+
+    // get ids for data sets 1 & 2
+    // TODO: get input from checkboxes - for the paper a hard-coded version will do
+    let textIdArrayForMatrixDataSetOne = [0,5,6];
+    let textIdArrayForMatrixDataSetTwo = [9];
+
+    // calculate data for data sets 1&2
+    let matrixDataSetOne = wrangleMatrixData(textIdArrayForMatrixDataSetOne),
+        matrixDataSetTwo = wrangleMatrixData(textIdArrayForMatrixDataSetTwo);
+
+    // console.log(matrixDataSetOne, matrixDataSetTwo);
+
+    let matrixDataSetOneFinal = finalizeMatrixData(matrixDataSetOne),
+        matrixDataSetTwoFinal = finalizeMatrixData(matrixDataSetTwo);
+
+    // console.log(matrixDataSetOneFinal, matrixDataSetTwoFinal);
+
+    drawMatrixVis(matrixDataSetOneFinal,matrixDataSetTwoFinal)
+}
+
+
+// wrangle data for the Matrix View
+function wrangleMatrixData (textIdArray) {
+
+    // tmp
+    let tmpArrayWithRelevantEnvironments = [];
+
+    // first, create the array data structure by filtering with the usage of textIdArray
+    rawData.data.data.forEach( function (d){
+        if ( textIdArray.includes(d.textID) ) {
+            d.environments.forEach(function(d){
+                tmpArrayWithRelevantEnvironments.push(d);
+            })
+        }
+    });
+
+    // TODO: pick current nodes! i.e. lockedWords -> new lockedWords!
+
+    // calculate nodes
+    nodes = [];
+    let id = 0;
+
+    // fill nodes
+    for (key in tmpDistinctWordDict){
+
+        if (matrixLockedWords.includes(key)){
+
+            // prepare data for network graph
+            let tmpObj= {
+                "id": key,
+                "label": key,
+                "color": lookUpColor(key), // we're able to set individual colors!
+                "value": tmpDistinctWordDict[key]
+            };
+            nodes.push(tmpObj);
+            id += 1;
+        }
+    }
+
+    console.log('check nodes:',nodes);
+
+    // calculate edges
+    tmpDict = {};
+    edges = [];
+    let count = 0;
+
+    tmpArrayWithRelevantEnvironments.forEach(
+        environment => {
+            // TODO: implement switch: if environment.includes()
+            // TODO: let found = environment.some(d=> lockedWords.includes(d))
+            environment.forEach(
+                (word, i) => {
+
+                    // take that word.. then combine it with all other words from that environment
+                    for (j = i + 1; j < environment.length ; j++){
+                        //console.log(i, word, environment[j]);
+
+                        // create new key with edge info
+                        let tmpKey = word + 'To' + environment[j];
+                        let tmpKeyReverse = environment[j] + 'To' + word;
+
+                        // if tmpKey exists, or else if it exists 'reversed' + 1,
+                        if ( tmpKey in tmpDict){
+                            tmpDict[tmpKey] += 1;
+                        }
+                        else if(tmpKeyReverse in tmpDict){
+                            tmpDict[tmpKeyReverse] += 1;
+                        }
+                        // else create new key and initiate with 1
+                        else {
+                            tmpDict[tmpKey] = 1;
+                            count += 1;
+                        }
+                    }
+
+                }
+            )
+        }
+    );
+
+
+    // fill edges
+    for (key in tmpDict) {
+
+        if (matrixLockedWords.includes(key.split('To')[0]) && matrixLockedWords.includes(key.split('To')[1])  && ( key.split('To')[0] !== key.split('To')[1] )) {
+
+            console.log('test', key.split('To')[0], key.split('To')[1], lockedWords);
+            let tmpObj = {
+                "from": key.split('To')[0],
+                "to": key.split('To')[1],
+                "value": tmpDict[key],
+                "length": 300 / tmpDict[key]
+            };
+            edges.push(tmpObj);
+        }
+    }
+
+
+    // then do nodes and edges for dataset 1 then for 2 (like in network graph!)
+    let data = {
+        nodes: nodes,
+        edges: edges
+    };
+
+    return data;
+}
+
+
+// TODO - combine with wrangleMatrixData
+function finalizeMatrixData(data) {
+
+    nodes = data.nodes;
+    edges = data.edges;
 
     // lookup array
     let lookup = {};
@@ -46,16 +213,18 @@ function wrangleMatrixData() {
     // log data
     console.log('data for MatrixVis:', matrixData);
 
-    // draw MatrixVis
-    drawMatrixVis(matrixData)
+    // return data
+    return matrixData
 }
 
-function drawMatrixVis(data) {
+
+// draw Matrix
+function drawMatrixVis(data, dataTwo) {
 
     // define dimensions and margins
-    let matrixMargin = { top: 80, right: 80, bottom: 50, left: 80 },
-        matrixWidth = $("#CreateYourCorpusContainer").height()  - matrixMargin.top -10,
-        matrixHeight =$("#CreateYourCorpusContainer").height() - matrixMargin.top -10;
+    let matrixMargin = { top: 80, right: 105, bottom: 130, left: 105 },
+        matrixWidth = $("#matrixSVG").width() - matrixMargin.left - matrixMargin.right,
+        matrixHeight =$("#matrixSVG").width() - matrixMargin.top - matrixMargin.bottom;
 
     // apply margin conventions
     let matrixSvg = d3.select("#matrixSVG").append("svg")
@@ -70,9 +239,16 @@ function drawMatrixVis(data) {
         .attr("width", matrixWidth)
         .attr("height", matrixHeight);
 
+
+    // prepare matrix D1
     let matrix = [];
     let matrixNodes = data.nodes;
     let total_items = matrixNodes.length;
+
+    // prepare matrix D2
+    let matrix_D2 = [];
+    let matrixNodes_D2 = dataTwo.nodes;
+    let total_items_D2 = matrixNodes_D2.length;
 
     // scales
     let matrixScale = d3.scaleBand().range([0, matrixWidth]).domain(d3.range(total_items));
@@ -80,20 +256,19 @@ function drawMatrixVis(data) {
     let colorScale = d3.scaleOrdinal(d3.schemeCategory10);
     let colorScaleTwo = d3.scaleOrdinal(['#2ca02c']);
 
-    let colors_D1 = ['#eff3ff','#c6dbef','#9ecae1','#6baed6','#3182bd','#08519c'];
-    let colors_D2 = ['#fee5d9','#fcbba1','#fc9272','#fb6a4a','#de2d26','#a50f15'];
+    // color scales
+    let colors_D1 = ['#fee5d9','#fcbba1','#fc9272','#fb6a4a','#de2d26','#a50f15'];
+    let colors_D2 = ['#eff3ff','#c6dbef','#9ecae1','#6baed6','#3182bd','#08519c'];
 
     let colorScaleD1 = d3.scaleThreshold()
-        .domain([0,5,10,20,35,60])
+        .domain([0,1,2,4,8,15])
         .range(colors_D1);
     let colorScaleD2 = d3.scaleThreshold()
-        .domain([0,5,10,20,35,60])
+        .domain([0,1,2,4,8,15])
         .range(colors_D2);
 
 
-
-
-    // Create rows for the matrix
+    // Create rows for the matrix D1
     matrixNodes.forEach(function(node) {
         node.count = 0;
         matrix[node.index] = d3.range(total_items).map(item_index => {
@@ -106,12 +281,33 @@ function drawMatrixVis(data) {
     });
 
 
-    // Fill matrix with data from links and count how many times each item appears
+    // Fill matrix with data from links and count how many times each item appears D1
     data.links.forEach(function(link) {
         matrix[link.source][link.target].z += link.value;
         matrix[link.target][link.source].z += link.value;
         matrixNodes[link.source].count += link.value;
         matrixNodes[link.target].count += link.value;
+    });
+
+
+    // Create rows for the matrix D2
+    matrixNodes_D2.forEach(function(node) {
+        node.count = 0;
+        matrix_D2[node.index] = d3.range(total_items).map(item_index => {
+            return {
+                x: item_index,
+                y: node.index,
+                z: 0
+            };
+        });
+    });
+
+    // Fill matrix with data from links and count how many times each item appears D2
+    dataTwo.links.forEach(function(link) {
+        matrix_D2[link.source][link.target].z += link.value;
+        matrix_D2[link.target][link.source].z += link.value;
+        matrixNodes_D2[link.source].count += link.value;
+        matrixNodes_D2[link.target].count += link.value;
     });
 
     console.log('matrix here', matrix);
@@ -153,7 +349,7 @@ function drawMatrixVis(data) {
 
     // Draw each row (translating the y coordinate)
     let rowsTwo = matrixSvg.selectAll(".rowTwo")
-        .data(matrix)
+        .data(matrix_D2)
         .enter().append("g")
         .attr("class", "rowTwo")
         .attr("transform", (d, i) => {

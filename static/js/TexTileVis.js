@@ -93,8 +93,7 @@ function TexTileVis (data){
                 highlightLineThroughTile(d);
 
                 // define html inside the tooltip
-                let html = `word environment for <b>Traum</b> in <span style="font-style: italic">Sigmund Freud: Die Traumdeutung (1900)</span> on 
-pp. 210: 
+                let html = `word environment for <b>"verdräng"</b> in <span style="font-style: italic">Johann Friedrich Herbart: Psychologie als Wissenschaft (1824)</span>: 
 </br>`;          //TODO: data structure needs to be changed, if we want author and title
                 toolTipData.forEach(word => {
                     let color = lookUpColor(word);

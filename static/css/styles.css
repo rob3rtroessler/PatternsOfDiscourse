@@ -160,6 +160,8 @@ h3 {
 
 .t3-list-col:hover {
     cursor: pointer;
+    background: rgb(251,128,114);
+    background: linear-gradient(225deg, rgba(251,128,114,1) 0%, rgba(251,128,114,1) 38%, rgba(49,130,189,1) 100%);
 }
 
 .t3-list-span {
@@ -168,6 +170,11 @@ h3 {
     display: flex;
     height:100%;
     font-size: 1.5vh
+}
+
+.M-selected {
+    background: rgb(251,128,114);
+    background: linear-gradient(225deg, rgba(251,128,114,1) 0%, rgba(251,128,114,1) 38%, rgba(49,130,189,1) 100%);
 }
 
 

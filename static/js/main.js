@@ -55,8 +55,9 @@ function initTexTileModule(data){
     // call async function
     initializeTexTileModule(data)
         .then( wrangleTexTileData(data) )    // the reason why we passed the 'promised' data from function to function
-        .then( wrangleLineChartData(lockedWords, data) )    // lineChart data should take info from lockedWords from
-        .then (computeDistinctWords() )
+        .then( computeDistinctWords() )
+        .then( initiateColorManager(data) )
+        .then( wrangleLineChartData(lockedWords, data) )// lineChart data should take info from lockedWords from
     // searched word should be computed in python and passed into the JSON file's 'metadata'.
     //    .then( wrangleNetworkData() )
     //    .then( wrangleMatrixData() )

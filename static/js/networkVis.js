@@ -46,7 +46,6 @@ function computeDistinctWords () {
 
 // initiate the network on click
 document.getElementById('initiateNetworkButton').addEventListener('click', wrangleNetworkData);
-document.getElementById('initiateNetworkButton').addEventListener('click', wrangleMatrixData);
 
 
 // wrangle data
@@ -70,15 +69,17 @@ function wrangleNetworkData () {
         // if option one is checked
         if ( $("#networkOptionOne").prop('checked') ) {
             // then only prepare nodes that are in the selected words list
-            console.log('currently locked words:', lockedWords, key);
+            // console.log('currently locked words:', lockedWords, key);
 
             if (lockedWords.includes(key)){
-                console.log(key);
+
+                console.log(key, lookUpColor(key));
+
                 // prepare data for network graph
                 let tmpObj= {
                     "id": key,
                     "label": key,
-                    "color": '#ffffff', // we're able to set individual colors!
+                    "color": lookUpColor(key), // we're able to set individual colors!
                     "value": tmpDistinctWordDict[key]
                 };
                 nodes.push(tmpObj);
@@ -102,6 +103,8 @@ function wrangleNetworkData () {
     tmpDict = {};
     edges = [];
     let count = 0;
+
+    console.log('mydata', WrangledTexTileData);
 
     WrangledTexTileData.forEach(
         environment => {
@@ -140,14 +143,26 @@ function wrangleNetworkData () {
     // fill edges
     for (key in tmpDict){
 
+        if(lockedWords.includes(key.split('To')[0]) && lockedWords.includes(key.split('To')[1]) && ( key.split('To')[0] !== key.split('To')[1] )){
+
+            console.log('test', key.split('To')[0], key.split('To')[1], lockedWords );
+            let tmpObj= {
+                "from": key.split('To')[0],
+                "to": key.split('To')[1],
+                "value": tmpDict[key],
+                "length": 300/tmpDict[key]
+            };
+            edges.push(tmpObj);
+        }
+
         // fill tmpObj for network graph
-        let tmpObj= {
+        /*let tmpObj= {
             "from": key.split('To')[0],
             "to": key.split('To')[1],
             "value": tmpDict[key],
-            "length": tmpDict[key]*10
+            "length": 300/tmpDict[key]
         };
-        edges.push(tmpObj);
+        edges.push(tmpObj);*/
 
         // fill obj for chord graph
         chordData.push(
@@ -162,7 +177,7 @@ function wrangleNetworkData () {
     *                                  *
     ***********************************/
     // drawChordGraph(chordData, tmpDistinctWordDict);
-    console.log('wrong chord data:',chordData);
+    // console.log('wrong chord data:',chordData);
     drawNetworkGraph(nodes, edges);
     //wrangleChordData();
 }
@@ -188,9 +203,10 @@ function drawNetworkGraph(nodes, edges){
         // edges
         edges: {
             color: {
-                color: '#000000',
+                /*color: '#000000',
                 highlight: 'rgba(143, 43, 43, 0.81)',
-                hover: 'rgba(143, 43, 43, 0.81)'
+                hover: 'rgba(143, 43, 43, 0.81)'*/
+                inherit: 'both'
             },
             scaling: {
                 min: 1,
@@ -257,7 +273,7 @@ function drawNetworkGraph(nodes, edges){
             },
             maxVelocity: 50,
             minVelocity: 0.1,
-            solver: 'forceAtlas2Based',
+            solver: 'barnesHut',
             stabilization: {
                 enabled: true,
                 iterations: 5,
